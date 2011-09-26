@@ -1,0 +1,155 @@
+﻿#mstext{width:100%;height:100%;float:left;height:80px}
+#msinfo{width:0px;height:100%;float:right;margin-top:10px;margin-right:10px}
+#msinfo img{width: 100%;height: 25px;position: relative;z-index: 999999999;margin-bottom: -44px;}
+#very{background:#a51e1b url(../images/verybg.gif);cursor:default;color:#fff;font-size:15px;font-weight:bold;font-family:Arial Black;text-align:center;width:55px;margin:0px auto}
+#msinfo input{border:1px solid silver;margin-bottom:10px; width:98%}
+#mscontent{max-width: 98.3%;max-height: 78%;min-width: 98.3%;min-height: 78%;border:1px solid silver;padding:5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.comment{display:block;margin:5px auto;}
+.comment span{font-weight:bold;font-size:15px;display:block;width:100%;overflow:hidden}
+.comment p{border:1px solid silver;width:95%;padding:10px; margin:2px auto;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mP
+{
+    background:url(../images/background-menu.jpg) repeat-x;
+    width:100%;
+    height:35px;
+    margin:0 auto;
+    border:#CCC 1px solid;
+    border-bottom:none;
+    text-transform:capitalize;   
+}
+#mP ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#mP ul li
+{
+    display: inline;
+    background: transparent url(../images/taskbr_dot.png) right 6px no-repeat;
+}
+#mP ul li a
+{
+    line-height:35px;
+    padding:0px 10px 10px;
+}
+#mP ul .cat
+{
+    background:transparent url(../images/icon-quicklink.png) right -17px no-repeat;
+}
+#mP ul .cat:hover
+{
+    background: transparent url(../images/icon-quicklink.png) right 7px no-repeat;
+}
+#mP ul li ul
+{
+    line-height:14px;
+    padding:0px;
+    font-size:14px;
+    display:none;
+    position:absolute;
+    margin-left:80px;
+    background-color:White;
+    border:1px solid black;
+}
+#mP ul li ul a
+{
+    background:none;
+    line-height:18px;
+    display:block;
+    padding:0px;
+    font-size:14px;
+}
+#mP ul li ul li
+{
+    background:none;
+    display:block;
+    white-space:normal;
+    width:200px;
+    border-bottom:1px dashed #EAEAEA;
+}
+#divPinfor
+{
+    width:100%;
+    border-bottom:2px solid #e5e5e5;
+    overflow:hidden;
+}
+#divPinfor .image
+{
+    float:left;
+    width:250px;
+    overflow:hidden;
+    display:inline;
+}
+#divPinfor .image img
+{
+    border:#EAEAEA 1px solid;
+    padding:5px;
+    max-height:250px;
+    max-width:200px;
+    margin:10px;
+}
+
+#divPinfor .image img:hover
+{
+    border:#999 1px solid;    
+}
+#Maininfor
+{
+    width:600px;
+    margin-left:250px;
+    white-space:normal;
+}
+#Maininfor p
+{
+    font-size:25px;
+    text-transform:uppercase;
+    display:block;
+    white-space:normal;
+    margin:10px 0px;
+    color:#0BB1DA;
+}
+#Maininfor ul
+{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+#Maininfor ul li
+{
+    list-style:none;
+    padding-top:10px;
+}
+#Maininfor ul li ul li
+{
+    display:inline;
+}
+#Maininfor ul li ul li img
+{
+    max-height:20px;    
+}
+.price
+{
+    color:Red;
+    font-weight:bold;
+}
+#Maininfor .price
+{
+    font-size:20px;
+}
+div#Description
+{
+    padding:10px;
+}
+div#Description *
+{
+    margin:0px;
+    padding:0px;
+    white-space:normal;
+    font-size:14px;
+    text-align:justify;
+    text-transform:none;
+    color:Black;
+}
+#mua{background:transparent url(../images/mua.png) top center no-repeat; width:150px;height:50px;float:right;margin-right:120px}
+#mua:hover{background-position:bottom center}

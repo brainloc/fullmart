@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="CoolNews.Entities.Category">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Entities\Category.cs</FileName>
+      <HashCode>AAAAABAAAAAwgAAAIAAAAAQAAAAEAACAAAAAgAAAAgA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="CoolNews.Entities.News">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Entities\News.cs</FileName>
+      <HashCode>AACCkJAAQJCQgEAAAAABAACAAQBAAACAQAAAgAAAggA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="CoolNews.Business.NewsService">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Business\NewsService.cs</FileName>
+      <HashCode>AAAAAQEQAAAACIEAAAAAACFAAIAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoolNews.Business.CategoryService">
+    <Position X="3" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Business\CategoryService.cs</FileName>
+      <HashCode>AAAAAAAAAAICAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoolNews.Data.NewsDAO">
+    <Position X="5.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Data\NewsDAO.cs</FileName>
+      <HashCode>AAAAAQEQAAAAAAEAAAAgACFAAIAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="BaseDAO" ManuallyRouted="true">
+      <Path>
+        <Point X="8" Y="1.645" />
+        <Point X="8" Y="2.073" />
+        <Point X="6.5" Y="2.073" />
+        <Point X="6.5" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="CoolNews.Data.CategoryDAO">
+    <Position X="8.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>App_Code\Data\CategoryDAO.cs</FileName>
+      <HashCode>AABAAAAAAAICAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAg=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="BaseDAO" ManuallyRouted="true">
+      <Path>
+        <Point X="8" Y="1.645" />
+        <Point X="8" Y="2.073" />
+        <Point X="9.5" Y="2.073" />
+        <Point X="9.5" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="BaseDAO">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Data\BaseDAO.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

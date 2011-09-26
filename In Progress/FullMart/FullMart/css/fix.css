@@ -1,0 +1,10 @@
+﻿#divBanner form
+{
+    float:left;
+    background-color:White;
+    width:540px;
+}
+#divFooter
+{
+    clear:left;
+}

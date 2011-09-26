@@ -1,0 +1,60 @@
+﻿#divPinfor
+{
+    width:100%;
+    border-bottom:2px solid #e5e5e5;
+    overflow:hidden;
+}
+#divPinfor .image
+{
+    float:left;
+    width:250px;
+    overflow:hidden;
+    display:inline;
+}
+#divPinfor .image img
+{
+    border:#EAEAEA 1px solid;
+    padding:5px;
+    max-height:250px;
+    max-width:200px;
+    margin:10px;
+}
+
+#divPinfor .image img:hover
+{
+    border:#999 1px solid;    
+}
+#Maininfor
+{
+    width:600px;
+    margin-left:250px;
+    white-space:normal;
+}
+#Maininfor p
+{
+    font-size:25px;
+    text-transform:uppercase;
+    display:block;
+    white-space:normal;
+    margin:10px 0px;
+    color:#0BB1DA;
+}
+#Maininfor ul
+{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+#Maininfor ul li
+{
+    list-style:none;
+    padding-top:10px;
+}
+#Maininfor ul li ul li
+{
+    display:inline;
+}
+#Maininfor ul li ul li img
+{
+    max-height:20px;    
+}

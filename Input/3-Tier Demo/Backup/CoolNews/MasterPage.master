@@ -1,0 +1,39 @@
+<%@ Master Language="C#" AutoEventWireup="true" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="DivMain">
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+            <tr>
+                <td colspan="1" class="tdTopHeader">
+                <div style="text-align:left; padding-left:9px;">
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/">Home</asp:HyperLink>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" class="tdbannerHeader">
+                
+                </td>
+            </tr>
+            <tr>                
+                <td class="tdContentPlaceMain">
+                <asp:contentplaceholder id="ContentPlaceMain" runat="server">
+                </asp:contentplaceholder>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="tdFooter">
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/">Admin Control</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

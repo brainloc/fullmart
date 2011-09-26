@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9556F959-ED85-46A4-8622-1FBAAE8652AD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FullMart</RootNamespace>
+    <AssemblyName>FullMart</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeTextBox">
+      <HintPath>lib\FreeTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\border-radius.htc" />
+    <Content Include="css\fix.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\product.css" />
+    <Content Include="css\shop.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\top.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\341243skin2.jpg" />
+    <Content Include="images\430594dermaroller1a.png" />
+    <Content Include="images\745268skin.jpg" />
+    <Content Include="images\a3.jpg" />
+    <Content Include="images\arrows.png" />
+    <Content Include="images\background-menu-hover.jpg" />
+    <Content Include="images\background-menu.jpg" />
+    <Content Include="images\best.png" />
+    <Content Include="images\bottomSP.png" />
+    <Content Include="images\btn-upnews.png" />
+    <Content Include="images\btns.gif" />
+    <Content Include="images\bullets.png" />
+    <Content Include="images\button.png" />
+    <Content Include="images\email-Icon.png" />
+    <Content Include="images\fm.png" />
+    <Content Include="images\fullmart.jpg" />
+    <Content Include="images\icon-item.gif" />
+    <Content Include="images\icon-quicklink.png" />
+    <Content Include="images\icon-taskbar.png" />
+    <Content Include="images\img_footer2.jpg" />
+    <Content Include="images\img_footer3.jpg" />
+    <Content Include="images\img_footer4.jpg" />
+    <Content Include="images\img_footer5.jpg" />
+    <Content Include="images\img_saleoff.png" />
+    <Content Include="images\Left1.gif" />
+    <Content Include="images\Left2.gif" />
+    <Content Include="images\leftmenu_icon.png" />
+    <Content Include="images\line-v.gif" />
+    <Content Include="images\linebreak-menu-navi.gif" />
+    <Content Include="images\Lmenu.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logothewave.png" />
+    <Content Include="images\mainTabs.png" />
+    <Content Include="images\mbg.png" />
+    <Content Include="images\menu_035_bg.jpg" />
+    <Content Include="images\menu_035_c.jpg" />
+    <Content Include="images\mua.png" />
+    <Content Include="images\nav-bg.png" />
+    <Content Include="images\no_flicker.jpg" />
+    <Content Include="images\Phone-Icon.png" />
+    <Content Include="images\product-bottom.png" />
+    <Content Include="images\sale.png" />
+    <Content Include="images\slide-bg.png" />
+    <Content Include="images\tab-leagua-bg-active.gif" />
+    <Content Include="images\taskbr_dot.png" />
+    <Content Include="images\taskbr_icon.png" />
+    <Content Include="images\techcombank.png" />
+    <Content Include="images\title-bg.gif" />
+    <Content Include="images\Title_bg.png" />
+    <Content Include="images\top_BG.png" />
+    <Content Include="images\tskbrTitle.png" />
+    <Content Include="images\verybg.gif" />
+    <Content Include="images\vietcombank.png" />
+    <Content Include="images\vip.png" />
+    <Content Include="images\Welcome.gif" />
+    <Content Include="media\adv\adv1.jpg" />
+    <Content Include="media\adv\adv2.jpg" />
+    <Content Include="media\adv\adv3.gif" />
+    <Content Include="media\adv\adv4.gif" />
+    <Content Include="media\adv\adv5.gif" />
+    <Content Include="media\adv\adv6.gif" />
+    <Content Include="media\adv\adv7.png" />
+    <Content Include="media\upload\product1.jpg" />
+    <Content Include="media\upload\product10.jpg" />
+    <Content Include="media\upload\product11.jpg" />
+    <Content Include="media\upload\product12.jpg" />
+    <Content Include="media\upload\product13.jpg" />
+    <Content Include="media\upload\product14.jpg" />
+    <Content Include="media\upload\product15.jpg" />
+    <Content Include="media\upload\product2.jpg" />
+    <Content Include="media\upload\product3.jpg" />
+    <Content Include="media\upload\product4.jpg" />
+    <Content Include="media\upload\product5.jpg" />
+    <Content Include="media\upload\product6.jpg" />
+    <Content Include="media\upload\product7.jpg" />
+    <Content Include="media\upload\product8.jpg" />
+    <Content Include="media\upload\product9.jpg" />
+    <Content Include="script\addthis_widget.js" />
+    <Content Include="script\cufon-yui.js" />
+    <Content Include="script\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="script\external\jquery.cookie.js" />
+    <Content Include="script\external\jquery.metadata.js" />
+    <Content Include="script\external\qunit.css" />
+    <Content Include="script\external\qunit.js" />
+    <Content Include="script\footer.js" />
+    <Content Include="script\header.js" />
+    <Content Include="script\jquery-1.4.1-vsdoc.js" />
+    <Content Include="script\jquery-1.4.1.js" />
+    <Content Include="script\jquery-1.4.1.min.js" />
+    <Content Include="script\jquery-1.5.1.js" />
+    <Content Include="script\jquery.nivo.slider.pack.js" />
+    <Content Include="script\jquery.tablesorter.js" />
+    <Content Include="script\jquery.tablesorter.pager.js" />
+    <Content Include="script\jquery.validate-vsdoc.js" />
+    <Content Include="script\jquery.validate.js" />
+    <Content Include="script\jquery.validate.min.js" />
+    <Content Include="script\menu.js" />
+    <Content Include="script\MicrosoftAjax.debug.js" />
+    <Content Include="script\MicrosoftAjax.js" />
+    <Content Include="script\MicrosoftMvcAjax.debug.js" />
+    <Content Include="script\MicrosoftMvcAjax.js" />
+    <Content Include="script\MicrosoftMvcValidation.debug.js" />
+    <Content Include="script\MicrosoftMvcValidation.js" />
+    <Content Include="script\Silverlight.js" />
+    <Content Include="script\ui\jquery-ui-1.8.4.custom.js" />
+    <Content Include="script\ui\jquery.effects.blind.js" />
+    <Content Include="script\ui\jquery.effects.bounce.js" />
+    <Content Include="script\ui\jquery.effects.clip.js" />
+    <Content Include="script\ui\jquery.effects.core.js" />
+    <Content Include="script\ui\jquery.effects.drop.js" />
+    <Content Include="script\ui\jquery.effects.explode.js" />
+    <Content Include="script\ui\jquery.effects.fade.js" />
+    <Content Include="script\ui\jquery.effects.fold.js" />
+    <Content Include="script\ui\jquery.effects.highlight.js" />
+    <Content Include="script\ui\jquery.effects.pulsate.js" />
+    <Content Include="script\ui\jquery.effects.scale.js" />
+    <Content Include="script\ui\jquery.effects.shake.js" />
+    <Content Include="script\ui\jquery.effects.slide.js" />
+    <Content Include="script\ui\jquery.effects.transfer.js" />
+    <Content Include="script\ui\jquery.ui.accordion.js" />
+    <Content Include="script\ui\jquery.ui.autocomplete.js" />
+    <Content Include="script\ui\jquery.ui.button.js" />
+    <Content Include="script\ui\jquery.ui.core.js" />
+    <Content Include="script\ui\jquery.ui.datepicker.js" />
+    <Content Include="script\ui\jquery.ui.dialog.js" />
+    <Content Include="script\ui\jquery.ui.draggable.js" />
+    <Content Include="script\ui\jquery.ui.droppable.js" />
+    <Content Include="script\ui\jquery.ui.mouse.js" />
+    <Content Include="script\ui\jquery.ui.position.js" />
+    <Content Include="script\ui\jquery.ui.progressbar.js" />
+    <Content Include="script\ui\jquery.ui.resizable.js" />
+    <Content Include="script\ui\jquery.ui.selectable.js" />
+    <Content Include="script\ui\jquery.ui.slider.js" />
+    <Content Include="script\ui\jquery.ui.sortable.js" />
+    <Content Include="script\ui\jquery.ui.tabs.js" />
+    <Content Include="script\ui\jquery.ui.widget.js" />
+    <Content Include="script\vni-vari.js" />
+    <Content Include="script\vniScript.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9567</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
