@@ -1,0 +1,621 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trang Chủ - FullMart.COM</title>
+    <link href="css/top.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/shop.css" rel="stylesheet" type="text/css" />
+    <script src="script/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="script/header.js" type="text/javascript"></script>
+    <script src="script/menu.js" type="text/javascript"></script>
+    <script src="script/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+            <!--[if IE]>
+                <link href="css/fix.css" rel="stylesheet" type="text/css" />
+            <![EndIf]-->
+</head>
+<body>
+    <div id="divTop">
+        <div id="user_taskbar">
+            <div class="main">
+                <div id="quick-login">
+                    <!-- BEGIN BlockLogin -->
+                    <div class="login-link">
+                        <a href="#" class="login show-tip">Đăng nhập</a>
+                        <div class="quick-login" style="display: none;">
+                            <div class="quick-loginCont clearfix">
+                                <form action="#">
+                                <input type="hidden" value="1511" name="form_module_id" />
+                                <p class="bottom clearfix">
+                                    <input type="text" name="userName" value="" class="span-fl" style="width: 95px; margin-right: 10px;
+                                        padding: 2px 0;" />
+                                    <input type="password" name="password" value="" class="span-fl" style="width: 90px;
+                                        margin-right: 5px; padding: 2px 0;" />
+                                    <button type="submit" class="submit-button-orange01">
+                                        <span class="sprite"><em class="sprite">Đăng nhập</em></span></button>
+                                </p>
+                                <p class="bottom clearfix">
+                                    <span style="float: left">
+                                        <input type="checkbox" name="remember_me" value="1" />
+                                        &nbsp;Nhớ mật khẩu </span><span style="float: right"><a href="#">Quên mật khẩu</a>&nbsp;|&nbsp;<a
+                                            href="#">Đăng ký mới</a></span>
+                                </p>
+                                </form>
+                            </div>
+                        </div>
+                        <span class="line-v">&nbsp;</span> <a href="#">Đăng ký</a>
+                    </div>
+                    <!-- END BlockLogin -->
+                    <ul class="icons clearfix" id="notice-list">
+                        <li class="item-taskbar"><a class="icon-view notice-panel" title="Sản phẩm vừa xem"
+                            href="javascript:;" rel="ajax.php?path=taskbar&amp;fnc=product.view.process"
+                            onclick="$.notice.load($(this).attr('rel'),'#view-listbox',false,1);$(this).children().hide().text(0);return false;">
+                            <span class="icon-num" id="pView" style="display: none">0</span></a>
+                            <ul class="sub-taskbar" id="view-listbox" style="display: none;">
+                                <li class="img-loading" style="display: none">
+                                    <img alt="loading" src="images/loading.gif" />
+                                </li>
+                                <li class="last"><a href="#">Xem tất cả sản phẩm</a></li>
+                            </ul>
+                        </li>
+                        <li class="item-taskbar"><a class="icon-saved notice-panel" title="Sản phẩm đã lưu"
+                            href="javascript:;" rel="ajax.php?path=taskbar&amp;fnc=product.saved.process"
+                            onclick="$.notice.load($(this).attr('rel'),'#saved-listbox',false,2);$(this).children().hide().text(0);return false;">
+                            <span class="icon-num" id="pSave" style="display: none">0</span></a>
+                            <ul class="sub-taskbar" id="saved-listbox" style="display: none;">
+                                <li class="img-loading" style="display: none">
+                                    <img alt="loading" src="images/loading.gif" /></li>
+                                <li class="last"><a href="#">Xem tất cả sản phẩm đã lưu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="icons upnews">
+                        <li><a href="#" class="btn-upnews"></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- \End Quick Form Login -->
+                <!-- BEGIN Category -->
+                <!-- END Category -->
+                <div class="quicklinks clearfix">
+                    <!-- End CDT Ebay -->
+                    <div class="categ-link">
+                        <ul class="landpage" id="item-link">
+                            <li class="browse">
+                                <div class="addthis_toolbox addthis_default_style " id="sharelink">
+                                    <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
+                                    </a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4">
+                                    </a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style">
+                                    </a>
+                                    <g:plusone size="medium" count="false"></g:plusone>
+                                    <script type="text/javascript">
+                                        window.___gcfg = { lang: 'vi' };
+
+                                        (function () {
+                                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                            po.src = 'https://apis.google.com/js/plusone.js';
+                                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                        })();
+                                    </script>
+                                </div>
+                               <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e17480d6866a37f"></script>
+                                <!-- AddThis Button END -->
+                            </li>
+                            <li class="browse"><a href="#" class="support"><span><b>Hỗ trợ</b></span></a>
+                                <div id="divSupport" class="sub-support">
+                                    <table cellpadding="0px" cellspacing="0px">
+                                        <tr>
+                                            <td rowspan="2">
+                                                <img src="images/Phone-Icon.png" />
+                                            </td>
+                                            <td>
+                                                0917360946 <a href="ymsgr:sendIM?vunam289">
+                                                    <img src="http://opi.yahoo.com/online?u=vunam289&amp;m=g&amp;t=1" alt="Chat trực tiếp với hỗ trợ mua hàng"
+                                                        title="Chat trực tiếp với hỗ trợ mua hàng" align="top" /></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                0917360946  <a href="ymsgr:sendIM?vunam289">
+                                                    <img src="http://opi.yahoo.com/online?u=vunam289&amp;m=g&amp;t=1" alt="Chat trực tiếp với hỗ trợ kỹ thuật"
+                                                        title="Chat trực tiếp với hỗ trợ kỹ thuật" align="top" /></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/email-Icon.png" />
+                                            </td>
+                                            <td>
+                                                <a href="mailto:vunam289@gmail.com">vunam289@gmail.com</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+							<li class="browse">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Quicklinks -->
+            </div>
+        </div>
+    </div>
+    <div id="divMain">
+        <div id="divHeader">
+            <div id="divLogo">
+                <a href="index.htm" title="Trang chủ">
+                    <img src="images/fullmart.jpg" alt="logo the wave" />
+                </a>
+            </div>
+        </div>
+        <div id="divBanner">
+            <div id="divSearch">
+                <form name="Search" method="post" onsubmit="return searchLink();">
+                <input type="text" value="Nhập từ khóa tìm kiếm..." class="type-key" id="keywordItem"
+                    name="keyword_item">
+                <input name="search-button" type="submit" class="btn-boxsearch">
+                <div>
+                    <span>Tìm kiếm nâng cao</span>
+                   <!-- <select name="zone_id" id="zone_id">
+                        <option value="0">Toàn Quốc</option>
+                        <option value="23">Hà Nội</option>
+                        <option value="30">Hồ Chí Minh</option>
+                        <option value="16">Đà Nẵng</option>
+                        <option value="7">Bắc Ninh</option>
+                        <option value="2">An Giang</option>
+                        <option value="3">Bà Rịa Vũng Tàu</option>
+                        <option value="4">Bạc Liêu</option>
+                        <option value="5">Bắc Cạn</option>
+                        <option value="6">Bắc Giang</option>
+                        <option value="15">Cần Thơ</option>
+                        <option value="8">Bến Tre</option>
+                        <option value="9">Bình Dương</option>
+                        <option value="10">Bình Định</option>
+                        <option value="11">Bình Phước</option>
+                        <option value="12">Bình Thuận</option>
+                        <option value="13">Cà Mau</option>
+                        <option value="14">Cao Bằng</option>
+                        <option value="17">Đắk Lắk</option>
+                        <option value="64">Đắk Nông</option>
+                        <option value="18">Đồng Nai</option>
+                        <option value="19">Đồng Tháp</option>
+                        <option value="20">Gia Lai</option>
+                        <option value="21">Hà Giang</option>
+                        <option value="35">Lạng Sơn</option>
+                        <option value="24">Hà Tây</option>
+                        <option value="22">Hà Nam</option>
+                        <option value="25">Hà Tĩnh</option>
+                        <option value="26">Hải Dương</option>
+                        <option value="27">Hải Phòng</option>
+                        <option value="28">Hòa Bình</option>
+                        <option value="29">Hưng Yên</option>
+                        <option value="31">Khánh Hòa</option>
+                        <option value="32">Kiên Giang</option>
+                        <option value="33">Kon Tum</option>
+                        <option value="34">Lai Châu</option>
+                        <option value="36">Lào Cai</option>
+                        <option value="37">Lâm Đồng</option>
+                        <option value="38">Long An</option>
+                        <option value="39">Nam Định</option>
+                        <option value="40">Nghệ An</option>
+                        <option value="41">Ninh Bình</option>
+                        <option value="42">Ninh Thuận</option>
+                        <option value="43">Phú Thọ</option>
+                        <option value="44">Phú Yên</option>
+                        <option value="45">Quảng Bình</option>
+                        <option value="46">Quảng Nam</option>
+                        <option value="47">Quảng Ngãi</option>
+                        <option value="48">Quảng Ninh</option>
+                        <option value="49">Quảng Trị</option>
+                        <option value="50">Sóc Trăng</option>
+                        <option value="51">Sơn La</option>
+                        <option value="52">Tây Ninh</option>
+                        <option value="53">Thái Bình</option>
+                        <option value="54">Thái Nguyên</option>
+                        <option value="55">Thanh Hóa</option>
+                        <option value="56">Thừa Thiên Huế</option>
+                        <option value="57">Tiền Giang</option>
+                        <option value="58">Trà Vinh</option>
+                        <option value="59">Tuyên Quang</option>
+                        <option value="60">Vĩnh Long</option>
+                        <option value="61">Vĩnh Phúc</option>
+                        <option value="62">Yên Bái</option>
+                    </select>
+                    <select id="loai">
+                        <option>thời trang</option>
+                        <option>Điện tử</option>
+                        <option>Điện thoại</option>
+                        <option>Đồ ăn, Thức uống</option>
+                        <option>Du lịch, Dịch vụ</option>
+                        <option>Tài sản ảo</option>
+                        <option>Khác</option>
+                    </select>
+                    -->
+                    <select id="gia">
+                        <option>< 10 triệu</option>
+                        <option>10 triệu =>15 triệu</option>
+                        <option>15 triệu => 20 triệu</option>
+                        <option>20 triệu =>40 triệu</option>
+                        <option>40 triệu =>100 triệu</option>
+                        <option>>100 triệu</option>
+                    </select>
+                </div>
+                </form>
+            </div>
+            <script language="javascript" type="text/javascript">
+                $(document).ready(function () {
+                    $("keywordItem").blur(function () {
+                        if ($("#keywordItem").val() == "" || $("#keywordItem").val() == "Nhập từ khóa tìm kiếm...") {
+                            if (!$("#divBanner *").is(":focus")) {
+                                $("#divBanner form div").slideUp();
+                                $("#keywordItem").val("Nhập từ khóa tìm kiếm...");
+                            }
+                        }
+                    });
+                    $("#divBanner *").focus(function () {
+                        if ($("#keywordItem").val() == "Nhập từ khóa tìm kiếm...") {
+                            $("#keywordItem").val('');
+                            $("#divBanner form div").slideDown("normal");
+                        }
+                    });
+
+                    $("#keywordItem").keypress(function (evt) {
+                        if (evt.keyCode == '13') {
+                            Search();
+                            return false;
+                        }
+                        else
+                            return true;
+                    });
+                });
+
+            </script>
+            <div id="bnAdv"></div>
+
+
+        </div>
+        <div id="divContent">
+            <div id="divLeft">
+                <div id="divCategories">
+                    <span>Danh mục sản phẩm</span>
+                    <ul id="Lmenu">
+                        <li><a href="#" >Quần áo nữ</a></li>
+                                <li><a href="#" >Quần áo nam</a></li>
+                                <li><a href="#" >Dày dép nữ</a></li>
+                                <li><a href="#" >Dày dép nam</a></li>
+                                <li><a href="#" >Túi, cặp, ví</a></li>
+                                <li><a href="#" >Phụ Trang</a></li>
+                                <li><a href="#" >Trang sức</a></li>
+                                <li><a href="#" >Đồng hồ</a></li>
+                                <li><a href="#" >Kính mắt</a></li>
+                                <li><a href="#" >Trang phục trẻ em</a></li>
+                                <li><a href="#" >Trang phục trẻ nhỏ, sơ sinh</a></li>
+                                <li><a href="#" >Đồ cưới</a></li>
+                                <li><a href="#" >Khác</a> </li>
+                    </ul>
+                </div>
+                <div id="divLAdv">
+                <img src="/images/best.png" />
+                <img src="media/adv/adv2.jpg" />
+                <img src="media/adv/adv3.gif" />
+                    <div id="adv3">
+                        <img src="./images/Left1.gif"/></div>
+                    <div id="adv4">
+                        <img src="./images/Left2.gif"/></div>
+                    
+                </div>
+            </div>
+            <div id="divRight">
+                <div id="divMenu">
+                    <div id="isky-nav">
+                        <ul>
+                            <li id="active"><a href="index.htm">trang chủ</a></li>
+                            <li><a href="#">giới thiệu</a></li>
+                            <li><a href="#">thông báo</a></li>
+                            <li><a href="#">báo giá</a></li>
+                            <li><a href="#">tuyển dụng</a></li>
+                            <li><a href="#">liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                 <div id="divPinfor">
+                <div class="image">
+                    <center><img src="images/a3.jpg" alt="Tên sản phẩm" /></center>
+                    </div>
+                    <div id="Maininfor">
+                        <p>Tên shop</p>
+                        <ul>
+                            <li>Tên chủ shop: <a href="#" title="Ghé thăm Shop của ten thanh vien">Tên thành viên</a></li>
+                            <li>Ngày mở shop: 11-07-2011 | 15:12 </li>
+                            <li>Khu vực áp dụng : Toàn quốc(hoặc một số tỉnh thành)</li>
+                            <li>Lượt ghé thăm : 111</li>
+                            <li>thông tin liên lạc của chủ shop : 
+                                <ul>
+                                <li><a href="mailto:MAILTHANHVIEN"><img src="images/email-Icon.png" alt="Email" /></a></li>
+                                <li><a href="ymsgr:sendIM?YAHOOID"><img src="http://opi.yahoo.com/online?u=YAHOOID&amp;m=g&amp;t=1" alt="Chat trực tiếp" title="Chat trực tiếp"/></a></li>
+                                <li><img src="images/Phone-Icon.png" /> : 0901 123456</li>
+                                </ul>   
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="sp" id="divVIP">
+                    <span class="fs">Sản phẩm trong shop</span>
+                    <div class="content">
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product1.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product2.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product3.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product4.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product5.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product6.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product7.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product8.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product9.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product10.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product11.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product12.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product13.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product14.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product15.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div class="product"><a href='product1.htm'>
+                            <div class="content">
+                                <center>
+                                    <img src="media/upload/product10.jpg" height="100">
+                                </center>
+                            </div>
+                            <div class="nameproduct">
+                                Điện Thoại<p>
+                                    8.000.000 vnd</p>
+                                <div class="salef"></div>
+                            </div>
+                            <div class="bottom">
+                            </div></a>
+                        </div>
+                        <div style="clear: both">
+                        </div>
+                    </div>
+                </div>
+               </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("marquee").mouseover(function () {
+                this.stop();
+            });
+            $("marquee").mouseleave(function () {
+                this.start();
+            });
+        });
+        function setHomepage() {
+            if (document.all) {
+                document.body.style.behavior = 'url(#default#homepage)';
+                document.body.setHomePage('http://#/');
+
+            }
+            else if (window.sidebar) {
+                if (window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                    }
+                    catch (e) {
+                        alert("Trình duyệt của bạn đã chặn chức năng này! \n Để mở chức năng này : gõ about:config vào thanh địa chỉ\n Thay đổi giá trị của signed.applets.codebase_principal_support thành true");
+                    }
+                }
+                var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                prefs.setCharPref('browser.startup.homepage', '#');
+            }
+        }
+    </script>
+    <div id="divFooter">
+        <ul class="fs">
+            <li><a href="index.htm" class="current" title="Trang Chủ">Trang Chủ</a></li>
+            <li><a href="/gioi-thieu.html" title="Giới Thiệu">Giới Thiệu</a></li>
+            <li><a href="/thong-bao.html">Thông Báo</a></li>
+            <li><a href="/bao-gia.html" title="Báo Giá">Báo Giá</a></li>
+            <li><a href="/tuyen-dung.html" title="Tuyển Dụng">Tuyển Dụng</a></li>
+            <li><a href="/lien-he.html" title="Liên Hệ">Liên Hệ</a></li>
+        </ul>
+        <p class="dc">
+			</p>
+    </div>
+    <script src="script/footer.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="NEWDEMO">
+</Property><Property Name="Solution File" Value="E:\FullMart\Input\3-Tier Demo\NEWDEMO.sln">
+</Property><Property Name="User Options File" Value="E:\FullMart\Input\3-Tier Demo\NEWDEMO.suo">
+</Property><Property Name="Date" Value="Monday, September 26, 2011">
+</Property><Property Name="Time" Value="22:28 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="NEWDEMO.sln" Description="File successfully backed up as E:\FullMart\Input\3-Tier Demo\Backup\NEWDEMO.sln">
+</Event><Event ErrorLevel="0" Project="" Source="NEWDEMO.suo" Description="File successfully backed up as E:\FullMart\Input\3-Tier Demo\Backup\NEWDEMO.suo">
+</Event><Event ErrorLevel="0" Project="" Source="NEWDEMO.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="NEWDEMO.sln" Description="Converted">
+</Event></UpgradeLog>

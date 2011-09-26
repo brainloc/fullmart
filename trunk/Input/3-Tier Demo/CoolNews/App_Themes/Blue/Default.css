@@ -1,0 +1,193 @@
+﻿body {
+	background-color: #EEEEEE;
+	background-image: url(images/bg_b.gif);
+	background-repeat:repeat-x; /*Lap theo chieu ngang */
+	margin-top: 0;
+	margin-left:0;
+	margin-right:0;
+	margin-bottom:0;
+	padding: 0;
+	text-align: center;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 8pt;
+	color: #07519A;
+}
+a {
+	text-decoration: none;
+	color: #07519A;
+}
+
+a:visited {
+	color: #07519A;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #07519A;
+}
+
+a:active {
+	color: #980000;
+}
+.tdTopHeader
+{
+	height:20px;
+}
+.tdbannerHeader{
+	background-image: url(Images/News_02.gif);
+	background-repeat:no-repeat;
+	height:228px;
+	width:800px;
+	text-align:right
+	
+}
+.tdFooter
+{
+	background-image: url(Images/footer.gif);
+	background-repeat:repeat-x;
+	height:80px;	
+	text-align:center;
+}
+.tdContentPlaceLeft
+{
+	width:200px;
+	background-image: url(Images/News_03.gif);
+	background-repeat:repeat-x;
+	text-align:center;
+	vertical-align:top;	
+}
+.tdContentPlaceMain
+{	
+	text-align:center;
+	vertical-align:top;	
+	padding:9px;
+}
+.DivMain
+{
+	width:800px;
+	text-align:center;
+	background-color:White;
+}
+/*========================== BLOCK ====================================*/
+
+.tblBlockMain
+{
+	 background-color:#FFFFFF;	
+	 border:solid 1px #AACCEE;		
+	 padding:0px;
+	 border-collapse:collapse;	
+	 width:100%; 	 
+}
+.tdBlockBannerLeft
+{
+	 background-color:#EBF3FB;
+	 height:18px;
+	 border-bottom:solid 1px #AACCEE;
+	 text-align:left;
+	 font-size:9pt;
+	 font-weight:bold;
+	 padding-left:9px;	
+}
+.tdBlockBannerCenter
+{
+	 background-color:#EBF3FB;
+	 height:18px;
+	 border-bottom:solid 1px #AACCEE;
+	 text-align:center;
+	 font-size:9pt;
+	 font-weight:bold;	
+}
+.tdBlockBannerRight
+{
+	 background-color:#EBF3FB;
+	 height:18px;
+	 border-bottom:solid 1px #AACCEE;
+	 text-align:left;
+	 font-size:9pt;
+	 font-weight:bold;
+	 padding-left:9px;	
+}
+
+.tdBlockContentLeft
+{
+	text-align:center;
+	vertical-align:top
+}
+
+.tdBlockContentCenter
+{
+	text-align:center;
+	vertical-align:top
+}
+
+.tdBlockContentRight
+{
+	text-align:center;
+	vertical-align:top
+}
+.lblBlockMainContentLeft
+{
+	font-size:9pt;
+	font-weight:normal
+}
+
+.tdBlockBannerLeftBorder
+{
+	 background-color:#EBF3FB;
+	 height:18px;
+	 border:solid 1px #AACCEE;
+	 text-align:left;
+	 font-size:9pt;
+	 font-weight:bold;
+	 padding-left:9px;	
+}
+
+/*========================== END BLOCK ================================*/
+.lblBlockHeader
+{
+	padding-left:9px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.lblBoldHeader
+{
+	font-weight:bold;
+}
+.lblDateTime
+{
+	font-size:9px;
+	color:Gray;
+		
+}
+.imageThumbLeft
+{
+	padding-right:8px;
+	padding-bottom:6px;
+	border:10px;
+	border-color:#336699;
+	border-style:solid;
+}
+.tdLeftTable
+{	
+	width:20%;
+	text-align:left;
+	vertical-align:top;
+	padding-top:10px;
+	padding-left:10px;
+	border-style:solid;	
+	border-color:#EEEEEE;
+	border-width:1px;
+	background-color:#FAFAFA;
+	font-weight:bold;
+	
+}
+.tdRightTable
+{	
+	padding:9px;
+	width:80%;
+	text-align:left;
+	border-style:solid;	
+	border-color:#EEEEEE;
+	border-width:1px;
+	background-color:#FEFEFE;
+}
