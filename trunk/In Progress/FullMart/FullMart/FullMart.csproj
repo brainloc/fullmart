@@ -135,6 +135,7 @@
     <Content Include="media\upload\product7.jpg" />
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
+    <Content Include="Menu.aspx" />
     <Content Include="script\addthis_widget.js" />
     <Content Include="script\cufon-yui.js" />
     <Content Include="script\external\jquery.bgiframe-2.1.2.js" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
