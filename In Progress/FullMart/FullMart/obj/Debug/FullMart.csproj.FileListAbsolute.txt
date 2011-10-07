@@ -3,3 +3,9 @@ E:\FullMart\In Progress\FullMart\FullMart\bin\FullMart.pdb
 E:\FullMart\In Progress\FullMart\FullMart\obj\Debug\ResolveAssemblyReference.cache
 E:\FullMart\In Progress\FullMart\FullMart\obj\Debug\FullMart.dll
 E:\FullMart\In Progress\FullMart\FullMart\obj\Debug\FullMart.pdb
+E:\Nam\FullMart\In Progress\FullMart\FullMart\bin\FullMart.dll
+E:\Nam\FullMart\In Progress\FullMart\FullMart\bin\FullMart.pdb
+E:\Nam\FullMart\In Progress\FullMart\FullMart\bin\FreeTextBox.dll
+E:\Nam\FullMart\In Progress\FullMart\FullMart\obj\Debug\ResolveAssemblyReference.cache
+E:\Nam\FullMart\In Progress\FullMart\FullMart\obj\Debug\FullMart.dll
+E:\Nam\FullMart\In Progress\FullMart\FullMart\obj\Debug\FullMart.pdb
