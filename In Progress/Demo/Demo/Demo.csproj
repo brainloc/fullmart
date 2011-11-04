@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D7F6ACD-979E-477A-8EB4-05ACCC25F9BB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Comment.aspx" />
+    <Content Include="RepeaterVerticalMenu.aspx" />
+    <Content Include="css\border-radius.htc" />
+    <Content Include="css\fix.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\product.css" />
+    <Content Include="css\shop.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\top.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\341243skin2.jpg" />
+    <Content Include="images\430594dermaroller1a.png" />
+    <Content Include="images\745268skin.jpg" />
+    <Content Include="images\a3.jpg" />
+    <Content Include="images\arrows.png" />
+    <Content Include="images\background-menu-hover.jpg" />
+    <Content Include="images\background-menu.jpg" />
+    <Content Include="images\best.png" />
+    <Content Include="images\bottomSP.png" />
+    <Content Include="images\btn-upnews.png" />
+    <Content Include="images\btns.gif" />
+    <Content Include="images\bullets.png" />
+    <Content Include="images\button.png" />
+    <Content Include="images\email-Icon.png" />
+    <Content Include="images\fm.png" />
+    <Content Include="images\fullmart.jpg" />
+    <Content Include="images\icon-item.gif" />
+    <Content Include="images\icon-quicklink.png" />
+    <Content Include="images\icon-taskbar.png" />
+    <Content Include="images\img_footer2.jpg" />
+    <Content Include="images\img_footer3.jpg" />
+    <Content Include="images\img_footer4.jpg" />
+    <Content Include="images\img_footer5.jpg" />
+    <Content Include="images\img_saleoff.png" />
+    <Content Include="images\Left1.gif" />
+    <Content Include="images\Left2.gif" />
+    <Content Include="images\leftmenu_icon.png" />
+    <Content Include="images\line-v.gif" />
+    <Content Include="images\linebreak-menu-navi.gif" />
+    <Content Include="images\Lmenu.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logothewave.png" />
+    <Content Include="images\mainTabs.png" />
+    <Content Include="images\mbg.png" />
+    <Content Include="images\menu_035_bg.jpg" />
+    <Content Include="images\menu_035_c.jpg" />
+    <Content Include="images\mua.png" />
+    <Content Include="images\nav-bg.png" />
+    <Content Include="images\no_flicker.jpg" />
+    <Content Include="images\Phone-Icon.png" />
+    <Content Include="images\product-bottom.png" />
+    <Content Include="images\sale.png" />
+    <Content Include="images\slide-bg.png" />
+    <Content Include="images\tab-leagua-bg-active.gif" />
+    <Content Include="images\taskbr_dot.png" />
+    <Content Include="images\taskbr_icon.png" />
+    <Content Include="images\techcombank.png" />
+    <Content Include="images\title-bg.gif" />
+    <Content Include="images\Title_bg.png" />
+    <Content Include="images\top_BG.png" />
+    <Content Include="images\tskbrTitle.png" />
+    <Content Include="images\verybg.gif" />
+    <Content Include="images\vietcombank.png" />
+    <Content Include="images\vip.png" />
+    <Content Include="images\Welcome.gif" />
+    <Content Include="img\background-menu.jpg" />
+    <Content Include="img\ca.jpg" />
+    <Content Include="img\cv.jpg" />
+    <Content Include="img\Lmenu.png" />
+    <Content Include="Multilang.aspx" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="script\addthis_widget.js" />
+    <Content Include="script\cufon-yui.js" />
+    <Content Include="script\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="script\external\jquery.cookie.js" />
+    <Content Include="script\external\jquery.metadata.js" />
+    <Content Include="script\external\qunit.css" />
+    <Content Include="script\external\qunit.js" />
+    <Content Include="script\footer.js" />
+    <Content Include="script\header.js" />
+    <Content Include="script\jquery-1.4.1-vsdoc.js" />
+    <Content Include="script\jquery-1.4.1.js" />
+    <Content Include="script\jquery-1.4.1.min.js" />
+    <Content Include="script\jquery-1.5.1.js" />
+    <Content Include="script\jquery.nivo.slider.pack.js" />
+    <Content Include="script\jquery.tablesorter.js" />
+    <Content Include="script\jquery.tablesorter.pager.js" />
+    <Content Include="script\jquery.validate-vsdoc.js" />
+    <Content Include="script\jquery.validate.js" />
+    <Content Include="script\jquery.validate.min.js" />
+    <Content Include="script\menu.js" />
+    <Content Include="script\MicrosoftAjax.debug.js" />
+    <Content Include="script\MicrosoftAjax.js" />
+    <Content Include="script\MicrosoftMvcAjax.debug.js" />
+    <Content Include="script\MicrosoftMvcAjax.js" />
+    <Content Include="script\MicrosoftMvcValidation.debug.js" />
+    <Content Include="script\MicrosoftMvcValidation.js" />
+    <Content Include="script\Silverlight.js" />
+    <Content Include="script\ui\jquery-ui-1.8.4.custom.js" />
+    <Content Include="script\ui\jquery.effects.blind.js" />
+    <Content Include="script\ui\jquery.effects.bounce.js" />
+    <Content Include="script\ui\jquery.effects.clip.js" />
+    <Content Include="script\ui\jquery.effects.core.js" />
+    <Content Include="script\ui\jquery.effects.drop.js" />
+    <Content Include="script\ui\jquery.effects.explode.js" />
+    <Content Include="script\ui\jquery.effects.fade.js" />
+    <Content Include="script\ui\jquery.effects.fold.js" />
+    <Content Include="script\ui\jquery.effects.highlight.js" />
+    <Content Include="script\ui\jquery.effects.pulsate.js" />
+    <Content Include="script\ui\jquery.effects.scale.js" />
+    <Content Include="script\ui\jquery.effects.shake.js" />
+    <Content Include="script\ui\jquery.effects.slide.js" />
+    <Content Include="script\ui\jquery.effects.transfer.js" />
+    <Content Include="script\ui\jquery.ui.accordion.js" />
+    <Content Include="script\ui\jquery.ui.autocomplete.js" />
+    <Content Include="script\ui\jquery.ui.button.js" />
+    <Content Include="script\ui\jquery.ui.core.js" />
+    <Content Include="script\ui\jquery.ui.datepicker.js" />
+    <Content Include="script\ui\jquery.ui.dialog.js" />
+    <Content Include="script\ui\jquery.ui.draggable.js" />
+    <Content Include="script\ui\jquery.ui.droppable.js" />
+    <Content Include="script\ui\jquery.ui.mouse.js" />
+    <Content Include="script\ui\jquery.ui.position.js" />
+    <Content Include="script\ui\jquery.ui.progressbar.js" />
+    <Content Include="script\ui\jquery.ui.resizable.js" />
+    <Content Include="script\ui\jquery.ui.selectable.js" />
+    <Content Include="script\ui\jquery.ui.slider.js" />
+    <Content Include="script\ui\jquery.ui.sortable.js" />
+    <Content Include="script\ui\jquery.ui.tabs.js" />
+    <Content Include="script\ui\jquery.ui.widget.js" />
+    <Content Include="script\vni-vari.js" />
+    <Content Include="script\vniScript.js" />
+    <Content Include="VerticalMenu.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\LocalizedText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\LocalizedText.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedText.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.aspx.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comment.aspx.designer.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RepeaterVerticalMenu.aspx.cs">
+      <DependentUpon>RepeaterVerticalMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepeaterVerticalMenu.aspx.designer.cs">
+      <DependentUpon>RepeaterVerticalMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Multilang.aspx.cs">
+      <DependentUpon>Multilang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Multilang.aspx.designer.cs">
+      <DependentUpon>Multilang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerticalMenu.aspx.cs">
+      <DependentUpon>VerticalMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerticalMenu.aspx.designer.cs">
+      <DependentUpon>VerticalMenu.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="css\.svn\prop-base\" />
+    <Folder Include="css\.svn\props\" />
+    <Folder Include="css\.svn\tmp\prop-base\" />
+    <Folder Include="css\.svn\tmp\props\" />
+    <Folder Include="css\.svn\tmp\text-base\" />
+    <Folder Include="images\.svn\props\" />
+    <Folder Include="images\.svn\tmp\prop-base\" />
+    <Folder Include="images\.svn\tmp\props\" />
+    <Folder Include="images\.svn\tmp\text-base\" />
+    <Folder Include="script\.svn\prop-base\" />
+    <Folder Include="script\.svn\props\" />
+    <Folder Include="script\.svn\tmp\prop-base\" />
+    <Folder Include="script\.svn\tmp\props\" />
+    <Folder Include="script\.svn\tmp\text-base\" />
+    <Folder Include="script\external\.svn\prop-base\" />
+    <Folder Include="script\external\.svn\props\" />
+    <Folder Include="script\external\.svn\tmp\prop-base\" />
+    <Folder Include="script\external\.svn\tmp\props\" />
+    <Folder Include="script\external\.svn\tmp\text-base\" />
+    <Folder Include="script\ui\.svn\prop-base\" />
+    <Folder Include="script\ui\.svn\props\" />
+    <Folder Include="script\ui\.svn\tmp\prop-base\" />
+    <Folder Include="script\ui\.svn\tmp\props\" />
+    <Folder Include="script\ui\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.en.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="css\.svn\all-wcprops" />
+    <None Include="css\.svn\entries" />
+    <None Include="css\.svn\text-base\border-radius.htc.svn-base" />
+    <None Include="css\.svn\text-base\fix.css.svn-base" />
+    <None Include="css\.svn\text-base\main.css.svn-base" />
+    <None Include="css\.svn\text-base\product.css.svn-base" />
+    <None Include="css\.svn\text-base\shop.css.svn-base" />
+    <None Include="css\.svn\text-base\style.css.svn-base" />
+    <None Include="css\.svn\text-base\top.css.svn-base" />
+    <None Include="images\.svn\all-wcprops" />
+    <None Include="images\.svn\entries" />
+    <None Include="images\.svn\prop-base\341243skin2.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\430594dermaroller1a.png.svn-base" />
+    <None Include="images\.svn\prop-base\745268skin.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\a3.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\arrows.png.svn-base" />
+    <None Include="images\.svn\prop-base\background-menu-hover.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\background-menu.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\best.png.svn-base" />
+    <None Include="images\.svn\prop-base\bottomSP.png.svn-base" />
+    <None Include="images\.svn\prop-base\btn-upnews.png.svn-base" />
+    <None Include="images\.svn\prop-base\btns.gif.svn-base" />
+    <None Include="images\.svn\prop-base\bullets.png.svn-base" />
+    <None Include="images\.svn\prop-base\button.png.svn-base" />
+    <None Include="images\.svn\prop-base\email-Icon.png.svn-base" />
+    <None Include="images\.svn\prop-base\fm.png.svn-base" />
+    <None Include="images\.svn\prop-base\fullmart.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\icon-item.gif.svn-base" />
+    <None Include="images\.svn\prop-base\icon-quicklink.png.svn-base" />
+    <None Include="images\.svn\prop-base\icon-taskbar.png.svn-base" />
+    <None Include="images\.svn\prop-base\img_footer2.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\img_footer3.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\img_footer4.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\img_footer5.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\img_saleoff.png.svn-base" />
+    <None Include="images\.svn\prop-base\Left1.gif.svn-base" />
+    <None Include="images\.svn\prop-base\Left2.gif.svn-base" />
+    <None Include="images\.svn\prop-base\leftmenu_icon.png.svn-base" />
+    <None Include="images\.svn\prop-base\line-v.gif.svn-base" />
+    <None Include="images\.svn\prop-base\linebreak-menu-navi.gif.svn-base" />
+    <None Include="images\.svn\prop-base\Lmenu.png.svn-base" />
+    <None Include="images\.svn\prop-base\loading.gif.svn-base" />
+    <None Include="images\.svn\prop-base\logothewave.png.svn-base" />
+    <None Include="images\.svn\prop-base\mainTabs.png.svn-base" />
+    <None Include="images\.svn\prop-base\mbg.png.svn-base" />
+    <None Include="images\.svn\prop-base\menu_035_bg.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\menu_035_c.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\mua.png.svn-base" />
+    <None Include="images\.svn\prop-base\nav-bg.png.svn-base" />
+    <None Include="images\.svn\prop-base\no_flicker.jpg.svn-base" />
+    <None Include="images\.svn\prop-base\Phone-Icon.png.svn-base" />
+    <None Include="images\.svn\prop-base\product-bottom.png.svn-base" />
+    <None Include="images\.svn\prop-base\sale.png.svn-base" />
+    <None Include="images\.svn\prop-base\slide-bg.png.svn-base" />
+    <None Include="images\.svn\prop-base\tab-leagua-bg-active.gif.svn-base" />
+    <None Include="images\.svn\prop-base\taskbr_dot.png.svn-base" />
+    <None Include="images\.svn\prop-base\taskbr_icon.png.svn-base" />
+    <None Include="images\.svn\prop-base\techcombank.png.svn-base" />
+    <None Include="images\.svn\prop-base\title-bg.gif.svn-base" />
+    <None Include="images\.svn\prop-base\Title_bg.png.svn-base" />
+    <None Include="images\.svn\prop-base\top_BG.png.svn-base" />
+    <None Include="images\.svn\prop-base\tskbrTitle.png.svn-base" />
+    <None Include="images\.svn\prop-base\verybg.gif.svn-base" />
+    <None Include="images\.svn\prop-base\vietcombank.png.svn-base" />
+    <None Include="images\.svn\prop-base\vip.png.svn-base" />
+    <None Include="images\.svn\prop-base\Welcome.gif.svn-base" />
+    <None Include="images\.svn\text-base\341243skin2.jpg.svn-base" />
+    <None Include="images\.svn\text-base\430594dermaroller1a.png.svn-base" />
+    <None Include="images\.svn\text-base\745268skin.jpg.svn-base" />
+    <None Include="images\.svn\text-base\a3.jpg.svn-base" />
+    <None Include="images\.svn\text-base\arrows.png.svn-base" />
+    <None Include="images\.svn\text-base\background-menu-hover.jpg.svn-base" />
+    <None Include="images\.svn\text-base\background-menu.jpg.svn-base" />
+    <None Include="images\.svn\text-base\best.png.svn-base" />
+    <None Include="images\.svn\text-base\bottomSP.png.svn-base" />
+    <None Include="images\.svn\text-base\btn-upnews.png.svn-base" />
+    <None Include="images\.svn\text-base\btns.gif.svn-base" />
+    <None Include="images\.svn\text-base\bullets.png.svn-base" />
+    <None Include="images\.svn\text-base\button.png.svn-base" />
+    <None Include="images\.svn\text-base\email-Icon.png.svn-base" />
+    <None Include="images\.svn\text-base\fm.png.svn-base" />
+    <None Include="images\.svn\text-base\fullmart.jpg.svn-base" />
+    <None Include="images\.svn\text-base\icon-item.gif.svn-base" />
+    <None Include="images\.svn\text-base\icon-quicklink.png.svn-base" />
+    <None Include="images\.svn\text-base\icon-taskbar.png.svn-base" />
+    <None Include="images\.svn\text-base\img_footer2.jpg.svn-base" />
+    <None Include="images\.svn\text-base\img_footer3.jpg.svn-base" />
+    <None Include="images\.svn\text-base\img_footer4.jpg.svn-base" />
+    <None Include="images\.svn\text-base\img_footer5.jpg.svn-base" />
+    <None Include="images\.svn\text-base\img_saleoff.png.svn-base" />
+    <None Include="images\.svn\text-base\Left1.gif.svn-base" />
+    <None Include="images\.svn\text-base\Left2.gif.svn-base" />
+    <None Include="images\.svn\text-base\leftmenu_icon.png.svn-base" />
+    <None Include="images\.svn\text-base\line-v.gif.svn-base" />
+    <None Include="images\.svn\text-base\linebreak-menu-navi.gif.svn-base" />
+    <None Include="images\.svn\text-base\Lmenu.png.svn-base" />
+    <None Include="images\.svn\text-base\loading.gif.svn-base" />
+    <None Include="images\.svn\text-base\logothewave.png.svn-base" />
+    <None Include="images\.svn\text-base\mainTabs.png.svn-base" />
+    <None Include="images\.svn\text-base\mbg.png.svn-base" />
+    <None Include="images\.svn\text-base\menu_035_bg.jpg.svn-base" />
+    <None Include="images\.svn\text-base\menu_035_c.jpg.svn-base" />
+    <None Include="images\.svn\text-base\mua.png.svn-base" />
+    <None Include="images\.svn\text-base\nav-bg.png.svn-base" />
+    <None Include="images\.svn\text-base\no_flicker.jpg.svn-base" />
+    <None Include="images\.svn\text-base\Phone-Icon.png.svn-base" />
+    <None Include="images\.svn\text-base\product-bottom.png.svn-base" />
+    <None Include="images\.svn\text-base\sale.png.svn-base" />
+    <None Include="images\.svn\text-base\slide-bg.png.svn-base" />
+    <None Include="images\.svn\text-base\tab-leagua-bg-active.gif.svn-base" />
+    <None Include="images\.svn\text-base\taskbr_dot.png.svn-base" />
+    <None Include="images\.svn\text-base\taskbr_icon.png.svn-base" />
+    <None Include="images\.svn\text-base\techcombank.png.svn-base" />
+    <None Include="images\.svn\text-base\title-bg.gif.svn-base" />
+    <None Include="images\.svn\text-base\Title_bg.png.svn-base" />
+    <None Include="images\.svn\text-base\top_BG.png.svn-base" />
+    <None Include="images\.svn\text-base\tskbrTitle.png.svn-base" />
+    <None Include="images\.svn\text-base\verybg.gif.svn-base" />
+    <None Include="images\.svn\text-base\vietcombank.png.svn-base" />
+    <None Include="images\.svn\text-base\vip.png.svn-base" />
+    <None Include="images\.svn\text-base\Welcome.gif.svn-base" />
+    <None Include="script\.svn\all-wcprops" />
+    <None Include="script\.svn\entries" />
+    <None Include="script\.svn\text-base\addthis_widget.js.svn-base" />
+    <None Include="script\.svn\text-base\cufon-yui.js.svn-base" />
+    <None Include="script\.svn\text-base\footer.js.svn-base" />
+    <None Include="script\.svn\text-base\header.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery-1.4.1-vsdoc.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery-1.4.1.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery-1.4.1.min.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery-1.5.1.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.nivo.slider.pack.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.tablesorter.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.tablesorter.pager.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.validate-vsdoc.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.validate.js.svn-base" />
+    <None Include="script\.svn\text-base\jquery.validate.min.js.svn-base" />
+    <None Include="script\.svn\text-base\menu.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftAjax.debug.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftAjax.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftMvcAjax.debug.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftMvcAjax.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftMvcValidation.debug.js.svn-base" />
+    <None Include="script\.svn\text-base\MicrosoftMvcValidation.js.svn-base" />
+    <None Include="script\.svn\text-base\Silverlight.js.svn-base" />
+    <None Include="script\.svn\text-base\vni-vari.js.svn-base" />
+    <None Include="script\.svn\text-base\vniScript.js.svn-base" />
+    <None Include="script\external\.svn\all-wcprops" />
+    <None Include="script\external\.svn\entries" />
+    <None Include="script\external\.svn\text-base\jquery.bgiframe-2.1.2.js.svn-base" />
+    <None Include="script\external\.svn\text-base\jquery.cookie.js.svn-base" />
+    <None Include="script\external\.svn\text-base\jquery.metadata.js.svn-base" />
+    <None Include="script\external\.svn\text-base\qunit.css.svn-base" />
+    <None Include="script\external\.svn\text-base\qunit.js.svn-base" />
+    <None Include="script\ui\.svn\all-wcprops" />
+    <None Include="script\ui\.svn\entries" />
+    <None Include="script\ui\.svn\text-base\jquery-ui-1.8.4.custom.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.blind.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.bounce.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.clip.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.core.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.drop.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.explode.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.fade.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.fold.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.highlight.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.pulsate.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.scale.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.shake.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.slide.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.effects.transfer.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.accordion.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.autocomplete.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.button.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.core.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.datepicker.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.dialog.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.draggable.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.droppable.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.mouse.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.position.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.progressbar.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.resizable.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.selectable.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.slider.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.sortable.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.tabs.js.svn-base" />
+    <None Include="script\ui\.svn\text-base\jquery.ui.widget.js.svn-base" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17241</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

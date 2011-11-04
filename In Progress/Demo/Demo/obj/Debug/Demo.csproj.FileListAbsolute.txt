@@ -1,0 +1,5 @@
+E:\Nam\FullMart\In Progress\Demo\Demo\bin\Demo.dll
+E:\Nam\FullMart\In Progress\Demo\Demo\bin\Demo.pdb
+E:\Nam\FullMart\In Progress\Demo\Demo\obj\Debug\ResolveAssemblyReference.cache
+E:\Nam\FullMart\In Progress\Demo\Demo\obj\Debug\Demo.dll
+E:\Nam\FullMart\In Progress\Demo\Demo\obj\Debug\Demo.pdb
