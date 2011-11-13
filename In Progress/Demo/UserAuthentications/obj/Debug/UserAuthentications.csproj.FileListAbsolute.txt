@@ -1,0 +1,5 @@
+C:\Users\weed\Desktop\Test login\UserAuthentications\UserAuthentications\bin\UserAuthentications.dll
+C:\Users\weed\Desktop\Test login\UserAuthentications\UserAuthentications\bin\UserAuthentications.pdb
+C:\Users\weed\Desktop\Test login\UserAuthentications\UserAuthentications\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\weed\Desktop\Test login\UserAuthentications\UserAuthentications\obj\Debug\UserAuthentications.dll
+C:\Users\weed\Desktop\Test login\UserAuthentications\UserAuthentications\obj\Debug\UserAuthentications.pdb
