@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbMON" Class="DBMonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=dbMON;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbMONConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Banner" Member="Banners">
+    <Type Name="Banner">
+      <Column Name="bID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bLink" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="bTitle" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="bContent" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bPage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Page_Banner" Member="Page" ThisKey="bID" OtherKey="pID" Type="Page" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Slider" Member="Sliders">
+    <Type Name="Slider">
+      <Column Name="sID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="stitle" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="scontent" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Collumn" Member="Collumns">
+    <Type Name="Collumn">
+      <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cText" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="cLink" Type="System.String" DbType="NChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="cCo" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="cindex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cEmail" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="cTel" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="cContent" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="New">
+      <Column Name="nID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ntitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="nDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="nContent" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="npreview" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pages" Member="Pages">
+    <Type Name="Page">
+      <Column Name="pID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="pContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pSpage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Page_Banner" Member="Banner" ThisKey="pID" OtherKey="bID" Type="Banner" Cardinality="One" />
+      <Association Name="Page_Page" Member="Pages" ThisKey="pID" OtherKey="pSpage" Type="Page" />
+      <Association Name="Page_Page" Member="Page1" ThisKey="pSpage" OtherKey="pID" Type="Page" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Slide" Member="Slides">
+    <Type Name="Slide">
+      <Column Name="slID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="slImage" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="slLink" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="slText" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

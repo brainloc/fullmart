@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/" title="MON" description="MON JSC">
+    <!-- Phan top menu -->
+    <siteMapNode url="~/Home/Index" title="Trang chủ" description="top-menu" />
+    <siteMapNode url="~/Page/?id=10" title="Giới thiệu MON" description="top-menu" />
+    <siteMapNode url="/New" title="Tin Tức" description="top-menu" xmlns="" />
+    <siteMapNode url="~/Page/?id=17" title="Dịch vụ" description="top-menu" />
+    <siteMapNode url="/page/?id=21" title="Cơ hội" description="top-menu" />
+    <!-- het phan top menu -->
+    <siteMapNode url="page/?id=20" title=" Doanh Nhân" description="top-menu" />
+    <siteMapNode url="/page/?id=18" title="Huấn Luyện" description="top-menu" />
+  </siteMapNode>
+</siteMap>

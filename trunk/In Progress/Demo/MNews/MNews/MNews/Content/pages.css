@@ -1,0 +1,12 @@
+﻿#mleft{width:300px;}
+#mleft img{max-width:295px}
+#mright{width:690px;border:1px solid silver;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#list-pages{width:100%;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid silver;}
+#list-pages ul{list-style:none}
+#list-pages ul li{padding:0px;background:#fff url(/images/img07.gif) 5px center no-repeat}
+#list-pages ul li a{display:block;padding:5px 0px;padding-left:20px; color:#02A1AD;font-weight:bold}
+#list-pages span{display:block;font-size:22px;color:#FFF;background:#00c90c;padding:10px;text-align:center}
+.active{width:280px;border:1px solid silver;border-right:none;color:#02A1AD;background-color:#fff;-webkit-border-top-left-radius: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-bottomleft: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+#titlepage{display:block;font-size:22px;color:#FFF;background:#00c90c;padding:10px}
+#timepage{padding:5px;font-style:italic}
+#contentpage{padding:10px}

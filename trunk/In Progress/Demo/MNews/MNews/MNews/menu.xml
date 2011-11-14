@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Root>
+  <Menu id="1">
+    <Url>~/Home/Index</Url>
+    <Title>Trang chủ</Title>
+  </Menu>
+  <Menu id="2">
+    <Url>~/Page/?id=1</Url>
+    <Title>Giới thiệu</Title>
+  </Menu>
+  <Menu id="3">
+    <Url>~/New/Index</Url>
+    <Title>Tin tức</Title>
+  </Menu>
+  <Menu id="4">
+    <Url>~/Page/?id=6</Url>
+    <Title>Sản phẩm và dịch vụ</Title>
+  </Menu>
+  <Menu id="5">
+    <Url>~/Page/?id=7</Url>
+    <Title>Đối tác</Title>
+  </Menu>
+  <Menu id="6">
+    <Url>~/Page/?id=8</Url>
+    <Title>Hướng dẫn</Title>
+  </Menu>
+  <Menu id="7">
+    <Url>~/Page/?id=9</Url>
+    <Title>Tuyển dụng</Title>
+  </Menu>
+  <Menu id="8">
+    <Url>~/Admin/Index</Url>
+    <Title>Quản trị</Title>
+  </Menu>
+
+</Root>

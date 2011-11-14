@@ -1,0 +1,39 @@
+﻿
+#mslider{height:300px;width:685px;margin:5px;margin-left:0px;border:1px solid silver;overflow:hidden;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.bx-prev,.bx-next{color:Black;width:50px;height:50px;position:absolute;top:103px;background:transparent url(../images/prev-next.png) no-repeat;text-indent:99999999px;opacity:0.7}
+.bx-prev{left:0px;background-position:center bottom;}
+.bx-next{right:0px;background-position:center top;}
+.bx-wrapper,.bx-window{height:100%;overflow:hidden}
+.bx-pager{position:absolute;bottom:15px;left:10px}
+.pager-link{padding:7px 10px;background:transparent url(../images/pager.png) no-repeat center bottom}
+.pager-active{background-position:center top}
+#mslide{width:685px;height:145px;border:1px solid silver;overflow:hidden;margin:5px;margin-left:0px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mslide ul{list-style:none;height:140px;vertical-align:middle;overflow:hidden}
+#mslide ul li{float:left;overflow:hidden;height:140px;width:186px}
+#mslide ul li a{color:#02A1AD;font-size:15px;font-family:Verdana,Arial,Tahoma;font-weight:bold}
+#mslide ul li p{white-space:nowrap;width:100%;overflow:hidden;}
+#mslide ul li img{height:100px;margin:10px auto}
+#mlistitem{width:685px;border:1px solid silver;margin:5px;margin-left:0px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#list-item{width:100%;}
+#list-item td{width:33%;text-align:left;padding:5px}
+#list-item td a{display:block;color:#000;text-decoration:none;vertical-align:text-top}
+#list-item td a:hover{background-color:#ddfcd8}
+#list-item th{text-align:center;color:#02A1AD}
+#msupport{width:685px;height:145px;overflow:hidden; background-color:#fff;margin:5px;margin-left:0px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mstext{width:100%;height:100%;float:left}
+#msinfo{width:0px;height:100%;float:right;}
+#msinfo img{width: 100%;height: 25px;position: relative;z-index: 999999999;margin-bottom: -44px;}
+#very{background:#a51e1b url(../images/verybg.gif);cursor:default;color:#fff;font-size:15px;font-weight:bold;font-family:Arial Black;text-align:center;width:55px;margin:0px auto}
+#msinfo input{border:1px solid silver;margin-bottom:10px; width:98%}
+#mscontent{max-width: 98.3%;max-height: 91%;min-width: 98.3%;min-height: 91%;border:1px solid silver;padding:5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mlog{width:300px;height:80px;border:1px solid silver;margin:5px;margin-right:0px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mlog a{color:#1cce36}
+#username{color:#fa9119}
+#mlog table{width:100%}
+#mlog table td{text-align:left;height:28px;padding:5px}
+#mlog table td+td{text-align:right}
+#mnews{width:300px;border:1px solid silver;margin:5px;margin-right:0px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#mnews span{display:block;color:#02A1AD;width:100%;height:20px;padding-left:10px;font-weight:bold}
+#mnews .list-news{list-style-type:none;margin:0px;padding:0px;text-align:justify}
+#mnews .list-news a{display:block;color:#000;padding:5px;}
+#mlistbanner{width:300px;margin:5px;margin-right:0px;}

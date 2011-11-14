@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home page</title>
+    <!--<script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>-->
+    <script src="Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.preload-min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.bxSlider.min.js" type="text/javascript"></script>
+    <link href="Styles/base.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/home.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        
+        function genr(len, charSet) {
+            charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var rs = '';
+            for (var i = 0; i < len; i++) {
+                var randomPoz = Math.floor(Math.random() * charSet.length);
+                rs += charSet.substring(randomPoz, randomPoz + 1);
+            }
+            return rs;
+        }
+        $(document).ready(function () {
+            $('#very').text(genr(4));
+            $('#very').css('background-position', 'left ' + Math.random() * 500 + 'px');
+            $('.list-news li:even').css('background-color', '#ddfcd8');
+            $('#msinfo').hide();
+            $('#very').focus(function () {
+                $('#msvery').focus();
+                $('#msvery').select();
+            });
+            $('#very').select(function () {
+                $('#msvery').focus();
+                $('#msvery').select();
+            });
+            $('#very').click(function () {
+                $('#msvery').focus();
+                $('#msvery').select();
+            });
+            $('#slidercontent').bxSlider({
+                auto: true,
+                pager: true,
+                pause:000,
+                speed:5000
+            });
+            $('#mscontent').val('Hãy đóng góp ý kiến của bạn cho chúng tôi...!');
+            $('#mscontent').focus(function () {
+                if ($('#mscontent').val() == '' || $('#mscontent').val() == 'Hãy đóng góp ý kiến của bạn cho chúng tôi...!') {
+                    $('#mstext').animate({ width: '70%' }, 200, function () {
+                        $('#msinfo').css('width', '28%');
+                        $('#msinfo').fadeIn(200);
+                        $('#mscontent').val('');
+                    });
+                }
+            });
+            $('#mscontent').blur(function () {
+                if ($('#mscontent').val() == '' || $('#mscontent').val() == 'Hãy đóng góp ý kiến của bạn cho chúng tôi...!') {
+                    $('#msinfo').fadeOut(200, function () {
+                        $('#msinfo').width(0);
+                        $('#mstext').animate({ width: '100%' }, 200, function () {
+                            $('#mscontent').val('Hãy đóng góp ý kiến của bạn cho chúng tôi...!');
+                        });
+                    });
+                }
+            });
+            $('#mspost').click(function () {
+                if ($('#very').text() != $('#msvery').val()) {
+                    alert('Hãy nhập chính xác mã xác nhận !');
+                    $('#very').text(genr(4));
+                    $('#very').css('background-position', 'left ' + Math.random() * 500 + 'px');
+                    $('#msvery').focus();
+                    $('#msvery').select();
+                    return false;
+                }
+            });
+            var list = $('#mslide ul li');
+            $('#mslide ul').width(list.length * 186 + 5);
+            var i = 0;
+            $("img").preload({ onFinish: sl });
+            function ckl() {
+                t = 0;
+                $('#mslide ul li').each(function () {
+                    t += $(this).width();
+                });
+                if (t > ($('#mslide').width() * 3 / 4)) { return true; }
+                return false;
+            }
+            function sl() {
+                if (ckl()) {
+                    $(list[i]).delay(2000).animate({ width: '0px' }, 2000, function () {
+                        i++;
+                        sl();
+                    });
+                    if (i == list.length) { i--; rl(); }
+                } else { i--; rl(); }
+            }
+            function rl() {
+
+                $(list[i]).animate({ width: '186px' }, 50, function () {
+                    i--;
+                    rl();
+                });
+                if (i == 0) { sl(); }
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div class='warp'>
+        <div id='mhead'>
+            <img alt='logo MON Corp' id='logo' src="images/logo-MON.300x120.png" />
+            <div id='hpages'>
+                <a class='pactive' href='#' title='Khách hàng cá nhân'>Khách hàng cá nhân</a> <a
+                    href='#' title='Khách hàng doanh nghiệp'>Khách hàng doanh nghiệp</a>
+                <div id='hsearch'>
+                    <form name="search" id="search" action="/search.html" method="get">
+                    <input type="text" name="query" value="" class="field" id="search_keywords">
+                    <input type="submit" value="" id="iconsubmit">
+                    </form>
+                </div>
+                
+            </div><ul id='hmenu'>
+                    <li><a href='#Trang chủ' title='Trang chủ'>Trang chủ</a></li>
+                    <li><a href='#Giới thiệu' title='Giới thiệu'>Giới thiệu</a></li>
+                    <li><a href='#Tin tức' title='Tin tức'>Tin tức</a></li>
+                    <li><a href='#Sản phẩm và dịch vụ' title='Sản phẩm và dịch vụ'>Sản phẩm và dịch vụ</a></li>
+                    <li><a href='#Đối tác' title='Đối tác'>Đối tác</a></li>
+                    <li><a href='#Hướng dẫn' title='Hướng dẫn'>Hướng dẫn</a></li>
+                    <li><a href='#Tuyển dụng' title='Tuyển dụng'>Tuyển dụng</a></li>
+                </ul>
+        </div>
+        <div id='mleft'>
+            <div id='mslider'>
+                <div id='slidercontent'>
+                    <div>
+                        Slide one content</div>
+                    <div>
+                        Slide two content</div>
+                    <div>
+                        Slide three content</div>
+                    <div>
+                        And so on...</div>
+                </div>
+            </div>
+            <div id='mslide'>
+                    <ul>
+                        <li><a href='#' title='aaaa'><center>
+                            <img src='http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                            <center><img src='http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                          <center>  <img src='http://farm1.static.flickr.com/50/117346182_1fded507fa_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                        <li><a href='#' title='aaaa'>
+                           <center> <img src='http://farm4.static.flickr.com/3624/3323893148_8318838fbd_t.jpg' alt='aaaa'  /><p>Tiêu Đề</p></center></a>
+                        </li>
+                    </ul>
+            </div>
+            <div id='mlistitem'>
+                <table id='list-item'>
+                    <tr>
+                        <th>
+                            Tiêu đề nhóm 1
+                        </th>
+                        <th>
+                            Tiều đề nhóm 2
+                        </th>
+                        <th>
+                            Tiêu đề nhóm 3
+                        </th>
+                    </tr>
+                    <tr>
+                        <td valign="top"><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a>
+                        </td>
+                        <td valign="top">
+                            <a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a>
+                        </td>
+                        <td valign="top">
+                            <a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a><a href='#' target='_blank'>Tiêu đề bài viết</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id='msupport'>
+                <div id='mstext'>
+                    <textarea id="mscontent" cols="20" rows="10"></textarea>
+                </div>
+                <div id='msinfo'>
+                    <input id="msemail" value='Nhập Email' type="text" />
+                    <input id="mstel" type="text" value='Nhập số điện thoại' />
+                    <p id='very'>ABjs</p>
+                    <input id="msvery" type="text" value='Nhập mã xác nhận' />
+                    <input id="mspost" type="submit" value="Gửi" />
+                </div>
+            </div>
+        </div>
+        <div id='mright'>
+            <div id='mlog'>
+                <table>
+                    <tr>
+                        <td>Xin chào: <span id='username'>Guest</span>
+                        </td>
+                        <td><a href='#'>Đăng ký</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href='#'>Đăng nhập</a>
+                        </td>
+                        <td><a href='#'>Quên mật khẩu</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id='mnews'><span>Tin tức</span>
+                <ol class="list-news ">
+                    <li><a title="Đêm nhạc WESTLIFE GRAVITY TOUR VIETNAM, duy nhất tại Sân vận động Mỹ Đình, Hà Nội ngày 01/10/2011."
+                        href="#tin-tuc/tin-khuyen-mai/tang-100-cap-ve-xem-ban-nhac-westlife-cung-imuzik.html">
+                        Tặng 100 cặp vé xem ban nhạc Westlife cùng Imuzik</a> </li>
+                    <li><a title="Chỉ 500.000đ phí lắp đặt đường truyền FTTH, được giảm giá mua Set Top Box HD trị giá 1.200.000đ xuống còn 700.000đ." href="/tin-tuc/tin-tuc/ftth-tv-dung-internet-va-nettv-bang-duong-truyen-cap-quang.html">
+                        FTTH TV - Dùng Internet và NetTV bằng đường truyền cáp quang</a> </li>
+                    <li><a title="Ngoài số tiền khuyến mại, khách hàng còn được cộng 500Mb/1 tháng vào tài khoản lưu lượng trong vòng 6 tháng, kể từ tháng liền kề tháng hòa mạng."
+                        href="#tin-tuc/tin-khuyen-mai/khuyen-mai-cho-thue-bao-d-com-3g-tra-truoc-hoa-mang-moi.html">
+                        Khuyến mại cho thuê bao D-com 3G trả trước hòa mạng mới</a> </li>
+                    <li><a title="1 giải nhất (Điện thoại HTC HD7), 02 giải nhì ( điện thoại Zik 8402) và 10 thẻ cào mệnh giá 500.000đ (Giải Ba)"
+                        href="#tin-tuc/tin-khuyen-mai/danh-sach-khach-hang-trung-thuong-may-man-cung-mms.html">
+                        Danh sách khách hàng trúng thưởng “May mắn cùng MMS”</a> </li>
+                    <li><a title="Chương trình được áp dụng đối với tất cả các loại thẻ nạp, không phân biệt mệnh giá thẻ nạp" href="/tin-tuc/tin-khuyen-mai/tang-50-the-nap-cho-thue-bao-tra-truoc-dang-hoat-dong.html">Tặng 50% thẻ
+                        nạp cho thuê bao trả trước đang hoạt động</a> </li>
+                    <li><a title="Khách hàng chỉ mất duy nhất phí nhắn tin mà không mất tiền mua sản phẩm mình đoán giá."
+                        href="#tin-tuc/tin-khuyen-mai/ket-qua-phien-dau-gia-nguoc-tuan-1-ngay-6-9-2011.html">
+                        Kết quả phiên đấu giá ngược - tuần 1 ngày 6/9/2011</a> </li>
+                </ol>
+            </div>
+            <div id='mlistbanner'>
+            <a href='#' title='banner quang cao'><img src='http://www.vietteltelecom.vn/uploads/4e03f71d1e3a9/2011/05/30/Centrex%20(280x274).jpg' alt='aaa' /></a>
+            </div>
+        </div>
+    </div>
+    <div id='footer'>
+        <div class='warp'>
+            <ul id="fmenu">
+                <li><a href="home.htm" title="Trang Chủ">Trang Chủ |</a></li>
+                <li><a href="#" title="Giới Thiệu">Giới Thiệu |</a></li>
+                <li><a href="#" title="Điều Kiện Sử Dụng">Điều Kiện Sử Dụng |</a></li>
+                <li><a href="#" title="Site Map">Site Map</a></li>
+            </ul>
+            <p id='finfo'>
+                © Copyright 2011 - MON Corp<br />
+                <strong>Cơ Quan Chủ Quản :</strong> Công Ty Cổ Phần Kinh Doanh Mạng Lưới Trực Tuyến<br />
+                Giấy phép số: 144/GP-BC do Bộ Thông tin - Truyền thông cấp ngày 18/04/2007<br />
+                Powered by: Nam's Group
+            </p>
+        </div>
+    </div>
+</body>
+</html>
