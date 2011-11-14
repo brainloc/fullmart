@@ -1,0 +1,14 @@
+﻿*, html{overflow:hidden;}
+body{background-color:#266acf;}
+#warp{width:1600px;margin:0px auto;}
+#Div1{background:#266acf url(images/bluesky.jpg) center -75px no-repeat;height:1000px;width:1600px;margin-top:700px;}
+#Div2{background:transparent url(images/grass.jpg) center top no-repeat;height:145px;width:1600px;position:absolute;bottom:-145px;}
+#Div3{background:transparent url(images/tree.png) 20% bottom no-repeat; background-size:10px; height:569px;width:1600px;position:absolute;bottom:-17px;display:none;}
+#Div4{margin-left:22%;top:70px;}
+#Div5{margin-left:25%;top:60px}
+#Div6{margin-left:33%;top:40px}
+#Div7{margin-left:21%;top:26px}
+#Div8{margin-left:27%;top:12px}
+#Div9{margin-left:30%;}
+.rl{background:transparent url(images/apple0.png) left center no-repeat;background-size:0px;padding-left:60px;height:70px; width:0px;position:relative;display:none;}
+.rl p{font-size:25px; height:70px; width:450px; overflow:hidden;text-align:justify;color:#fff}
