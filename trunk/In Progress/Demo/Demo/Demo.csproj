@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKEditor.NET, Version=3.6.2.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CKEditor.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -48,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CKEditor.aspx" />
+    <Content Include="CKEditorNet.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\CHANGES.html" />
     <Content Include="ckeditor\ckeditor.asp" />
@@ -835,6 +840,19 @@
     </Compile>
     <Compile Include="CKEditor.aspx.designer.cs">
       <DependentUpon>CKEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CKEditor.Net.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CKEditor.Net.designer.cs">
+      <DependentUpon>CKEditor.Net.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CKEditorNet.aspx.cs">
+      <DependentUpon>CKEditorNet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CKEditorNet.aspx.designer.cs">
+      <DependentUpon>CKEditorNet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comment.aspx.cs">
       <DependentUpon>Comment.aspx</DependentUpon>
