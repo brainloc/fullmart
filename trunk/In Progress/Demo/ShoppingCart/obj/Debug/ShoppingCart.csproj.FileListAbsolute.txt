@@ -1,0 +1,5 @@
+E:\Nam\FullMart\In Progress\Demo\ShoppingCart\ShoppingCart\bin\ShoppingCart.dll
+E:\Nam\FullMart\In Progress\Demo\ShoppingCart\ShoppingCart\bin\ShoppingCart.pdb
+E:\Nam\FullMart\In Progress\Demo\ShoppingCart\ShoppingCart\obj\Debug\ResolveAssemblyReference.cache
+E:\Nam\FullMart\In Progress\Demo\ShoppingCart\ShoppingCart\obj\Debug\ShoppingCart.dll
+E:\Nam\FullMart\In Progress\Demo\ShoppingCart\ShoppingCart\obj\Debug\ShoppingCart.pdb
