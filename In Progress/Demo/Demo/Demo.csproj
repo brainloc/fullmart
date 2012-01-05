@@ -677,6 +677,7 @@
     <Content Include="ckeditor\_source\skins\v2\toolbar.css" />
     <Content Include="ckeditor\_source\themes\default\theme.js" />
     <Content Include="Comment.aspx" />
+    <Content Include="PartialPostback.aspx" />
     <Content Include="RepeaterVerticalMenu.aspx" />
     <Content Include="css\border-radius.htc" />
     <Content Include="css\fix.css" />
@@ -812,7 +813,9 @@
     <Content Include="script\vni-vari.js" />
     <Content Include="script\vniScript.js" />
     <Content Include="VerticalMenu.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -860,6 +863,13 @@
     </Compile>
     <Compile Include="Comment.aspx.designer.cs">
       <DependentUpon>Comment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PartialPostback.aspx.cs">
+      <DependentUpon>PartialPostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PartialPostback.aspx.designer.cs">
+      <DependentUpon>PartialPostback.aspx</DependentUpon>
     </Compile>
     <Compile Include="RepeaterVerticalMenu.aspx.cs">
       <DependentUpon>RepeaterVerticalMenu.aspx</DependentUpon>
