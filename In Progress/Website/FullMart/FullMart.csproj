@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{797753FB-13DB-4B28-BF12-BA816CE01345}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FullMart</RootNamespace>
+    <AssemblyName>FullMart</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="media\adv\adv1.jpg" />
+    <Content Include="media\adv\adv2.jpg" />
+    <Content Include="media\adv\adv3.gif" />
+    <Content Include="media\adv\adv4.gif" />
+    <Content Include="media\adv\adv5.gif" />
+    <Content Include="media\adv\adv6.gif" />
+    <Content Include="media\adv\adv7.png" />
+    <Content Include="media\upload\product1.jpg" />
+    <Content Include="media\upload\product10.jpg" />
+    <Content Include="media\upload\product11.jpg" />
+    <Content Include="media\upload\product12.jpg" />
+    <Content Include="media\upload\product13.jpg" />
+    <Content Include="media\upload\product14.jpg" />
+    <Content Include="media\upload\product15.jpg" />
+    <Content Include="media\upload\product2.jpg" />
+    <Content Include="media\upload\product3.jpg" />
+    <Content Include="media\upload\product4.jpg" />
+    <Content Include="media\upload\product5.jpg" />
+    <Content Include="media\upload\product6.jpg" />
+    <Content Include="media\upload\product7.jpg" />
+    <Content Include="media\upload\product8.jpg" />
+    <Content Include="media\upload\product9.jpg" />
+    <Content Include="Register.aspx" />
+    <Content Include="themes\images\Aarrow.png" />
+    <Content Include="themes\images\asc.gif" />
+    <Content Include="themes\images\bg.gif" />
+    <Content Include="themes\images\bga.png" />
+    <Content Include="themes\images\bgApages.png" />
+    <Content Include="themes\images\bggcats.png" />
+    <Content Include="themes\images\bgmcat.png" />
+    <Content Include="themes\images\bgtlistcat.png" />
+    <Content Include="themes\images\bgtopbar.png" />
+    <Content Include="themes\images\bgtopmenu.png" />
+    <Content Include="themes\images\bgwt.png" />
+    <Content Include="themes\images\bgwt1.png" />
+    <Content Include="themes\images\bgwt2.png" />
+    <Content Include="themes\images\btn_left.gif" />
+    <Content Include="themes\images\btn_right.gif" />
+    <Content Include="themes\images\checkbox.gif" />
+    <Content Include="themes\images\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="themes\images\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="themes\images\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="themes\images\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="themes\images\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="themes\images\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="themes\images\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="themes\images\desc.gif" />
+    <Content Include="themes\images\first.png" />
+    <Content Include="themes\images\goc-phai.png" />
+    <Content Include="themes\images\hotnews.png" />
+    <Content Include="themes\images\ico.png" />
+    <Content Include="themes\images\input\input_left-focus.gif" />
+    <Content Include="themes\images\input\input_left-hover.gif" />
+    <Content Include="themes\images\input\input_left.gif" />
+    <Content Include="themes\images\input\input_right-focus.gif" />
+    <Content Include="themes\images\input\input_right-hover.gif" />
+    <Content Include="themes\images\input\input_right.gif" />
+    <Content Include="themes\images\input\input_text_left.gif" />
+    <Content Include="themes\images\input\input_text_right.gif" />
+    <Content Include="themes\images\larrow.png" />
+    <Content Include="themes\images\last.png" />
+    <Content Include="themes\images\leftadv.jpg" />
+    <Content Include="themes\images\login.png" />
+    <Content Include="themes\images\logo.png" />
+    <Content Include="themes\images\narrow.png" />
+    <Content Include="themes\images\newadv.png" />
+    <Content Include="themes\images\next.png" />
+    <Content Include="themes\images\postAD.png" />
+    <Content Include="themes\images\pre.png" />
+    <Content Include="themes\images\product-bottom.png" />
+    <Content Include="themes\images\Q_A.png" />
+    <Content Include="themes\images\radio.gif" />
+    <Content Include="themes\images\rightadv.jpg" />
+    <Content Include="themes\images\rmaincat.png" />
+    <Content Include="themes\images\search.png" />
+    <Content Include="themes\images\select_left.gif" />
+    <Content Include="themes\images\select_right.gif" />
+    <Content Include="themes\images\signup-your-shop.png" />
+    <Content Include="themes\images\slide1.jpg" />
+    <Content Include="themes\images\slide2.jpg" />
+    <Content Include="themes\images\slide3.jpg" />
+    <Content Include="themes\images\slide4.jpg" />
+    <Content Include="themes\images\tblr.png" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bl-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bl-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bl.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bm-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bm-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-bm.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-br-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-br-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-br.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-ml-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-ml-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-ml.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mm-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mm-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mm.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mr-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mr-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-mr.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tl-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tl-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tl.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tm-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tm-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tm.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tr-focus.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tr-hover.gif" />
+    <Content Include="themes\images\textarea\notneeded\textarea-tr.gif" />
+    <Content Include="themes\images\textarea\textarea-mm-focus.gif" />
+    <Content Include="themes\images\textarea\textarea-mm-hover.gif" />
+    <Content Include="themes\images\textarea\textarea-mm.gif" />
+    <Content Include="themes\images\textarea\textarea_bl.gif" />
+    <Content Include="themes\images\textarea\textarea_bm.gif" />
+    <Content Include="themes\images\textarea\textarea_br.gif" />
+    <Content Include="themes\images\textarea\textarea_ml.gif" />
+    <Content Include="themes\images\textarea\textarea_mr.gif" />
+    <Content Include="themes\images\textarea\textarea_tl.gif" />
+    <Content Include="themes\images\textarea\textarea_tm.gif" />
+    <Content Include="themes\images\textarea\textarea_tr.gif" />
+    <Content Include="themes\images\topbg.jpg" />
+    <Content Include="themes\images\topmactive.png" />
+    <Content Include="themes\images\topmactive1.png" />
+    <Content Include="themes\images\verybg.gif" />
+    <Content Include="themes\images\x.png" />
+    <Content Include="themes\script\dropbox.js" />
+    <Content Include="themes\script\jquery-1.4.1.min.js" />
+    <Content Include="themes\script\jquery-1.7.js" />
+    <Content Include="themes\script\jquery-1.7.min.js" />
+    <Content Include="themes\script\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="themes\script\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="themes\script\jquery.bxSlider.min.js" />
+    <Content Include="themes\script\jquery.jqtransform.js" />
+    <Content Include="themes\script\jquery.simplemodal.js" />
+    <Content Include="themes\script\jquery.tablesorter.js" />
+    <Content Include="themes\script\jquery.tablesorter.min.js" />
+    <Content Include="themes\script\jquery.tablesorter.pager.js" />
+    <Content Include="themes\script\jquery.validationEngine-en.js" />
+    <Content Include="themes\script\jquery.validationEngine.js" />
+    <Content Include="themes\script\main.js" />
+    <Content Include="themes\script\register.js" />
+    <Content Include="themes\style\border-radius.htc" />
+    <Content Include="themes\style\comment.css" />
+    <Content Include="themes\style\dialog.css" />
+    <Content Include="themes\style\fixie.css" />
+    <Content Include="themes\style\fixie7.css" />
+    <Content Include="themes\style\fixie8.css" />
+    <Content Include="themes\style\home.css" />
+    <Content Include="themes\style\jqtransform.css" />
+    <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
+    <Content Include="themes\style\main.css" />
+    <Content Include="themes\style\PIE.htc" />
+    <Content Include="themes\style\register.css" />
+    <Content Include="themes\style\tablesorter.css" />
+    <Content Include="themes\style\validationEngine.jquery.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
+      <DependentUpon>AjaxUltilities.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DAO\Base.cs" />
+    <Compile Include="Code\DAO\UserManagement.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Code\Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Code\Business\AjaxUltilities.ashx" />
+    <None Include="themes\images\shoutbox.psd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1318</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
