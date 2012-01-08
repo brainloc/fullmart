@@ -20,7 +20,7 @@ namespace FullMart.Code.Business
             {
                 case "CreateUser":
                     {
-                        context.Response.ContentType = "text/plain";
+                        context.Response.ContentType = "application/html";
                         var fname = context.Request.Form["ufname"] != null ? context.Request.Form["ufname"].Trim().Replace("'", "''") : string.Empty;
                         var lname = context.Request.Form["ulname"] != null ? context.Request.Form["ulname"].Trim().Replace("'", "''") : string.Empty;
                         var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
@@ -32,7 +32,15 @@ namespace FullMart.Code.Business
                         int? roleID = 3;
 
                         //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        UserManagement.CreateUser(fname, lname, ema, pas, DateTime.Parse(bday), state, CU, cls, roleID);
+                        bool isUserCreated = UserManagement.CreateUser(fname, lname, ema, pas, DateTime.Parse(bday), state, CU, cls, roleID);
+                        if (isUserCreated == true)
+                        {
+                            context.Response.Write("alert(\"Đã tạo user thành công!\");");
+                        }
+                        else
+                        {
+                            context.Response.Write("alert(\"Có lỗi trong quá trình xử lý!\");");
+                        }
                         break;
                     }
                 case "CheckUser":
