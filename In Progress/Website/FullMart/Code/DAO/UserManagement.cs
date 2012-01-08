@@ -25,13 +25,17 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@CU", CU));
                 command.Parameters.Add(new SqlParameter("@class", Class));
                 command.Parameters.Add(new SqlParameter("@roleID", roleID));
+
+                SqlParameter isCreated = new SqlParameter("@isCreated", DbType.Int32);
+                isCreated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isCreated);
+
                 try
                 {
                     connection.Open();
-                    int tp = command.ExecuteNonQuery();
-                    //int isCreated = Convert.ToInt32(command.Parameters[0].ToString());
-                    connection.Close();
-                    return tp == 1;
+                    command.ExecuteNonQuery();
+                    int isUserCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    return isUserCreated == 1;
                 }
                 catch (Exception ex)
                 {
