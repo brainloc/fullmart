@@ -6,9 +6,10 @@
 button.agree{margin:-18px auto auto 180px !important}
 
 /* register form*/
-.freg{width:650px;padding:10px auto;background:#fff url(../images/bga.png)}
-.freg table{padding:10px auto;}
+.freg{width:700px;padding:10px;background:#fff url(../images/bga.png); border:1px solid #acacac;}
+.freg table{padding:10px auto;width:525px; margin:20px 85px}
 .freg table tr{margin:10px 0px; padding:10px 0px;clear:both}
 .freg table td{width:200px;padding-left:15px}
 .freg table td+td{width:300px;padding-left:0px}
-#very{float:left;background:#a51e1b url(/images/verybg.gif);color:#A51E1B;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;font-family:Arial Black;text-align:center;width:120px;margin:0px auto}
+.jqTransformInputWrapper,.jqTransformSelectWrapper,.jqTransformSelectWrapper ul{width:100% !important}
+.very{float:left;background:#a51e1b url(../images/verybg.gif);color:#A51E1B;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;font-family:Arial Black;text-align:center;width:120px;margin:0px auto}

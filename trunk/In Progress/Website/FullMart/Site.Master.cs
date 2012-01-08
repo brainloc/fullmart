@@ -21,7 +21,7 @@ namespace FullMart
         {
             using (SqlConnection connection = Base.GetConnection())
             {
-                string sqlStatement = string.Format("SELECT [ID],[Name] FROM [FullMart].[dbo].[SubCategory] WHERE [CategoryID] = {0}",CatID);
+                string sqlStatement = string.Format("SELECT [ID],[Name] FROM [FullMart].[dbo].[SubCategory] WHERE [CategoryID] = {0}", CatID);
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
                 SqlDataAdapter dataAdap = new SqlDataAdapter(command);

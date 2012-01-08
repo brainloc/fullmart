@@ -1617,7 +1617,7 @@
 	$.validationEngine= {defaults:{
 
         // Name of the event triggering field validation
-        validationEventTrigger: "blur",
+        validationEventTrigger: "",
         // Automatically scroll viewport to the first error
         scroll: true,
 		// Focus on the first input
@@ -1665,9 +1665,9 @@
 		onSuccess: false,
 		onFailure: false,
 		// Auto-hide prompt
-		autoHidePrompt: false,
+		autoHidePrompt: true,
 		// Delay before auto-hide
-		autoHideDelay: 10000
+		autoHideDelay: 5000
     }};
 	$(function(){$.validationEngine.defaults.promptPosition = methods.isRTL()?'topLeft':"topRight"});
 })(jQuery);

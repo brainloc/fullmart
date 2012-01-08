@@ -10,7 +10,7 @@
 namespace FullMart {
     
     
-    public partial class Register {
+    public partial class test {
         
         /// <summary>
         /// form1 control.

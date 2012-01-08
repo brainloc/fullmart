@@ -89,8 +89,9 @@
                     "alertText": "* Invalid floating decimal number"
                 },
                 "date": {
-                    "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
-                    "alertText": "* Invalid date, must be in YYYY-MM-DD format"
+                    "regex": /^(0[1-9]|[12][0-9]|3[01])[\- \/.](0[1-9]|1[012])[\- \/.](19|20)[0-9]{2}$/,
+                    //"regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
+                    "alertText": "* Invalid date, must be in DD/MM/YYYY format and in 1900-2099"
                 },
                 "ipv4": {
                     "regex": /^((([01]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))[.]){3}(([0-1]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))$/,
@@ -163,9 +164,27 @@
                     "alertText3": "mm/dd/yyyy hh:mm:ss AM|PM or ",
                     "alertText4": "yyyy-mm-dd hh:mm:ss AM|PM"
                 },
+                "passl": {
+                    "regex": /^(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$/,
+                    "alertText": "* Password must consists of 6 or more characters and contain lower case letter and digit."
+                },
                 "cfpass": {
-                //confirm pass
-                    "alertText":"* Invalid password confirm"
+                    //confirm pass
+                    "alertText": "* Invalid password confirm"
+                },
+                "ckcap": {
+                    //confirm pass
+                    "alertText": "* Invalid captcha"
+                },
+                "cfemail": {
+                    //confirm pass
+                    "alertText": "* Invalid email confirm"
+                },
+                "cfmail": {
+                     // error
+                    "alertText": "* This email is already taken",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
                 }
             };
 
