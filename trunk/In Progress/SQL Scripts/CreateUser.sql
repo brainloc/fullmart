@@ -19,38 +19,28 @@ GO
 -- Description:	NO
 -- =============================================
 CREATE PROCEDURE [dbo].[CreateUser] 
-	@username		NVARCHAR(20),
-	@password		NVARCHAR(100),
-	@email			NVARCHAR(70),
-	@yahooID		NVARCHAR(20),
-	@mobile			NVARCHAR(15),
-	@roleID			INT = 3
+	@fname		NVARCHAR(50),
+	@lname		NVARCHAR(50),
+	@email		NVARCHAR(50),
+	@pass		NVARCHAR(20),
+	@bday		datetime,
+	@state		NVARCHAR(100),
+	@CU			NVARCHAR(100),
+	@class		VARCHAR(10),
+	@roleID		INT
 AS
 BEGIN
 	
 	SET NOCOUNT ON;
 	
-	IF EXISTS(SELECT * FROM [FullMart].[dbo].[User] WHERE [Username] = @username)
+	IF EXISTS(SELECT * FROM [FullMart].[dbo].[User] WHERE [email] = @email)
 		RETURN 0
 	ELSE
 	BEGIN	
 		INSERT INTO [FullMart].[dbo].[User]
-			   ([Username]
-			   ,[Password]
-			   ,[RoleID]
-			   ,[Email]
-			   ,[Yahoo]
-			   ,[Mobile]
-			   ,[CreatedDate])
+			   ([fname],[lname],[email],[pass],[bday],[state],[CU],[class],[createdate],[roleID])
 		 VALUES
-			   (@username
-			   ,@password
-			   ,@roleID
-			   ,@email
-			   ,@yahooID
-			   ,@mobile
-			   ,GETUTCDATE()
-			   )
+			   (@fname,@lname,@email,@pass,@bday,@state,@CU,@class,GETUTCDATE(),@roleID)
 		RETURN 1
 	END
 END
