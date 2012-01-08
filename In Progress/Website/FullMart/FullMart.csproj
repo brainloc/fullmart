@@ -47,6 +47,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Code\Business\test.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
@@ -71,6 +72,8 @@
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
     <Content Include="Register.aspx" />
+    <Content Include="RegisterN.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="themes\images\Aarrow.png" />
     <Content Include="themes\images\asc.gif" />
     <Content Include="themes\images\bg.gif" />
@@ -119,6 +122,7 @@
     <Content Include="themes\images\leftadv.jpg" />
     <Content Include="themes\images\login.png" />
     <Content Include="themes\images\logo.png" />
+    <Content Include="themes\images\logout.png" />
     <Content Include="themes\images\narrow.png" />
     <Content Include="themes\images\newadv.png" />
     <Content Include="themes\images\next.png" />
@@ -176,6 +180,10 @@
     <Content Include="themes\images\textarea\textarea_tl.gif" />
     <Content Include="themes\images\textarea\textarea_tm.gif" />
     <Content Include="themes\images\textarea\textarea_tr.gif" />
+    <Content Include="themes\images\title_b.png" />
+    <Content Include="themes\images\title_l.png" />
+    <Content Include="themes\images\title_out.png" />
+    <Content Include="themes\images\title_r.png" />
     <Content Include="themes\images\topbg.jpg" />
     <Content Include="themes\images\topmactive.png" />
     <Content Include="themes\images\topmactive1.png" />
@@ -223,6 +231,13 @@
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Code\Business\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\Business\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\DAO\Base.cs" />
     <Compile Include="Code\DAO\UserManagement.cs" />
     <Compile Include="Default.aspx.cs">
@@ -240,12 +255,33 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegisterN.aspx.cs">
+      <DependentUpon>RegisterN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterN.aspx.designer.cs">
+      <DependentUpon>RegisterN.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -257,7 +293,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Code\Business\AjaxUltilities.ashx" />
-    <None Include="themes\images\shoutbox.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site1.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
