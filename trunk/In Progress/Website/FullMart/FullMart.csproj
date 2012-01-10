@@ -219,6 +219,7 @@
     <Content Include="themes\style\register.css" />
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
+    <Content Include="UpProduct.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpProduct.aspx.cs">
+      <DependentUpon>UpProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpProduct.aspx.designer.cs">
+      <DependentUpon>UpProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

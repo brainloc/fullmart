@@ -1315,22 +1315,6 @@
                             </tr>
                             <tr>
                                 <td>
-                                    First Name<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required]" type="text" name="sfname" id="sfname" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Last Name<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required]" type="text" name="slname" id="slname" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     Email<span style="color: red">*</span>
                                 </td>
                                 <td>
@@ -1357,24 +1341,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Password<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,custom[passl]]" type="password" name="spass" id="spass" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Confirm Password<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,funcCall[cksmk]]" type="password" name="sconfirm"
-                                        id="sconfirm" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Your State<span style="color: red">*</span>
+                                    Your Shop State<span style="color: red">*</span>
                                 </td>
                                 <td>
                                     <select class="validate[required]" id="fregsstate" name="fregsstate">

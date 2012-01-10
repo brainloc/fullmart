@@ -19,6 +19,12 @@ a{text-decoration:none;}
 /* white background transparent */
 .bgwt{background:transparent url(../images/bgwt.png);background-repeat:repeat;}
 
+
+
+.note{color:Silver;font-size:12px;display:block}
+
+
+
 /* User */
 .us{margin:2px 5px;}
 .un{background:transparent url(../images/ico.png) 0px -68px no-repeat}
