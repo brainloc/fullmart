@@ -1293,11 +1293,13 @@
                 </div>
                 <div class="freg block center b shadow">
                     <div class="ftitle">
-                        <div class="ftitle">
+                        <div class="ftitleout left">1
                         </div>
-                        <div class="ftitle">
+                        <div class="ftitlel left">2
                         </div>
-                        <div class="ftitle">
+                        <div class="ftitlei left">3
+                        </div>
+                        <div class="ftitler left">4
                         </div>
                     </div>
                     <div id="regshop" class="block">
@@ -1439,7 +1441,8 @@
                                     Email<span style="color: red">*</span>
                                 </td>
                                 <td>
-                                    <input class="validate[required,custom[email]]" type="text" name="uemail" id="uemail" />
+                                    <input class="validate[required,custom[email],funcCall[checkmail]]" type="text" name="uemail" id="uemail" />
+                                    <input type=hidden id="tmpa" />
                                 </td>
                             </tr>
                             <tr>
@@ -1526,7 +1529,8 @@
                                 <td>
                                 </td>
                                 <td>
-                                    <input type="submit" onclick="CreateUser()" value="Sign up" />
+                                    <%--<input type="submit" onclick="CreateUser()" value="Sign up" />--%>
+                                    <input type="button" onclick="CreateUser()" value="Sign up" />
                                     <input type="reset" value="Reset" />
                                 </td>
                             </tr>
@@ -1778,10 +1782,21 @@
     </div>
     <script type="text/javascript">
 
-        //        function checkmail(field, rules, i, options) {
-        //            var a = false;
-        //            $.getScript("Code/Business/test.aspx?uemail=" + $("#semail").val() + "&r=" + genr(8));
-        //        }
+        function checkmail(field, rules, i, options) {
+            $.ajax({
+                url: "Code/Business/AjaxUltilities.ashx?r="+genr(6),
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "CheckUser",
+                    uemail:$("#uemail").val(),
+                }
+            });
+            if($("#tmpa").val()==false){
+                return options.allrules.cfmail.alertText;
+            }
+            
+        }
         function CreateShop() {
             $.ajax({
                 url: "Code/Business/AjaxUltilities.ashx?",
