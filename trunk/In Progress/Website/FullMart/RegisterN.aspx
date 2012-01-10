@@ -1292,16 +1292,6 @@
                     </form>
                 </div>
                 <div class="freg block center b shadow">
-                    <div class="ftitle">
-                        <div class="ftitleout left">1
-                        </div>
-                        <div class="ftitlel left">2
-                        </div>
-                        <div class="ftitlei left">3
-                        </div>
-                        <div class="ftitler left">4
-                        </div>
-                    </div>
                     <div id="regshop" class="block">
                         <form id="fregshop" class="formular">
                         <table>
@@ -1311,6 +1301,22 @@
                                 </td>
                                 <td>
                                     <input class="validate[required]" type="text" name="shopname" id="shopname" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First Name<span style="color: red">*</span>
+                                </td>
+                                <td>
+                                    <input class="validate[required]" type="text" name="sfname" id="sfname" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Last Name<span style="color: red">*</span>
+                                </td>
+                                <td>
+                                    <input class="validate[required]" type="text" name="slname" id="slname" />
                                 </td>
                             </tr>
                             <tr>
@@ -1341,7 +1347,24 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Your Shop State<span style="color: red">*</span>
+                                    Password<span style="color: red">*</span>
+                                </td>
+                                <td>
+                                    <input class="validate[required,custom[passl]]" type="password" name="spass" id="spass" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Confirm Password<span style="color: red">*</span>
+                                </td>
+                                <td>
+                                    <input class="validate[required,funcCall[cksmk]]" type="password" name="sconfirm"
+                                        id="sconfirm" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Your State<span style="color: red">*</span>
                                 </td>
                                 <td>
                                     <select class="validate[required]" id="fregsstate" name="fregsstate">
@@ -1408,7 +1431,7 @@
                                     Email<span style="color: red">*</span>
                                 </td>
                                 <td>
-                                    <input class="validate[required,custom[email],funcCall[checkmail]]" type="text" name="uemail" id="uemail" />
+                                    <input class="validate[required,custom[email]]" type="text" name="uemail" id="uemail" />
                                     <input type=hidden id="tmpa" />
                                 </td>
                             </tr>
@@ -1787,7 +1810,6 @@
 
                 if ($("#freguser").validationEngine('validate')) {
                     CreateUser();
-                    showdialog("<Center><strong>Conguration!</strong><br />you Are register successfull<br/><br/><input onclick=\"document.location.href='Default.aspx';\" class='agree' type='button' value='Agree' /></center>", 200, 65, "", false);
                     return false;
                 } else {
                     return false;
@@ -1795,9 +1817,7 @@
             });
             $("#fregshop").find("button").click(function () {
                 if ($("#fregshop").validationEngine('validate')) {
-                    CreateShop();
-                    showdialog("<Center><strong>Conguration!</strong><br />you Are register successfull<br/><input onclick=\"document.location.href='Default.aspx';\" class='agree' type='button' value='Agree' /></center>", 200, 65, "", false);
-                    return false;
+                    CreateShop();return false;
                 } else {
                     return false;
                 }
@@ -1823,3 +1843,5 @@
     </script>
 </body>
 </html>
+
+

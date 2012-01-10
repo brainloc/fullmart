@@ -35,22 +35,23 @@ namespace FullMart.Code.Business
                         bool isUserCreated = UserManagement.CreateUser(fname, lname, ema, pas, DateTime.Parse(bday), state, CU, cls, roleID);
                         if (isUserCreated == true)
                         {
-                            context.Response.Write("alert(\"Đã tạo user thành công!\");");
+                            context.Response.Write("showdialogr(\"<Center><strong>Conguration!</strong><br />you Are register successfull<br/><br/></center>\", 200, 65, \"\", true,\"Default.aspx\");");
                         }
                         else
                         {
-                            context.Response.Write("alert(\"Có lỗi trong quá trình xử lý!\");");
+                            context.Response.Write("showdialog(\"<Center><strong>Error!</strong><br />This User Already Exist !<br/><br/></center>\", 200, 65, \"\", true);");
                         }
                         break;
                     }
                 case "CheckUser":
                     {
-                        context.Response.ContentType = "application/json";
+                        context.Response.ContentType = "application/html";
                         var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
                         
                         //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        bool isAv = UserManagement.CheckUser(ema);
-                        context.Response.Write("{'results':'" + isAv.ToString() +"'}");
+                        if (!UserManagement.CheckUser(ema)) {
+                            context.Response.Write("$('#tmpa').val(false);");
+                        }
                         break;
                     }
                 case "EditUser":
