@@ -23,27 +23,50 @@ function showdialog(content, width, height, viewer,close) {
         $("body").append('<div id="modal"></div>');
         viewer = "#modal";
         $(viewer).html(content);
-    } 
-    $(viewer).modal({
-        opacity: 40,
-        close:close,
-        autoPosition:true,
-        onShow: function (dialog) {
-            $(".bx-pager").hide();
-        },
-        onClose: function (dialog) {
-            dialog.data.fadeOut('slow', function () {
-                dialog.container.slideUp('normal', function () {
-                    dialog.overlay.fadeOut('normal', function () {
-                        $.modal.close(); // must call this!
-                        $(viewer).hide();
-                        $(".bx-pager").show();
-                        
+    }
+    if (close) {
+        $(viewer).modal({
+            opacity: 40,
+            close: true,
+            autoPosition: true,
+            onShow: function (dialog) {
+                $(".bx-pager").hide();
+            },
+            onClose: function (dialog) {
+                dialog.data.fadeOut('slow', function () {
+                    dialog.container.slideUp('normal', function () {
+                        dialog.overlay.fadeOut('normal', function () {
+                            $.modal.close(); // must call this!
+                            $(viewer).hide();
+                            $(".bx-pager").show();
+
+                        });
                     });
                 });
-            });
-        }
-    });
+            }
+        });
+    } else {
+        $(viewer).modal({
+            opacity: 40,
+            close: false,
+            autoPosition: true,
+            onShow: function (dialog) {
+                $(".bx-pager").hide();
+            },
+            onClose: function (dialog) {
+                dialog.data.fadeOut('slow', function () {
+                    dialog.container.slideUp('normal', function () {
+                        dialog.overlay.fadeOut('normal', function () {
+                            $.modal.close(); // must call this!
+                            $(viewer).hide();
+                            $(".bx-pager").show();
+
+                        });
+                    });
+                });
+            }
+        });
+    }
     if (height && width) {
         $("#simplemodal-container").css("height", height+"px");
         $("#simplemodal-container").css("width", width + "px");
@@ -53,4 +76,64 @@ function showdialog(content, width, height, viewer,close) {
         $("#simplemodal-container").css("left", t1);
     }
     viewc=viewer;
+}
+function showdialogr(content, width, height, viewer, close,redirect) {
+
+    if (!viewer) {
+        $("body").append('<div id="modal"></div>');
+        viewer = "#modal";
+        $(viewer).html(content);
+    }
+    if (close) {
+        $(viewer).modal({
+            opacity: 40,
+            close: true,
+            autoPosition: true,
+            onShow: function (dialog) {
+                $(".bx-pager").hide();
+            },
+            onClose: function (dialog) {
+                dialog.data.fadeOut('slow', function () {
+                    dialog.container.slideUp('normal', function () {
+                        dialog.overlay.fadeOut('normal', function () {
+                            $.modal.close(); // must call this!
+                            $(viewer).hide();
+                            $(".bx-pager").delay(800).show();
+                            document.location.href = redirect;
+                        });
+                    });
+                });
+            }
+        });
+    } else {
+    $(viewer).modal({
+        opacity: 40,
+        close: false,
+        autoPosition: true,
+        onShow: function (dialog) {
+            $(".bx-pager").hide();
+        },
+        onClose: function (dialog) {
+            dialog.data.fadeOut('slow', function () {
+                dialog.container.slideUp('normal', function () {
+                    dialog.overlay.fadeOut('normal', function () {
+                        $.modal.close(); // must call this!
+                        $(viewer).hide();
+                        $(".bx-pager").delay(800).show();
+                        document.location.href = redirect;
+                    });
+                });
+            });
+        }
+    });
+    }
+    if (height && width) {
+        $("#simplemodal-container").css("height", height + "px");
+        $("#simplemodal-container").css("width", width + "px");
+        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
+        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
+        $("#simplemodal-container").css("top", t2);
+        $("#simplemodal-container").css("left", t1);
+    }
+    viewc = viewer;
 }

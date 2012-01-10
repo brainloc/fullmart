@@ -43,13 +43,14 @@
                                 <%--UserName--%>
                                 <asp:LoginName ID="LoginName" runat="server" />
                             </div>
-                        </a><a href="#notify" title="User's Notify">
+                        </a>
+                        <%--<a href="#notify" title="User's Notify">
                             <div id="unote" class="us left">
                                 <strong>2</strong></div>
                         </a><a href="#Cart" title="User's Cart">
                             <div id="ucart" class="us left">
                                 <strong>(3) verifing</strong></div>
-                        </a>
+                        </a>--%>
                         <div class="left">
                             <%--<input id="lo" type="submit" value="" />--%>
                             <%--<asp:LoginStatus ID="LoginStatus" runat="server" Visible="false" />--%>
@@ -74,12 +75,13 @@
                                         <%--<input id="sb" type="submit" value="" />--%>
                                         <asp:Button ID="loginButton" runat="server" CommandName="Login" Text="Log In" />    
                                     </div>
+                                    <div class="left">
+                                        <input id="treg" type="submit" value="" /></div>
                                 </LayoutTemplate>
                             </asp:Login>
                             </div>   
                             <asp:LoginStatus ID="loginStatus" runat="server" Visible="false"/>                   
-                        <div class="left">
-                            <input id="treg" type="submit" value="" /></div>
+                        
                         <!-- End Login -->
                     </div>
                 </div>

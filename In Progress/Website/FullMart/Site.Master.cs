@@ -67,7 +67,7 @@ namespace FullMart
             {
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FullMartConnectionString"].ConnectionString))
                 {
-                    string sqlStatement = string.Format("SELECT [ID],[Username],[Password],[RoleID],[Email],[Yahoo],[Mobile],[CreatedDate] FROM [FullMart].[dbo].[User] WHERE [Username] = N'{0}' AND [Password] = N'{1}'", username, password);
+                    string sqlStatement = string.Format("SELECT * FROM [FullMart].[dbo].[User] WHERE [email] = N'{0}' AND [pass] = N'{1}'", username, password);
                     SqlCommand command = new SqlCommand(sqlStatement, connection);
                     SqlDataAdapter dataAdap = new SqlDataAdapter(command);
                     DataTable data = new DataTable();
@@ -78,6 +78,8 @@ namespace FullMart
 
                         if (data != null && data.Rows.Count == 1)
                         {
+                            loginPane.UserNameLabelText = username;
+                            loginPane.Visible = false;
                             return true;
                         }
                         else

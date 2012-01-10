@@ -205,6 +205,7 @@
     <Content Include="themes\script\jquery.validationEngine.js" />
     <Content Include="themes\script\main.js" />
     <Content Include="themes\script\register.js" />
+    <Content Include="themes\script\UpProduct.js" />
     <Content Include="themes\style\border-radius.htc" />
     <Content Include="themes\style\comment.css" />
     <Content Include="themes\style\dialog.css" />
@@ -218,6 +219,7 @@
     <Content Include="themes\style\PIE.htc" />
     <Content Include="themes\style\register.css" />
     <Content Include="themes\style\tablesorter.css" />
+    <Content Include="themes\style\UpProduct.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
     <Content Include="UpProduct.aspx" />
     <Content Include="Web.config">
