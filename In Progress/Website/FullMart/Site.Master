@@ -53,18 +53,18 @@
                         <div class="left">
                             <%--<input id="lo" type="submit" value="" />--%>
                             <%--<asp:LoginStatus ID="LoginStatus" runat="server" Visible="false" />--%>
-                        </div>
+                        
                         <!-- End User Account -->
                         <!-- Begin Login -->                        
                             <asp:Login ID="loginPane" runat="server" OnAuthenticate="loginPane_Authenticate">
                                 <LayoutTemplate>
-                                    <div class="us bgwt left">
+                                    <div class="us bgwt left b">
                                         <div class="un" title="Username">
                                             <%--<input id="us" type="text" />--%>
                                             <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="us bgwt left">
+                                    <div class="us bgwt left b">
                                         <div class="pw" title="Password">
                                             <%--<input id="pw" type="password" />--%>
                                             <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
@@ -75,7 +75,8 @@
                                         <asp:Button ID="loginButton" runat="server" CommandName="Login" Text="Log In" />    
                                     </div>
                                 </LayoutTemplate>
-                            </asp:Login>     
+                            </asp:Login>
+                            </div>   
                             <asp:LoginStatus ID="loginStatus" runat="server" Visible="false"/>                   
                         <div class="left">
                             <input id="treg" type="submit" value="" /></div>
