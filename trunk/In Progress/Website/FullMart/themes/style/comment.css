@@ -1,12 +1,26 @@
-﻿#AQtext{border:1px solid #52b9fb;background-color:White;width:630px;height:150px;margin-top:15px;}
-#mscontent{padding:10px 10px 0px;width:610px;height:100px}
+﻿.listitem{}
+.AQtext{border:1px solid #52b9fb;background-color:White;width:626px;height:150px;margin-top:15px;}
+.txtmscontent{padding:10px 10px 0px;width:606px;height:100px;max-height:100px;max-width:606px;min-height:100px;min-width:606px}
+.msinfo{background:transparent url(../images/bgc.png) center center repeat-x;height:40px;width:100%}
 .Ahead{margin:5px 5px 0px;line-height:17px}
 .Ahead .Ausername a{color:#52b9fb;font-weight:bold;font-size:15px}
 .Aarrow{padding:3px 5px;text-align:right;background:transparent url(../images/Aarrow.png) 10px top no-repeat;color:#5e5e5e}
 .Acontent{padding:5px;margin:0px 2px 5px;border:1px solid #52b9fb;background-color:White;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dbdada');background: -webkit-gradient(linear,left top,left bottom, from(#fff), to(#dbdada));background: -moz-linear-gradient(top,  #fff,  #dbdada);}
-.Acontent a{color:#6f8fa5}
+.Acontent a{color:#425766}
 .Acontent a:hover{color:#3b3a3a}
 .Apages{margin:5px 10px}
 .Apages a{color:Black;background:transparent url(../images/bgApages.png) no-repeat center top;padding:2px 6px 3px}
 .Apages .active{background-position:center center}
 .Apages a:hover{background-position:center bottom}
+.mcomment,.subcomment{list-style:none;}
+.numc{cursor:pointer;float: right;background: transparent url(../images/BGNC.png) center center no-repeat;width: 45px;height: 32px;text-align: center;line-height: 31px;font-weight: bold;color: white;margin-top: -23px;}
+.subcomment{display:none}
+.subcomment li{width: 570px;margin-left: 56px;}
+.subcomment .AQtext{width:570px;height:130px;margin-top:15px;}
+.subcomment .txtmscontent{padding:10px 10px 0px;width:570px;height:80px;max-height:80px;max-width:570px;min-height:80px;min-width:570px}
+.subcomment .msinfo{background:transparent url(../images/bgc.png) center center repeat-x;height:40px;width:100%}
+.very{background:#a51e1b url(../images/verybg.gif);color:#A51E1B;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;font-family:Arial;text-align:center;width:70px;margin:8px 5px}
+.msveryp{color:Black;background:transparent url(../images/bgv.png) no-repeat center center;width: 150px;height: 33px;padding:3px}
+.msvery{padding: 9px 11px;text-align:center;color:Silver}
+.mspost{width:60px;height:31px;margin:5px 10px 3px 0px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.mspost:hover{background-position:center bottom}
