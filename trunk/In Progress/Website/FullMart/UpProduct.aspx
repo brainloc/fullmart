@@ -32,7 +32,23 @@
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/UpProduct.js" type="text/javascript"></script>
     <script type="text/javascript">
-        
+        function CreateProduct() {
+            $.ajax({
+                url: "Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "CreateProduct",
+                    shopname:$("#shopname").val(),
+                    semail:$("#semail").val(),
+                    sfname:$("#sfname").val(),
+                    slname:$("#slname").val(),
+                    spass:$("#spass").val(),
+                    sweb:$("#sweb").val(),
+                    fregsstate:$("#fregsstate").val(),
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -167,7 +183,8 @@
                         <td><asp:Label ID="lbTitle" runat="server" Text="Tiêu đề :"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="tbtitle" runat="server"></asp:TextBox>
+                            <%--<asp:TextBox ID="tbtitle" runat="server"></asp:TextBox>--%>
+                            <input type="text" id="tbtitle" />
                         </td>
                     </tr>
                     <tr>
@@ -184,7 +201,7 @@
                         <td><asp:Label ID="lbPrice" runat="server" Text="Hình sản phẩm :"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="tbPrice" runat="server"></asp:TextBox> <asp:Label ID="Label3" runat="server"
+                            <%--<asp:TextBox ID="tbPrice" runat="server"></asp:TextBox>--%><input type="text" id="tbPrice" /> <asp:Label ID="Label3" runat="server"
                                 Text="VNĐ"></asp:Label>
                         </td>
                     </tr>
@@ -204,7 +221,7 @@
                         </td>
                     </tr>
                     <tr><td>
-                        </td><td><asp:Button ID="CreateProduct" runat="server" Text="Button" /></td></tr>
+                        </td><td><%--<asp:Button ID="CreateProduct" runat="server" Text="Button" />--%><input type="button" value="Create" /></td></tr>
                 </table>
                 </form>
             </div>

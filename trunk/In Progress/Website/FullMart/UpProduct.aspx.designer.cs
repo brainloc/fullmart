@@ -22,15 +22,6 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.Label lbTitle;
         
         /// <summary>
-        /// tbtitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbtitle;
-        
-        /// <summary>
         /// dlCategories control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbPrice;
-        
-        /// <summary>
-        /// tbPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPrice;
         
         /// <summary>
         /// Label3 control.
@@ -110,14 +92,5 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbContent;
-        
-        /// <summary>
-        /// CreateProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateProduct;
     }
 }

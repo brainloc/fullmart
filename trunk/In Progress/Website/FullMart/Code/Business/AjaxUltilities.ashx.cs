@@ -83,6 +83,12 @@ namespace FullMart.Code.Business
                         UserManagement.Login(spass, semail);
                         break;
                     }
+                case "CreateProduct":
+                    {
+                        break;
+                    }
+                default:
+                    break;
             }
         }
 
