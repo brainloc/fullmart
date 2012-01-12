@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FullMarts</title>
+    <link rel="stylesheet" type="text/css" href="themes/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="themes/style/dialog.css" />
+    <link href="themes/style/home.css" rel="stylesheet" type="text/css" />
+    <link href="themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
+    <link href="themes/style/admin.css" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+        <link href="themes/style/fixie1.css" rel="stylesheet" type="text/css" />
+    <![EndIf]-->
+    <!--[if lt IE 9]>
+        <link href="themes/style/fixie8.css" rel="stylesheet" type="text/css" />
+    <![EndIf]-->
+    <!--[if lt IE 8]>
+        <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
+    <![EndIf]-->
+    <script src="themes/script/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="themes/script/dropbox.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.tablesorter.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.tablesorter.pager.js" type="text/javascript"></script>
+
+    <script src="themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
+    <script src="themes/script/main.js" type="text/javascript"></script>
+    <script src="themes/script/admin.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="main" class="center">
+        <div id="header" class="block">
+            <div id="topbar" class="bblr block">
+                <div class="tbl">
+                </div>
+                <div class="tbr">
+                </div>
+                <div class="tbc">
+                    <div class="right clear">
+                    <em class=left>Developing version ! vunam289@gmail.com</em>
+                        <!-- Begin User Account -->
+                        <a href="#Account" title="User's Account control">
+                            <div id="uus" class="us left">
+                                UserName</div>
+                        </a><a href="#notify" title="User's Notify">
+                            <div id="unote" class="us left">
+                                <strong>2</strong></div>
+                        </a><a href="#Cart" title="User's Cart">
+                            <div id="ucart" class="us left">
+                                <strong>(3) verifiing</strong></div>
+                        </a>
+                        <div class="left">
+                            <input id="lo" type="submit" value="" /></div>
+                        <!-- End User Account -->
+                        <!-- Begin Login -->
+                        <div class="us bgwt left">
+                            <div class="un" title="Username">
+                                <input id="us" type="text" /></div>
+                        </div>
+                        <div class="us bgwt left">
+                            <div class="pw" title="Password">
+                                <input id="pw" type="password" /></div>
+                        </div>
+                        <div class="left">
+                            <input id="sb" type="submit" value="" /></div>
+
+                        <!-- End Login -->
+                    </div>
+                </div>
+            </div>
+            <div id="banner" class="clear">
+                <a href="#home" title="Home">
+                    <div id="logo">
+                    </div>
+                </a>
+                <div id="gp">
+                    <img class="right" src="themes/images/goc-phai.png" alt="Buy Sale Share Your Stuffs and Knowlege With Thousands Students in UK" /></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div id="menu">
+                <ul id="topm">
+                    <li class="active"><a href="#" title="aa">Student hot deal</a></li>
+                    <li><a href="#" title="aa">Accommodation</a></li>
+                    <li><a href="#" title="aa">Travel & Plant</a></li>
+                    <li><a href="#" title="aa">Hot Voucher</a></li>
+                    <li><a href="#" title="aa">Entertaiment</a></li>
+                    <li><a href="#" title="aa">Tutorials</a></li>
+                    <li><a href="#" title="aa">Class note</a></li>
+                    <li><a href="#" title="aa">Jobs</a></li>
+                </ul>
+                <div class="block clear">
+                </div>
+                <div id="topsearch" class="block">
+                    <div class="left">
+                        <dl id="slcity" class="dropdown bgwt b">
+                            <dt><a href="#" class="b"><span>Please select the country</span></a><div class="nr"></div></dt>
+                            <dd>
+                                <ul>
+                                    <li><a href="#">Brazil</a></li>
+                                    <li><a href="#">France</a></li>
+                                    <li><a href="#">Germany</a></li>
+                                    <li><a href="#">India</a></li>
+                                    <li><a href="#">Japan</a></li>
+                                    <li><a href="#">Serbia</a></li>
+                                    <li><a href="#">United Kingdom</a></li>
+                                    <li><a href="#">United States</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="left">
+                        <dl id="slcats" class="dropdown bgwt b">
+                            <dt><a href="#" class="b"><span>Please select the category</span></a></dt>
+                            <dd>
+                                <ul>
+                                    <li><a href="#">Brazil</a></li>
+                                    <li><a href="#">France</a></li>
+                                    <li><a href="#">Germany</a></li>
+                                    <li><a href="#">India</a></li>
+                                    <li><a href="#">Japan</a></li>
+                                    <li><a href="#">Serbia</a></li>
+                                    <li><a href="#">United Kingdom</a></li>
+                                    <li><a href="#">United States</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="left tops bgwt b">
+                        <div class=" left">
+                            <div title=Search">
+                                <input id="search" name=search type="text" value="Search me" /></div>
+                        </div>
+                        <div class="left">
+                            <input id="sbsearch" type="submit" value="" /></div>
+                    </div>
+                    <div class="sys left">
+                        <a href="#" title="SignUp your Store"><img src="themes/images/signup-your-shop.png" alt="SignUp your Store" /></a>
+                    </div>
+                    <div class="sys left">
+                        <a href="#" title="Post your Adv"><img src="themes/images/postAD.png" alt="Post your Adv" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block clear">
+                </div>
+        
+        <div id="mcontent" class="block">
+        
+            <div id="cleft" class="left">
+                <div id="Lmenu" class="lb btlr">
+                    <div class="title block btlr"><span>Manager</span></div>
+                    <ul class="lplist">
+                        <li><a class="ap" href="#">General Manager</a>
+                            <div class="lsubcat b">
+                                <ul>
+                                    <li><a href="#" >Term Conditions</a></li>
+                                    <li><a href="#" >State Manager</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="ap" href="#">User Manager</a>
+                        <div class="lsubcat b">
+                            <ul>
+                                <li><a href="#" >Create New User</a></li>
+                                <li><a href="#" >Edit User Information</a></li>
+                                <li><a href="#" >Change User Permistion</a></li>
+                            </ul>
+                        </div>
+                        </li>
+                        <li><a class="ap" href="#">Product Manager</a>
+                        <div class="lsubcat b">
+                            <ul>
+                                <li><a href="#" >Manager Categories</a></li>
+                                <li><a href="#" >Post New Product</a></li>
+                                <li><a href="#" >Select Product On Out Side</a></li>
+                            </ul>
+                        </div>
+                        </li>
+                        <li><a class="ap" href="#">News Manager</a>
+                        <div class="lsubcat b">
+                            <ul>
+                                <li><a href="#" >Create News</a></li>
+                                <li><a href="#" >Edit News</a></li>
+                            </ul>
+                        </div>
+                        </li>
+                        <li><a class="ap" href="#">Answer & Question Manager</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="cmain" class="left b bgwt">
+                <form class="State" id="State">
+                    
+                </form>
+                <form class="TC" id="TC">
+                <div class="block">
+                    <p class="block">
+                        Term Condition for User</p>
+                    <span class="block">English version</span>
+                    <textarea id="Textarea2" class="block" cols="20" rows="2"></textarea>
+                    <span class="block">Vietnamese version</span>
+                    <textarea id="Textarea3" class="block" cols="20" rows="2"></textarea>
+                </div>
+                <div>
+                    <p class="block">
+                        Term Condition for Shop User</p>
+                    <span class="block">English version</span>
+                    <textarea class="block" id="TShopE" cols="20" rows="2"></textarea>
+                    <span class="block">Vietnamese version</span>
+                    <textarea class="block" id="Textarea1" cols="20" rows="2"></textarea>
+                </div>
+                <button>SEND</button>
+                </form>
+            </div>
+            <div id="cright" class="left">
+               
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div id="footer" class="block">
+        <div id="viewnote">
+            <table id="listnote" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Username</th>
+                        <th>Date</th>
+                        <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith10</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith9</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith2</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith5</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith8</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith3</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith1</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith7</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith6</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith4</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith11</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith12</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
+                        <td>Smith9</td>
+                        <td>20/12/2011</td>
+                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                <!--<div id="pager" class="pager">
+                    <form>
+                    <img src="themes/images/first.png" class="first">
+                    <img src="themes/images/pre.png" class="prev">
+                    <input disabled="disabled" type="text" class="pagedisplay">
+                    <img src="themes/images/next.png" class="next">
+                    <img src="themes/images/last.png" class="last">
+                    </form>
+                </div>-->
+                </tfoot>
+            </table>
+        </div>
+            a3</div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#unote").click(function () {
+                showdialog($("#viewnote").html(), 700, 350, "#viewnote");
+                $(".delms").click(function () {
+                    $(this).parents("tr").hide();
+                    return false;
+                });
+                $("#listnote").tablesorter({
+                    headers: {
+                        0: { sorter: false }, 3: { sorter: false }
+                    },
+                    widthFixed: true,
+                    widgets: ['zebra']
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

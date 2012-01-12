@@ -50,6 +50,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.htm" />
+    <Content Include="bin\fullmartThemes.dll" />
+    <Content Include="bin\fullmartThemes.pdb" />
     <Content Include="index.html" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
@@ -75,8 +78,10 @@
     <Content Include="media\upload\product9.jpg" />
     <Content Include="QAA.htm" />
     <Content Include="register.htm" />
+    <Content Include="TC.htm" />
     <Content Include="themes\images\Aarrow.png" />
     <Content Include="themes\images\asc.gif" />
+    <Content Include="themes\images\Bag_Purchase.png" />
     <Content Include="themes\images\bg.gif" />
     <Content Include="themes\images\bga.png" />
     <Content Include="themes\images\bgApages.png" />
@@ -114,6 +119,7 @@
     <Content Include="themes\images\goc-phai.png" />
     <Content Include="themes\images\hotnews.png" />
     <Content Include="themes\images\ico.png" />
+    <Content Include="themes\images\IDblue.png" />
     <Content Include="themes\images\input\input_left-focus.gif" />
     <Content Include="themes\images\input\input_left-hover.gif" />
     <Content Include="themes\images\input\input_left.gif" />
@@ -130,6 +136,7 @@
     <Content Include="themes\images\logout.png" />
     <Content Include="themes\images\narrow.png" />
     <Content Include="themes\images\newadv.png" />
+    <Content Include="themes\images\newsblue.png" />
     <Content Include="themes\images\next.png" />
     <Content Include="themes\images\postAD.png" />
     <Content Include="themes\images\pre.png" />
@@ -149,6 +156,7 @@
     <Content Include="themes\images\slide2.jpg" />
     <Content Include="themes\images\slide3.jpg" />
     <Content Include="themes\images\slide4.jpg" />
+    <Content Include="themes\images\talkblue.png" />
     <Content Include="themes\images\tblr.png" />
     <Content Include="themes\images\textarea\notneeded\textarea-bl-focus.gif" />
     <Content Include="themes\images\textarea\notneeded\textarea-bl-hover.gif" />
@@ -196,7 +204,9 @@
     <Content Include="themes\images\topmactive.png" />
     <Content Include="themes\images\topmactive1.png" />
     <Content Include="themes\images\verybg.gif" />
+    <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
+    <Content Include="themes\script\admin.js" />
     <Content Include="themes\script\AQ.js" />
     <Content Include="themes\script\dropbox.js" />
     <Content Include="themes\script\jquery-1.4.1.min.js" />
@@ -215,6 +225,7 @@
     <Content Include="themes\script\main.js" />
     <Content Include="themes\script\register.js" />
     <Content Include="themes\script\UpProduct.js" />
+    <Content Include="themes\style\admin.css" />
     <Content Include="themes\style\border-radius.htc" />
     <Content Include="themes\style\comment.css" />
     <Content Include="themes\style\dialog.css" />
