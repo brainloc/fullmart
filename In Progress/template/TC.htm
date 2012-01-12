@@ -16,7 +16,7 @@
     <!--[if lt IE 8]>
         <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
-    <script src="themes/script/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
     <script src="themes/script/dropbox.js" type="text/javascript"></script>
     <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
     <script src="themes/script/jquery.tablesorter.js" type="text/javascript"></script>
@@ -191,12 +191,72 @@
                 </div>
             </div>
             <div id="cmain" class="left b bgwt">
-                <form class="State" id="State">
-                    
+                <form class="State block" id="State">
+                <div class="acontent block">
+                    <p class="atitle">
+                        Manager State</p>
+                    <div class="insstate">
+                        <input type="text" value="Press 'Enter' to insert" id="INSState" />
+                        <button class="slobox">
+                        </button>
+                        <div class="clear">
+                        </div>
+                        <ul>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                            <li><span>Sate 1</span>
+                                <button class="delState" title="Delete">
+                            </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 </form>
                 <form class="TC" id="TC">
-                <div class="block">
-                    <p class="block">
+                <div class="acontent block">
+                    <p class="atitle" class="block">
                         Term Condition for User</p>
                     <span class="block">English version</span>
                     <textarea id="Textarea2" class="block" cols="20" rows="2"></textarea>
@@ -329,7 +389,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-
+            
             $("#unote").click(function () {
                 showdialog($("#viewnote").html(), 700, 350, "#viewnote");
                 $(".delms").click(function () {
