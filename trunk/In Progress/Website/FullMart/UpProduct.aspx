@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpProduct.aspx.cs" Inherits="FullMart.UpProduct" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,6 +30,121 @@
     <script src="themes/script/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/UpProduct.js" type="text/javascript"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="ckeditor/general.js"></script>
+    <link href="ckeditor/general.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+	//<![CDATA[
+
+        // The instanceReady event is fired, when an instance of CKEditor has finished
+        // its initialization.
+        CKEDITOR.on('instanceReady', function (ev) {
+            // Show the editor name and description in the browser status bar.
+            document.getElementById('eMessage').innerHTML = '<p>Instance <code>' + ev.editor.name + '<\/code> loaded.<\/p>';
+
+            // Show this sample buttons.
+            document.getElementById('eButtons').style.display = 'block';
+        });
+
+        function InsertHTML() {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+            var value = document.getElementById('htmlArea').value;
+
+            // Check the active editing mode.
+            if (oEditor.mode == 'wysiwyg') {
+                // Insert HTML code.
+                // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#insertHtml
+                oEditor.insertHtml(value);
+            }
+            else
+                alert('You must be in WYSIWYG mode!');
+        }
+
+        function InsertText() {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+            var value = document.getElementById('txtArea').value;
+
+            // Check the active editing mode.
+            if (oEditor.mode == 'wysiwyg') {
+                // Insert as plain text.
+                // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#insertText
+                oEditor.insertText(value);
+            }
+            else
+                alert('You must be in WYSIWYG mode!');
+        }
+
+        function SetContents() {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+            var value = document.getElementById('htmlArea').value;
+
+            // Set editor contents (replace current contents).
+            // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#setData
+            oEditor.setData(value);
+        }
+
+        function GetContents() {
+            // Get the editor instance that you want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+
+            // Get editor contents
+            // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#getData
+            alert(oEditor.getData());
+        }
+
+        function PostContents() {
+            var oEditor = CKEDITOR.instances.ckEditor;
+            var ProductID = "1";
+            var Content = oEditor.getData();
+            alert(Content);
+            $.ajax({
+                url: "CKEditor.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    ProductID: ProductID,
+                    Content: Content
+                }
+            });
+        }
+
+        function ExecuteCommand(commandName) {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+
+            // Check the active editing mode.
+            if (oEditor.mode == 'wysiwyg') {
+                // Execute the command.
+                // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#execCommand
+                oEditor.execCommand(commandName);
+            }
+            else
+                alert('You must be in WYSIWYG mode!');
+        }
+
+        function CheckDirty() {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+            // Checks whether the current editor contents present changes when compared
+            // to the contents loaded into the editor at startup
+            // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#checkDirty
+            alert(oEditor.checkDirty());
+        }
+
+        function ResetDirty() {
+            // Get the editor instance that we want to interact with.
+            var oEditor = CKEDITOR.instances.ckEditor;
+            // Resets the "dirty state" of the editor (see CheckDirty())
+            // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#resetDirty
+            oEditor.resetDirty();
+            alert('The "IsDirty" status has been reset');
+        }
+
+	//]]>
+    </script>
     <script type="text/javascript">
         function CreateProduct() {
             $.ajax({
@@ -180,7 +294,8 @@
                 <form id="UpProduct" runat="server">
                 <table>
                     <tr>
-                        <td><asp:Label ID="lbTitle" runat="server" Text="Tiêu đề :"></asp:Label>
+                        <td>
+                            <asp:Label ID="lbTitle" runat="server" Text="Tiêu đề :"></asp:Label>
                         </td>
                         <td>
                             <%--<asp:TextBox ID="tbtitle" runat="server"></asp:TextBox>--%>
@@ -188,25 +303,31 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Category :</td>
                         <td>
-                            <asp:DropDownList ID="dlCategories" runat="server" CssClass="left"><asp:ListItem>Other</asp:ListItem>
-                            </asp:DropDownList> 
+                            Category :
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="dlCategories" runat="server" CssClass="left">
+                                <asp:ListItem>Other</asp:ListItem>
+                            </asp:DropDownList>
                             <asp:DropDownList ID="dlSubCategories" runat="server" CssClass="left">
                                 <asp:ListItem>Input New SubCategory</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                     </tr>
-                     <tr>
-                        <td><asp:Label ID="lbPrice" runat="server" Text="Hình sản phẩm :"></asp:Label>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lbPrice" runat="server" Text="Hình sản phẩm :"></asp:Label>
                         </td>
                         <td>
-                            <%--<asp:TextBox ID="tbPrice" runat="server"></asp:TextBox>--%><input type="text" id="tbPrice" /> <asp:Label ID="Label3" runat="server"
-                                Text="VNĐ"></asp:Label>
+                            <%--<asp:TextBox ID="tbPrice" runat="server"></asp:TextBox>--%><input type="text"
+                                id="tbPrice" />
+                            <asp:Label ID="Label3" runat="server" Text="VNĐ"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="lPicture" runat="server" Text="Giá :"></asp:Label>
+                        <td>
+                            <asp:Label ID="lPicture" runat="server" Text="Giá :"></asp:Label>
                             <span class="note">size: 150x150px</span>
                         </td>
                         <td>
@@ -214,14 +335,25 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="lbContent" runat="server" Text="Nội dung :"></asp:Label>
+                        <td>
+                            <asp:Label ID="lbContent" runat="server" Text="Nội dung :"></asp:Label>
+                        </td>
+                        <textarea cols="400" id="ckEditor" name="ckEditor" rows="10">&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
+                        <script type="text/javascript">
+		//<![CDATA[
+                            // Replace the <textarea id="ckEditor"> with an CKEditor instance.
+                            var editor = CKEDITOR.replace('ckEditor');
+		//]]>
+                        </script>
+                    </tr>
+                    <tr>
+                        <td>
                         </td>
                         <td>
-                            <asp:TextBox ID="tbContent" runat="server" TextMode="MultiLine" Width="500px" Height="300px"></asp:TextBox>
+                            <%--<asp:Button ID="CreateProduct" runat="server" Text="Button" />--%><input type="button"
+                                value="Create" />
                         </td>
                     </tr>
-                    <tr><td>
-                        </td><td><%--<asp:Button ID="CreateProduct" runat="server" Text="Button" />--%><input type="button" value="Create" /></td></tr>
                 </table>
                 </form>
             </div>
