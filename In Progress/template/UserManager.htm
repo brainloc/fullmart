@@ -676,49 +676,16 @@
             <tfoot><tr><td colspan="2"><div><center><button>CLOSE</button></center></div></td></tr></tfoot>
          </table>
       </div>
+      <div id="cfdelete">
+        <p><center>Do you want to delete User: <span></span> ?</center></p>
+        <center><button>Yes</button><button>No</button></center>
+      </div>
     </div>
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#viewU tfoot center button").click(function () {
-                if ($(this).text() != "SAVE") {
-                    $.modal.close();
-                    return false;
-                } else {
-                    $.ajax({
-                        url: "Code/Business/AjaxUltilities.ashx?",
-                        type: "POST",
-                        dataType: "script",
-                        data: {
-                            action: "updateUserInfor",
-                            email: $("#VUEmail").val(),
-                            fname: $("#VUFName").val(),
-                            lname: $("#VULName").val(),
-                            birthday: $("#VUBday").val(),
-                            state: $("#VUState").val(),
-                            CU: $("#VUCU").val(),
-                            cls: $("#VUClass").val(),
-                            createdate: $("#VUCreatedate").val(),
-                            yahoo: $("#VUYahoo").val(),
-                            mobile: $("#VUMobile").val(),
-                            shopname: $("#VUShopName").val(),
-                            web: $("#VUWeb").val(),
-                            role: $("#VURole").val()
-                        }
-                    });
-                    //this line code use to return
-                    $("#viewU").hide();$(".simplemodal-wrap").append("<div class='simplemodal-data'>User's Information Update Successfully !</div>");
-                    
-                    $("#simplemodal-container").css("height", "30px");
-                    $("#simplemodal-container").css("width","250px");
-                    var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
-                    var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
-                    $("#simplemodal-container").css("top", t2);
-                    $("#simplemodal-container").css("left", t1);
-                    return false;
-                }
-            });
 
+            
             $("#unote").click(function () {
                 showdialog($("#viewnote").html(), 700, 350, "#viewnote");
                 $(".delms").click(function () {
