@@ -33,8 +33,8 @@ function showdialog(content, width, height, viewer,close) {
                 $(".bx-pager").hide();
             },
             onClose: function (dialog) {
-                dialog.data.fadeOut('slow', function () {
-                    dialog.container.slideUp('normal', function () {
+                dialog.data.fadeOut('normal', function () {
+                    dialog.container.fadeOut('normal', function () {
                         dialog.overlay.fadeOut('normal', function () {
                             $.modal.close(); // must call this!
                             $(viewer).hide();
@@ -54,8 +54,8 @@ function showdialog(content, width, height, viewer,close) {
                 $(".bx-pager").hide();
             },
             onClose: function (dialog) {
-                dialog.data.fadeOut('slow', function () {
-                    dialog.container.slideUp('normal', function () {
+                dialog.data.fadeOut('normal', function () {
+                    dialog.container.fadeOut('normal', function () {
                         dialog.overlay.fadeOut('normal', function () {
                             $.modal.close(); // must call this!
                             $(viewer).hide();

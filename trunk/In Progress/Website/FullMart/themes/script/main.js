@@ -36,7 +36,7 @@ $(document).ready(function () {
     //listcats menu
     $("#listcats .lplist li").hover(function () {
         $(this).find(".ap").addClass("active");
-        $(this).find(".lsubcat").show();
+        $(this).find(".lsubcat").delay(200).show();
     }, function () {
         $(this).find(".lsubcat").hide();
         $(this).find(".ap").removeClass("active");
@@ -46,7 +46,18 @@ $(document).ready(function () {
             $(this).remove();
         }
     });
-
+    $("#Lmenu .lplist li").hover(function () {
+        $(this).find(".ap").addClass("active");
+        $(this).find(".lsubcat").delay(200).show();
+    }, function () {
+        $(this).find(".lsubcat").hide();
+        $(this).find(".ap").removeClass("active");
+    });
+    $("#Lmenu .lsubcat").each(function () {
+        if ($(this).find("li").length == 0) {
+            $(this).remove();
+        }
+    });
     // gcats
     $(".gtitle a").click(function () {
         $(this).parent().find(".maincat").removeClass("maincat").addClass("subcat");
