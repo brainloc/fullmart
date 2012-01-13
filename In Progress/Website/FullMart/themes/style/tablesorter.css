@@ -37,21 +37,3 @@ table.tablesorter thead tr .headerSortDown {
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 background-color: #8dbdd8;
 }
-div.tablesorterPager {
-	padding: 10px 0 10px 0;
-	background-color: #D6D2C2;
-	text-align: center;
-}
-div.tablesorterPager span {
-	padding: 0 5px 0 5px;
-}
-div.tablesorterPager input.prev {
-	width: auto;
-	margin-right: 10px;
-}
-div.tablesorterPager input.next {
-	width: auto;
-	margin-left: 10px;
-}
-input.pagedisplay {width: 40px;padding-bottom: 9px;vertical-align: text-bottom;height: 10px;text-align: center;font-size: 15px;}
-#pager img{max-width:25px;}
