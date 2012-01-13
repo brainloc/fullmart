@@ -21,6 +21,8 @@
     <!--[if lt IE 8]>
         <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="ckeditor/general.js"></script>
     <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
     <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
     <script src="themes/script/dropbox.js" type="text/javascript"></script>
@@ -30,8 +32,6 @@
     <script src="themes/script/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/UpProduct.js" type="text/javascript"></script>
-    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="ckeditor/general.js"></script>
     <link href="ckeditor/general.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
 	//<![CDATA[
@@ -40,7 +40,7 @@
         // its initialization.
         CKEDITOR.on('instanceReady', function (ev) {
             // Show the editor name and description in the browser status bar.
-            document.getElementById('eMessage').innerHTML = '<p>Instance <code>' + ev.editor.name + '<\/code> loaded.<\/p>';
+            //document.getElementById('eMessage').innerHTML = '<p>Instance <code>' + ev.editor.name + '<\/code> loaded.<\/p>';
 
             // Show this sample buttons.
             document.getElementById('eButtons').style.display = 'block';
@@ -167,6 +167,8 @@
 </head>
 <body>
     <div id="main" class="center">
+    <div id="eMessage">
+            </div>
         <div id="header" class="block">
             <div id="topbar" class="bblr block">
                 <div class="tbl">
@@ -338,7 +340,7 @@
                         <td>
                             <asp:Label ID="lbContent" runat="server" Text="Nội dung :"></asp:Label>
                         </td>
-                        <textarea cols="400" id="ckEditor" name="ckEditor" rows="10">&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
+                        <textarea id="ckEditor" cols="213" rows="20" name="ckEditor"></textarea>
                         <script type="text/javascript">
 		//<![CDATA[
                             // Replace the <textarea id="ckEditor"> with an CKEditor instance.
