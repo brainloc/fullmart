@@ -47,6 +47,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AQ.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -265,6 +266,7 @@
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Code\Business\test.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FullMart.Publish.xml" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
     <Content Include="media\adv\adv3.gif" />
@@ -449,6 +451,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AQ.aspx.cs">
+      <DependentUpon>AQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AQ.aspx.designer.cs">
+      <DependentUpon>AQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
     </Compile>
