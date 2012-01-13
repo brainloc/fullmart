@@ -4,22 +4,77 @@
     $("#VURole").val(role);
 }
 $(document).ready(function () {
-//    $(".mmsh").click(function () {
-//        $(this).parent().find(".subM").slideToggle("normal");
-//        return false;
+    //    $(".mmsh").click(function () {
+    //        $(this).parent().find(".subM").slideToggle("normal");
+    //        return false;
     //    });
 
     //    $("#lUser").tablesorter();
+    $("td .Udelete").click(function () {
+        $("#cfdelete span").text($.trim($(this).parents("tr").find("td").first().text()));
+        showdialog("", 500, 100, "#cfdelete", true);
+        return false;
+    });
+    $("#cfdelete button").click(function () {
+        if ($(this).text() == "Yes") {
+            $.ajax({
+                url: "Code/Business/AjaxUltilities.ashx?",
+                type: "GET",
+                dataType: "script",
+                data: {
+                    action: "delUser",
+                    email: $.trim($("#cfdelete span").text())
+                }
+            });
+        }
+        //this line code use to return
+        $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>User Deleted !</center></div>");
 
+        resizeDA(250, 30);
+        return false;
+    });
+    $("#viewU tfoot center button").click(function () {
+        if ($(this).text() != "SAVE") {
+            $.modal.close();
+            return false;
+        } else {
+            $.ajax({
+                url: "Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "updateUserInfor",
+                    email: $("#VUEmail").val(),
+                    fname: $("#VUFName").val(),
+                    lname: $("#VULName").val(),
+                    birthday: $("#VUBday").val(),
+                    state: $("#VUState").val(),
+                    CU: $("#VUCU").val(),
+                    cls: $("#VUClass").val(),
+                    createdate: $("#VUCreatedate").val(),
+                    yahoo: $("#VUYahoo").val(),
+                    mobile: $("#VUMobile").val(),
+                    shopname: $("#VUShopName").val(),
+                    web: $("#VUWeb").val(),
+                    role: $("#VURole").val()
+                }
+            });
+            //this line code use to return
+            $("#viewU").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'>User's Information Update Successfully !</div>");
+
+            resizeDA(250, 30);
+            return false;
+        }
+    });
     $("td .Uedit").click(function () {
         $("#viewU tfoot center button").text("SAVE");
         $.ajax({
-        url: "Code/Business/AjaxUltilities.ashx?",
-        type: "GET",
-        dataType: "script",
-        data: {
-            action: "getUserInfor",
-            email:$.trim($(this).parents("tr").find("td").first().text())
+            url: "Code/Business/AjaxUltilities.ashx?",
+            type: "GET",
+            dataType: "script",
+            data: {
+                action: "getUserInfor",
+                email: $.trim($(this).parents("tr").find("td").first().text())
             }
         });
 
@@ -33,17 +88,17 @@ $(document).ready(function () {
     $("td .Uview").click(function () {
         $("#viewU tfoot center button").text("CLOSE");
         $.ajax({
-        url: "Code/Business/AjaxUltilities.ashx?",
-        type: "GET",
-        dataType: "script",
-        data: {
-            action: "getUserInfor",
-            email:$.trim($(this).parents("tr").find("td").first().text())
+            url: "Code/Business/AjaxUltilities.ashx?",
+            type: "GET",
+            dataType: "script",
+            data: {
+                action: "getUserInfor",
+                email: $.trim($(this).parents("tr").find("td").first().text())
             }
         });
-                //this function use when return user's data
+        //this function use when return user's data
         fillviewUser($.trim($(this).parents("tr").find("td").first().text()), "", "", "", "", "", "", "", "", "", "", "", "Adminitrator", "");
-                //disabled element
+        //disabled element
         $("#VUPass").attr('disabled', 'disabled'); $("#VUFName").attr('disabled', 'disabled'); $("#VULName").attr('disabled', 'disabled'); $("#VUBday").attr('disabled', 'disabled'); $("#VUState").attr('disabled', 'disabled'); $("#VUCU").attr('disabled', 'disabled'); $("#VUClass").attr('disabled', 'disabled');
         $("#VUCreatedate").attr('disabled', 'disabled'); $("#VUYahoo").attr('disabled', 'disabled'); $("#VUMobile").attr('disabled', 'disabled'); $("#VUShopName").attr('disabled', 'disabled'); $("#VUWeb").attr('disabled', 'disabled');
         $("#VURole").attr('disabled', 'disabled');
