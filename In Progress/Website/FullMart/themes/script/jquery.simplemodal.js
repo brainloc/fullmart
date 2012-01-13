@@ -67,15 +67,18 @@ function showdialog(content, width, height, viewer,close) {
             }
         });
     }
+    resizeDA(width, height);
+    viewc=viewer;
+}
+function resizeDA(width, height) {
     if (height && width) {
-        $("#simplemodal-container").css("height", height+"px");
+        $("#simplemodal-container").css("height", height + "px");
         $("#simplemodal-container").css("width", width + "px");
         var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
         var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
         $("#simplemodal-container").css("top", t2);
         $("#simplemodal-container").css("left", t1);
     }
-    viewc=viewer;
 }
 function showdialogr(content, width, height, viewer, close,redirect) {
 
@@ -126,14 +129,7 @@ function showdialogr(content, width, height, viewer, close,redirect) {
             });
         }
     });
-    }
-    if (height && width) {
-        $("#simplemodal-container").css("height", height + "px");
-        $("#simplemodal-container").css("width", width + "px");
-        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
-        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
-        $("#simplemodal-container").css("top", t2);
-        $("#simplemodal-container").css("left", t1);
-    }
+}
+resizeDA(width, height);
     viewc = viewer;
 }
