@@ -1,0 +1,53 @@
+﻿#Lmenu .title{background:transparent url(../images/bgtlistcat.png) center top repeat-x;color:#fff;height:20px}
+#Lmenu .lplist{list-style:none;}
+#Lmenu .lplist li a{display:block;padding:0px 10px;line-height:20px;background:#e2f1f4 url(../images/larrow.png) right top no-repeat;color:#57a9bd;font-weight:bold;text-transform:capitalize}
+#Lmenu .lplist li a:hover{background-position:right bottom;background-color:#b6d9f2;color:#ffffff}
+#Lmenu .lplist li a.active{background-position:right bottom;background-color:#b6d9f2;color:#ffffff}
+#Lmenu .lplist .lsubcat{background-color:#48A1FF;max-width:210px;display:block;margin-left:248px;position:absolute;z-index:99999999;margin-top:-20px;display:none;border:1px solid #d4ca9a}
+#Lmenu .lplist .lsubcat ul{list-style:none;float:left;margin:3px 2px 3px}
+#Lmenu .lplist .lsubcat li{width:200px;margin:0px 3px 2px;float:left}
+#Lmenu .lplist .lsubcat li a{display:block;background-image:none}
+
+#cleft{width:250px;margin-left:10px;}
+#cmain{width:820px;margin-left:10px;}
+
+.content{margin:5px auto;white-space:normal;}
+.product {width:215px;height:170px;border:#EAEAEA 1px solid;float:left;margin:6px 20px 35px 20px;background:#FFF;text-align:center;color:#6f8fa5;font-weight:bold}
+.product:hover {border:#999 1px solid;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#EAE9E9');background: -webkit-gradient(linear,left top,left bottom, from(#fff), to(#EAE9E9));background: -moz-linear-gradient(top,  #fff,  #EAE9E9);}
+.product a{color:#6f8fa5}
+.product .content {padding:5px;}
+.product .content center img{height:128px}
+.product .nameproduct{margin-top:-5px;font-size:20px}
+.subM{display:none}
+.subM ul{list-style:none;margin-top:2px}
+.subM ul a{display:block;}
+.subM ul a:hover{background:#5AEAE5}
+.acontent{margin:10px;border:1px solid #B8B8B8}
+p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
+.TC div textarea{width:760px;height:200px;margin:10px;padding:10px;border:1px dashed #006BD9}
+.TC button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.TC button:hover{background-position:center bottom}
+.slobox{width:31px;height:31px;background:transparent url(../images/select_right.gif) center center no-repeat;float:right;}
+.SUser{width:31px;height:31px;background:transparent url(../images/search.gif) center center no-repeat;float:right;}
+.aip{width:200px;line-height:31px;font-size:15px;white-space:nowrap;overflow:hidden;color:Silver}
+.insstate{width:234px;border:1px solid silver;margin:10px;}
+.insstate ul{list-style:none;display:none;position:absolute;z-index:99999;margin-top:0px;max-height:200px;border:1px solid silver;overflow-y:scroll}
+.insstate ul li{display:block;width:215px;line-height:25px;font-size:15px;background-color:#fff;clear:both}
+.delState{width:20px;height:20px;background:transparent url(../images/delete.png) center center no-repeat;float:right;}
+.insstate ul li:hover{background-color:#66B1FF}
+.lUser tbody tr td{line-height:30px}
+.lUser tbody tr:nth-child(even) td{background-color:#E3FFFF}
+.cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:-31px;display:none}
+.lUser tbody tr:hover .cmdUser{display:block}
+.Uview,.Uedit,.Udelete{height:30px;width:33px;cursor:pointer}
+.viewU{width:790px;height:400px;display:none}
+.viewU table td{width:392px;line-height:30px}
+.viewU table span{font-size:15px;padding-left:10px}
+.viewU table select,.viewU table input,.viewU table textarea{width:256px;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.viewU table input[disabled=disabled]{background-color:#F0F5FF}
+.viewU table select{height:27px}
+.viewU table textarea{width:629px;height:160px;max-width:629px;max-height:160px;padding:10px;line-height:20px;}
+#tUser{font-size:20px;font-weight:bold;color:#42AFFF}
+
+#viewU tfoot center button{display:block;margin:5px auto 5px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+#viewU tfoot center button:hover{background-position:center bottom}
