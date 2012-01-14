@@ -182,7 +182,7 @@
         <div id="mcontent" class="block">
             <div id="cmain" class="center block">
                 <form id="UpProduct">
-                <table class="UPtb">
+                <table class="UPtb b bgwt">
                     <tr>
                         <td>
                             Tiêu đề :
@@ -209,7 +209,7 @@
                             Hình sản phẩm :<br /><span class="note">size: 150x150px</span>
                         </td>
                         <td>
-                            <asp:FileUpload ID="ulPicture" runat="server" />
+                            <input id="File1" type="file" />
                         </td>
                     </tr>
                     <tr>
@@ -232,9 +232,7 @@
                         </script>
                     </tr>
                     <tr>
-                        <td>
-                        </td>
-                        <td><input type="button" value="Create" />
+                        <td colspan="2"><button>Create</button>
                         </td>
                     </tr>
                 </table>
