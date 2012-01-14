@@ -29,12 +29,15 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .TC button:hover{background-position:center bottom}
 .slobox{width:31px;height:31px;background:transparent url(../images/select_right.gif) center center no-repeat;float:right;}
 .SUser{width:31px;height:31px;background:transparent url(../images/search.gif) center center no-repeat;float:right;}
-.aip{width:200px;line-height:31px;height:31px;font-size:15px;white-space:nowrap;overflow:hidden;color:Silver}
-.insstate{width:234px;border:1px solid silver;margin:10px;}
+.aip{width:210px;line-height:31px;height:31px;font-size:15px;white-space:nowrap;overflow:hidden;color:Silver}
+#SProduct{width:244px}
+.insstate{width:244px;border:1px solid #42AFFF;margin:10px;}
 .insstate ul{list-style:none;display:none;position:absolute;z-index:99999;margin-top:0px;max-height:200px;border:1px solid silver;overflow-y:scroll}
-.insstate ul li{display:block;width:215px;line-height:25px;font-size:15px;background-color:#fff;clear:both}
+.insstate ul li{display:block;width:225px;line-height:25px;height:25px;font-size:15px;background-color:#fff;clear:both}
+.insstate ul li span{width: 194px;display: block;float: left;padding-left: 10px;}
 .delState{width:20px;height:20px;background:transparent url(../images/delete.png) center center no-repeat;float:right;}
 .insstate ul li:hover{background-color:#66B1FF}
+.insstate select{width:244px;line-height:31px;height:31px;font-size:15px;background-color:#fff;}
 .lUser tbody tr td{line-height:30px}
 .lUser tbody tr:nth-child(even) td{background-color:#E3FFFF}
 .cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:-31px;display:none}
