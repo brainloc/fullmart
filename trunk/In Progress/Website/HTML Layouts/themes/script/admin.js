@@ -110,18 +110,96 @@ $(document).ready(function () {
         return false;
     });
     $(".insstate").mouseleave(function () {
-        $(this).find("ul").slideUp();
+        $(this).find("ul").delay(600).slideUp();
     });
+    $(".insstate ul li span").click(function () {
+        $(this).parents(".insstate").find("input:text").val($(this).text());
+        $(this).parents(".insstate").find("input:text").css("color", "#000");
+        $(".insstate ul").slideUp("normal");
+    });
+
     focusout("#INSState", "Press 'Enter' to insert");
+    focusout("#INSCAT", "Press 'Enter' to insert");
+    focusout("#INSSUBCAT", "Press 'Enter' to insert");
     focusout("#SUser", "Enter Email to search user");
     focusout("#SProduct", "Enter Email to search user's product");
+    focusout("#searchPID", "Search by Product's ID");
+
+    function insertSC(type, content) {
+        $.ajax({
+            url: "Code/Business/AjaxUltilities.ashx?",
+            type: "GET",
+            dataType: "script",
+            data: {
+                action: type,
+                arg: content
+            }
+        });
+    }
+    function delSC(type, content) {
+        $.ajax({
+            url: "Code/Business/AjaxUltilities.ashx?",
+            type: "GET",
+            dataType: "script",
+            data: {
+                action: type,
+                arg: content
+            }
+        });
+        alert("â");
+    }
     $("#INSState").keypress(function (data) {
         if (data.which == 13) {
             alert('gọi ajax insert');
+            insertSC("insertState", $("#INSState").val());
+            //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
             $("#INSState").val("");
         }
     });
-    $(".delState").click(function () {
+    $("#INSCAT").keypress(function (data) {
+        var tmp = $("#INSCAT").val();
+        if (data.which == 13) {
+            alert('gọi ajax insert');
+            insertSC("insertcat", tmp);
+            //$(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
+            $("#INSCAT").val("");
+        }
+    });
+    $("#INSSUBCAT").keypress(function (data) {
+        if (data.which == 13) {
+            if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
+                alert('gọi ajax insert');
+                $.ajax({
+                    url: "Code/Business/AjaxUltilities.ashx?",
+                    type: "GET",
+                    dataType: "script",
+                    data: {
+                        action: "insertsubcat",
+                        maincategory: $("#INSCAT").val(),
+                        subcategory: $("#INSSUBCAT").val()
+                    }
+                });
+                //$(".subcat").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delSubCat','" + $("#INSSUBCAT").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
+                $("#INSSUBCAT").val("");
+                return false;
+            } else {
+                alert("Please Input or select main categories");
+            }
+        }
+    });
+    $(".state .delState").click(function () {
         alert("delete ajax state : " + $(this).parent().find("span").text());
+        delSC("delState", $(this).parent().find("span").text());
+        $(this).parents("li").remove();
+    });
+    $(".maincat .delState").click(function () {
+        alert("delete ajax state : " + $(this).parent().find("span").text());
+        delSC("delMainCat", $(this).parent().find("span").text());
+        $(this).parents("li").remove();
+    });
+    $(".subcat .delState").click(function () {
+        alert("delete ajax state : " + $(this).parent().find("span").text());
+        delSC("delSubCat", $(this).parent().find("span").text());
+        $(this).parents("li").remove();
     });
 });
