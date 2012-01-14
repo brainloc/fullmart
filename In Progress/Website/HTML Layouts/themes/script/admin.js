@@ -113,6 +113,7 @@ $(document).ready(function () {
     });
     focusout("#INSState", "Press 'Enter' to insert");
     focusout("#SUser", "Enter Email to search user");
+    focusout("#SProduct", "Enter Email to search user's product");
     $("#INSState").keypress(function (data) {
         if (data.which == 13) {
             alert('gọi ajax insert');
