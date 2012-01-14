@@ -1,0 +1,8 @@
+﻿.b{behavior: url(style/PIE.htc);}
+.tbr,.tbc{float:right}
+.tbl,.tbr{width:5px;height:100%;margin-bottom:-1px}
+.tbl{float:left;background:transparent url(../images/tblr.png) center -1px no-repeat}
+.tbr{background:transparent url(../images/tblr.png) -1px -31px no-repeat;margin-right:-2px}
+.dropdown dt a {background:transparent url(../images/bgwt.png); padding-right:0px;}
+.dropdown dd ul {margin-top:-2px}
+#listcats .lplist .lsubcat{background-color:#fff}
