@@ -93,20 +93,13 @@ $(document).ready(function () {
             close: false,
             autoPosition: true,
             onClose: function (dialog) {
-                if ($("#policyshop button.agree").parent().find("input[type=checkbox]").attr("checked")) {
-                    dialog.data.fadeOut('slow', function () {
+                dialog.data.fadeOut('slow', function () {
                         dialog.container.slideUp('normal', function () {
                             dialog.overlay.fadeOut('normal', function () {
                                 $.modal.close();
                             });
                         });
                     });
-                } else {
-                    alert("Please agree with our term condition to register !");
-                    if (!this.dialog.data) {
-                        return false;
-                    }
-                }
             }
         });
         $("#simplemodal-container").css("height", 350 + "px");
@@ -124,7 +117,6 @@ $(document).ready(function () {
             close: false,
             autoPosition: true,
             onClose: function (dialog) {
-                if ($("#policyuser button.agree").parent().find("input[type=checkbox]").attr("checked")) {
                     dialog.data.fadeOut('slow', function () {
                         dialog.container.slideUp('normal', function () {
                             dialog.overlay.fadeOut('normal', function () {
@@ -132,12 +124,6 @@ $(document).ready(function () {
                             });
                         });
                     });
-                } else {
-                    alert("Please agree with our term condition to register !");
-                    if (!this.dialog.data) {
-                        return false;
-                    }
-                }
             }
         });
         $("#simplemodal-container").css("height", 350 + "px");
@@ -147,8 +133,8 @@ $(document).ready(function () {
         $("#simplemodal-container").css("top", t2);
         $("#simplemodal-container").css("left", t1);
     }
-    $("button.agree").click(function () {
-        if ($(this).parent().find("input[type=checkbox]").attr("checked")||$(this).parent().find("center strong").text()=="Conguration!") {
+    $(".agree button").click(function () {
+        if ($(this).text()=="Agree"||$(this).parent().find("center strong").text()=="Conguration!") {
             $.modal.close();
         } else {
             alert("Please agree with our term condition to register !");
