@@ -111,30 +111,8 @@ $(document).ready(function () {
     $(".insstate").mouseleave(function () {
         $(this).find("ul").slideUp();
     });
-    $("#INSState").focus(function () {
-        if ($(this).val() == "Press 'Enter' to insert") {
-            $(this).val("");
-            $(this).css("color", "black");
-        }
-    });
-    $("#INSState").blur(function () {
-        if ($(this).val() == "Press 'Enter' to insert" || $(this).val() == "") {
-            $(this).val("Press 'Enter' to insert");
-            $(this).css("color", "silver");
-        }
-    });
-    $("#SUser").focus(function () {
-        if ($(this).val() == "Enter Email to search user") {
-            $(this).val("");
-            $(this).css("color", "black");
-        }
-    });
-    $("#SUser").blur(function () {
-        if ($(this).val() == "Enter Email to search user" || $(this).val() == "") {
-            $(this).val("Enter Email to search user");
-            $(this).css("color", "silver");
-        }
-    });
+    focusout("#INSState", "Press 'Enter' to insert");
+    focusout("#SUser", "Enter Email to search user");
     $("#INSState").keypress(function (data) {
         if (data.which == 13) {
             alert('gọi ajax insert');

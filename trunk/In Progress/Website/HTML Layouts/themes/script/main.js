@@ -19,6 +19,20 @@ function querySt(ji) {
         }
     }
 }
+function focusout(element, content) {
+    $(element).focus(function () {
+        if ($(this).val() == content) {
+            $(this).val("");
+            $(this).css("color", "black");
+        }
+    });
+    $(element).blur(function () {
+        if ($(this).val() == content || $(this).val() == "") {
+            $(this).val(content);
+            $(this).css("color", "silver");
+        }
+    });
+}
 $(document).ready(function () {
     if ($.browser.msie && $.browser.version < 9) {
         $(".lsubcat").removeClass("b");
