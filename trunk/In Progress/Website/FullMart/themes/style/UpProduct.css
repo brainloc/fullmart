@@ -1,2 +1,8 @@
-﻿body {
-}
+﻿#UpProduct .UPtb {width:1000px;margin:0px auto;padding:10px}
+#UpProduct .UPtb td table span.cke_button {margin:0px;padding:0px}
+#UpProduct .UPtb td{width:180px;line-height:30px;height:30px}
+#UpProduct .UPtb td+td{width:820px}
+#UpProduct .UPtb span{font-size:15px;padding-left:10px}
+#UpProduct .UPtb select,#UpProduct table input,#UpProduct table textarea{width:256px;border:1px solid #42AFFF;background-color:#fff;float:left;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#UpProduct .UPtb input[disabled=disabled]{background-color:#F0F5FF}
+#UpProduct .UPtb textarea{width:629px;height:160px;max-width:629px;max-height:160px;min-width:629px;min-height:160px;padding:10px;line-height:20px;}
