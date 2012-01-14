@@ -41,7 +41,7 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
-
+    focusout("#search", "Search me");
     $("#treg").click(function () {
         showdialog("<Center style='margin-right: 15px;'><strong><a href='RegisterN.aspx?type=shop' title='Register your shop'><img alt='Register your shop' src='themes/images/signup-your-store1.png' /></a></strong><br /><strong><a href='RegisterN.aspx' title='Register User'><img alt='Register User' src='themes/images/signup-your-store2.png' /></a></strong></center>", 250, 180, "", true);
         return false;
