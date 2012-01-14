@@ -26,11 +26,12 @@ $(document).ready(function () {
                     email: $.trim($("#cfdelete span").text())
                 }
             });
+            //this line code use to return
+            $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>User Deleted !</center></div>");
+            resizeDA(250, 30);
+        } else {
+            $.modal.close();
         }
-        //this line code use to return
-        $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>User Deleted !</center></div>");
-
-        resizeDA(250, 30);
         return false;
     });
     $("#viewU tfoot center button").click(function () {
