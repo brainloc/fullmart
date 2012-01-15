@@ -136,8 +136,10 @@ $(document).ready(function () {
     $(".agree button").click(function () {
         if ($(this).text()=="Agree"||$(this).parent().find("center strong").text()=="Conguration!") {
             $.modal.close();
+            return false;
         } else {
             alert("Please agree with our term condition to register !");
+            return false;
         }
     });
 
