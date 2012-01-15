@@ -57,8 +57,10 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 #cfdelete p{display:block;font-size:20px}
 #cfdelete span{color:Red}
 #cfdelete button{margin:30px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.MProduct table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0}
 .MProduct table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
-.MProduct table tbody td{background-color:#F0F5FF}
+.MProduct table tbody td{background-color:#F0F5FF;color:#000}
+.MProduct table tbody td a{color:#000}
 .MProduct table tbody tr:nth-child(even) td{background-color:#FFF}
 .MProduct table tbody tr:hover td{background-color:#51C1FF}
 .MProduct table td{text-align:center;background:transparent url(../images/bgtd.gif) left top repeat-y;width:50px;height:25px;line-height:25px;padding-left:5px}
@@ -68,4 +70,6 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .MProduct table td+td+td+td+td{width:85px;}
 .MProduct table td+td+td+td+td+td{width:140px;}
 .MProduct table td+td+td+td+td+td+td{width:32px;}
-#nmes{background-color:red;}
+#nmes{background-color:red;position:fixed;top:0px;right:0px;border-bottom:3px solid #51C1FF;border-left:3px solid #51C1FF;padding:10px;color:White;font-weight:bold;display:none}
+.MProduct .cmdUser{width: 102px;height: 30px;background: transparent url(../images/bgbar.png) center center no-repeat;position: absolute;margin-top: -2px;margin-left: -103px;}
+.MProduct table tbody tr:hover td .cmdUser{display:block}
