@@ -43,6 +43,7 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
         public static bool CreateShop(string shopname,string sfname,string slname,string spass,string semail,string sweb,string fregsstate,int? roleID)
         {
             using (SqlConnection connection = GetConnection())
