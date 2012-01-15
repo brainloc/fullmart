@@ -27,6 +27,12 @@ $(document).ready(function () {
         showdialog("", 500, 100, "#cfdelete", true);
         return false;
     });
+    $(".MProduct table td .cmdUser .Udelete").click(function () {
+        $("#cfdeletep span").html($.trim($(this).parents("tr").find("td:nth-child(2)").text()) + " Post date : " + $(this).parents("tr").find("td:nth-child(3)").text() + "<br /> By : " + $(this).parents("tr").find("td:nth-child(4)").text());
+        $("#cfdeletep input[type=hidden]").val($.trim($(this).parents("tr").find("td:nth-child(1)").text()));
+        showdialog("", 500, 100, "#cfdeletep", true);
+        return false;
+    });
     $("#cfdelete button").click(function () {
         if ($(this).text() == "Yes") {
             $.ajax({
@@ -40,6 +46,25 @@ $(document).ready(function () {
             });
             //this line code use to return
             $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>User Deleted !</center></div>");
+            resizeDA(250, 30);
+        } else {
+            $.modal.close();
+        }
+        return false;
+    });
+    $("#cfdeletep button").click(function () {
+        if ($(this).text() == "Yes") {
+            $.ajax({
+                url: "Code/Business/AjaxUltilities.ashx?",
+                type: "GET",
+                dataType: "script",
+                data: {
+                    action: "delproduct",
+                    ID: $("#cfdeletep input[type=hidden]").val()
+                }
+            });
+            //this line code use to return
+            $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>Product Deleted !</center></div>");
             resizeDA(250, 30);
         } else {
             $.modal.close();
@@ -107,9 +132,6 @@ $(document).ready(function () {
                 action: "getUserInfor",
                 email: $.trim($(this).parents("tr").find("td").first().text())
             }
-        });
-        $(".MProduct td .Uview").click(function () {
-            window.open('viewproduct.aspx?id='+$(this).parents("td").text(), 'window name', 'attribute1,attribute2')
         });
         //this function use when return user's data
         fillviewUser($.trim($(this).parents("tr").find("td").first().text()), "", "", "", "", "", "", "", "", "", "", "", "Adminitrator", "");

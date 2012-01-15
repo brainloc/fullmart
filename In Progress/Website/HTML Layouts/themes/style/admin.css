@@ -56,7 +56,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 #cfdelete{display:none;}
 #cfdelete p{display:block;font-size:20px}
 #cfdelete span{color:Red}
-#cfdelete button{margin:30px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+#cfdelete button,#cfdeletep button{margin:30px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 .MProduct table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0}
 .MProduct table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
 .MProduct table tbody td{background-color:#F0F5FF;color:#000}
