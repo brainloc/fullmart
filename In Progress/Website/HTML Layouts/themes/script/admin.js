@@ -20,8 +20,9 @@ $(document).ready(function () {
                 productID: $(this).parents("tr").find("td").first().text()
             }
         });
+        $("#nmes").fadeIn().delay(3000).fadeOut();
     });
-    $("td .Udelete").click(function () {
+    $("#Usert td .Udelete").click(function () {
         $("#cfdelete span").text($.trim($(this).parents("tr").find("td").first().text()));
         showdialog("", 500, 100, "#cfdelete", true);
         return false;
@@ -77,7 +78,7 @@ $(document).ready(function () {
             return false;
         }
     });
-    $("td .Uedit").click(function () {
+    $("#Usert td .Uedit").click(function () {
         $("#viewU tfoot center button").text("SAVE");
         $.ajax({
             url: "Code/Business/AjaxUltilities.ashx?",
@@ -96,7 +97,7 @@ $(document).ready(function () {
         $("#VURole").removeAttr("disabled");
         showdialog("", 800, 480, "#viewU", true);
     });
-    $("td .Uview").click(function () {
+    $("#Usert td .Uview").click(function () {
         $("#viewU tfoot center button").text("CLOSE");
         $.ajax({
             url: "Code/Business/AjaxUltilities.ashx?",
@@ -106,6 +107,9 @@ $(document).ready(function () {
                 action: "getUserInfor",
                 email: $.trim($(this).parents("tr").find("td").first().text())
             }
+        });
+        $(".MProduct td .Uview").click(function () {
+            window.open('viewproduct.aspx?id='+$(this).parents("td").text(), 'window name', 'attribute1,attribute2')
         });
         //this function use when return user's data
         fillviewUser($.trim($(this).parents("tr").find("td").first().text()), "", "", "", "", "", "", "", "", "", "", "", "Adminitrator", "");
