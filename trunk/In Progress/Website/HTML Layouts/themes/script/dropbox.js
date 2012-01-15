@@ -14,10 +14,10 @@
     $(".dropdown").mouseleave(function () {
         $(".dropdown dd ul").hide();
     });
-    $(document).bind('click', function (e) {
-        var $clicked = $(e.target);
-        if (!$clicked.parents().hasClass("dropdown"))
-            $(".dropdown dd ul").hide();
-            return false;
-    });
+//    $(document).bind('click', function (e) {
+//        var $clicked = $(e.target);
+//        if (!$clicked.parents().hasClass("dropdown"))
+//            $(".dropdown dd ul").hide();
+//            return false;
+//    });
 });

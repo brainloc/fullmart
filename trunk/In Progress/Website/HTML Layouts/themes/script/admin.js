@@ -10,6 +10,17 @@ $(document).ready(function () {
     //    });
 
     //    $("#lUser").tablesorter();
+    $(".outstanding").change(function () {
+        $.ajax({
+            url: "Code/Business/AjaxUltilities.ashx?",
+            type: "GET",
+            dataType: "script",
+            data: {
+                action: "ProductOutStanding",
+                productID: $(this).parents("tr").find("td").first().text()
+            }
+        });
+    });
     $("td .Udelete").click(function () {
         $("#cfdelete span").text($.trim($(this).parents("tr").find("td").first().text()));
         showdialog("", 500, 100, "#cfdelete", true);
@@ -146,7 +157,6 @@ $(document).ready(function () {
                 arg: content
             }
         });
-        alert("â");
     }
     $("#INSState").keypress(function (data) {
         if (data.which == 13) {
