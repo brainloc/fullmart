@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FullMart.Code.DAO;
+using System.Data;
+using System.Text;
 
 namespace FullMart.Code.Business
 {
@@ -85,6 +87,36 @@ namespace FullMart.Code.Business
                     }
                 case "CreateProduct":
                     {
+                        break;
+                    }
+                case "GetSubCategoriesByCatID":
+                    {
+                        var subCatID = context.Request.Form["subCatID"] != null ? context.Request.Form["subCatID"].Trim().Replace("'", "''") : string.Empty;
+                        if (string.IsNullOrEmpty(subCatID.ToString()) == false)
+                        {
+                            DataTable subCats = new DataTable();
+                            subCats = BindingUltilities.GetSubCategories(Convert.ToInt32(subCatID));
+
+                            if (subCats != null)
+                            {
+                                StringBuilder bindingHTML = new StringBuilder();
+                                foreach (DataRow r in subCats.Rows)
+                                {
+                                    bindingHTML.AppendFormat("<OPTION value={0}>{1}</OPTION>", r["ID"].ToString(), r["Name"].ToString());
+                                }
+
+                                string jsAppendSyntax = string.Format("$('#CatSubCat select:eq(1)').html('{0}');", bindingHTML.ToString());
+                                context.Response.Write(jsAppendSyntax);
+                            }
+                            else
+                            {
+                                context.Response.Write("$('#CatSubCat select:eq(1)').html('');");
+                            }
+                        }
+                        else
+                        {
+                            context.Response.Write("$('#CatSubCat select:eq(1)').html('');");
+                        }
                         break;
                     }
                 default:

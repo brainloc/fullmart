@@ -1,0 +1,13 @@
+﻿.viewproduct .titlep{padding: 10px;font-size: 20px;background-color: #00B0DA;color: white;font-weight: bold;}
+.viewproduct .headproduct .imagepreview{width:190px;height:190px}
+.viewproduct .headproduct .imagepreview img{width:185px;height:185px;padding:2px}
+.viewproduct .headproduct .Posterinfo{border:1px solid silver;width: 438px;height: 188px;}
+.viewproduct .headproduct .Posterinfo ul{list-style:none}
+.viewproduct .headproduct .Posterinfo ul li{padding:5px 10px;line-height:20px;height:20px}
+.viewproduct .headproduct .Posterinfo ul li .price{color:#00B0DA;font-size:20px}
+.viewproduct .headproduct .Posterinfo ul li ul li{float:left}
+.viewproduct .headproduct .Posterinfo ul li ul li img{height:16px;max-height:16px}
+.viewproduct .headproduct .Posterinfo .buy{position: absolute;margin-left: 279px;margin-top: 20px;width: 170px;height: 70px;background: transparent url(../images/buy.png) no-repeat;font-size:30px;font-weight:bold;color:#fff;text-align:center;}
+.viewproduct .headproduct .Posterinfo .buy button{width: 170px;height: 70px;cursor:pointer;font-size:30px;font-weight:bold;color:#fff;text-align:center;padding:12px 1px}
+.viewproduct .contentproduct{margin-top:10px}
+.viewproduct .contentproduct .contentp{clear:both;overflow-x:hidden;list-style:none;padding:10px}

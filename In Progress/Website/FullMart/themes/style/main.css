@@ -20,7 +20,8 @@ a{text-decoration:none;}
 .bgwt{background:transparent url(../images/bgwt.png);background-repeat:repeat;}
 
 
-
+.bt{margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.bt:hover{background-position:center bottom}
 .note{color:Silver;font-size:12px;display:block}
 
 
