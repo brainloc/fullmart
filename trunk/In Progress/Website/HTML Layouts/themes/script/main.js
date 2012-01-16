@@ -19,6 +19,7 @@ function querySt(ji) {
         }
     }
 }
+
 function focusout(element, content) {
     $(element).focus(function () {
         if ($(this).val() == content) {
@@ -73,7 +74,41 @@ $(document).ready(function () {
         }
     }
     focusout("#search", "Search me");
-
+    $("div.nameproduct").each(function () {
+        var str1 = $.trim($(this).text());
+        var str2 = $.trim($(this).find("p").text());
+        var strc = str1.length - str2.length;
+        if (strc > 33) {
+            var strtmp = str1.substring(0, 30) + "..."
+            $(this).attr("title", str1.substring(0,strc));
+            $(this).html(strtmp+"<p>"+str2+"</p>");
+        }
+    });
+    $("#unote").click(function () {
+        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
+        $(".delms").click(function () {
+            $(this).parents("tr").hide();
+            return false;
+        });
+        return false;
+    });
+    $(".viewnote .vlistletter ul li").click(function () {
+        $(".vlistletter").slideUp("normal", function () {
+            $(".viewnote").css("height", "293px");
+            resizeDA(800, 295);
+        });
+        $(".vletter").show();
+        $(this).find(".noread").removeClass("noread");
+        return false;
+    });
+    $(".vletter table tfoot button").click(function () {
+        resizeDA(800, 423);
+        $(".vlistletter").slideDown("normal", function () {
+            $(".viewnote").css("height", "418px");
+        });
+        $(".vletter").hide();
+        return false;
+    });
     //Cart script
     $("#ucart").click(function () {
         calcart();

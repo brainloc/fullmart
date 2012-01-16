@@ -7,7 +7,7 @@
 .subcat:hover{background:transparent url(../images/bgmcat.png) center top repeat-x;color:White;}
 
 .content{margin:5px auto;white-space:normal;}
-.product {width:115px;height:100px;border:#EAEAEA 1px solid;float:left;margin:6px 20px 35px 20px;background:#FFF;text-align:center;color:#6f8fa5;font-weight:bold}
+.product {width:115px;height:100px;border:#EAEAEA 1px solid;float:left;margin:20px 20px 35px 20px;background:#FFF;text-align:center;color:#6f8fa5;font-weight:bold}
 .product:hover {border:#999 1px solid;}
 .product a{color:#6f8fa5}
 .product .content {padding:5px;}
