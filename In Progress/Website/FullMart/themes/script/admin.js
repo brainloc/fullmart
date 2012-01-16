@@ -10,6 +10,7 @@ $(document).ready(function () {
     //    });
 
     //    $("#lUser").tablesorter();
+   
     $(".outstanding").change(function () {
         $.ajax({
             url: "Code/Business/AjaxUltilities.ashx?",
