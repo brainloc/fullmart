@@ -17,15 +17,21 @@
     <!--[if lt IE 8]>
         <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
+    <script src="ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="ckfinder/ckfinder.js" type="text/javascript"></script>
+    <script src="ckeditor/general.js" type="text/javascript"></script>
+    <link href="ckeditor/general.css" rel="stylesheet" type="text/css" />
     <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
     <script src="themes/script/dropbox.js" type="text/javascript"></script>
     <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
     <script src="themes/script/jquery.tablesorter.js" type="text/javascript"></script>
     <script src="themes/script/jquery.tablesorter.pager.js" type="text/javascript"></script>
     <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/admin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //CKFinder.setupCKEditor(CKEDITOR.replace('UserEN'), 'ckfinder');
+    </script>
 </head>
 <body>
     <div id="main" class="center">
@@ -260,17 +266,23 @@
                     <p class="atitle" class="block">
                         Term Condition for User</p>
                     <span class="block">English version</span>
-                    <textarea id="Textarea2" class="block" cols="20" rows="2"></textarea>
+                    <textarea id="UserEN" class="block" cols="20" rows="2"></textarea>
                     <span class="block">Vietnamese version</span>
-                    <textarea id="Textarea3" class="block" cols="20" rows="2"></textarea>
+                    <textarea id="UserVI" class="block" cols="20" rows="2"></textarea>
                 </div>
                 <div class="acontent block">
                     <p class="atitle block">
                         Term Condition for Shop User</p>
                     <span class="block">English version</span>
-                    <textarea class="block" id="TShopE" cols="20" rows="2"></textarea>
+                    <textarea class="block" id="ShopEN" cols="20" rows="2"></textarea>
                     <span class="block">Vietnamese version</span>
-                    <textarea class="block" id="Textarea1" cols="20" rows="2"></textarea>
+                    <textarea class="block" id="ShopVI" cols="20" rows="2"></textarea>
+                </div>
+                <div class="acontent block">
+                    <p class="atitle block">
+                        Footer</p>
+                    <span class="block"></span>
+                    <textarea class="block" id="FooterEN" cols="20" rows="2"></textarea>
                 </div>
                 <button>SEND</button>
                 </form>
@@ -281,8 +293,11 @@
             <div class="clear">
             </div>
         </div>
-        <div id="footer" class="block">
-        <div id="viewnote">
+        <div id="footer" class="footer block">
+            footer content
+        </div>
+    </div>
+    <div id="viewnote">
             <table id="listnote" class="tablesorter">
                 <thead>
                     <tr>
@@ -386,7 +401,135 @@
                 </tfoot>
             </table>
         </div>
-            a3</div>
+    <div id="fcart" class="fcart">
+        <table cellpadding="0" cellspacing="0">
+        <thead><tr><th>Quantity</th><th>Item</th><th>Order Code</th><th>Unit Price(VND)</th><th>Total</th><th>Short Message<br />(200 characters)</th><th>Remove</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" class="b nump" value="1" title="Quantity" />
+                    </td>
+                    <td><a href="viewproduct.htm">Iphone 4</a>
+                        
+                    </td>
+                    <td>
+                        123-1
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        <input maxlength="200" />
+                    </td>
+                    <td>
+                        <button>
+                            Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="b nump" value="1" title="Quantity" />
+                    </td>
+                    <td>
+                        <a href="viewproduct.htm">Iphone 4</a>
+                    </td>
+                    <td>
+                        123-1
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        <input maxlength="200" />
+                    </td>
+                    <td>
+                        <button>
+                            Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="b nump" value="1" title="Quantity" />
+                    </td>
+                    <td>
+                        <a href="viewproduct.htm">Iphone 4</a>
+                    </td>
+                    <td>
+                        123-1
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        <input maxlength="200" />
+                    </td>
+                    <td>
+                        <button>
+                            Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="b nump" value="1" title="Quantity" />
+                    </td>
+                    <td>
+                        <a href="viewproduct.htm">Iphone 4</a>
+                    </td>
+                    <td>
+                        123-1
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        <input maxlength="200" />
+                    </td>
+                    <td>
+                        <button>
+                            Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="b nump" value="1" title="Quantity" />
+                    </td>
+                    <td>
+                        <a href="viewproduct.htm">Iphone 4</a>
+                    </td>
+                    <td>
+                        123-1
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        8,000,000
+                    </td>
+                    <td>
+                        <input maxlength="200" />
+                    </td>
+                    <td>
+                        <button>
+                            Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot><tr></td><td></td><td></td><td></td><td></td><td><span class="totalp">8,000,000</span></td><td></td><td></td></tr>
+            <tr><th colspan="7"><button>verify</button></th></tr>
+            </tfoot>
+        </table>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {

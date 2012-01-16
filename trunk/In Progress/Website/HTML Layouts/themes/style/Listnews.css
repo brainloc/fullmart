@@ -1,0 +1,9 @@
+﻿#cmain{width:867px;margin-left:10px;}
+.listnew{list-style:none;}
+.listnew li{display:block;margin:20px 0px;border:1px solid #42AFFF}
+.listnew .previewimage{width:140px;height:140px}
+.listnew .previewimage img{height:130px;padding:5px}
+.listnew .previewcontent{width:720px;height:140px}
+.listnew .previewcontent .postday{position: absolute;margin: -27px 0px 0px 626px;background-color:#42AFFF;color:#fff;font-size: 14px;line-height: 16px;padding: 5px 10px;}
+.listnew .previewcontent .title{display:block; font-size:15px;height:20px;line-height:20px;background:none;padding:2px 10px;overflow:hidden;text-align:left}
+.listnew .previewcontent .content {margin:0px;white-space: normal;padding: 10px;text-align: justify;}

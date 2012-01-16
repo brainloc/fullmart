@@ -10,6 +10,11 @@ $(document).ready(function () {
     //    });
 
     //    $("#lUser").tablesorter();
+    CKFinder.setupCKEditor(CKEDITOR.replace('UserEN'), { basePath: '/ckfinder/', rememberLastFolder: false, customConfig: '/ckfinder/config.js' });
+    CKEDITOR.replace('UserVI');
+    CKEDITOR.replace('ShopEN');
+    CKEDITOR.replace('ShopVI');
+    CKEDITOR.replace('FooterEN');
     $(".outstanding").change(function () {
         $.ajax({
             url: "Code/Business/AjaxUltilities.ashx?",

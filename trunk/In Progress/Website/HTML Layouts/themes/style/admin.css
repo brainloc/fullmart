@@ -24,7 +24,7 @@
 .subM ul a:hover{background:#5AEAE5}
 .acontent{margin:10px;border:1px solid #B8B8B8}
 p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
-.TC div textarea{width:760px;height:200px;margin:10px;padding:10px;border:1px dashed #006BD9}
+/*.TC div textarea{width:760px;height:200px;margin:10px;padding:10px;border:1px dashed #006BD9}*/
 .TC button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 .TC button:hover{background-position:center bottom}
 .slobox{width:31px;height:31px;background:transparent url(../images/select_right.gif) center center no-repeat;float:right;}
