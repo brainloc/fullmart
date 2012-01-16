@@ -98,7 +98,7 @@ a{text-decoration:none;}
 
 /* topseach */
 #topsearch{height:55px;background:transparent url(../images/bgwt2.png);background-repeat:repeat;}
-#sbsearch{width:36px; height:27px;margin:0px;background:transparent url(../images/search.png) center top no-repeat;border:none}
+#sbsearch{width:36px; height:27px;margin:0px;background:transparent url(../images/search.gif) 5px -2px no-repeat;border:none}
 #sbsearch:hover{background-position:center center}
 #sbsearch:active{background-position:center bottom}
 
@@ -216,3 +216,24 @@ a{text-decoration:none;}
 .ftitle{}
 .ftitle .ftitleout{background:transparent url(../images/title_out.png) no-repeat;width:30px}
 .ftitle .ftitlel{}
+.fcart{width:810px !important;height:355px !important;display:none;background-color:#fff;overflow-y:auto !important}
+.fcart table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
+.fcart table tbody tr td,.fcart table thead th{border-bottom:1px solid silver}
+.fcart table td{width:30px;line-height:35px;height:35px;margin:5px 0px}
+.fcart table td+td{width:200px}
+.fcart table td+td+td{width:80px;text-align:center}
+.fcart table td+td+td+td{width:110px}
+.fcart table td+td+td+td+td{width:134px}
+.fcart table td+td+td+td+td+td{width:150px}
+.fcart table td+td+td+td+td+td+td{width:60px}
+.fcart table span{font-size:15px;padding-left:10px}
+.fcart table select,.fcart table input,.fcart table textarea{width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.fcart table input.nump{text-align:center;width:30px;float:none;margin:0px 5px}
+.fcart table input[disabled=disabled]{background-color:#F0F5FF}
+.fcart table .price{color:#00B0DA;font-size:20px;line-height:30px}
+.fcart table .totalp{color:#C30C1B;overflow:visible}
+.fcart table #numP{width:65px;float:left;text-align:center}
+.fcart table textarea{width:629px;height:160px;max-width:629px;max-height:160px;min-width:629px;min-height:160px;padding:10px;line-height:20px;}
+.fcart button{display:block;margin:5px auto;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.fcart button:hover{background-position:center bottom}
+.message{background:}

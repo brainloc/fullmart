@@ -17,6 +17,16 @@ f[1]?i:f[1];var j=a.o.minHeight?a.getVal(a.o.minHeight,"h"):"auto";c=c?a.o.autoR
 2;if(a.o.position&&Object.prototype.toString.call(a.o.position)==="[object Array]"){b=a.o.position[0]||b;c=a.o.position[1]||c}else{b=b;c=c}a.d.container.css({left:c,top:b})},watchTab:function(a){var b=this;if(d(a.target).parents(".simplemodal-container").length>0){b.inputs=d(":input:enabled:visible:first, :input:enabled:visible:last",b.d.data[0]);if(!a.shiftKey&&a.target===b.inputs[b.inputs.length-1]||a.shiftKey&&a.target===b.inputs[0]||b.inputs.length===0){a.preventDefault();b.focus(a.shiftKey?"last":
 "first")}}else{a.preventDefault();b.focus()}},open:function(){var a=this;a.d.iframe&&a.d.iframe.fadeIn("slow");if(d.isFunction(a.o.onOpen))a.o.onOpen.apply(a,[a.d]);else{a.d.overlay.fadeIn("slow");a.d.container.fadeIn("slow");a.d.data.fadeIn("slow")}a.o.focus&&a.focus();a.bindEvents()},close:function(){var a=this;if(!a.d.data)return false;a.unbindEvents();if(d.isFunction(a.o.onClose)&&!a.occb){a.occb=true;a.o.onClose.apply(a,[a.d])}else{if(a.d.placeholder){var b=d("#simplemodal-placeholder");if(a.o.persist)b.replaceWith(a.d.data.removeClass("simplemodal-data").css("display",
 a.display)); else { a.d.data.hide().remove(); b.replaceWith(a.d.orig);$(viewc).empty();}} else a.d.data.hide().remove(); a.d.container.hide().remove(); a.d.overlay.hide(); a.d.iframe && a.d.iframe.hide().remove(); setTimeout(function () { a.d.overlay.remove(); a.d = {} }, 10);$(viewc).empty();} } }})(jQuery);
+function resizeDA(width, height) {
+    if (height && width) {
+        $("#simplemodal-container").css("height", height + "px");
+        $("#simplemodal-container").css("width", width + "px");
+        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
+        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
+        $("#simplemodal-container").css("top", t2);
+        $("#simplemodal-container").css("left", t1);
+    }
+}
 function showdialog(content, width, height, viewer,close) {
 
     if (!viewer) {
@@ -70,16 +80,34 @@ function showdialog(content, width, height, viewer,close) {
     resizeDA(width, height);
     viewc=viewer;
 }
-function resizeDA(width, height) {
-    if (height && width) {
-        $("#simplemodal-container").css("height", height + "px");
-        $("#simplemodal-container").css("width", width + "px");
-        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
-        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
-        $("#simplemodal-container").css("top", t2);
-        $("#simplemodal-container").css("left", t1);
+function showdialogt(content, width, height, viewer, closetime) {
+
+    if (!viewer) {
+        $("body").append('<div id="modal"></div>');
+        viewer = "#modal";
+        $(viewer).html(content);
     }
+    $(viewer).modal({
+        opacity: 40,
+        close: true,
+        autoPosition: true,
+        onShow: function (dialog) {
+            dialog.data.delay(closetime).fadeOut('normal', function () {
+                dialog.container.fadeOut('normal', function () {
+                    dialog.overlay.fadeOut('normal', function () {
+                        $.modal.close(); // must call this!
+                        $(viewer).hide();
+                        $(".bx-pager").show();
+
+                    });
+                });
+            });
+        }
+    });
+    resizeDA(width, height);
+    viewc = viewer;
 }
+
 function showdialogr(content, width, height, viewer, close,redirect) {
 
     if (!viewer) {
