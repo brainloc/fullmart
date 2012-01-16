@@ -23,4 +23,17 @@
         $(this).parent().find(".subcomment").slideToggle("normal");
         return false;
     });
+    $(".mcomment .Acontent button").click(function () {
+        var r = confirm("Do you want to delete this question ?");
+        if (r) {
+            //$(this).parent().parent().parent().remove();
+            
+            var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
+            tmp = eval(tmp);
+            tmp--;
+            $(this).parents(".subcomment").parent().find(".numc").text(tmp);
+            $(this).parents(".Acontent").parent().remove();
+        }
+        return false;
+    });
 });

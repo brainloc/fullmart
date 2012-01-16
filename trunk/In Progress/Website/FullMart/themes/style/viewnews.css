@@ -1,0 +1,4 @@
+﻿#cmain{width:867px;margin-left:10px;}
+.titlen{padding: 10px;font-size: 20px;background-color: #00B0DA;color: white;font-weight: bold;}
+.contentnews .postday{display:block;text-align:right;padding:5px 10px;font-style:italic;}
+.contentnews .contentn{clear:both;overflow-x:hidden;list-style:none;padding:10px;margin-bottom:10px}
