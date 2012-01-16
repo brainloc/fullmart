@@ -22,6 +22,7 @@
         <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
     <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script src="ckfinder/ckfinder.js" type="text/javascript"></script>
     <script type="text/javascript" src="ckeditor/general.js"></script>
     <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
     <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
@@ -345,6 +346,7 @@
 		//<![CDATA[
                             // Replace the <textarea id="ckEditor"> with an CKEditor instance.
                             var editor = CKEDITOR.replace('ckEditor');
+                            CKFinder.setupCKEditor(editor, '/ckfinder/');
 		//]]>
                         </script>
                     </tr>
