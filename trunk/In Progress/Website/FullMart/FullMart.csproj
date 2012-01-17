@@ -37,7 +37,7 @@
     </Reference>
     <Reference Include="CKFinder, Version=2.1.0.1326, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>dll\CKFinder.dll</HintPath>
+      <HintPath>ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -861,7 +861,6 @@
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Default.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
-    <Content Include="dll\CKFinder.dll" />
     <Content Include="Index.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
@@ -1032,6 +1031,7 @@
     <Content Include="themes\images\verybg.gif" />
     <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
+    <Content Include="themes\script\admin.js" />
     <Content Include="themes\script\dropbox.js" />
     <Content Include="themes\script\jquery-1.4.1.min.js" />
     <Content Include="themes\script\jquery-1.7.js" />
@@ -1047,10 +1047,11 @@
     <Content Include="themes\script\jquery.validationEngine-en.js" />
     <Content Include="themes\script\jquery.validationEngine.js" />
     <Content Include="themes\script\main.js" />
+    <Content Include="themes\script\QAA.js" />
     <Content Include="themes\script\register.js" />
     <Content Include="themes\script\UpProduct.js" />
+    <Content Include="themes\style\admin.css" />
     <Content Include="themes\style\border-radius.htc" />
-    <Content Include="themes\style\comment.css" />
     <Content Include="themes\style\dialog.css" />
     <Content Include="themes\style\fixie.css" />
     <Content Include="themes\style\fixie7.css" />
@@ -1060,6 +1061,7 @@
     <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
     <Content Include="themes\style\main.css" />
     <Content Include="themes\style\PIE.htc" />
+    <Content Include="themes\style\QAA.css" />
     <Content Include="themes\style\register.css" />
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\UpProduct.css" />
@@ -1076,6 +1078,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AQ.aspx.cs">
@@ -1094,7 +1097,19 @@
     <Compile Include="Code\DAO\BindingUltilities.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
     <Compile Include="Code\DAO\UserManagement.cs" />
+    <Compile Include="Code\Entities\AnswerAndQuestion.cs" />
+    <Compile Include="Code\Entities\Cart.cs" />
+    <Compile Include="Code\Entities\Category.cs" />
+    <Compile Include="Code\Entities\Comment.cs" />
+    <Compile Include="Code\Entities\News.cs" />
     <Compile Include="Code\Entities\Product.cs" />
+    <Compile Include="Code\Entities\ProductDetail.cs" />
+    <Compile Include="Code\Entities\roleID.cs" />
+    <Compile Include="Code\Entities\State.cs" />
+    <Compile Include="Code\Entities\SubAnswerAndQuestion.cs" />
+    <Compile Include="Code\Entities\SubCategory.cs" />
+    <Compile Include="Code\Entities\SubComment.cs" />
+    <Compile Include="Code\Entities\User.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,6 +1180,13 @@
     </Compile>
     <Compile Include="UpProduct.aspx.designer.cs">
       <DependentUpon>UpProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

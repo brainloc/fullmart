@@ -1,7 +1,16 @@
 /*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-
+ * CKFinder
+ * ========
+ * http://ckfinder.com
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
+ *
+ * The software, this file and its contents are subject to the CKFinder
+ * License. Please read the license.txt file before using, installing, copying,
+ * modifying or distribute this file or part of its contents. The contents of
+ * this file is part of the Source Code of CKFinder.
+ *
+ * Styles used in the samples pages.
+ */
 
 html, body, h1, h2, h3, h4, h5, h6, div, span, blockquote, p, address, form, fieldset, img, ul, ol, dl, dt, dd, li, hr, table, td, th, strong, em, sup, sub, dfn, ins, del, q, cite, var, samp, code, kbd, tt, pre {
 	line-height: 1.5em;
@@ -10,7 +19,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, span, blockquote, p, address, form, fie
 body {
 	padding:10px 30px;
 }
-*/
+
 input, textarea, select, option, optgroup, button, td, th {
 	font-size: 100%;
 }
@@ -25,7 +34,7 @@ tt{
 }
 
 h1.samples {
-  color:#0782C1;
+  color:#92B901;
   font-size:200%;
   font-weight:normal;
   margin: 0;
@@ -37,6 +46,10 @@ h2.samples {
   font-size:130%;
   margin: 0;
   padding: 0;
+}
+
+p, blockquote, address, form, pre, dl, h1.samples, h2.samples {
+	margin-bottom:15px;
 }
 
 ul.samples {
@@ -63,12 +76,13 @@ body {
 }
 
 a.samples {
-	color:#189DE1;
+	color: #92B901;
 	text-decoration:none;
 }
 
 a.samples:hover {
   text-decoration:underline;
+	color: #BED567;
 }
 
 form
@@ -90,6 +104,10 @@ pre.samples
 	color: Red;
 }
 
+#footer {
+	clear: both;
+	padding-top: 10px;
+}
 #footer hr
 {
 	margin: 10px 0 15px 0;
@@ -144,7 +162,7 @@ pre.samples
 .description {
 	border: 1px dotted #B7B7B7;
 	margin-bottom: 10px;
-	padding: 10px 10px 0;
+	padding: 20px 10px 20px;
 }
 
 label {
@@ -157,4 +175,3 @@ label {
 	display: inline;
 	margin-bottom: auto;
 }
-#ckEditor{height: 362px;width: 1079px;}

@@ -1,3 +1,11 @@
 ﻿$(document).ready(function () {
-    //$('#UpProduct').jqTransform({ imgPath: 'themes/images/' });
+    $("#imageProduct").click(function () {
+        var finder = new CKFinder();
+        finder.basePath = '../'; // The path for the installation of CKFinder (default = "/ckfinder/").
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    });
 });
+function SetFileField(fileUrl) {
+    $("#imageProduct").val(fileUrl);
+}
