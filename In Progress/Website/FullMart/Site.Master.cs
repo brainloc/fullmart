@@ -98,5 +98,10 @@ namespace FullMart
                 return false;
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            this.Page.Response.Redirect("google.com");
+        }
     }
 }

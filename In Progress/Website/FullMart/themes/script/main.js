@@ -84,6 +84,7 @@ $(document).ready(function () {
             $(this).html(strtmp+"<p>"+str2+"</p>");
         }
     });
+    CKFinder.setupCKEditor(null, '/ckfinder/');
     $("#unote").click(function () {
         showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
         $(".delms").click(function () {
