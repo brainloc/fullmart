@@ -16,7 +16,9 @@ CREATE PROCEDURE [dbo].[CreateProduct]
     @Picture			NVARCHAR(70),
     @Thumbnail			NVARCHAR(70),    
     @PosterID			INT,
-    @Content			NVARCHAR(MAX) 
+    @Content			NVARCHAR(MAX),
+    @Title				NVARCHAR(150),
+    @State				INT
 AS
 BEGIN
 	
@@ -29,7 +31,9 @@ BEGIN
            ,[Thumbnail]
            ,[CreatedDate]
            ,[PosterID]
-           ,[Outstanding])
+           ,[Outstanding]
+           ,[Title]
+           ,[State])
      VALUES
            (@SubCategoryID
            ,@Price
@@ -37,7 +41,9 @@ BEGIN
            ,@Thumbnail
            ,GETUTCDATE()
            ,@PosterID
-           ,0)
+           ,0
+           ,@Title
+           ,@State)
      
      IF(@@IDENTITY IS NULL)
 		RETURN 0
