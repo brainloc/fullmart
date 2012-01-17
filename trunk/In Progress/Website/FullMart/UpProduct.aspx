@@ -4,9 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>FullMarts Upload Product</title>
-    <link rel="stylesheet" type="text/css" href="themes/style/dialog.css" />
+    <title>FullMarts Register</title>
     <link rel="stylesheet" type="text/css" href="themes/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="themes/style/dialog.css" />
+    <link href="themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
     <link href="themes/style/jqtransform.css" rel="stylesheet" type="text/css" />
     <link href="themes/style/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
     <link href="themes/style/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
@@ -20,18 +21,20 @@
     <!--[if lt IE 8]>
         <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
-     <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="ckeditor/general.js"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js" type="text/javascript"></script>
-    <link href="ckeditor/general.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="ckeditor/general.js"></script>
     <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
     <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.calculation.min.js" type="text/javascript"></script>
     <script src="themes/script/dropbox.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.jqtransform.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/UpProduct.js" type="text/javascript"></script>
-  <%--  <script type="text/javascript">
+    <link href="ckeditor/general.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
 	//<![CDATA[
 
         // The instanceReady event is fired, when an instance of CKEditor has finished
@@ -142,7 +145,7 @@
         }
 
 	//]]>
-    </script>--%>
+    </script>
     <script type="text/javascript">
         function CreateProduct() {
             $.ajax({
@@ -165,6 +168,8 @@
 </head>
 <body>
     <div id="main" class="center">
+    <div id="eMessage">
+            </div>
         <div id="header" class="block">
             <div id="topbar" class="bblr block">
                 <div class="tbl">
@@ -289,13 +294,14 @@
         </div>
         <div id="mcontent" class="block">
             <div id="cmain" class="center block">
-                <form id="UpProduct">
-                <table class="UPtb b bgwt">
+                <form id="UpProduct" runat="server">
+                <table>
                     <tr>
                         <td>
-                            Tiêu đề :
+                            <asp:Label ID="lbTitle" runat="server" Text="Tiêu đề :"></asp:Label>
                         </td>
                         <td>
+                            <%--<asp:TextBox ID="tbtitle" runat="server"></asp:TextBox>--%>
                             <input type="text" id="tbtitle" />
                         </td>
                     </tr>
@@ -304,43 +310,51 @@
                             Category :
                         </td>
                         <td>
-                            <select ID="dlCategories" Class="left">
-                                <option>Other</option>
-                            </select>
-                            <select ID="dlSubCategories" Class="left">
-                                <option>Input New SubCategory</option>
-                            </select>
+                            <asp:DropDownList ID="dlCategories" runat="server" CssClass="left">
+                                <asp:ListItem>Other</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:DropDownList ID="dlSubCategories" runat="server" CssClass="left">
+                                <asp:ListItem>Input New SubCategory</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Hình sản phẩm :<br /><span class="note">size: 190x190px</span>
+                            <asp:Label ID="lbPrice" runat="server" Text="Hình sản phẩm :"></asp:Label>
                         </td>
                         <td>
-                            <input  id="imageProduct" type="text" />
+                            <%--<asp:TextBox ID="tbPrice" runat="server"></asp:TextBox>--%><input type="text"
+                                id="tbPrice" />
+                            <asp:Label ID="Label3" runat="server" Text="VNĐ"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Giá :
-                            
-                        </td><td>
-                            <input type="text" id="tbPrice" />
-                             VNĐ
+                            <asp:Label ID="lPicture" runat="server" Text="Giá :"></asp:Label>
+                            <span class="note">size: 150x150px</span>
                         </td>
-                        
+                        <td>
+                            <asp:FileUpload ID="ulPicture" runat="server" />
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="2"><textarea id="ckEditor" cols="213" rows="20" name="ckEditor"></textarea></td>
+                        <td>
+                            <asp:Label ID="lbContent" runat="server" Text="Nội dung :"></asp:Label>
+                        </td>
+                        <textarea id="ckEditor" cols="213" rows="20" name="ckEditor"></textarea>
                         <script type="text/javascript">
-		                    //<![CDATA[
+		//<![CDATA[
                             // Replace the <textarea id="ckEditor"> with an CKEditor instance.
                             var editor = CKEDITOR.replace('ckEditor');
-		                //]]>
+		//]]>
                         </script>
                     </tr>
                     <tr>
-                        <td colspan="2"><button>Create</button>
+                        <td>
+                        </td>
+                        <td>
+                            <%--<asp:Button ID="CreateProduct" runat="server" Text="Button" />--%><input type="button"
+                                value="Create" />
                         </td>
                     </tr>
                 </table>
@@ -349,257 +363,244 @@
             <div class="clear">
             </div>
         </div>
-         <div id="footer" class="footer block">
-            footer content
-        </div>
-    </div>
-       <div id="viewnote" class="btlr viewnote">
-        <div class="vlistletter">
-            <p class="hnote btlr">
-                <span class="left">Title new / sender</span> <span class="right">Time</span>
-                <div class="clear">
-                </div>
-            </p>
-            <div class="Apages">
-                <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                    ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                        ref="0">...</a>
+        <div id="footer" class="block">
+            <div id="viewnote">
+                <table id="listnote" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Content
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith10
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith9
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith2
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith5
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith8
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith3
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith1
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith7
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith6
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith4
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith11
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith12
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="delms" value="del" type="button" title="Delete this message" />
+                            </td>
+                            <td>
+                                Smith9
+                            </td>
+                            <td>
+                                20/12/2011
+                            </td>
+                            <td>
+                                i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <!--<div id="pager" class="pager">
+                    <form>
+                    <img src="themes/images/first.png" class="first">
+                    <img src="themes/images/pre.png" class="prev">
+                    <input disabled="disabled" type="text" class="pagedisplay">
+                    <img src="themes/images/next.png" class="next">
+                    <img src="themes/images/last.png" class="last">
+                    </form>
+                </div>-->
+                    </tfoot>
+                </table>
             </div>
-            <ul>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <div class="clear">
-                </div>
-            </ul>
-        </div>
-        <div id="vletter" class="vletter">
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            <span>Email: </span>
-                            <input disabled="disabled" id="VUEmail" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>Product: </span>
-                            <input disabled="disabled" id="Text1" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Product ID </span>
-                            <input id="VUCU" type="text" />
-                        </td>
-                        <td>
-                            <span>Quantity: </span>
-                            <input id="VUClass" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>More Detail:</span>
-                            <textarea disabled="disabled" id="VUWishlist"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="2">
-                            <div>
-                                <button>
-                                    CLOSE</button></div>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+            a3</div>
     </div>
-    <div id="fcart" class="fcart">
-        <table cellpadding="0" cellspacing="0">
-        <thead><tr><th>Quantity</th><th>Item</th><th>Order Code</th><th>Unit Price(VND)</th><th>Total</th><th>Short Message<br />(200 characters)</th><th>Remove</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td><a href="viewproduct.htm">Iphone 4</a>
-                        
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot><tr></td><td></td><td></td><td></td><td></td><td><span class="totalp">8,000,000</span></td><td></td><td></td></tr>
-            <tr><th colspan="7"><button>verify</button></th></tr>
-            </tfoot>
-        </table>
-    </div>
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+
+            //chua xong
+            $("#unote").click(function () {
+                showdialog($("#viewnote").html(), 700, 350, "#viewnote", true);
+                $(".delms").click(function () {
+                    $(this).parents("tr").hide();
+                    return false;
+                });
+                $("#listnote").tablesorter({
+                    headers: {
+                        0: { sorter: false }, 3: { sorter: false }
+                    },
+                    widthFixed: true,
+                    widgets: ['zebra']
+                });
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>
