@@ -27,7 +27,14 @@ CREATE PROCEDURE [dbo].[CreateUser]
 	@state		NVARCHAR(100),
 	@CU			NVARCHAR(100),
 	@class		VARCHAR(10),
-	@roleID		INT
+	@roleID		INT,
+	@yahoo		NVARCHAR(50),
+	@mobile		NVARCHAR(50),
+	@ShopName	NVARCHAR(50),
+	@web		NVARCHAR(50),
+	@Wishlist	NVARCHAR(MAX),
+	@isActive	bit
+	
 AS
 BEGIN
 	
@@ -38,9 +45,24 @@ BEGIN
 	ELSE
 	BEGIN	
 		INSERT INTO [FullMart].[dbo].[User]
-			   ([fname],[lname],[email],[pass],[bday],[state],[CU],[class],[createdate],[roleID])
+			   ([fname]
+           ,[lname]
+           ,[email]
+           ,[pass]
+           ,[bday]
+           ,[state]
+           ,[CU]
+           ,[class]
+           ,[createdate]
+           ,[roleID]
+           ,[yahoo]
+           ,[mobile]
+           ,[Shopname]
+           ,[Web]
+           ,[Wishlist]
+           ,[isActive])
 		 VALUES
-			   (@fname,@lname,@email,@pass,@bday,@state,@CU,@class,GETUTCDATE(),@roleID)
+			   (@fname,@lname,@email,@pass,@bday,@state,@CU,@class,GETUTCDATE(),@roleID,@yahoo,@mobile,@ShopName,@web,@Wishlist,@isActive)
 		RETURN 1
 	END
 END
