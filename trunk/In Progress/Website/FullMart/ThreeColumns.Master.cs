@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using FullMart.Code.DAO;
 
 namespace FullMart
 {
@@ -67,9 +68,29 @@ namespace FullMart
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        private void BindStates()
         {
-            this.Page.Response.Redirect("google.com");
+            DataTable allStates = new DataTable();
+            allStates = BindingUltilities.GetStates();
+
+            if (allStates != null)
+            {
+            }
+
+            DataTable cats = new DataTable();
+            cats = BindingUltilities.GetCategories();
+            if (cats != null)
+            {
+                DataRow r = cats.NewRow();
+                r["ID"] = "-9999";
+                r["Name"] = "Please select a category...";
+                cats.Rows.InsertAt(r, 0);
+                dlCategories.DataSource = cats;
+                dlCategories.DataTextField = "Name";
+                dlCategories.DataValueField = "ID";
+                dlCategories.DataBind();
+                dlCategories.SelectedIndex = 0;
+            }
         }
     }
 }

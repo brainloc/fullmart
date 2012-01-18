@@ -1078,7 +1078,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AQ.aspx.cs">
@@ -1174,19 +1173,19 @@
     <Compile Include="ThreeColumns.Master.designer.cs">
       <DependentUpon>ThreeColumns.Master</DependentUpon>
     </Compile>
+    <Compile Include="TwoColumns.Master.cs">
+      <DependentUpon>TwoColumns.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TwoColumns.Master.designer.cs">
+      <DependentUpon>TwoColumns.Master</DependentUpon>
+    </Compile>
     <Compile Include="UpProduct.aspx.cs">
       <DependentUpon>UpProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UpProduct.aspx.designer.cs">
       <DependentUpon>UpProduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1316,6 +1315,7 @@
   <ItemGroup>
     <None Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <None Include="ckfinder\userfiles\.htaccess" />
+    <Content Include="TwoColumns.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

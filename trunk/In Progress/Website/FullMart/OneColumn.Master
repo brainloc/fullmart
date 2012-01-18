@@ -55,7 +55,8 @@
                         <!-- Begin User Account -->
                         <a href="#Account" title="User's Account control">
                             <div id="uus" class="us left">
-                                UserName</div>
+                                <asp:LoginName ID="LoginName" runat="server" />
+                            </div>
                         </a><a href="#notify" title="User's Notify">
                             <div id="unote" class="us left">
                                 <strong>2</strong></div>
@@ -63,22 +64,33 @@
                             <div id="ucart" class="us left">
                                 <strong>(3) verifiing</strong></div>
                         </a>
-                        <div class="left">
-                            <input id="lo" type="submit" value="" /></div>
+                        <%--<div class="left">
+                            <input id="lo" type="submit" value="" /></div>--%>
                         <!-- End User Account -->
                         <!-- Begin Login -->
-                        <div class="us bgwt left">
-                            <div class="un" title="Username">
-                                <input id="us" type="text" /></div>
-                        </div>
-                        <div class="us bgwt left">
-                            <div class="pw" title="Password">
-                                <input id="pw" type="password" /></div>
-                        </div>
-                        <div class="left">
-                            <input id="sb" type="submit" value="" /></div>
-                        <div class="left">
-                            <input id="treg" type="submit" value="" /></div>
+                        <asp:Login ID="loginPanel" runat="server" OnAuthenticate="loginPanel_Authenticate">
+                            <LayoutTemplate>
+                                <div class="us bgwt left">
+                                    <div class="un" title="Username">
+                                        <%--<input id="us" type="text" />--%>
+                                        <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="us bgwt left">
+                                    <div class="pw" title="Password">
+                                        <%--<input id="pw" type="password" />--%>
+                                        <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="left">
+                                    <%--<input id="sb" type="submit" value="" />--%>
+                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" />
+                                </div>
+                                <div class="left">
+                                    <input id="treg" type="submit" value="" /></div>
+                            </LayoutTemplate>
+                        </asp:Login>
+                        <asp:LoginStatus ID="LoginStatus" runat="server" Visible="false" />
                         <!-- End Login -->
                     </div>
                 </div>

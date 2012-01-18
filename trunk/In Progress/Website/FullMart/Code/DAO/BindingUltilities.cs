@@ -66,5 +66,33 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetStates()
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetStates", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable allStates = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(allStates);
+
+                    if (allStates != null && allStates.Rows.Count > 0)
+                    {
+                        return allStates;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
