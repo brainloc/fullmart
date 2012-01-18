@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace FullMart
 {
-    public partial class OneColumn : System.Web.UI.MasterPage
+    public partial class TwoColumns : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
