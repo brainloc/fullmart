@@ -66,31 +66,6 @@ namespace FullMart
             {
                 return false;
             }
-        }
-
-        private void BindStates()
-        {
-            DataTable allStates = new DataTable();
-            allStates = BindingUltilities.GetStates();
-
-            if (allStates != null)
-            {
-            }
-
-            DataTable cats = new DataTable();
-            cats = BindingUltilities.GetCategories();
-            if (cats != null)
-            {
-                DataRow r = cats.NewRow();
-                r["ID"] = "-9999";
-                r["Name"] = "Please select a category...";
-                cats.Rows.InsertAt(r, 0);
-                dlCategories.DataSource = cats;
-                dlCategories.DataTextField = "Name";
-                dlCategories.DataValueField = "ID";
-                dlCategories.DataBind();
-                dlCategories.SelectedIndex = 0;
-            }
-        }
+        }        
     }
 }
