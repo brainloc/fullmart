@@ -16,8 +16,9 @@ namespace FullMart.Code.Entities
         public int? PosterID { get; set; }
         public bool Outstanding { get; set; }
         public Int64? ContentID { get; set; }
-        public string title { get; set; }
+        public string Title { get; set; }
         public string Content { get; set; }
+        public int? State { get; set; }
 
         public Product()
         {
@@ -29,9 +30,10 @@ namespace FullMart.Code.Entities
             CreatedDate = string.Empty;
             PosterID = null;
             Outstanding = false;
-            title = string.Empty;
+            Title = string.Empty;
             ContentID = null;
             Content = string.Empty;
+            State = null;
         }
     }
 }

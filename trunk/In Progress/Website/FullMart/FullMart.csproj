@@ -55,7 +55,6 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AQ.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -861,7 +860,6 @@
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Default.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
-    <Content Include="Index.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
     <Content Include="media\adv\adv3.gif" />
@@ -886,7 +884,7 @@
     <Content Include="media\upload\product9.jpg" />
     <Content Include="OneColumn.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="RegisterN.aspx" />
+    <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="themes\images\Aarrow.png" />
     <Content Include="themes\images\asc.gif" />
     <Content Include="themes\images\Bag_Purchase.png" />
@@ -1078,16 +1076,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AQ.aspx.cs">
-      <DependentUpon>AQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AQ.aspx.designer.cs">
-      <DependentUpon>AQ.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
     </Compile>
@@ -1117,13 +1107,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
     <Compile Include="OneColumn.aspx.cs">
       <DependentUpon>OneColumn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1146,19 +1129,12 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegisterN.aspx.cs">
-      <DependentUpon>RegisterN.aspx</DependentUpon>
+    <Compile Include="Shop\CreateProduct.aspx.cs">
+      <DependentUpon>CreateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterN.aspx.designer.cs">
-      <DependentUpon>RegisterN.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="Shop\CreateProduct.aspx.designer.cs">
+      <DependentUpon>CreateProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThreeColumns.aspx.cs">
       <DependentUpon>ThreeColumns.aspx</DependentUpon>
@@ -1188,15 +1164,9 @@
     <Compile Include="UpProduct.aspx.designer.cs">
       <DependentUpon>UpProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Administration\" />
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />
@@ -1307,9 +1277,6 @@
     <Folder Include="ckeditor\_source\skins\office2003\images\" />
     <Folder Include="ckeditor\_source\skins\v2\images\" />
     <Folder Include="ckeditor\_source\themes\default\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Code\Business\AjaxUltilities.ashx" />

@@ -22,7 +22,10 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@Picture", p.Picture));
                 command.Parameters.Add(new SqlParameter("@Thumbnail", p.Thumbnail));
                 command.Parameters.Add(new SqlParameter("@PosterID", p.PosterID));
-                command.Parameters.Add(new SqlParameter("@Content", p.Content));    
+                command.Parameters.Add(new SqlParameter("@Content", p.Content));
+                command.Parameters.Add(new SqlParameter("@Title", p.Title));
+                command.Parameters.Add(new SqlParameter("@State", p.State));
+ 
 
                 SqlParameter isCreated = new SqlParameter("@isCreated", DbType.Int32);
                 isCreated.Direction = ParameterDirection.ReturnValue;

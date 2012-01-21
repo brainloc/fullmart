@@ -126,15 +126,15 @@
                             </dt>
                             <dd>
                                 <ul>
-                                    <li><a href="#">Brazil</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">India</a></li>
-                                    <li><a href="#">Japan</a></li>
-                                    <li><a href="#">Serbia</a></li>
-                                    <li><a href="#">United Kingdom</a></li>
-                                    <li><a href="#">United States</a></li>
-                                    <li><a href="#">Viet Nam</a></li>
+                                    <asp:Repeater ID="rpStates" runat="server" DataSourceID="dsStates">
+                                        <ItemTemplate>
+                                            <li><a href="#" id="<%# Eval("StateName") %><%# Eval("id") %>">
+                                                <%# Eval("StateName") %></a></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <asp:SqlDataSource ID="dsStates" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                        SelectCommand="SELECT [id],[StateName] FROM [FullMart].[dbo].[State] ORDER BY [Order]">
+                                    </asp:SqlDataSource>
                                 </ul>
                             </dd>
                         </dl>
@@ -144,14 +144,15 @@
                             <dt><a href="#" class="b"><span>Please select the category</span></a></dt>
                             <dd>
                                 <ul>
-                                    <li><a href="#">Brazil</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">India</a></li>
-                                    <li><a href="#">Japan</a></li>
-                                    <li><a href="#">Serbia</a></li>
-                                    <li><a href="#">United Kingdom</a></li>
-                                    <li><a href="#">United States</a></li>
+                                    <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
+                                        <ItemTemplate>
+                                            <li><a href="#" id="<%# Eval("Name") %><%# Eval("ID")%>">
+                                                <%# Eval("Name") %></a></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                        SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
+                                    </asp:SqlDataSource>
                                 </ul>
                             </dd>
                         </dl>

@@ -24,13 +24,14 @@ namespace FullMart.Code.Business
                 System.Drawing.Image fullSizeImg = System.Drawing.Image.FromFile(imageUrl);
                 System.Drawing.Image.GetThumbnailImageAbort dummyCallBack = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
                 System.Drawing.Image thumbNailImg = fullSizeImg.GetThumbnailImage(imageWidth, imageHeight, dummyCallBack, IntPtr.Zero);
-                String MyString = UploadedFileName + "_thumb.jpg";
+                String MyString = UploadedFileName.LastIndexOf(".jpg") != -1 ? UploadedFileName.Substring(0, UploadedFileName.LastIndexOf(".jpg")) + "_thumb.jpg" : UploadedFileName + "_thumb.jpg";
                 thumbNailImg.Save(folder + "\\" + MyString, ImageFormat.Jpeg);
                 thumbNailImg.Dispose();
             }
             catch (Exception ex)
             {
                 ex.ToString();
+                return null;
             }
             return UploadedFileName;
         }
