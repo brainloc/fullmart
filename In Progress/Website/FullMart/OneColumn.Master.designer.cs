@@ -67,6 +67,42 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.LoginStatus LoginStatus;
         
         /// <summary>
+        /// rpStates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpStates;
+        
+        /// <summary>
+        /// dsStates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsStates;
+        
+        /// <summary>
+        /// rpCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpCategories;
+        
+        /// <summary>
+        /// dsCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        
+        /// <summary>
         /// formPanel control.
         /// </summary>
         /// <remarks>

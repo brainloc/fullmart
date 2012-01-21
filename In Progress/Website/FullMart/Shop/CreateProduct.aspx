@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OneColumn.Master" AutoEventWireup="true"
-    CodeBehind="OneColumn.aspx.cs" Inherits="FullMart.OneColumn1" ValidateRequest="false"
+    CodeBehind="CreateProduct.aspx.cs" Inherits="FullMart.Shop.CreateProduct" ValidateRequest="false"
     EnableEventValidation="false" %>
 
 <%@ Register TagPrefix="ckeditor" Namespace="CKEditor.NET" Assembly="CKEditor.NET" %>
@@ -22,22 +22,6 @@
                 }
             });
         }
-
-        //        $(document).ready(function () {
-        //            $("#CatSubCat select:eq(0)").change(function () {
-        //                $(this).selectmenu("refresh", true);
-        //                var selectedOption = $("#CatSubCat select:eq(0) option:selected").val();
-        //                $.ajax({
-        //                    url: "Code/Business/AjaxUltilities.ashx?",
-        //                    type: "POST",
-        //                    dataType: "script",
-        //                    data: {
-        //                        action: "GetSubCategoriesByCatID",
-        //                        subCatID: selectedOption
-        //                    }
-        //                });
-        //            });
-        //        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">

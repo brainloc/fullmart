@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FullMart {
+namespace FullMart.Shop {
     
     
-    public partial class OneColumn1 {
+    public partial class CreateProduct {
         
         /// <summary>
         /// txtTitle control.

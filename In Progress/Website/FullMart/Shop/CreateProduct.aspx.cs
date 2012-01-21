@@ -4,14 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using FullMart.Code.DAO;
-using System.Data;
 using FullMart.Code.Business;
-using System.Text;
+using System.Data;
+using FullMart.Code.DAO;
 
-namespace FullMart
+namespace FullMart.Shop
 {
-    public partial class OneColumn1 : System.Web.UI.Page
+    public partial class CreateProduct : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,19 +34,21 @@ namespace FullMart
                 dlCategories.DataTextField = "Name";
                 dlCategories.DataValueField = "ID";
                 dlCategories.DataBind();
-                dlCategories.SelectedIndex = 0;          
+                dlCategories.SelectedIndex = 0;
             }
         }
 
         protected void btnCreateProduct_Click(object sender, EventArgs e)
         {
+            int state = 1;
+            string title = txtTitle.Text.Trim();
             int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
             int posterID = 1;
             int price = Convert.ToInt32(txtPrice.Text);
             string content = HttpUtility.HtmlDecode(CKENet.Text);
-            string imgURL = FilesUltilities.UploadImages(imgUploader.PostedFile.FileName, imgUploader, 70, 70, Request.PhysicalApplicationPath + "media\\upload\\");
+            string imgURL = FilesUltilities.UploadImages(imgUploader.PostedFile.FileName, imgUploader, 70, 70, Request.PhysicalApplicationPath + "\\media\\upload\\");
 
-            ProductBusiness.CreateProduct(subCatID, posterID, price, content, imgURL);            
+            ProductBusiness.CreateProduct(title, subCatID, posterID, price, content, imgURL, state);
         }
 
         protected void dlCategories_SelectedIndexChanged(object sender, EventArgs e)
