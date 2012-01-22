@@ -25,6 +25,7 @@
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
     <script src="themes/script/jquery.validationEngine.js" type="text/javascript"></script>
+    <script src="themes/script/jquery.jqtransform.js" type="text/javascript"></script>
     <script src="themes/script/register.js" type="text/javascript"></script>
 </head>
 <body>
@@ -1279,111 +1280,7 @@
                 </div>
                 <div class="freg block center b shadow">
                 <div class="ftitle"><div class="ftitle"></div><div class="ftitle"></div><div class="ftitle"></div></div>
-                    <div id="regshop" class="block">
-                        <form id="fregshop" class="formular">
-                        <table>
-                            <tr>
-                                <td>
-                                    Shop / Company Name<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required]" type="text" name="uusername" id="Text1" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    First Name<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required]" type="text" name="ufname" id="Text3" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Last Name<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required]" type="text" name="ulname" id="Text4" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,custom[email]]" type="text" name="uemail" id="Text2" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   Confirm Email<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,custom[email]]" type="text" name="uemail" id="Text7" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   Website Address
-                                </td>
-                                <td>
-                                    <input class="validate[custom[email]]" value="http://" type="text" name="uemail" id="Text8" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Password<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,custom[passl]]" type="password" name="upass" id="Password1" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Confirm Password<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,funcCall[ckmk]]" type="password" name="uconfirm"
-                                        id="Password2" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Your State<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <select class="validate[required]" id="Select1" name="freguserstate">
-                                        <option>Select your current states</option>
-                                    </select>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Captcha image
-                                </td>
-                                <td>
-                                    <p id='verys' class='very' title="reload image">
-                                        ABjs</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Enter Captcha image<span style="color: red">*</span>
-                                </td>
-                                <td>
-                                    <input class="validate[required,funcCall[ckcaps]]" type="text" id="Text6" name="freguserckcap" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td>
-                                    <input type="submit" value="Sign up" />
-                                    <input type="reset" value="Reset" />
-                                </td>
-                            </tr>
-                        </table>
-                        </form>
-                    </div>
+                   
                     <div id="reguser" class="block">
                         <form id="freguser" class="formular">
                         <table>
@@ -1445,6 +1342,7 @@
                                     <select class="validate[required]" id="freguserstate" name="freguserstate">
                                         <option>Select your current states</option>
                                     </select>
+                                    </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1464,6 +1362,38 @@
                                     <select id="freguserclass" name="freguserclass">
                                         <option>Select your class</option>
                                     </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Yahoo/Skype
+                                </td>
+                                <td>
+                                    <input type="text" name="uyahoo" id="Text2" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mobile
+                                </td>
+                                <td>
+                                    <input type="text" name="umobile" id="Text3" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Shop / Company Name
+                                </td>
+                                <td>
+                                    <input type="text" name="uusername" id="Text1" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   Website Address
+                                </td>
+                                <td>
+                                    <input class="validate[custom[email]]" value="http://" type="text" name="uemail" id="Text8" />
                                 </td>
                             </tr>
                             <tr>
@@ -1524,263 +1454,6 @@
             footer content
         </div>
     </div>
-    <div id="viewnote">
-            <table id="listnote" class="tablesorter">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Username</th>
-                        <th>Date</th>
-                        <th>Content</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith10</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith9</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith2</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith5</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith8</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith3</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith1</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith7</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith6</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith4</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith11</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith12</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td><input class="delms" value="del" type="button" title="Delete this message" /></td>
-                        <td>Smith9</td>
-                        <td>20/12/2011</td>
-                        <td>i want to buy 3 T-shirt from your shop, please contact me. smith@gmail.com</td>
-                    </tr>
-
-                </tbody>
-                <tfoot>
-                <!--<div id="pager" class="pager">
-                    <form>
-                    <img src="themes/images/first.png" class="first">
-                    <img src="themes/images/pre.png" class="prev">
-                    <input disabled="disabled" type="text" class="pagedisplay">
-                    <img src="themes/images/next.png" class="next">
-                    <img src="themes/images/last.png" class="last">
-                    </form>
-                </div>-->
-                </tfoot>
-            </table>
-        </div>
-    <div id="fcart" class="fcart">
-        <table cellpadding="0" cellspacing="0">
-        <thead><tr><th>Quantity</th><th>Item</th><th>Order Code</th><th>Unit Price(VND)</th><th>Total</th><th>Short Message<br />(200 characters)</th><th>Remove</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td><a href="viewproduct.htm">Iphone 4</a>
-                        
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot><tr></td><td></td><td></td><td></td><td></td><td><span class="totalp">8,000,000</span></td><td></td><td></td></tr>
-            <tr><th colspan="7"><button>verify</button></th></tr>
-            </tfoot>
-        </table>
-    </div>
-    <script type="text/javascript">
-        
-        $(document).ready(function () {
-            $("#freguser").validationEngine('attach', { promptPosition: "centerRight", autoPositionUpdate: true });
-
-
-            //chua xong
-            $("#unote").click(function () {
-                showdialog($("#viewnote").html(), 700, 350, "#viewnote", false);
-                $(".delms").click(function () {
-                    $(this).parents("tr").hide();
-                    return false;
-                });
-                $("#listnote").tablesorter({
-                    headers: {
-                        0: { sorter: false }, 3: { sorter: false }
-                    },
-                    widthFixed: true,
-                    widgets: ['zebra']
-                });
-                return false;
-            });
-        });
-    </script>
+   
 </body>
 </html>
