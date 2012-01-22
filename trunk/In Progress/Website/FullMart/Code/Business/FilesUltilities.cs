@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Drawing.Imaging;
+using System.Configuration;
 
 namespace FullMart.Code.Business
 {
@@ -39,6 +40,20 @@ namespace FullMart.Code.Business
         private static bool ThumbnailCallback()
         {
             return false;
+        }
+
+        public static void SetTopSectionMaxItems(int value)
+        {
+            Configuration MaxItemsTopSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+            MaxItemsTopSection.AppSettings.Settings["MaxItemsTopSection"].Value = "2";
+            MaxItemsTopSection.Save();            
+        }
+
+        public static void SetNewSectionMaxItems(int value)
+        {
+            Configuration MaxItemsNewSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+            MaxItemsNewSection.AppSettings.Settings["MaxItemsNewSection"].Value = "2";
+            MaxItemsNewSection.Save();
         }
     }
 }
