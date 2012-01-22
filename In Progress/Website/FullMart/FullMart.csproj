@@ -55,6 +55,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ManageUser.aspx" />
     <Content Include="BlockAccess.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
@@ -1078,6 +1079,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BlockAccess.aspx.cs">
       <DependentUpon>BlockAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1166,7 +1174,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Administration\" />
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />

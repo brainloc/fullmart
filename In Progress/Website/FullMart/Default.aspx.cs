@@ -13,8 +13,17 @@ namespace FullMart
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.IsPostBack == false)
-            {
-                dsTopSection.SelectCommand = String.Format("SELECT TOP {0} [ID],[Price],[Thumbnail],[Title] FROM [FullMart].[dbo].[Product] ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsNumberPerSection"].ToString());
+            {   
+                Configuration MaxItemsTopSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+                MaxItemsTopSection.AppSettings.Settings["MaxItemsTopSection"].Value = "2";
+                MaxItemsTopSection.Save();
+
+                Configuration MaxItemsNewSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+                MaxItemsNewSection.AppSettings.Settings["MaxItemsNewSection"].Value = "2";
+                MaxItemsNewSection.Save();
+
+                dsTopSection.SelectCommand = String.Format("SELECT TOP {0} [ID],[Price],[Thumbnail],[Title] FROM [FullMart].[dbo].[Product] WHERE [Outstanding] = 1 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsTopSection"].ToString());
+                dsNewSection.SelectCommand = String.Format("SELECT TOP {0} [ID],[Price],[Thumbnail],[Title] FROM [FullMart].[dbo].[Product] ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsNewSection"].ToString());
             }
         }
     }
