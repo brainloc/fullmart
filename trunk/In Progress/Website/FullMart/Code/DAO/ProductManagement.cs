@@ -44,5 +44,95 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetProductDetailByID(int productID)
+        {            
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetProductDetail", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", productID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable GetAllProductsOfCategoryBySubCatID(int subCatID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllProductsOfCategoryBySubCatID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@SubCatID", subCatID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsOfCategory = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsOfCategory);
+
+                    if (productsOfCategory != null && productsOfCategory.Rows.Count > 0)
+                    {
+                        return productsOfCategory;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable GetAllProductsOfPoster(int posterID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllProductsByPoster", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PosterID", posterID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsByPoster = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsByPoster);
+
+                    if (productsByPoster != null && productsByPoster.Rows.Count > 0)
+                    {
+                        return productsByPoster;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

@@ -150,8 +150,7 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <asp:SqlDataSource ID="dsTopSection" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                        SelectCommand="SELECT TOP 8 [ID],[Price],[Thumbnail],[Title],[CreatedDate],[State] FROM [FullMart].[dbo].[Product] ORDER BY [CreatedDate] DESC">
+                    <asp:SqlDataSource ID="dsTopSection" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>">
                     </asp:SqlDataSource>
                     <div class="clear">
                     </div>

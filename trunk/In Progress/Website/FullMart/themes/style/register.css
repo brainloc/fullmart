@@ -1,6 +1,6 @@
 ﻿#cmain{width:1080px}
 /* popup group policy*/
-.pl{display:none;width:800px;height:500px;margin-left:-10px}
+.pl{display:none;width:700px;height:500px;margin-left:-10px}
 .pl .ptitle{background:none;text-transform:uppercase;text-align:center;display:block;font-size:17px;margin:0px auto;color:#52B9FB}
 .pl .description{display:block;width:700px;height:285px;overflow-Y:scroll;margin:10px auto;text-align:justify}
 .agree{width:150px}

@@ -47,7 +47,7 @@ namespace FullMart.Shop
             int price = Convert.ToInt32(txtPrice.Text);
             string content = HttpUtility.HtmlDecode(CKENet.Text);
             string imgURL = FilesUltilities.UploadImages(imgUploader.PostedFile.FileName, imgUploader, 70, 70, Request.PhysicalApplicationPath + "\\media\\upload\\");
-
+            //string imgURL = imageProduct.Text;
             ProductBusiness.CreateProduct(title, subCatID, posterID, price, content, imgURL, state);
         }
 
