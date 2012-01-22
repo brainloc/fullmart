@@ -40,7 +40,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="themes/images/leftadv.jpg" /></div>
+        <img src="/themes/images/leftadv.jpg" /></div>
     <div id="AAQ" class="lb b">
         <div class="title">
             <span>Answers & Questions</span></div>
@@ -110,13 +110,13 @@
     <div id="cmslide" class="block">
         <div id='mslider'>
             <div class="item">
-                <img src="themes/images/slide1.jpg" /></div>
+                <img src="/themes/images/slide1.jpg" /></div>
             <div class="item">
-                <img src="themes/images/slide2.jpg" /></div>
+                <img src="/themes/images/slide2.jpg" /></div>
             <div class="item">
-                <img src="themes/images/slide3.jpg" /></div>
+                <img src="/themes/images/slide3.jpg" /></div>
             <div class="item">
-                <img src="themes/images/slide4.jpg" /></div>
+                <img src="/themes/images/slide4.jpg" /></div>
         </div>
         <div class="clear">
         </div>
@@ -516,7 +516,7 @@
         </div>
     </div>
     <div class="ladv lb">
-        <img src="themes/images/rightadv.jpg" /></div>
+        <img src="/themes/images/rightadv.jpg" /></div>
     <div id="newadv" class="lb b">
         <div class="title">
             New ADV</div>
