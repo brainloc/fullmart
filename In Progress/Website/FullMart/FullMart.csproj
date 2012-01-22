@@ -271,6 +271,7 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="CKfinder.aspx" />
     <Content Include="ckfinder\bin\Debug\CKFinder.dll" />
     <Content Include="ckfinder\bin\Debug\CKFinder.pdb" />
     <Content Include="ckfinder\bin\Release\CKFinder.dll" />
@@ -882,7 +883,6 @@
     <Content Include="media\upload\product7.jpg" />
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
-    <Content Include="OneColumn.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -891,14 +891,19 @@
     <Content Include="themes\images\bg.gif" />
     <Content Include="themes\images\bga.png" />
     <Content Include="themes\images\bgApages.png" />
+    <Content Include="themes\images\BGB.png" />
     <Content Include="themes\images\bgbar.png" />
+    <Content Include="themes\images\bgc.png" />
     <Content Include="themes\images\bggcats.png" />
     <Content Include="themes\images\bgmcat.png" />
+    <Content Include="themes\images\bgn.png" />
+    <Content Include="themes\images\BGNC.png" />
     <Content Include="themes\images\BGT.png" />
     <Content Include="themes\images\bgtd.gif" />
     <Content Include="themes\images\bgtlistcat.png" />
     <Content Include="themes\images\bgtopbar.png" />
     <Content Include="themes\images\bgtopmenu.png" />
+    <Content Include="themes\images\bgv.png" />
     <Content Include="themes\images\bgwt.png" />
     <Content Include="themes\images\bgwt1.png" />
     <Content Include="themes\images\bgwt2.png" />
@@ -942,6 +947,7 @@
     <Content Include="themes\images\login.png" />
     <Content Include="themes\images\logo.png" />
     <Content Include="themes\images\logout.png" />
+    <Content Include="themes\images\Mail4.png" />
     <Content Include="themes\images\narrow.png" />
     <Content Include="themes\images\newadv.png" />
     <Content Include="themes\images\newsblue.png" />
@@ -952,6 +958,7 @@
     <Content Include="themes\images\product-bottom.png" />
     <Content Include="themes\images\Q_A.png" />
     <Content Include="themes\images\radio.gif" />
+    <Content Include="themes\images\register.png" />
     <Content Include="themes\images\rightadv.jpg" />
     <Content Include="themes\images\rmaincat.png" />
     <Content Include="themes\images\search.gif" />
@@ -959,6 +966,8 @@
     <Content Include="themes\images\select_left.gif" />
     <Content Include="themes\images\select_right.gif" />
     <Content Include="themes\images\signup-your-shop.png" />
+    <Content Include="themes\images\signup-your-store1.png" />
+    <Content Include="themes\images\signup-your-store2.png" />
     <Content Include="themes\images\slide1.jpg" />
     <Content Include="themes\images\slide2.jpg" />
     <Content Include="themes\images\slide3.jpg" />
@@ -1037,6 +1046,8 @@
     <Content Include="themes\script\jquery-ui-1.7.2.custom.min.js" />
     <Content Include="themes\script\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="themes\script\jquery.bxSlider.min.js" />
+    <Content Include="themes\script\jquery.calculation.js" />
+    <Content Include="themes\script\jquery.calculation.min.js" />
     <Content Include="themes\script\jquery.jqtransform.js" />
     <Content Include="themes\script\jquery.simplemodal.js" />
     <Content Include="themes\script\jquery.tablesorter.js" />
@@ -1048,6 +1059,7 @@
     <Content Include="themes\script\QAA.js" />
     <Content Include="themes\script\register.js" />
     <Content Include="themes\script\UpProduct.js" />
+    <Content Include="themes\script\viewProduct.js" />
     <Content Include="themes\style\admin.css" />
     <Content Include="themes\style\border-radius.htc" />
     <Content Include="themes\style\dialog.css" />
@@ -1057,6 +1069,7 @@
     <Content Include="themes\style\home.css" />
     <Content Include="themes\style\jqtransform.css" />
     <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
+    <Content Include="themes\style\Listnews.css" />
     <Content Include="themes\style\main.css" />
     <Content Include="themes\style\PIE.htc" />
     <Content Include="themes\style\QAA.css" />
@@ -1064,9 +1077,8 @@
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\UpProduct.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
+    <Content Include="themes\style\viewnews.css" />
     <Content Include="themes\style\viewproduct.css" />
-    <Content Include="ThreeColumns.aspx" />
-    <Content Include="UpProduct.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1078,6 +1090,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CKfinder.aspx.cs">
+      <DependentUpon>CKfinder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CKfinder.aspx.designer.cs">
+      <DependentUpon>CKfinder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
     </Compile>
@@ -1107,13 +1126,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OneColumn.aspx.cs">
-      <DependentUpon>OneColumn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OneColumn.aspx.designer.cs">
-      <DependentUpon>OneColumn.aspx</DependentUpon>
-    </Compile>
     <Compile Include="OneColumn.Master.cs">
       <DependentUpon>OneColumn.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1136,13 +1148,6 @@
     <Compile Include="Shop\CreateProduct.aspx.designer.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ThreeColumns.aspx.cs">
-      <DependentUpon>ThreeColumns.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ThreeColumns.aspx.designer.cs">
-      <DependentUpon>ThreeColumns.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ThreeColumns.Master.cs">
       <DependentUpon>ThreeColumns.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1156,13 +1161,6 @@
     </Compile>
     <Compile Include="TwoColumns.Master.designer.cs">
       <DependentUpon>TwoColumns.Master</DependentUpon>
-    </Compile>
-    <Compile Include="UpProduct.aspx.cs">
-      <DependentUpon>UpProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UpProduct.aspx.designer.cs">
-      <DependentUpon>UpProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -49,13 +49,13 @@ namespace FullMart.Shop {
         protected global::System.Web.UI.WebControls.DropDownList dlSubCategories;
         
         /// <summary>
-        /// imgUploader control.
+        /// imageProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile imgUploader;
+        protected global::System.Web.UI.WebControls.TextBox imageProduct;
         
         /// <summary>
         /// txtPrice control.

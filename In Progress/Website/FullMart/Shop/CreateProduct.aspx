@@ -61,7 +61,8 @@
                     <span class="note">size: 150x150px</span>
                 </td>
                 <td>
-                    <input id="imgUploader" type="file" runat="server" />
+                    <asp:TextBox ID="imageProduct" CssClass="imageProduct" runat="server"></asp:TextBox>
+                    <%--<input id="imgUploader" type="file" runat="server" />--%>
                     <%--<asp:FileUpload ID="imgUploader" runat="server" />--%>
                 </td>
             </tr>
