@@ -23,11 +23,19 @@
         $(this).parent().find(".subcomment").slideToggle("normal");
         return false;
     });
+
+    $(".msinfo input[type=submit]").click(function () {
+        var $prtmp = $(this).parent();
+        if ($prtmp.find(".very").text() != $prtmp.find(".msvery").val()) {
+            alert("Please enter captcha correctly !");
+            return false;
+        }
+    });
     $(".mcomment .Acontent button").click(function () {
         var r = confirm("Do you want to delete this question ?");
         if (r) {
             //$(this).parent().parent().parent().remove();
-            
+
             var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
             tmp = eval(tmp);
             tmp--;

@@ -10,7 +10,7 @@ $(document).ready(function () {
     //    });
 
     //    $("#lUser").tablesorter();
-   
+
     $(".outstanding").change(function () {
         $.ajax({
             url: "Code/Business/AjaxUltilities.ashx?",
@@ -75,7 +75,6 @@ $(document).ready(function () {
     $("#viewU tfoot center button").click(function () {
         if ($(this).text() != "SAVE") {
             $.modal.close();
-            return false;
         } else {
             $.ajax({
                 url: "Code/Business/AjaxUltilities.ashx?",
@@ -101,8 +100,8 @@ $(document).ready(function () {
             //this line code use to return
             $("#viewU").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'>User's Information Update Successfully !</div>");
             resizeDA(250, 30);
-            return false;
         }
+        return false;
     });
     $("#Usert td .Uedit").click(function () {
         $("#viewU tfoot center button").text("SAVE");
@@ -122,6 +121,7 @@ $(document).ready(function () {
         $("#VUCreatedate").removeAttr("disabled"); $("#VUYahoo").removeAttr("disabled"); $("#VUMobile").removeAttr("disabled"); $("#VUShopName").removeAttr("disabled"); $("#VUWeb").removeAttr("disabled");
         $("#VURole").removeAttr("disabled");
         showdialog("", 800, 480, "#viewU", true);
+        return false;
     });
     $("#Usert td .Uview").click(function () {
         $("#viewU tfoot center button").text("CLOSE");
@@ -141,6 +141,7 @@ $(document).ready(function () {
         $("#VUCreatedate").attr('disabled', 'disabled'); $("#VUYahoo").attr('disabled', 'disabled'); $("#VUMobile").attr('disabled', 'disabled'); $("#VUShopName").attr('disabled', 'disabled'); $("#VUWeb").attr('disabled', 'disabled');
         $("#VURole").attr('disabled', 'disabled');
         showdialog("", 800, 480, "#viewU", true);
+        return false;
     });
     $("#Usertab").tabs();
     $(".slobox").click(function () {
@@ -155,12 +156,12 @@ $(document).ready(function () {
         $(this).parents(".insstate").find("input:text").css("color", "#000");
         $(".insstate ul").slideUp("normal");
     });
-
-    focusout("#INSState", "Press 'Enter' to insert");
-    focusout("#INSCAT", "Press 'Enter' to insert");
-    focusout("#INSSUBCAT", "Press 'Enter' to insert");
-    focusout("#SUser", "Enter Email to search user");
-    focusout("#SProduct", "Enter Email to search user's product");
+    focusoutc(".aip");
+    //    focusout("#INSState", "Press 'Enter' to insert");
+    //    focusout("#INSCAT", "Press 'Enter' to insert");
+    //    focusout("#INSSUBCAT", "Press 'Enter' to insert");
+    //    focusout("#SUser", "Enter Email to search user");
+    //    focusout("#SProduct", "Enter Email to search user's product");
     focusout("#searchPID", "Search by Product's ID");
 
     function insertSC(type, content) {
@@ -191,6 +192,7 @@ $(document).ready(function () {
             insertSC("insertState", $("#INSState").val());
             //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
             $("#INSState").val("");
+            return false;
         }
     });
     $("#INSCAT").keypress(function (data) {
@@ -200,6 +202,7 @@ $(document).ready(function () {
             insertSC("insertcat", tmp);
             //$(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
             $("#INSCAT").val("");
+            return false;
         }
     });
     $("#INSSUBCAT").keypress(function (data) {
@@ -222,6 +225,7 @@ $(document).ready(function () {
             } else {
                 alert("Please Input or select main categories");
             }
+            return false;
         }
     });
     $(".state .delState").click(function () {

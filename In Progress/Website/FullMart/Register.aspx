@@ -2,10 +2,10 @@
     CodeBehind="Register.aspx.cs" Inherits="FullMart.Register1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="themes/style/register.css" rel="stylesheet" type="text/css" />
-    <script src="themes/script/jquery.calculation.min.js" type="text/javascript"></script>
-    <script src="themes/script/dropbox.js" type="text/javascript"></script>      
-    <script src="themes/script/register.js" type="text/javascript"></script>
+    <link href="/themes/style/register.css" rel="stylesheet" type="text/css" />
+    <script src="/themes/script/jquery.calculation.min.js" type="text/javascript"></script>
+    <script src="/themes/script/dropbox.js" type="text/javascript"></script>      
+    <script src="/themes/script/register.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
     <div class="block clear">

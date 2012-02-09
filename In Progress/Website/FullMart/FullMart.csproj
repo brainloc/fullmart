@@ -55,8 +55,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administration\ManageUser.aspx" />
-    <Content Include="BlockAccess.aspx" />
+    <Content Include="admin.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -862,6 +861,12 @@
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Default.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
+    <Content Include="list_by_subcate.aspx" />
+    <Content Include="list_by_subcate_search.aspx" />
+    <Content Include="ManagerGeneral.aspx" />
+    <Content Include="ManagerNews.aspx" />
+    <Content Include="ManagerProduct.aspx" />
+    <Content Include="ManagerUser.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
     <Content Include="media\adv\adv3.gif" />
@@ -884,6 +889,8 @@
     <Content Include="media\upload\product7.jpg" />
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
+    <Content Include="News\CreateNews.aspx" />
+    <Content Include="QAA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Register_.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
@@ -1039,6 +1046,8 @@
     <Content Include="themes\script\jquery-ui-1.7.2.custom.min.js" />
     <Content Include="themes\script\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="themes\script\jquery.bxSlider.min.js" />
+    <Content Include="themes\script\jquery.calculation.js" />
+    <Content Include="themes\script\jquery.calculation.min.js" />
     <Content Include="themes\script\jquery.jqtransform.js" />
     <Content Include="themes\script\jquery.simplemodal.js" />
     <Content Include="themes\script\jquery.tablesorter.js" />
@@ -1046,10 +1055,12 @@
     <Content Include="themes\script\jquery.tablesorter.pager.js" />
     <Content Include="themes\script\jquery.validationEngine-en.js" />
     <Content Include="themes\script\jquery.validationEngine.js" />
+    <Content Include="listnew.aspx" />
     <Content Include="themes\script\main.js" />
     <Content Include="themes\script\QAA.js" />
     <Content Include="themes\script\register.js" />
     <Content Include="themes\script\UpProduct.js" />
+    <Content Include="themes\script\viewProduct.js" />
     <Content Include="themes\style\admin.css" />
     <Content Include="themes\style\border-radius.htc" />
     <Content Include="themes\style\dialog.css" />
@@ -1059,6 +1070,7 @@
     <Content Include="themes\style\home.css" />
     <Content Include="themes\style\jqtransform.css" />
     <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
+    <Content Include="themes\style\Listnews.css" />
     <Content Include="themes\style\main.css" />
     <Content Include="themes\style\PIE.htc" />
     <Content Include="themes\style\QAA.css" />
@@ -1066,7 +1078,9 @@
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\UpProduct.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
+    <Content Include="themes\style\viewnews.css" />
     <Content Include="themes\style\viewproduct.css" />
+    <Content Include="viewNews.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1079,19 +1093,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration\ManageUser.aspx.cs">
-      <DependentUpon>ManageUser.aspx</DependentUpon>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\ManageUser.aspx.designer.cs">
-      <DependentUpon>ManageUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BlockAccess.aspx.cs">
-      <DependentUpon>BlockAccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BlockAccess.aspx.designer.cs">
-      <DependentUpon>BlockAccess.aspx</DependentUpon>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
@@ -1122,6 +1129,55 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="list_by_subcate.aspx.cs">
+      <DependentUpon>list_by_subcate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_by_subcate.aspx.designer.cs">
+      <DependentUpon>list_by_subcate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_by_subcate_search.aspx.cs">
+      <DependentUpon>list_by_subcate_search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_by_subcate_search.aspx.designer.cs">
+      <DependentUpon>list_by_subcate_search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerGeneral.aspx.cs">
+      <DependentUpon>ManagerGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerGeneral.aspx.designer.cs">
+      <DependentUpon>ManagerGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerNews.aspx.cs">
+      <DependentUpon>ManagerNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerNews.aspx.designer.cs">
+      <DependentUpon>ManagerNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerProduct.aspx.cs">
+      <DependentUpon>ManagerProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerProduct.aspx.designer.cs">
+      <DependentUpon>ManagerProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUser.aspx.cs">
+      <DependentUpon>ManagerUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerUser.aspx.designer.cs">
+      <DependentUpon>ManagerUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News\CreateNews.aspx.cs">
+      <DependentUpon>CreateNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News\CreateNews.aspx.designer.cs">
+      <DependentUpon>CreateNews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OneColumn.Master.cs">
       <DependentUpon>OneColumn.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1130,6 +1186,13 @@
       <DependentUpon>OneColumn.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QAA.aspx.cs">
+      <DependentUpon>QAA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QAA.aspx.designer.cs">
+      <DependentUpon>QAA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1151,6 +1214,13 @@
     <Compile Include="Shop\CreateProduct.aspx.designer.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="listnew.aspx.cs">
+      <DependentUpon>listnew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listnew.aspx.designer.cs">
+      <DependentUpon>listnew.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThreeColumns.Master.cs">
       <DependentUpon>ThreeColumns.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,6 +1235,13 @@
     <Compile Include="TwoColumns.Master.designer.cs">
       <DependentUpon>TwoColumns.Master</DependentUpon>
     </Compile>
+    <Compile Include="viewNews.aspx.cs">
+      <DependentUpon>viewNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewNews.aspx.designer.cs">
+      <DependentUpon>viewNews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewProduct.aspx.cs">
       <DependentUpon>ViewProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1174,6 +1251,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Administration\" />
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />

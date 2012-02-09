@@ -16,7 +16,7 @@ namespace FullMart
             if (this.Page.IsPostBack == false)
             {
                 //string productID = Request.QueryString["ID"].Trim();
-                string productID = "24";
+                string productID = "2";
                 if (string.IsNullOrEmpty(productID) == false)
                 {
                     try

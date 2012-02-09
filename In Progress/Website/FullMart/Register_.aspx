@@ -4,35 +4,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>FullMarts</title>
-    <link rel="stylesheet" type="text/css" href="themes/style/main.css" />
-    <link rel="stylesheet" type="text/css" href="themes/style/dialog.css" />
+    <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="/themes/style/dialog.css" />
     <link href="
-    <link href="themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
-    <link href="themes/style/register.css" rel="stylesheet" type="text/css" />
-    <link href="themes/style/jqtransform.css" rel="stylesheet" type="text/css" />
-    <link href="themes/style/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
-    <link href="themes/style/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/style/register.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/style/jqtransform.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/style/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/style/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <!--[if IE]>
-        <link href="themes/style/fixie1.css" rel="stylesheet" type="text/css" />
+        <link href="/themes/style/fixie1.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
     <!--[if lt IE 9]>
-        <link href="themes/style/fixie8.css" rel="stylesheet" type="text/css" />
+        <link href="/themes/style/fixie8.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
     <!--[if lt IE 8]>
-        <link href="themes/style/fixie7.css" rel="stylesheet" type="text/css" />
+        <link href="/themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
-    <script src="themes/script/jquery-1.7.js" type="text/javascript"></script>
-    <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-    <script src="themes/script/dropbox.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.simplemodal.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.tablesorter.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.tablesorter.pager.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.jqtransform.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.validationEngine.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
-    <script src="themes/script/main.js" type="text/javascript"></script>
-    <script src="themes/script/register.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery-1.7.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="/themes/script/dropbox.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.simplemodal.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.tablesorter.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.tablesorter.pager.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.jqtransform.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.validationEngine.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
+    <script src="/themes/script/main.js" type="text/javascript"></script>
+    <script src="/themes/script/register.js" type="text/javascript"></script>
     <script type="text/javascript">
         
         function CreateUser() {
@@ -92,7 +92,7 @@
                     </div>
                 </a>
                 <div id="gp">
-                    <img class="right" src="themes/images/goc-phai.png" alt="Buy Sale Share Your Stuffs and Knowlege With Thousands Students in UK" /></div>
+                    <img class="right" src="/themes/images/goc-phai.png" alt="Buy Sale Share Your Stuffs and Knowlege With Thousands Students in UK" /></div>
             </div>
             <div class="clear">
             </div>
@@ -156,11 +156,11 @@
                     </div>
                     <div class="sys left">
                         <a href="#" title="SignUp your Store">
-                            <img src="themes/images/signup-your-shop.png" alt="SignUp your Store" /></a>
+                            <img src="/themes/images/signup-your-shop.png" alt="SignUp your Store" /></a>
                     </div>
                     <div class="sys left">
                         <a href="#" title="Post your Adv">
-                            <img src="themes/images/postAD.png" alt="Post your Adv" /></a>
+                            <img src="/themes/images/postAD.png" alt="Post your Adv" /></a>
                     </div>
                 </div>
             </div>
@@ -1657,11 +1657,11 @@
                 <tfoot>
                     <!--<div id="pager" class="pager">
                     <form>
-                    <img src="themes/images/first.png" class="first">
-                    <img src="themes/images/pre.png" class="prev">
+                    <img src="/themes/images/first.png" class="first">
+                    <img src="/themes/images/pre.png" class="prev">
                     <input disabled="disabled" type="text" class="pagedisplay">
-                    <img src="themes/images/next.png" class="next">
-                    <img src="themes/images/last.png" class="last">
+                    <img src="/themes/images/next.png" class="next">
+                    <img src="/themes/images/last.png" class="last">
                     </form>
                 </div>-->
                 </tfoot>

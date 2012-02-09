@@ -17,7 +17,7 @@
 .subcomment{display:none}
 .subcomment li{width: 570px;margin-left: 56px;}
 .subcomment .AQtext{width:570px;height:130px;margin-top:15px;}
-.subcomment .txtmscontent{padding:10px 10px 0px;width:570px;height:80px;max-height:80px;max-width:570px;min-height:80px;min-width:570px}
+.subcomment .txtmscontent{padding:10px 10px 0px;width:550px;height:80px;max-height:80px;max-width:550px;min-height:80px;min-width:550px}
 .subcomment .msinfo{background:transparent url(../images/bgc.png) center center repeat-x;height:40px;width:100%}
 .very{background:#a51e1b url(../images/verybg.gif);color:#A51E1B;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;font-family:Arial;text-align:center;width:70px;margin:8px 5px}
 .msveryp{color:Black;background:transparent url(../images/bgv.png) no-repeat center center;width: 150px;height: 33px;padding:3px}
