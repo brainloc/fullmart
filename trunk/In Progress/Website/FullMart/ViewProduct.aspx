@@ -2,10 +2,8 @@
     CodeBehind="ViewProduct.aspx.cs" Inherits="FullMart.ViewProduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
-    <script src="themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-    <script src="themes/script/jquery.calculation.min.js" type="text/javascript"></script>
-    <script src="themes/script/viewProduct.js" type="text/javascript"></script>
+    <link href="/themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
+    <script src="/themes/script/viewProduct.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
@@ -44,7 +42,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="themes/images/leftadv.jpg" /></div>
+        <img src="/themes/images/leftadv.jpg" /></div>
     <div id="AAQ" class="lb b">
         <div class="title">
             <span>Answers & Questions</span></div>
@@ -136,12 +134,12 @@
                             <li>Contact :
                                 <ul>
                                     <li><a href='mailto:<%# Eval("email") %>'>
-                                        <img src="themes/images/email-Icon.png" alt="Email" /></a></li>
+                                        <img src="/themes/images/email-Icon.png" alt="Email" /></a></li>
                                     <li><a href='ymsgr:sendIM?<%# Eval("yahoo") %>'>
                                         <img src='http://opi.yahoo.com/online?u=<%# Eval("yahoo") %>&amp;m=g&amp;t=1' alt="Chat trực tiếp"
                                             title="Chat trực tiếp" /></a></li>
                                     <li>
-                                        <img src="themes/images/Phone-Icon.png" />
+                                        <img src="/themes/images/Phone-Icon.png" />
                                         :
                                         <%# Eval("mobile") %></li>
                                 </ul>
@@ -298,7 +296,7 @@
         </div>
     </div>
     <div class="ladv lb">
-        <img src="themes/images/rightadv.jpg" /></div>
+        <img src="/themes/images/rightadv.jpg" /></div>
     <div id="newadv" class="lb b">
         <div class="title">
             New ADV</div>

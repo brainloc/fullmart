@@ -4,6 +4,7 @@
 
 <%@ Register TagPrefix="ckeditor" Namespace="CKEditor.NET" Assembly="CKEditor.NET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <script type="text/javascript">
         function CreateProduct() {
             $.ajax({
@@ -33,7 +34,7 @@
                 </td>
                 <td>
                     <%--<input type="text" id="tbtitle" />--%>
-                    <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="tbtitle" ID="txtTitle" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -78,7 +79,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <ckeditor:CKEditorControl ID="CKENet" runat="server" Height="200" DefaultLanguage="Vi"></ckeditor:CKEditorControl>
+                    <ckeditor:CKEditorControl ID="CKENet" runat="server" Height="200" DefaultLanguage="En"></ckeditor:CKEditorControl>
                 </td>
                 <%--<script type="text/javascript">
 		                    //<![CDATA[
@@ -87,11 +88,16 @@
 		                //]]>
                 </script>--%>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <asp:Button ID="btnCreateProduct" runat="server" Text="Create" OnClick="btnCreateProduct_Click" />
-                </td>
-            </tr>
+            <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <div class="block center">
+                                    <asp:Button ID="btnCreateProduct" runat="server" Text="Create" OnClick="btnCreateProduct_Click" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+           
         </table>
     </div>
 </asp:Content>

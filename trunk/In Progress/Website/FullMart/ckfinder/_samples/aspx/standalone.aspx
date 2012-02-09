@@ -72,5 +72,7 @@ function ShowFileInfo( fileUrl, data )
 			Copyright &copy; 2003-2012, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico Knabben. All rights reserved.
 		</p>
 	</div>
+
+
 </body>
 </html>

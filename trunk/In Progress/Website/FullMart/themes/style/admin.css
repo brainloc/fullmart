@@ -28,9 +28,9 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .TC button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 .TC button:hover{background-position:center bottom}
 .slobox{width:31px;height:31px;background:transparent url(../images/select_right.gif) center center no-repeat;float:right;}
-.SUser{width:31px;height:31px;background:transparent url(../images/search.gif) center center no-repeat;float:right;}
-.aip{width:210px;line-height:31px;height:31px;font-size:15px;white-space:nowrap;overflow:hidden;color:Silver}
-#SProduct{width:244px}
+.SUser{width:31px;height:31px;background:transparent url(../images/search.gif) center center no-repeat;float:right;text-indent:999999px}
+.aip{width:210px;line-height:31px;height:31px;font-size:15px;background-color:#fff;white-space:nowrap;overflow:hidden;color:Silver}
+.SProduct{width:244px}
 .insstate{width:244px;border:1px solid #42AFFF;margin:10px;}
 .insstate ul{list-style:none;display:none;position:absolute;z-index:99999;margin-top:0px;max-height:200px;border:1px solid silver;overflow-y:scroll}
 .insstate ul li{display:block;width:225px;line-height:25px;height:25px;font-size:15px;background-color:#fff;clear:both}
@@ -43,7 +43,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:-31px;display:none}
 .lUser tbody tr:hover .cmdUser{display:block}
 .Uview,.Uedit,.Udelete{height:30px;width:33px;cursor:pointer}
-.viewU{width:790px;height:400px;display:none}
+.viewU{/*width:790px;height:400px;*/display:none}
 .viewU table td{width:392px;line-height:30px;height:30px}
 .viewU table span{font-size:15px;padding-left:10px}
 .viewU table select,.viewU table input,.viewU table textarea{width:256px;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
@@ -53,7 +53,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 
 #viewU tfoot center button{display:block;margin:5px auto;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 #viewU tfoot center button:hover{background-position:center bottom}
-#cfdelete{display:none;}
+#cfdelete,#cfdeletep{display:none;}
 #cfdelete p{display:block;font-size:20px}
 #cfdelete span{color:Red}
 #cfdelete button,#cfdeletep button{margin:30px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
@@ -64,8 +64,11 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .MProduct table tbody tr:nth-child(even) td{background-color:#FFF}
 .MProduct table tbody tr:hover td{background-color:#51C1FF}
 .MProduct table td{text-align:center;background:transparent url(../images/bgtd.gif) left top repeat-y;width:50px;height:25px;line-height:25px;padding-left:5px}
-.MProduct table td+td{width:220px;text-align:left}
+.MProduct table td+td{width:220px;text-align:left;overflow:hidden}
+.MNews table td+td{width:400px}
+
 .MProduct table td+td+td{width:75px;text-align:center;}
+.MNews table td+td+td{width:143px}
 .MProduct table td+td+td+td{width:183px;}
 .MProduct table td+td+td+td+td{width:85px;}
 .MProduct table td+td+td+td+td+td{width:140px;}

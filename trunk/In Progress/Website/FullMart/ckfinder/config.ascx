@@ -44,6 +44,18 @@
 			// "CKFinder.Plugins.Watermark, CKFinder_Watermark"
 		};
 		// Settings for extra plugins.
+
+        //AccessControl acl = AccessControl.Add();
+        //acl = AccessControl.Add();
+        //acl.Role = "*";
+        //acl.ResourceType = "Images";
+        //acl.Folder = "/Company/Logos/";
+
+        //acl.FileUpload = false;
+        //acl.FileRename = false;
+        //acl.FileDelete = false;
+        
+        
 		PluginSettings = new Hashtable();
 		PluginSettings.Add("ImageResize_smallThumb", "90x90" );
 		PluginSettings.Add("ImageResize_mediumThumb", "120x120" );

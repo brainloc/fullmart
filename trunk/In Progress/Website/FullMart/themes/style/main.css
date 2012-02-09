@@ -27,9 +27,27 @@ a{text-decoration:none;}
 
 
 /* User */
-.us{margin:2px 5px;}
-.un{background:transparent url(../images/ico.png) 0px -68px no-repeat}
-.pw{background:transparent url(../images/ico.png) 0px -90px no-repeat}
+.us{margin:2px 5px;background:white url(../images/ico.png) 0px -68px no-repeat}
+.pw{background:white url(../images/ico.png) 0px -90px no-repeat}
+/* User */
+.us1{margin:3px 3px 3px 25px;border:none;background:transparent}
+.pw1{margin:3px 3px 3px 25px;border:none;background:transparent}
+#ctl00_loginStatus{color:White}
+.sb,.sb1{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/login.png) center -3px no-repeat;border:none;text-indent:99999px}
+#sb:hover,#sb:active,.sb1:hover,.sb1:active{cursor:pointer;background-position:center -29px}
+#sb:active,.sb1:active{background-position:center -55px}
+#lo{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/logout.png) center -3px no-repeat;border:none}
+#lo:hover,#lo:active{cursor:pointer;background-position:center -29px}
+#lo:active{background-position:center -55px}
+#treg{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/register.png) center -3px no-repeat;border:none}
+#treg:hover,#treg:active{cursor:pointer;background-position:center -29px}
+#treg:active{background-position:center -55px}
+#uus{color:White;font-weight:bold}
+#unote{background:transparent url(../images/ico.png) 0px 0px no-repeat;color:Yellow}
+#unote strong{margin-left:30px}
+#ucart{color:#8ad6fe;background:transparent url(../images/ico.png) 0px -45px no-repeat;margin-right:10px}
+#ucart strong{margin-left:30px;}
+
 
 /* select box */
 .dropdown {margin:10px;width:180px}
@@ -65,24 +83,6 @@ a{text-decoration:none;}
 /* topbar */
 #topbar{height:29px;line-height:23px;width:100%; background:transparent url(../images/bgtopbar.png) center 0px repeat-x}
 
-/* User */
-#us,#ctl00_loginPane_UserName{margin:3px 3px 3px 25px;border:none;background:transparent}
-#pw,#ctl00_loginPane_Password{margin:3px 3px 3px 25px;border:none;background:transparent}
-#ctl00_loginStatus{color:White}
-#sb,#ctl00_loginPane_loginButton{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/login.png) center -3px no-repeat;border:none;text-indent:99999px}
-#sb:hover,#sb:active,#ctl00_loginPane_loginButton:hover,#ctl00_loginPane_loginButton:active{cursor:pointer;background-position:center -29px}
-#sb:active,#ctl00_loginPane_loginButton:active{background-position:center -55px}
-#lo{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/logout.png) center -3px no-repeat;border:none}
-#lo:hover,#lo:active{cursor:pointer;background-position:center -29px}
-#lo:active{background-position:center -55px}
-#treg{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/register.png) center -3px no-repeat;border:none}
-#treg:hover,#treg:active{cursor:pointer;background-position:center -29px}
-#treg:active{background-position:center -55px}
-#uus{color:White;font-weight:bold}
-#unote{background:transparent url(../images/ico.png) 0px 0px no-repeat;color:Yellow}
-#unote strong{margin-left:30px}
-#ucart{color:#8ad6fe;background:transparent url(../images/ico.png) 0px -45px no-repeat;margin-right:10px}
-#ucart strong{margin-left:30px;}
 
 /* Banner */
 /* logo */

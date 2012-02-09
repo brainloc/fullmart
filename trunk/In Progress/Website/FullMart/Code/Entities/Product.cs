@@ -31,6 +31,7 @@ namespace FullMart.Code.Entities
             PosterID = null;
             Outstanding = false;
             Title = string.Empty;
+            State = null;
             ContentID = null;
             Content = string.Empty;
             State = null;
