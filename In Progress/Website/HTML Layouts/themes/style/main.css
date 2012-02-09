@@ -66,10 +66,10 @@ a{text-decoration:none;}
 #topbar{height:29px;line-height:23px;width:100%; background:transparent url(../images/bgtopbar.png) center 0px repeat-x}
 
 /* User */
-#us,#ctl00_loginPane_UserName{margin:3px 3px 3px 25px;border:none;background:transparent}
-#pw,#ctl00_loginPane_Password{margin:3px 3px 3px 25px;border:none;background:transparent}
+.us{margin:3px 3px 3px 25px;border:none;background:transparent}
+.pw{margin:3px 3px 3px 25px;border:none;background:transparent}
 #ctl00_loginStatus{color:White}
-#sb,#ctl00_loginPane_loginButton{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/login.png) center -3px no-repeat;border:none;text-indent:99999px}
+.sb,#ctl00_loginPane_loginButton{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/login.png) center -3px no-repeat;border:none;text-indent:99999px}
 #sb:hover,#sb:active,#ctl00_loginPane_loginButton:hover,#ctl00_loginPane_loginButton:active{cursor:pointer;background-position:center -29px}
 #sb:active,#ctl00_loginPane_loginButton:active{background-position:center -55px}
 #lo{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/logout.png) center -3px no-repeat;border:none}
