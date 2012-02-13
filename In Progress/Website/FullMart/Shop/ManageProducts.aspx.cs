@@ -86,5 +86,21 @@ namespace FullMart.Shop
             dlSubCategories.SelectedIndex = 0;
         }
 
+        protected void updateSubCat_Load(object sender, EventArgs e)
+        {
+            string selectedCatID;
+            if (this.Page.IsPostBack == true)
+            {
+                var selectedCatIDArgs = Request.Params.Get("__EVENTARGUMENT");
+                selectedCatID = selectedCatIDArgs.Substring(selectedCatIDArgs.LastIndexOf('y') + 1).Trim();                
+            }
+            else
+            {
+                selectedCatID = "-9999";
+            }
+
+            dsSubCategories.SelectCommand = String.Format("SELECT [ID],[Name] FROM [FullMart].[dbo].[SubCategory] WHERE [ID] = {0} ORDER BY [Order]", selectedCatID);
+        }
+
     }
 }

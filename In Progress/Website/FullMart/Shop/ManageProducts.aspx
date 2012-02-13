@@ -3,7 +3,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../themes/style/admin.css" rel="stylesheet" type="text/css" />
-    <script src="../themes/script/admin.js" type="text/javascript"></script>    
+    <script src="../themes/script/admin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul.maincat > li").click(function () {
+                var selectedCatID = $(this).children("span").attr("id");                
+                __doPostBack('<%= updateSubCat.ClientID %>', selectedCatID);
+                return false;
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="Lmenu" class="lb btlr">
@@ -63,131 +72,57 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="insstate left">
-                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                class="aip" id="INSCAT" />
-                            <button class="slobox">
-                            </button>
-                            <div class="clear">
-                            </div>
-                            <script type="text/javascript">
-                                        
-                            </script>
-                            <ul class="maincat">
-                                <li><span>Sate 1</span>
-                                    <button class="delState" title="Delete" title="Delete">
+                    <asp:UpdatePanel ID="updateSubCat" runat="server" OnLoad="updateSubCat_Load">
+                        <ContentTemplate>
+                            <td id="dlCategory">
+                                <div class="insstate left">
+                                    <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                                        class="aip" id="INSCAT" />
+                                    <button class="slobox">
                                     </button>
-                                </li>
-                                <li><span>Sate 2</span>
-                                    <button class="delState" title="Delete">
+                                    <div class="clear">
+                                    </div>
+                                    <ul class="maincat">
+                                        <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
+                                            <ItemTemplate>
+                                                <li><span id='Category<%# Eval("ID") %>'>
+                                                    <%# Eval("Name") %></span>
+                                                    <button class="delState" title="Delete" title="Delete">
+                                                    </button>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                            SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
+                                        </asp:SqlDataSource>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td id="dlSubCategory">
+                                <div class="insstate left">
+                                    <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                                        class="aip" id="INSSUBCAT" />
+                                    <button class="slobox">
                                     </button>
-                                </li>
-                                <li><span>Sate 3</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 4</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 5</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 6</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 7</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 8</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 9</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 10</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 11</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 12</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="insstate left">
-                            <%--<asp:TextBox ID="txtINSSUBCAT" CssClass="aip" title="Press 'Enter' to insert" Text="Press 'Enter' to insert"
-                                runat="server"></asp:TextBox>--%>
-                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                class="aip" id="INSSUBCAT" />
-                            <button class="slobox">
-                            </button>
-                            <div class="clear">
-                            </div>
-                            <ul class="subcat">
-                                <li><span>Sate 1</span>
-                                    <button class="delState" title="Delete" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 2</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 3</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 4</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 5</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 6</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 7</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 8</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 9</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 10</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 11</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                                <li><span>Sate 12</span>
-                                    <button class="delState" title="Delete">
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
+                                    <div class="clear">
+                                    </div>
+                                    <ul class="subcat">
+                                        <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
+                                            <ItemTemplate>
+                                                <li><span id='Category<%# Eval("ID") %>'>
+                                                    <%# Eval("Name") %></span>
+                                                    <button class="delState" title="Delete" title="Delete">
+                                                    </button>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>                                        
+                                        <asp:SqlDataSource ID="dsSubCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" >                                           
+                                        </asp:SqlDataSource>
+                                    </ul>
+                                </div>
+                            </td>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </tr>
             </table>
             <div class="clear">
@@ -222,8 +157,7 @@
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <asp:Button ID="btnSearch" CssClass="bt block" runat="server" Text="Search" 
-                onclick="btnSearch_Click" />
+            <asp:Button ID="btnSearch" CssClass="bt block" runat="server" Text="Search" OnClick="btnSearch_Click" />
             <div class="clear">
             </div>
         </div>
@@ -292,17 +226,19 @@
                                 <%# Eval("Name") %>
                             </td>
                             <td>
-                                <input type="checkbox" class="outstanding" />                                                               
+                                <input type="checkbox" class="outstanding" />
                             </td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
-                <asp:SqlDataSource ID="dsManagingProductList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetManagingProductList">
+                <asp:SqlDataSource ID="dsManagingProductList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                    SelectCommandType="StoredProcedure" SelectCommand="GetManagingProductList">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="txtsearchPID" ConvertEmptyStringToNull="true" Name="ProductID" />
                         <asp:ControlParameter ControlID="txtSProduct" ConvertEmptyStringToNull="true" Name="Email" />
                         <asp:ControlParameter ControlID="dlCategories" ConvertEmptyStringToNull="true" Name="CatID" />
-                        <asp:ControlParameter ControlID="dlSubCategories" ConvertEmptyStringToNull="true" Name="SubcatID" />
+                        <asp:ControlParameter ControlID="dlSubCategories" ConvertEmptyStringToNull="true"
+                            Name="SubcatID" />
                     </SelectParameters>
                 </asp:SqlDataSource>
             </tbody>
