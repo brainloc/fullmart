@@ -861,7 +861,7 @@
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Default.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
-    <Content Include="list_by_subcate.aspx" />
+    <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
     <Content Include="ManagerGeneral.aspx" />
     <Content Include="ManagerNews.aspx" />
@@ -894,6 +894,7 @@
     <Content Include="Register.aspx" />
     <Content Include="Register_.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
+    <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
     <Content Include="themes\images\asc.gif" />
     <Content Include="themes\images\Bag_Purchase.png" />
@@ -1129,12 +1130,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="list_by_subcate.aspx.cs">
-      <DependentUpon>list_by_subcate.aspx</DependentUpon>
+    <Compile Include="ListProducts.aspx.cs">
+      <DependentUpon>ListProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="list_by_subcate.aspx.designer.cs">
-      <DependentUpon>list_by_subcate.aspx</DependentUpon>
+    <Compile Include="ListProducts.aspx.designer.cs">
+      <DependentUpon>ListProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="list_by_subcate_search.aspx.cs">
       <DependentUpon>list_by_subcate_search.aspx</DependentUpon>
@@ -1220,6 +1221,13 @@
     </Compile>
     <Compile Include="listnew.aspx.designer.cs">
       <DependentUpon>listnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ManageProducts.aspx.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shop\ManageProducts.aspx.designer.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThreeColumns.Master.cs">
       <DependentUpon>ThreeColumns.Master</DependentUpon>
