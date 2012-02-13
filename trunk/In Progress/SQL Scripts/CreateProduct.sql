@@ -1,9 +1,15 @@
-/****** Object:  StoredProcedure [dbo].[CreateProduct]    Script Date: 01/16/2012 00:18:10 ******/
+/****** Object:  StoredProcedure [dbo].[CreateProduct]    Script Date: 02/13/2012 07:13:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CreateProduct]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[CreateProduct]
+GO
+
+/****** Object:  StoredProcedure [dbo].[CreateProduct]    Script Date: 02/13/2012 07:13:11 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		BTN
@@ -13,8 +19,8 @@ GO
 CREATE PROCEDURE [dbo].[CreateProduct]
 	@SubCategoryID		INT,
     @Price				INT,
-    @Picture			NVARCHAR(70),
-    @Thumbnail			NVARCHAR(70),    
+    @Picture			NVARCHAR(300),
+    @Thumbnail			NVARCHAR(300),    
     @PosterID			INT,
     @Content			NVARCHAR(MAX),
     @Title				NVARCHAR(150),
@@ -58,6 +64,7 @@ BEGIN
 			RETURN 1
 		END
 END
+
 
 GO
 
