@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FullMart
+namespace FullMart.Administration
 {
-    public partial class list_by_subcate : System.Web.UI.Page
+    public partial class ManageUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

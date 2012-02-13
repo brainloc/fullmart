@@ -134,5 +134,65 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetAllProductsOfCategory(int catID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllProductsOfCategory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatID", catID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsOfCategory = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsOfCategory);
+
+                    if (productsOfCategory != null && productsOfCategory.Rows.Count > 0)
+                    {
+                        return productsOfCategory;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable GetAllProductsInSubCat(int subcatID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllProductsInSubCategory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@SubcatID", subcatID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsOfSubCategory = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsOfSubCategory);
+
+                    if (productsOfSubCategory != null && productsOfSubCategory.Rows.Count > 0)
+                    {
+                        return productsOfSubCategory;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
