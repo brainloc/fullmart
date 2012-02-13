@@ -120,7 +120,7 @@
                                 <ul>
                                     <asp:Repeater ID="rpStates" runat="server" DataSourceID="dsStates">
                                         <ItemTemplate>
-                                            <li><a href="#" id="<%# Eval("StateName") %><%# Eval("id") %>">
+                                            <li><a href="#" id="<%# Eval("id") %>">
                                                 <%# Eval("StateName") %></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -138,7 +138,7 @@
                                 <ul>
                                     <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                                         <ItemTemplate>
-                                            <li><a href="#" id="<%# Eval("Name") %><%# Eval("ID")%>">
+                                            <li><a href="#" id="<%# Eval("ID")%>">
                                                 <%# Eval("Name") %></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -152,10 +152,10 @@
                     <div class="left tops bgwt b">
                         <div class=" left">
                             <div title="Search">
-                                <input id="search" name="search" type="text" value="Search me" /></div>
+                                <input id="search" name="search"  type="text" value="Search me" /></div>
                         </div>
                         <div class="left">
-                            <input id="sbsearch" type="submit" value="" /></div>
+                            <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
                     </div>
                     <div class="sys left">
                         <a href="#" title="SignUp your Store">

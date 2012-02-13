@@ -8,8 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
     <link rel="stylesheet" type="text/css" href="/themes/style/dialog.css" />
     <link href="/themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
-    <link href="/themes/style/jqtransform.css" rel="stylesheet" type="text/css" />
-    <link href="/themes/style/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/UpProduct.css" rel="stylesheet" type="text/css" />
     <!--[if IE]>
@@ -28,9 +26,7 @@
     <script src="/themes/script/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
     <script src="/themes/script/dropbox.js" type="text/javascript"></script>
     <script src="/themes/script/jquery.simplemodal.js" type="text/javascript"></script>
-    <script src="/themes/script/jquery.jqtransform.js" type="text/javascript"></script>
-    <script src="/themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
-    <script src="/themes/script/jquery.validationEngine.js" type="text/javascript"></script>
+    
     <script src="/themes/script/main.js" type="text/javascript"></script>
     <script src="/themes/script/UpProduct.js" type="text/javascript"></script>
     <script src="/themes/script/jquery.calculation.min.js" type="text/javascript"></script>
@@ -38,6 +34,15 @@
     <link href="/ckeditor/general.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script language="javascript" type="text/javascript">
+// <![CDATA[
+
+        function sbsearch_onclick() {
+
+        }
+
+// ]]>
+    </script>
 </head>
 <body>
     <form id="body" runat="server">
@@ -131,7 +136,7 @@
                                 <ul>
                                     <asp:Repeater ID="rpStates" runat="server" DataSourceID="dsStates">
                                         <ItemTemplate>
-                                            <li><a href="#" id="<%# Eval("StateName") %><%# Eval("id") %>">
+                                            <li><a href="#" id="<%# Eval("id") %>">
                                                 <%# Eval("StateName") %></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -149,7 +154,7 @@
                                 <ul>
                                     <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                                         <ItemTemplate>
-                                            <li><a href="#" id="<%# Eval("Name") %><%# Eval("ID")%>">
+                                            <li><a href="#" id="<%# Eval("ID")%>">
                                                 <%# Eval("Name") %></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -166,7 +171,7 @@
                                 <input id="search" name="search" type="text" value="Search me" /></div>
                         </div>
                         <div class="left">
-                            <input id="sbsearch" type="submit" value="" /></div>
+                            <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
                     </div>
                     <div class="sys left">
                         <a href="RegisterN.aspx?type=shop" title="SignUp your Store">

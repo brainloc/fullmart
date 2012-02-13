@@ -51,9 +51,11 @@ namespace FullMart.Code.Business
                         var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
                         
                         //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        if (!UserManagement.CheckUser(ema)) {
-                            context.Response.Write("$('#tmpa').val(false);");
+                        if (UserManagement.CheckUser(ema))
+                        {
+                            context.Response.Write("$('#uscheckm').text('This email is avaliable');$('#uscheckm').css('color','green');$('#checkUS').text('Change');$('#uemail').attr('disabled','disabled');");
                         }
+                        else { context.Response.Write("$('#uscheckm').text('This email is not avaliable');$('#uscheckm').css('color','red');$('#checkUS').text('Check');"); }
                         break;
                     }
                 case "EditUser":

@@ -84,10 +84,10 @@ namespace FullMart.Code.DAO
                 {
                     connection.Open();
                     SqlDataAdapter da = new SqlDataAdapter(command);
-                    DataSet ds=new DataSet();
+                    DataTable ds=new DataTable();
                     da.Fill(ds);
                     connection.Close();
-                    return ds.Tables[0].Rows.Count == 0;
+                    return ds.Rows.Count == 0;
                 }
                 catch (Exception ex)
                 {

@@ -2,9 +2,13 @@
     CodeBehind="Register.aspx.cs" Inherits="FullMart.Register1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="/themes/style/jqtransform.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/register.css" rel="stylesheet" type="text/css" />
     <script src="/themes/script/jquery.calculation.min.js" type="text/javascript"></script>
-    <script src="/themes/script/dropbox.js" type="text/javascript"></script>      
+    <script src="/themes/script/dropbox.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.jqtransform.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.validationEngine-en.js" type="text/javascript"></script>
+    <script src="/themes/script/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="/themes/script/register.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
@@ -569,12 +573,10 @@
                     hành đàm phán hòa giải với tinh thần hữu nghị. Trong trường hợp không giải quyết
                     được bằng hòa giải sẽ đưa ra toà án kinh tế Hà Nội giải quyết.</font></div>
         </div>
-        <form class="agree block center">
-        <button>
-            Agree</button>
-        <button>
-            Don't Agree</button>
-        </form>
+        <div class="agree block center">
+            <button>Agree</button>
+            <button>Don't Agree</button>
+        </div>
     </div>
     <div id="policyshop" class="pl">
         <div class="ptitle">
@@ -1135,22 +1137,22 @@
                     hành đàm phán hòa giải với tinh thần hữu nghị. Trong trường hợp không giải quyết
                     được bằng hòa giải sẽ đưa ra toà án kinh tế Hà Nội giải quyết.</font></div>
         </div>
-        <span>
-            <form class="agree clear">
-            <input type="checkbox" />
-            I have read, and agree</span>
-        <input class="agree" type="button" value="Agree" />
-        <div class="freg block center b shadow">
+       <div class="agree block center">
+            <button>Agree</button>
+            <button>Don't Agree</button>
+        </div>
+    </div>
+    <div class="freg block center b shadow">
+        <div class="ftitle">
             <div class="ftitle">
-                <div class="ftitle">
-                </div>
-                <div class="ftitle">
-                </div>
-                <div class="ftitle">
-                </div>
             </div>
-            <div id="reguser" class="block">
-                <form id="freguser" class="formular">
+            <div class="ftitle">
+            </div>
+            <div class="ftitle">
+            </div>
+        </div>
+        <div id="reguser" class="block">
+            <div id="freguser" class="formular">
                 <table>
                     <tr>
                         <td>
@@ -1158,6 +1160,7 @@
                         </td>
                         <td>
                             <input class="validate[required]" type="text" name="ufname" id="ufname" />
+                            
                         </td>
                     </tr>
                     <tr>
@@ -1173,7 +1176,7 @@
                             Email<span style="color: red">*</span>
                         </td>
                         <td>
-                            <input class="validate[required,custom[email]]" type="text" name="uemail" id="uemail" />
+                            <input class="validate[required,custom[email]]" type="text" name="uemail" id="uemail" /><span id="checkUS">Check</span>&nbsp;<span id="uscheckm"></span>
                         </td>
                     </tr>
                     <tr>
@@ -1291,7 +1294,9 @@
                         </td>
                     </tr>
                 </table>
-                </form>
             </div>
-        </div>
+    </div>
+    </div>
+    <div class="block clear">
+    </div>
 </asp:Content>

@@ -19,7 +19,18 @@ function querySt(ji) {
         }
     }
 }
-
+function search() {
+    var key = $("#search").val();
+    var url1 = window.location.origin;
+    if ($("#slcats dt a span").text() != "Please select the category") {
+        var catID = $("#slcats dt a span").attr('id');
+      url1 = url1 + "/list_by_subcate_search.aspx?cat=" + id + "&title=" + key;
+    } else {
+        url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
+    }
+    alert("aa");
+    $(location).attr('href', url1);
+}
 function focusout(element, content) {
     $(element).focus(function () {
         if ($(this).val() == content) {
@@ -89,6 +100,10 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    $("#sbsearch").click(function () {
+        search();
+        return false;
+    });
     focusout("#search", "Search me");
     $("div.nameproduct").each(function () {
         var str1 = $.trim($(this).text());
@@ -96,8 +111,8 @@ $(document).ready(function () {
         var strc = str1.length - str2.length;
         if (strc > 33) {
             var strtmp = str1.substring(0, 30) + "..."
-            $(this).attr("title", str1.substring(0,strc));
-            $(this).html(strtmp+"<p>"+str2+"</p>");
+            $(this).attr("title", str1.substring(0, strc));
+            $(this).html(strtmp + "<p>" + str2 + "</p>");
         }
     });
     $("#unote").click(function () {

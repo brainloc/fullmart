@@ -10,60 +10,69 @@
 namespace FullMart {
     
     
-    public partial class list_by_subcate_search {
+    public partial class ManagerGeneral {
         
         /// <summary>
-        /// rpCategories control.
+        /// txtINSState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCategories;
+        protected global::System.Web.UI.WebControls.TextBox txtINSState;
         
         /// <summary>
-        /// dsCategories control.
+        /// lbnotemessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        protected global::System.Web.UI.WebControls.Label lbnotemessage;
         
         /// <summary>
-        /// txtCatName control.
+        /// UserEN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtCatName;
+        protected global::CKEditor.NET.CKEditorControl UserEN;
         
         /// <summary>
-        /// txtKey control.
+        /// UserVi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtKey;
+        protected global::CKEditor.NET.CKEditorControl UserVi;
         
         /// <summary>
-        /// txtNumRearch control.
+        /// FooterEN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtNumRearch;
+        protected global::CKEditor.NET.CKEditorControl FooterEN;
         
         /// <summary>
-        /// rpListProducts control.
+        /// FooterVI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpListProducts;
+        protected global::CKEditor.NET.CKEditorControl FooterVI;
+        
+        /// <summary>
+        /// cmdSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdSave;
     }
 }
