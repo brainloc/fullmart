@@ -14,3 +14,4 @@
 .freg table td+td{width:300px;padding-left:0px}
 .jqTransformInputWrapper,.jqTransformSelectWrapper,.jqTransformSelectWrapper ul{width:100% !important}
 .very{float:left;background:#a51e1b url(../images/verybg.gif);color:#A51E1B;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;font-family:Arial Black;text-align:center;width:120px;margin:0px auto}
+#checkUS{padding:5px;cursor:pointer;}

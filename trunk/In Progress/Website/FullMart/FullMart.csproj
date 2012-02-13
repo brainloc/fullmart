@@ -55,7 +55,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.aspx" />
+    <Content Include="Administration\admin.aspx" />
+    <Content Include="Administration\ManageUser.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -863,7 +864,7 @@
     <Content Include="dll\CKEditor.NET.dll" />
     <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
-    <Content Include="ManagerGeneral.aspx" />
+    <Content Include="Administration\ManagerGeneral.aspx" />
     <Content Include="ManagerNews.aspx" />
     <Content Include="ManagerProduct.aspx" />
     <Content Include="ManagerUser.aspx" />
@@ -1094,12 +1095,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.aspx.cs">
+    <Compile Include="Administration\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin.aspx.designer.cs">
+    <Compile Include="Administration\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
@@ -1108,6 +1116,8 @@
     <Compile Include="Code\Business\ProductBusiness.cs" />
     <Compile Include="Code\DAO\Base.cs" />
     <Compile Include="Code\DAO\BindingUltilities.cs" />
+    <Compile Include="Code\DAO\NewManagerment.cs" />
+    <Compile Include="Code\DAO\OptionManagement.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
     <Compile Include="Code\DAO\UserManagement.cs" />
     <Compile Include="Code\Entities\AnswerAndQuestion.cs" />
@@ -1144,11 +1154,11 @@
     <Compile Include="list_by_subcate_search.aspx.designer.cs">
       <DependentUpon>list_by_subcate_search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManagerGeneral.aspx.cs">
+    <Compile Include="Administration\ManagerGeneral.aspx.cs">
       <DependentUpon>ManagerGeneral.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManagerGeneral.aspx.designer.cs">
+    <Compile Include="Administration\ManagerGeneral.aspx.designer.cs">
       <DependentUpon>ManagerGeneral.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManagerNews.aspx.cs">
@@ -1259,7 +1269,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Administration\" />
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />

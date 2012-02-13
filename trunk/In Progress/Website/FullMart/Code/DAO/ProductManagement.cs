@@ -165,6 +165,67 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static DataTable SearchAllProductsOfCategory(int catID, string title)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("SearchAllProductsOfCategory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatID", catID));
+                command.Parameters.Add(new SqlParameter("@Key", title));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsOfCategory = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsOfCategory);
+
+                    if (productsOfCategory != null && productsOfCategory.Rows.Count > 0)
+                    {
+                        return productsOfCategory;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable SearchAllProductsOfByKey(string title)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("SearchAllProducts", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Key", title));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable productsOfCategory = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(productsOfCategory);
+
+                    if (productsOfCategory != null && productsOfCategory.Rows.Count > 0)
+                    {
+                        return productsOfCategory;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
         public static DataTable GetAllProductsInSubCat(int subcatID)
         {
             using (SqlConnection connection = GetConnection())

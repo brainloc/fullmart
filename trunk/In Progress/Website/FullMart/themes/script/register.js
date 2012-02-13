@@ -3,7 +3,7 @@
     for (var i = cy; i > cy - 40; i--) {
         $("#freguserclass").append("<option>"+i+"</option>");
     }
-    $('form').jqTransform({ imgPath: 'themes/images/' });
+    $('.freg').jqTransform({ imgPath: 'themes/images/' });
 });
 $(function () {
     $("#ubirthday").datepicker({
@@ -40,7 +40,7 @@ function CheckUser() {
         dataType: "script",
         data: {
             action: "CheckUser",
-            uemail:$("#semail").val()
+            uemail:$("#uemail").val()
         }
     });
 }
@@ -142,6 +142,21 @@ $(document).ready(function () {
             return false;
         }
     });
-
+    $("#checkUS").click(function(){
+    var email = $("#uemail").val();
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!filter.test(email)) {$("#uscheckm").text('Please input right email');$("#uscheckm").css("color","red");}else{
+        if($("#uemail").val()!=""){
+            if($("#uemail").attr("disabled")!="disabled"){
+                CheckUser();
+            }else{
+                $("#uemail").removeAttr("disabled");
+                $("#checkUS").text("Check");
+                $("#uscheckm").text('');
+            }
+       }
+    }
+        return false;
+    });
 
 });
