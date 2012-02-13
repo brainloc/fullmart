@@ -116,6 +116,91 @@ namespace FullMart.Code.DAO
                     return false;
                 }
             }
-        }                                                                                                                                                                           
+        }
+        public static DataTable GetAllUserByRole(int role) {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllUserByRole", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@roleID", role));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+        public static DataTable SearchAllUserByKey(string key) {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("SearchAllUserByKey", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@key", key));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable GetUserInforByMail(string email) {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetUserInforByMail", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@email", email));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

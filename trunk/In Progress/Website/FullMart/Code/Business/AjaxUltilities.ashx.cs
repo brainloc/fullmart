@@ -62,6 +62,11 @@ namespace FullMart.Code.Business
                     {
                         break;
                     }
+                case "getUserInfor": {
+                    context.Response.ContentType = "application/html";
+                    var email = context.Request.Form["email"] != null ? context.Request.Form["email"].Trim().Replace("'", "''") : string.Empty;
+                    break; 
+                }
                 case "CreateShop": 
                     {
                         context.Response.ContentType = "text/plain";

@@ -11,7 +11,15 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool isAdmin = true;
+            if (isAdmin)
+            {
+                if (!IsPostBack)
+                {
 
+                }
+            }
+            else { Response.Redirect("../Default.aspx", false); }
         }
     }
 }

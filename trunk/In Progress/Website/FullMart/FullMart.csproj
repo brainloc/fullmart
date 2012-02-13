@@ -867,7 +867,6 @@
     <Content Include="Administration\ManagerGeneral.aspx" />
     <Content Include="ManagerNews.aspx" />
     <Content Include="ManagerProduct.aspx" />
-    <Content Include="ManagerUser.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
     <Content Include="media\adv\adv3.gif" />
@@ -1174,13 +1173,6 @@
     </Compile>
     <Compile Include="ManagerProduct.aspx.designer.cs">
       <DependentUpon>ManagerProduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerUser.aspx.cs">
-      <DependentUpon>ManagerUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManagerUser.aspx.designer.cs">
-      <DependentUpon>ManagerUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="News\CreateNews.aspx.cs">
       <DependentUpon>CreateNews.aspx</DependentUpon>
