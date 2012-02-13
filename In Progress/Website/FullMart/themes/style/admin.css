@@ -42,7 +42,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .insstate select{width:244px;line-height:31px;height:31px;font-size:15px;background-color:#fff;}
 .lUser tbody tr td{line-height:30px}
 .lUser tbody tr:nth-child(even) td{background-color:#E3FFFF}
-.cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:-31px;display:none}
+.cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:0px;display:none}
 .lUser tbody tr:hover .cmdUser{display:block}
 .Uview,.Uedit,.Udelete{height:30px;width:33px;cursor:pointer}
 .viewU{/*width:790px;height:400px;*/display:none}
