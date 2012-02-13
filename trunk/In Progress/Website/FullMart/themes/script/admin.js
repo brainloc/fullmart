@@ -196,11 +196,11 @@ $(document).ready(function () {
         }
     });
     $("#INSCAT").keypress(function (data) {
-        var tmp = $("#INSCAT").val();
         if (data.which == 13) {
-            alert('gọi ajax insert');
-            insertSC("insertcat", tmp);
-            //$(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
+            var tmp = $("#INSCAT").val();
+            alert(tmp);
+            //insertSC("insertcat", tmp);
+            $(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
             $("#INSCAT").val("");
             return false;
         }
@@ -233,14 +233,14 @@ $(document).ready(function () {
         delSC("delState", $(this).parent().find("span").text());
         $(this).parents("li").remove();
     });
-    $(".maincat .delState").click(function () {
-        alert("delete ajax state : " + $(this).parent().find("span").text());
-        delSC("delMainCat", $(this).parent().find("span").text());
-        $(this).parents("li").remove();
-    });
-    $(".subcat .delState").click(function () {
-        alert("delete ajax state : " + $(this).parent().find("span").text());
-        delSC("delSubCat", $(this).parent().find("span").text());
-        $(this).parents("li").remove();
-    });
+//    $(".maincat .delState").click(function () {
+//        alert("delete ajax state : " + $(this).parent().find("span").text());
+//        delSC("delMainCat", $(this).parent().find("span").text());
+//        $(this).parents("li").remove();
+//    });
+//    $(".subcat .delState").click(function () {
+//        alert("delete ajax state : " + $(this).parent().find("span").text());
+//        delSC("delSubCat", $(this).parent().find("span").text());
+//        $(this).parents("li").remove();
+//    });
 });
