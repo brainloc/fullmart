@@ -6,11 +6,22 @@
     <script src="../themes/script/admin.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            //update select
             $("ul.maincat > li").click(function () {
-                var selectedCatID = $(this).children("span").attr("id");                
-                __doPostBack('<%= updateSubCat.ClientID %>', selectedCatID);
+                var selectedCatID = $(this).children("span").attr("id");
+                var commandName = "Select";
+                __doPostBack('<%= updateSubCat.ClientID %>', commandName + "$" + selectedCatID);
                 return false;
             });
+
+            //delete
+            $("button.delState").click(function () {
+                var clickedID = $(this).closest("span").attr("id");
+                __doPostBack('<%= updateSubCat.ClientID %>', clickedID);
+                return false;
+            });
+
+            //insert
         });
     </script>
 </asp:Content>
@@ -72,57 +83,53 @@
                     </td>
                 </tr>
                 <tr>
-                    <asp:UpdatePanel ID="updateSubCat" runat="server" OnLoad="updateSubCat_Load">
-                        <ContentTemplate>
-                            <td id="dlCategory">
-                                <div class="insstate left">
-                                    <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                        class="aip" id="INSCAT" />
-                                    <button class="slobox">
-                                    </button>
-                                    <div class="clear">
-                                    </div>
-                                    <ul class="maincat">
-                                        <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
+                    <td id="dlCategory">
+                        <div class="insstate left">
+                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                                class="aip" id="INSCAT" />
+                            <button class="slobox">
+                            </button>
+                            <div class="clear">
+                            </div>
+                            <ul class="maincat">
+                                <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
+                                    <ItemTemplate>
+                                        <li><span id='Category$<%# Eval("ID") %>'><%# Eval("Name") %></span>
+                                            <button class="delState" title="Delete" title="Delete">
+                                            </button>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                    SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
+                                </asp:SqlDataSource>
+                            </ul>
+                        </div>
+                    </td>
+                    <td id="dlSubCategory">
+                        <div class="insstate left">
+                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                                class="aip" id="INSSUBCAT" />
+                            <button class="slobox">
+                            </button>
+                            <div class="clear">
+                            </div>
+                            <ul class="subcat">
+                                <asp:UpdatePanel ID="updateSubCat" runat="server" OnLoad="updateSubCat_Load">
+                                    <ContentTemplate>
+                                        <asp:Repeater ID="rpSubCategories" runat="server">
                                             <ItemTemplate>
-                                                <li><span id='Category<%# Eval("ID") %>'>
-                                                    <%# Eval("Name") %></span>
+                                                <li><span id='SubCategory$<%# Eval("ID") %>'><%# Eval("Name") %></span>
                                                     <button class="delState" title="Delete" title="Delete">
                                                     </button>
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                            SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
-                                        </asp:SqlDataSource>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td id="dlSubCategory">
-                                <div class="insstate left">
-                                    <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                        class="aip" id="INSSUBCAT" />
-                                    <button class="slobox">
-                                    </button>
-                                    <div class="clear">
-                                    </div>
-                                    <ul class="subcat">
-                                        <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
-                                            <ItemTemplate>
-                                                <li><span id='Category<%# Eval("ID") %>'>
-                                                    <%# Eval("Name") %></span>
-                                                    <button class="delState" title="Delete" title="Delete">
-                                                    </button>
-                                                </li>
-                                            </ItemTemplate>
-                                        </asp:Repeater>                                        
-                                        <asp:SqlDataSource ID="dsSubCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" >                                           
-                                        </asp:SqlDataSource>
-                                    </ul>
-                                </div>
-                            </td>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
             </table>
             <div class="clear">

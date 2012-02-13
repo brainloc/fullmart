@@ -94,5 +94,92 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void DisableCategoryItem(int catID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DisableCategoryItem", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatID", catID));
+                
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void DisableSubCategoryItem(int SubcatID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DisableCategoryItem", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatID", SubcatID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void AddCategory(string catName, int catOrder)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("AddCategory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatName", catName));
+                command.Parameters.Add(new SqlParameter("@CatOrder", catOrder));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void AddSubCategory(int catID, string subcatName, int subcatOrder)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("AddSubCategory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CatID", catID));
+                command.Parameters.Add(new SqlParameter("@SubcatName", subcatName));
+                command.Parameters.Add(new SqlParameter("@SubcatOrder", subcatOrder));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

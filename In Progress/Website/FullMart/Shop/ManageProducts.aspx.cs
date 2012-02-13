@@ -17,6 +17,10 @@ namespace FullMart.Shop
             {
                 BindCategories();
             }
+            else
+            {
+                string a = "asdasd";
+            }
         }
 
         private void BindCategories()
@@ -87,19 +91,65 @@ namespace FullMart.Shop
         }
 
         protected void updateSubCat_Load(object sender, EventArgs e)
-        {
-            string selectedCatID;
+        {   
+            string selectedIDArgs = Request.Params.Get("__EVENTARGUMENT");
+            List<string> eventArgs = selectedIDArgs.Split('$').ToList();            
+            string commandName = eventArgs.ElementAt(0);
+            int categoryType = eventArgs.Count; //2: Category; 3: Subcategory
+
             if (this.Page.IsPostBack == true)
             {
-                var selectedCatIDArgs = Request.Params.Get("__EVENTARGUMENT");
-                selectedCatID = selectedCatIDArgs.Substring(selectedCatIDArgs.LastIndexOf('y') + 1).Trim();                
+                switch (commandName)
+                {
+                    case "Select":
+                        {
+                            int catID = Convert.ToInt32(eventArgs.Last());
+                            DataTable dsSubcats = BindingUltilities.GetSubCategories(catID);
+                            rpSubCategories.DataSource = dsSubcats;
+                            rpSubCategories.DataBind();
+                            break;
+                        }
+                    case "Delete":
+                        {
+                            int selectedID = Convert.ToInt32(eventArgs.Last());
+                            if (categoryType == 2)
+                            {                                
+                                BindingUltilities.DisableCategoryItem(selectedID);
+                            }
+                            else if(categoryType==3)
+                            {                                
+                                BindingUltilities.DisableSubCategoryItem(selectedID);
+                            }
+                            break;
+                        }
+                    case "Insert":
+                        {
+                            if (categoryType == 2)
+                            {
+                                string catName = eventArgs.Last();
+                                BindingUltilities.AddCategory(catName, 99);
+                            }
+                            else if(categoryType==3)
+                            {
+                                int catID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                string subcatName = eventArgs.Last();
+                                BindingUltilities.AddSubCategory(catID, subcatName, 99);
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }                    
             }
             else
             {
-                selectedCatID = "-9999";
-            }
-
-            dsSubCategories.SelectCommand = String.Format("SELECT [ID],[Name] FROM [FullMart].[dbo].[SubCategory] WHERE [ID] = {0} ORDER BY [Order]", selectedCatID);
+                //First load so the page only has select event                
+                DataTable dsSubcats = BindingUltilities.GetSubCategories(-9999);
+                rpSubCategories.DataSource = dsSubcats;
+                rpSubCategories.DataBind();
+            }   
         }
 
     }
