@@ -4,13 +4,14 @@
     <script src="/themes/script/admin.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
 <table>
                     <tr>
                         <td>
                             <div class="product">
-                                <a class="mmsh" href="ManagerGeneral.aspx">
+                                <a class="mmsh" href="/Administration/ManagerGeneral.aspx">
                                     <div class="content">
                                         <center>
                                             <img src="/themes/images/Window.png" />
@@ -24,7 +25,7 @@
                         </td>
                         <td>
                             <div class="product">
-                                <a class="mmsh" href="UserManager.htm">
+                                <a class="mmsh" href="/Administration/ManageUser.aspx">
                                     <div class="content">
                                         <center>
                                             <img src="/themes/images/IDblue.png" />
@@ -38,7 +39,7 @@
                         </td>
                        <td>
                             <div class="product">
-                                <a class="mmsh" href="ManagerProduct.htm">
+                                <a class="mmsh" href="/Shop/ManageProducts.aspx">
                                     <div class="content">
                                         <center>
                                             <img src="/themes/images/Bag_Purchase.png" />
@@ -69,7 +70,7 @@
                         
                          <td>
                             <div class="product">
-                                <a class="mmsh" href="ManagerNews.htm">
+                                <a class="mmsh" href="/News/ManageNews.aspx">
                                     <div class="content">
                                         <center>
                                             <img src="/themes/images/newsblue.png" />

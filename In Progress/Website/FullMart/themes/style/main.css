@@ -1,4 +1,10 @@
-﻿*{margin: 0px;padding: 0px;font-size:12px;font-family: Arial, Tahoma, Verdana;border:none;background:transparent}
+﻿*{border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    margin: 0px;
+    padding: 0px;
+    font-size:12px;font-family: Arial, Tahoma, Verdana;background:transparent;
+}
 body {background:#c0deed url(../images/topbg.jpg) repeat-x fixed top center}
 a{text-decoration:none;}
 .center{margin:0px auto}

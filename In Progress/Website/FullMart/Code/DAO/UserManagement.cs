@@ -43,7 +43,6 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-
         public static bool CreateShop(string shopname,string sfname,string slname,string spass,string semail,string sweb,string fregsstate,int? roleID)
         {
             using (SqlConnection connection = GetConnection())
@@ -173,7 +172,6 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-
         public static DataTable GetUserInforByMail(string email) {
             using (SqlConnection connection = GetConnection())
             {
@@ -199,6 +197,68 @@ namespace FullMart.Code.DAO
                 catch (Exception ex)
                 {
                     return null;
+                }
+            }
+        }
+        public static bool UpdateUserinfor(string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateUser", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@fname", Fname));
+                command.Parameters.Add(new SqlParameter("@lname", Lname));
+                command.Parameters.Add(new SqlParameter("@email", email));
+                command.Parameters.Add(new SqlParameter("@pass", password));
+                command.Parameters.Add(new SqlParameter("@bday", birthday));
+                command.Parameters.Add(new SqlParameter("@state", state));
+                command.Parameters.Add(new SqlParameter("@CU", CU));
+                command.Parameters.Add(new SqlParameter("@class", Class));
+                command.Parameters.Add(new SqlParameter("@roleID", roleID));
+                command.Parameters.Add(new SqlParameter("@mobile", mobile));
+                command.Parameters.Add(new SqlParameter("@yahoo", yahoo));
+                command.Parameters.Add(new SqlParameter("@web", web));
+                command.Parameters.Add(new SqlParameter("@Shopname", shopname));
+                command.Parameters.Add(new SqlParameter("@Wishlist", wishlist));
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public static bool DeleteUser(string email)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DeleteUser", connection);
+                command.Parameters.Add(new SqlParameter("@email", email));
+                command.CommandType = CommandType.StoredProcedure;
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
                 }
             }
         }

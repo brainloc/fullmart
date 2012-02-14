@@ -195,8 +195,7 @@
             </div>
         </div>
         <div id="footer" class="block">
-           
-            a3</div>
+            <asp:Label ID="footer" runat="server" Text="Label"></asp:Label></div>
     </div>
        <div id="viewnote" class="btlr viewnote">
         <div class="vlistletter">

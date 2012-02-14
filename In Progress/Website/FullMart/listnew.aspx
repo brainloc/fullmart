@@ -39,7 +39,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="/themes/images/leftadv.jpg" /></div>
+            <img src="/themes/images/leftadv.jpg" /></div>
     <div id="AAQ" class="lb b">
         <div class="title">
             <span>Answers & Questions</span></div>
@@ -107,256 +107,28 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <ul class="listnew block">
-        <li class="b bgwt">
+        <asp:Repeater ID="rpNewsList" runat="server" DataSourceID="dsNewsList">
+            <ItemTemplate>
+                <li class="b bgwt">
             <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
+                <center><a title="<%# Eval("Title") %>" href="/viewNews.aspx?ID=<%# Eval("ID") %>">
+                    <img src="<%# Eval("ImageThumb") %>" alt="<%# Eval("Title") %>"></a></center>
             </div>
             <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
+                <span class="postday btlr"><%# Eval("CREATEDATE")%></span>
                 <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
+                    <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a></p>
+                <p class="content"><%# Eval("ShortContent") %>...
                 </p>
             </div>
             <div class="clear">
             </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li class="b bgwt">
-            <div class="previewimage left">
-                <center>
-                    <img src="media/upload/product1.jpg" alt="title new"></center>
-            </div>
-            <div class="previewcontent left">
-                <span class="postday btlr">20/01/2012</span>
-                <p class="title">
-                    <a href="viewnews.htm" title="Samsung mang loạt sản phẩm 'hot' từ CES 2012 về VNs">Samsung
-                        mang loạt sản phẩm 'hot' từ CES 2012 về VN</a></p>
-                <p class="content">
-                    Hãng này sẽ phân phối ra thị trường Việt Nam TV thông minh dùng chip lõi kép, ultrabook
-                    Seires 5, Series 9… được giới thiệu tại triển lãm CES vừa diễn ra ở Las Vegas (Mỹ).Đáng
-                    chú ý trong đó có TV LED ES8000 với thiết kế chân đế hình chữ U độc đáo, dày chỉ
-                    vài mm cùng đường viền siêu mỏng. Sản phẩm tích hợp bộ vi xử lý lõi kép đầu tiên
-                    cho phép vừa lướt web và tải ứng dụng trên mạng.Ngoài ra TV này còn được trang bị
-                    một camera HD và microphone kép để hỗ trợ công nghệ tương tác thông minh (Smart
-                    Interaction), cho phép con người điều chỉnh nó từ xa bằng chuyển động của cơ thể
-                    hay qua giọng nói. Người dùng chỉ cần nói trước micro để bật chức năng điều khiển
-                    hoặc chỉ tay để tăng giảm âm lượng...
-                </p>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
+        </li>  
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:SqlDataSource ID="dsNewsList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+            SelectCommandType="StoredProcedure" SelectCommand="GetAllNews1"></asp:SqlDataSource>
+             
     </ul>
     <div class="Apages right">
         <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"

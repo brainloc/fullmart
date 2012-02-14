@@ -190,11 +190,7 @@
             footer content
         </div>
     </div>
-    <div id="cfdeletep">
-        <p><center>Do you want to delete News : <span></span> ?</center></p>
-        <input type="hidden" />
-        <center><button>Yes</button><button>No</button></center>
-      </div>
+    
     <div id="viewnote" class="btlr viewnote">
         <div class="vlistletter">
             <p class="hnote btlr">

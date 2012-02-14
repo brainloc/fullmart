@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using FullMart.Code.DAO;
 
 namespace FullMart
 {
@@ -22,6 +23,10 @@ namespace FullMart
                     //LoginStatus.Visible = true;
                     LoginStatus.Visible = true;
                 }
+            }
+            DataTable genoption=OptionManagement.GetOption();
+            if(genoption!=null&&genoption.Rows.Count>0){
+                footer.Text = genoption.Rows[1][3].ToString();
             }
         }
 

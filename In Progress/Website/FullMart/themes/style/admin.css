@@ -45,36 +45,40 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:0px;display:none}
 .lUser tbody tr:hover .cmdUser{display:block}
 .Uview,.Uedit,.Udelete{height:30px;width:33px;cursor:pointer}
-.viewU{/*width:790px;height:400px;*/display:none}
+.detailU,#viewU.viewU{/*width:790px;height:400px;*/display:none}
+
 .viewU table td{width:392px;line-height:30px;height:30px}
 .viewU table span{font-size:15px;padding-left:10px}
 .viewU table select,.viewU table input,.viewU table textarea{width:256px;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 .viewU table input[disabled=disabled]{background-color:#F0F5FF}
 .viewU table textarea{width:629px;height:160px;max-width:629px;max-height:160px;min-width:629px;min-height:160px;padding:10px;line-height:20px;}
-#tUser{font-size:20px;font-weight:bold;color:#42AFFF}
+#tUser,.message{font-size:20px;font-weight:bold;color:#42AFFF}
 
-#viewU tfoot center button{display:block;margin:5px auto;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
-#viewU tfoot center button:hover{background-position:center bottom}
-#cfdelete,#cfdeletep{display:none;}
-#cfdelete p{display:block;font-size:20px}
-#cfdelete span{color:Red}
-#cfdelete button,#cfdeletep button{margin:30px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
-.MProduct table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0}
-.MProduct table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
-.MProduct table tbody td{background-color:#F0F5FF;color:#000}
-.MProduct table tbody td a{color:#000}
-.MProduct table tbody tr:nth-child(even) td{background-color:#FFF}
-.MProduct table tbody tr:hover td{background-color:#51C1FF}
-.MProduct table td{text-align:center;background:transparent url(../images/bgtd.gif) left top repeat-y;width:50px;height:25px;line-height:25px;padding-left:5px}
+.viewU tfoot center button{display:block;margin:5px auto;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.viewU tfoot center button:hover{background-position:center bottom}
+#cfdelete,#cfdeletep,#cfdeleten{display:none;padding:0px}
+#cfdelete p,#cfdeletep p,#cfdeleten p{display:block;font-size:20px}
+#cfdelete span,#cfdeletep span,#cfdeleten span{color:Red}
+#cfdelete button,#cfdeletep button,#cfdeleten button{margin:10px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.MProduct table,.MNews table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0}
+.MProduct table thead tr,.MNews table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
+.MProduct table tbody td,.MNews table tbody td{background-color:#F0F5FF;color:#000}
+.MProduct table tbody td a,.MNews table tbody td a{color:#000}
+.MProduct table tbody tr:nth-child(even) td,.MNews table tbody tr:nth-child(even) td{background-color:#FFF}
+.MProduct table tbody tr:hover td,.MNews table tbody tr:hover td{background-color:#51C1FF}
+.MProduct table td,.MNews table td{text-align:center;background:transparent url(../images/bgtd.gif) left top repeat-y;width:50px;height:25px;line-height:25px;padding-left:5px}
 .MProduct table td+td{width:220px;text-align:left;overflow:hidden}
 .MNews table td+td{width:400px}
 
 .MProduct table td+td+td{width:75px;text-align:center;}
 .MNews table td+td+td{width:143px}
-.MProduct table td+td+td+td{width:183px;}
-.MProduct table td+td+td+td+td{width:85px;}
-.MProduct table td+td+td+td+td+td{width:140px;}
-.MProduct table td+td+td+td+td+td+td{width:32px;}
+.MProduct table td+td+td+td,.MNews table td+td+td+td{width:183px;}
+.MProduct table td+td+td+td+td,.MNews table td+td+td+td+td{width:85px;}
+.MProduct table td+td+td+td+td+td,.MNews table td+td+td+td+td+td{width:140px;}
+.MProduct table td+td+td+td+td+td+td,.MNews table td+td+td+td+td+td+td{width:32px;}
 #nmes{background-color:red;position:fixed;top:0px;right:0px;border-bottom:3px solid #51C1FF;border-left:3px solid #51C1FF;padding:10px;color:White;font-weight:bold;display:none}
-.MProduct .cmdUser{width: 102px;height: 30px;background: transparent url(../images/bgbar.png) center center no-repeat;position: absolute;margin-top: -2px;margin-left: -103px;}
-.MProduct table tbody tr:hover td .cmdUser{display:block}
+.MProduct .cmdUser,.MNews .cmdUser{width: 102px;height: 30px;background: transparent url(../images/bgbar.png) center center no-repeat;position: absolute;margin-top: -2px;margin-left: -103px;}
+.MProduct table tbody tr:hover td .cmdUser,.MNews table tbody tr:hover td .cmdUser{display:block}
+.BrowseServer{height: 100%;padding: 0px 10px;background: transparent url(/themes/images/ui-bg_gloss-wave_50_6eac2c_500x100.png) center center;}
+.imgthumbN{border-width: 0px;height: 150px;width: 150px;position: absolute;margin: -100px 90px;display:none}
+.UPtb tr:nth-child(2):hover .imgthumbN{display:block}
