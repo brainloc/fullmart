@@ -1,7 +1,35 @@
-﻿function fillviewUser(email, fname, lname, birthday, state, CU, cls, createdate, yahoo, mobile, shopname, web, role, wishlist) {
-    $("#tUser").text(email); $("#VUEmail").val(email); $("#VUFName").val(fname); $("#VULName").val(lname); $("#VUBday").val(birthday); $("#VUState").val(state); $("#VUCU").val(CU); $("#VUClass").val(cls);
-    $("#VUCreatedate").val(createdate); $("#VUYahoo").val(yahoo); $("#VUMobile").val(mobile); $("#VUShopName").val(shopname); $("#VUWeb").val(web); $("#VUWishlist").val(wishlist);
-    $("#VURole").val(role);
+﻿function btUser(a) {
+    if ($.trim(a.text()) != "SAVE") {
+        $.modal.close();
+    } else {
+        $.ajax({
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
+            dataType: "script",
+            data: {
+                action: "EditUser",
+                email: a.parents(".viewU").find(".VUEmail").val(),
+                pass: a.parents(".viewU").find(".VUPass").val(),
+                fname: a.parents(".viewU").find(".VUFName").val(),
+                lname: a.parents(".viewU").find(".VULName").val(),
+                birthday: a.parents(".viewU").find(".VUBday").val(),
+                state: a.parents(".viewU").find(".VUState").val(),
+                CU: a.parents(".viewU").find(".VUCU").val(),
+                cls: a.parents(".viewU").find(".VUClass").val(),
+                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
+                mobile: a.parents(".viewU").find(".VUMobile").val(),
+                shopname: a.parents(".viewU").find(".VUShopName").val(),
+                web: a.parents(".viewU").find(".VUWeb").val(),
+                role: a.parents(".viewU").find(".VURole").val(),
+                wishlist: a.parents(".viewU").find(".VUWishlist").val()
+            }
+        });
+    }
+    return false;
+}
+function SetFileField(fileUrl) {
+    $("input.imgthumb").val(fileUrl);
+    $("img.imgthumbN").attr("src", fileUrl);
 }
 $(document).ready(function () {
     //    $(".mmsh").click(function () {
@@ -10,11 +38,17 @@ $(document).ready(function () {
     //    });
 
     //    $("#lUser").tablesorter();
-
+    $(".BrowseServer").click(function () {
+        var finder = new CKFinder();
+        finder.basePath = '/ckfinder/'; // The path for the installation of CKFinder (default = "/ckfinder/").
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+        return false;
+    });
     $(".outstanding").change(function () {
         $.ajax({
-            url: "Code/Business/AjaxUltilities.ashx?",
-            type: "GET",
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
             dataType: "script",
             data: {
                 action: "ProductOutStanding",
@@ -23,7 +57,7 @@ $(document).ready(function () {
         });
         $("#nmes").fadeIn().delay(3000).fadeOut();
     });
-    $("#Usert td .Udelete").click(function () {
+    $(".usereven td .Udelete").click(function () {
         $("#cfdelete span").text($.trim($(this).parents("tr").find("td").first().text()));
         showdialog("", 500, 100, "#cfdelete", true);
         return false;
@@ -34,20 +68,39 @@ $(document).ready(function () {
         showdialog("", 500, 100, "#cfdeletep", true);
         return false;
     });
+    $(".MNews table td .cmdUser .Udelete").click(function () {
+        $("#cfdeleten span").html($.trim($(this).parents("tr").find("td:nth-child(2)").text()) + " Post date : " + $(this).parents("tr").find("td:nth-child(3)").text() + "<br /> By : " + $(this).parents("tr").find("td:nth-child(4)").text());
+        $("#cfdeleten input[type=hidden]").val($.trim($(this).parents("tr").find("td:nth-child(1)").text()));
+        showdialog("", 500, 100, "#cfdeleten", true);
+        return false;
+    });
     $("#cfdelete button").click(function () {
-        if ($(this).text() == "Yes") {
+        if ($.trim($(this).text()) == "Yes") {
             $.ajax({
-                url: "Code/Business/AjaxUltilities.ashx?",
-                type: "GET",
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
                 dataType: "script",
                 data: {
                     action: "delUser",
                     email: $.trim($("#cfdelete span").text())
                 }
             });
-            //this line code use to return
-            $("#cfdelete").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'><center>User Deleted !</center></div>");
-            resizeDA(250, 30);
+        } else {
+            $.modal.close();
+        }
+        return false;
+    });
+    $("#cfdeleten button").click(function () {
+        if ($.trim($(this).text()) == "Yes") {
+            $.ajax({
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "delNews",
+                    ID: $("#cfdeleten input[type=hidden]").val()
+                }
+            });
         } else {
             $.modal.close();
         }
@@ -56,8 +109,8 @@ $(document).ready(function () {
     $("#cfdeletep button").click(function () {
         if ($(this).text() == "Yes") {
             $.ajax({
-                url: "Code/Business/AjaxUltilities.ashx?",
-                type: "GET",
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
                 dataType: "script",
                 data: {
                     action: "delproduct",
@@ -72,75 +125,14 @@ $(document).ready(function () {
         }
         return false;
     });
-    $("#viewU tfoot center button").click(function () {
-        if ($(this).text() != "SAVE") {
-            $.modal.close();
-        } else {
-            $.ajax({
-                url: "Code/Business/AjaxUltilities.ashx?",
-                type: "POST",
-                dataType: "script",
-                data: {
-                    action: "updateUserInfor",
-                    email: $("#VUEmail").val(),
-                    fname: $("#VUFName").val(),
-                    lname: $("#VULName").val(),
-                    birthday: $("#VUBday").val(),
-                    state: $("#VUState").val(),
-                    CU: $("#VUCU").val(),
-                    cls: $("#VUClass").val(),
-                    createdate: $("#VUCreatedate").val(),
-                    yahoo: $("#VUYahoo").val(),
-                    mobile: $("#VUMobile").val(),
-                    shopname: $("#VUShopName").val(),
-                    web: $("#VUWeb").val(),
-                    role: $("#VURole").val()
-                }
-            });
-            //this line code use to return
-            $("#viewU").hide(); $(".simplemodal-wrap").append("<div class='simplemodal-data'>User's Information Update Successfully !</div>");
-            resizeDA(250, 30);
-        }
+    $(".usereven td .Uedit").click(function () {
+        $(this).parents("td").find(".viewU tfoot center button").text("SAVE");
+        showdialog($(this).parents("td").find(".detailU").html(), 800, 480, "", true);
         return false;
     });
-    $("#Usert td .Uedit").click(function () {
-        $("#viewU tfoot center button").text("SAVE");
-        $.ajax({
-            url: "Code/Business/AjaxUltilities.ashx?",
-            type: "GET",
-            dataType: "script",
-            data: {
-                action: "getUserInfor",
-                email: $.trim($(this).parents("tr").find("td").first().text())
-            }
-        });
-
-        //this function use when return user's data
-        fillviewUser($.trim($(this).parents("tr").find("td").first().text()), "", "", "", "", "", "", "", "", "", "", "", "Adminitrator", "");
-        $("#VUPass").removeAttr("disabled"); $("#VUFName").removeAttr("disabled"); $("#VULName").removeAttr("disabled"); $("#VUBday").removeAttr("disabled"); $("#VUState").removeAttr("disabled"); $("#VUCU").removeAttr("disabled"); $("#VUClass").removeAttr("disabled");
-        $("#VUCreatedate").removeAttr("disabled"); $("#VUYahoo").removeAttr("disabled"); $("#VUMobile").removeAttr("disabled"); $("#VUShopName").removeAttr("disabled"); $("#VUWeb").removeAttr("disabled");
-        $("#VURole").removeAttr("disabled");
-        showdialog("", 800, 480, "#viewU", true);
-        return false;
-    });
-    $("#Usert td .Uview").click(function () {
-        $("#viewU tfoot center button").text("CLOSE");
-        $.ajax({
-            url: "Code/Business/AjaxUltilities.ashx?",
-            type: "GET",
-            dataType: "script",
-            data: {
-                action: "getUserInfor",
-                email: $.trim($(this).parents("tr").find("td").first().text())
-            }
-        });
-        //this function use when return user's data
-        fillviewUser($.trim($(this).parents("tr").find("td").first().text()), "", "", "", "", "", "", "", "", "", "", "", "Adminitrator", "");
-        //disabled element
-        $("#VUPass").attr('disabled', 'disabled'); $("#VUFName").attr('disabled', 'disabled'); $("#VULName").attr('disabled', 'disabled'); $("#VUBday").attr('disabled', 'disabled'); $("#VUState").attr('disabled', 'disabled'); $("#VUCU").attr('disabled', 'disabled'); $("#VUClass").attr('disabled', 'disabled');
-        $("#VUCreatedate").attr('disabled', 'disabled'); $("#VUYahoo").attr('disabled', 'disabled'); $("#VUMobile").attr('disabled', 'disabled'); $("#VUShopName").attr('disabled', 'disabled'); $("#VUWeb").attr('disabled', 'disabled');
-        $("#VURole").attr('disabled', 'disabled');
-        showdialog("", 800, 480, "#viewU", true);
+    $(".usereven td .Uview").click(function () {
+        showdialog($(this).parents("td").find(".detailU").html(), 800, 480, "", true);
+        $("#modal .viewU input,.viewU select").attr('disabled', 'disabled');
         return false;
     });
     $("#Usertab").tabs();
@@ -166,8 +158,8 @@ $(document).ready(function () {
 
     function insertSC(type, content) {
         $.ajax({
-            url: "Code/Business/AjaxUltilities.ashx?",
-            type: "GET",
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
             dataType: "script",
             data: {
                 action: type,
@@ -177,8 +169,8 @@ $(document).ready(function () {
     }
     function delSC(type, content) {
         $.ajax({
-            url: "Code/Business/AjaxUltilities.ashx?",
-            type: "GET",
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
             dataType: "script",
             data: {
                 action: type,
@@ -210,8 +202,8 @@ $(document).ready(function () {
             if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
                 alert('gọi ajax insert');
                 $.ajax({
-                    url: "Code/Business/AjaxUltilities.ashx?",
-                    type: "GET",
+                    url: "/Code/Business/AjaxUltilities.ashx?",
+                    type: "POST",
                     dataType: "script",
                     data: {
                         action: "insertsubcat",
@@ -233,14 +225,14 @@ $(document).ready(function () {
         delSC("delState", $(this).parent().find("span").text());
         $(this).parents("li").remove();
     });
-//    $(".maincat .delState").click(function () {
-//        alert("delete ajax state : " + $(this).parent().find("span").text());
-//        delSC("delMainCat", $(this).parent().find("span").text());
-//        $(this).parents("li").remove();
-//    });
-//    $(".subcat .delState").click(function () {
-//        alert("delete ajax state : " + $(this).parent().find("span").text());
-//        delSC("delSubCat", $(this).parent().find("span").text());
-//        $(this).parents("li").remove();
-//    });
+    //    $(".maincat .delState").click(function () {
+    //        alert("delete ajax state : " + $(this).parent().find("span").text());
+    //        delSC("delMainCat", $(this).parent().find("span").text());
+    //        $(this).parents("li").remove();
+    //    });
+    //    $(".subcat .delState").click(function () {
+    //        alert("delete ajax state : " + $(this).parent().find("span").text());
+    //        delSC("delSubCat", $(this).parent().find("span").text());
+    //        $(this).parents("li").remove();
+    //    });
 });

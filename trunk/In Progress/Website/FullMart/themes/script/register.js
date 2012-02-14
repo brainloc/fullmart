@@ -16,7 +16,7 @@ $(function () {
 });
 function CreateUser() {
     $.ajax({
-        url: "Code/Business/AjaxUltilities.ashx?",
+        url: "/Code/Business/AjaxUltilities.ashx?",
         type: "POST",
         dataType: "script",
         data: {

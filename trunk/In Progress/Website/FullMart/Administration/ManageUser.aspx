@@ -10,42 +10,17 @@
         <div class="title block btlr">
             <span>Manager</span></div>
         <ul class="lplist">
-            <li><a class="ap" href="#">General Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Term Conditions</a></li>
-                        <li><a href="#">State Manager</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
             </li>
-            <li><a class="ap" href="#">User Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create New User</a></li>
-                        <li><a href="#">Edit User Information</a></li>
-                        <li><a href="#">Change User Permistion</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a>
             </li>
-            <li><a class="ap" href="#">Product Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Manager Categories</a></li>
-                        <li><a href="#">Post New Product</a></li>
-                        <li><a href="#">Select Product On Out Side</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a>
             </li>
-            <li><a class="ap" href="#">News Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create News</a></li>
-                        <li><a href="#">Edit News</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a>
             </li>
             <li><a class="ap" href="#">Answer & Question Manager</a> </li>
         </ul>
+        
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
@@ -65,7 +40,7 @@
      
         
         <asp:Panel ID="pnSearchUser" Visible=false runat="server">
-            <table id="searchUser" class="tablesorter lUser">
+            <table id="searchUser" class="usereven tablesorter lUser">
                <thead>
                     <tr>
                         <th>
@@ -131,6 +106,102 @@
                                         <div class="clear">
                                         </div>
                                     </div>
+                                     <div class="detailU"><div class="viewU">
+                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Email: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Password: </span>
+                                                        <input class="VUPass" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Birthday: </span>
+                                                        <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>State: </span>
+                                                        <input class="VUState" value="<%# Eval("state")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>College/University: </span>
+                                                        <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Class: </span>
+                                                        <input class="VUClass" value="<%# Eval("class")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Join Date: </span>
+                                                        <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Yahoo: </span>
+                                                        <input class="VUYahoo" value="<%# Eval("yahoo")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Mobile: </span>
+                                                        <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Shop Name: </span>
+                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Website: </span>
+                                                        <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>User type: </span>
+                                                        <select class="VURole">
+                                                            <option selected="selected">Member</option>
+                                                            <option>Shop</option>
+                                                            <option>Administrator</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <span>WishList:</span>
+                                                        <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btUser($(this));">
+                                                                    CLOSE</button></center>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -143,7 +214,7 @@
             <li><a href="#Shopt">Shop</a></li>
             <li><a href="#Adminitratort">Adminitrator</a></li>
         </ul>
-        <div id="Usert">            
+        <div id="Usert" class="usereven">            
             <table id="Table1" class="tablesorter lUser">
                <thead>
                     <tr>
@@ -210,6 +281,102 @@
                                         <div class="clear">
                                         </div>
                                     </div>
+                                    <div class="detailU"><div class="viewU">
+                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Email: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Password: </span>
+                                                        <input class="VUPass" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Birthday: </span>
+                                                        <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>State: </span>
+                                                        <input class="VUState" value="<%# Eval("state")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>College/University: </span>
+                                                        <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Class: </span>
+                                                        <input class="VUClass" value="<%# Eval("class")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Join Date: </span>
+                                                        <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Yahoo: </span>
+                                                        <input class="VUYahoo" value="<%# Eval("yahoo")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Mobile: </span>
+                                                        <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Shop Name: </span>
+                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Website: </span>
+                                                        <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>User type: </span>
+                                                        <select class="VURole">
+                                                            <option selected="selected">Member</option>
+                                                            <option>Shop</option>
+                                                            <option>Administrator</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <span>WishList:</span>
+                                                        <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btUser($(this));">
+                                                                    CLOSE</button></center>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -222,7 +389,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="Shopt">
+        <div id="Shopt" class="usereven">
             <table id="Table2" class="tablesorter lUser">
                 <thead>
                     <tr>
@@ -283,6 +450,103 @@
                                         <div class="clear">
                                         </div>
                                     </div>
+                                    
+                                    <div class="detailU"><div class="viewU">
+                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Email: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Password: </span>
+                                                        <input class="VUPass" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Birthday: </span>
+                                                        <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>State: </span>
+                                                        <input class="VUState" value="<%# Eval("state")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>College/University: </span>
+                                                        <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Class: </span>
+                                                        <input class="VUClass" value="<%# Eval("class")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Join Date: </span>
+                                                        <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Yahoo: </span>
+                                                        <input class="VUYahoo" value="<%# Eval("yahoo")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Mobile: </span>
+                                                        <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Shop Name: </span>
+                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Website: </span>
+                                                        <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>User type: </span>
+                                                        <select class="VURole">
+                                                            <option>Member</option>
+                                                            <option selected="selected">Shop</option>
+                                                            <option>Administrator</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <span>WishList:</span>
+                                                        <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btUser($(this));">
+                                                                    CLOSE</button></center>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -295,7 +559,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="Adminitratort">
+        <div id="Adminitratort" class="usereven">
             <table id="Table3" class="tablesorter lUser">
                 <thead>
                     <tr>
@@ -356,6 +620,104 @@
                                         <div class="clear">
                                         </div>
                                     </div>
+                                    <div class="detailU">
+                                    <div class="viewU">
+                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Email: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Password: </span>
+                                                        <input class="VUPass" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Birthday: </span>
+                                                        <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>State: </span>
+                                                        <input class="VUState" value="<%# Eval("state")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>College/University: </span>
+                                                        <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Class: </span>
+                                                        <input class="VUClass" value="<%# Eval("class")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Join Date: </span>
+                                                        <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Yahoo: </span>
+                                                        <input class="VUYahoo" value="<%# Eval("yahoo")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Mobile: </span>
+                                                        <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Shop Name: </span>
+                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Website: </span>
+                                                        <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>User type: </span>
+                                                        <select class="VURole">
+                                                            <option>Member</option>
+                                                            <option>Shop</option>
+                                                            <option selected="selected">Administrator</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <span>WishList:</span>
+                                                        <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btUser($(this));">
+                                                                    CLOSE</button></center>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
+                                    
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -386,69 +748,69 @@
                 <tr>
                     <td>
                         <span>Email: </span>
-                        <input disabled="disabled" id="VUEmail" type="text" />
+                        <input disabled="disabled" class="VUEmail" type="text" />
                     </td>
                     <td>
                         <span>Password: </span>
-                        <input id="VUPass" type="text" />
+                        <input class="VUPass" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>First Name:</span><input id="VUFName" type="text" />
+                        <span>First Name:</span><input class="VUFName" type="text" />
                     </td>
                     <td>
-                        <span>Last Name</span><input id="VULName" type="text" />
+                        <span>Last Name</span><input class="VULName" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Birthday: </span>
-                        <input id="VUBday" type="text" />
+                        <input class="VUBday" type="text" />
                     </td>
                     <td>
                         <span>State: </span>
-                        <input id="VUState" type="text" />
+                        <input class="VUState" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>College/University: </span>
-                        <input id="VUCU" type="text" />
+                        <input class="VUCU" type="text" />
                     </td>
                     <td>
                         <span>Class: </span>
-                        <input id="VUClass" type="text" />
+                        <input class="VUClass" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Join Date: </span>
-                        <input id="VUCreatedate" type="text" />
+                        <input class="VUCreatedate" type="text" />
                     </td>
                     <td>
                         <span>Yahoo: </span>
-                        <input id="VUYahoo" type="text" />
+                        <input class="VUYahoo" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Mobile: </span>
-                        <input id="VUMobile" type="text" />
+                        <input class="VUMobile" type="text" />
                     </td>
                     <td>
                         <span>Shop Name: </span>
-                        <input id="VUShopName" type="text" />
+                        <input class="VUShopName" type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span>Website: </span>
-                        <input id="VUWeb" type="text" />
+                        <input class="VUWeb" type="text" />
                     </td>
                     <td>
                         <span>User type: </span>
-                        <select id="VURole">
+                        <select class="VURole">
                             <option>User</option>
                             <option>Shop</option>
                             <option>Adminitrator</option>
@@ -458,7 +820,7 @@
                 <tr>
                     <td colspan="2">
                         <span>WishList:</span>
-                        <textarea disabled="disabled" id="VUWishlist"></textarea>
+                        <textarea disabled="disabled" class="VUWishlist"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -467,8 +829,8 @@
                     <td colspan="2">
                         <div>
                             <center>
-                                <button>
-                                    CLOSE</button></center>
+                                <button onclick="btUser($(this));">
+                                                                    CLOSE</button></center>
                         </div>
                     </td>
                 </tr>

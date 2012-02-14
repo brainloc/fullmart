@@ -13,22 +13,58 @@ namespace FullMart.News {
     public partial class CreateNews {
         
         /// <summary>
-        /// tbtitle control.
+        /// txtmes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbtitle;
+        protected global::System.Web.UI.WebControls.Label txtmes;
         
         /// <summary>
-        /// CKENet control.
+        /// txttitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl CKENet;
+        protected global::System.Web.UI.WebControls.TextBox txttitle;
+        
+        /// <summary>
+        /// txtimagethumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtimagethumb;
+        
+        /// <summary>
+        /// imgthumbN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgthumbN;
+        
+        /// <summary>
+        /// CKpreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl CKpreview;
+        
+        /// <summary>
+        /// CKContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl CKContent;
         
         /// <summary>
         /// btnCreateNews control.

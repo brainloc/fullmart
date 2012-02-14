@@ -60,11 +60,78 @@ namespace FullMart.Code.Business
                     }
                 case "EditUser":
                     {
+                        context.Response.ContentType = "application/html";
+                        int irole=3;
+                        var email = context.Request.Form["email"] != null ? context.Request.Form["email"].Trim().Replace("'", "''") : string.Empty;
+                        var pass = context.Request.Form["pass"] != null ? context.Request.Form["pass"].Trim().Replace("'", "''") : string.Empty;
+                        var fname = context.Request.Form["fname"] != null ? context.Request.Form["fname"].Trim().Replace("'", "''") : string.Empty;
+                        var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
+                        var lname = context.Request.Form["lname"] != null ? context.Request.Form["lname"].Trim().Replace("'", "''") : string.Empty;
+                        var birthday = context.Request.Form["birthday"] != null ? context.Request.Form["birthday"].Trim().Replace("'", "''") : string.Empty;
+                        DateTime bday=DateTime.Parse(birthday);
+                        var state = context.Request.Form["state"] != null ? context.Request.Form["state"].Trim().Replace("'", "''") : string.Empty;
+                        var CU = context.Request.Form["CU"] != null ? context.Request.Form["CU"].Trim().Replace("'", "''") : string.Empty;
+                        var cls = context.Request.Form["cls"] != null ? context.Request.Form["cls"].Trim().Replace("'", "''") : string.Empty;
+                        var yahoo = context.Request.Form["yahoo"] != null ? context.Request.Form["yahoo"].Trim().Replace("'", "''") : string.Empty;
+                        var mobile = context.Request.Form["mobile"] != null ? context.Request.Form["mobile"].Trim().Replace("'", "''") : string.Empty;
+                        var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;
+                        var web = context.Request.Form["web"] != null ? context.Request.Form["web"].Trim().Replace("'", "''") : string.Empty;
+                        var role = context.Request.Form["role"] != null ? context.Request.Form["role"].Trim().Replace("'", "''") : string.Empty;
+                        var wishlist = context.Request.Form["wishlist"] != null ? context.Request.Form["wishlist"].Trim().Replace("'", "''") : string.Empty;
+                        role=role.ToLower();
+                        switch (role) {
+                            case "adminitrator": { irole = 1; break;}
+                            case "shop": { irole = 2; break; }
+                        }
+                        if (UserManagement.UpdateUserinfor(fname, lname, email, pass, bday, state, CU, cls, irole,yahoo,mobile,shopname,web,wishlist))
+                        {
+                            context.Response.Write("$('.simplemodal-data').html('Users Information Update Successfully !');resizeDA(250, 30);");
+                        }
+                        else {
+                            context.Response.Write("$('.simplemodal-data').html('Users Information Update Unsuccessfully !');resizeDA(250, 30);");
+                        }
+                        break;
+                    }
+                case "delUser": {
+                    context.Response.ContentType = "application/html";
+                    var email = context.Request.Form["email"] != null ? context.Request.Form["email"].Trim().Replace("'", "''") : string.Empty;
+                    if (UserManagement.DeleteUser(email))
+                    {
+                        context.Response.Write("$('#cfdelete').hide(); $('.simplemodal-wrap').append('<div class=\"simplemodal-data\"><center>User Disabled !</center></div>');$.delay(1000).modal.close();$('.MNews table tr').each(function(){if($.trim($(this).find('td:nth-child(1)').text())==\"" + email + "\"){$(this).remove();}});");
+                    }
+                    else { context.Response.Write("$('#cfdelete').hide(); $('.simplemodal-wrap').append('<div class=\"simplemodal-data\"><center>User Undeleted !</center></div>');"); }
+                    break; 
+                }
+                case "delNews":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        if (NewManagerment.DeleteNew(ID))
+                        {
+                            context.Response.Write("$.modal.close();$('.MNews table tr').each(function(){if($.trim($(this).find('td:nth-child(1)').text())==" + ID + "){$(this).remove();}});");
+                        }
+                        else { context.Response.Write("$('#cfdeleten').hide(); $('.simplemodal-wrap').append('<div class=\"simplemodal-data\"><center>New Undeleted !</center></div>');"); }
                         break;
                     }
                 case "getUserInfor": {
                     context.Response.ContentType = "application/html";
                     var email = context.Request.Form["email"] != null ? context.Request.Form["email"].Trim().Replace("'", "''") : string.Empty;
+                    if (UserManagement.GetUserInforByMail(email) != null && UserManagement.GetUserInforByMail(email).Rows.Count!=0)
+                    {
+                        DataTable temptb=UserManagement.GetUserInforByMail(email);
+                        //context.Response.Write("fillviewUser("+temptb.Rows[0][1].ToString()+","+temptb.Rows[0][2].ToString()+","+temptb.Rows[0][3].ToString()+","+temptb.Rows[0][5].ToString()+","+temptb.Rows[0][6].ToString()+","+temptb.Rows[0][7].ToString()+","+temptb.Rows[0][8].ToString()+","+temptb.Rows[0][9].ToString()+","+temptb.Rows[0][11].ToString()+","+temptb.Rows[0][12].ToString()+","+temptb.Rows[0][13].ToString()+","+temptb.Rows[0][14].ToString()+");");
+                        //string tmp1 = " $('#tUser').text('" + temptb.Rows[0][3].ToString() + "'); $('#VUEmail').val('" + temptb.Rows[0][3].ToString() + "'); $('#VUFName').val('" + temptb.Rows[0][1].ToString() + "');" +
+                        //    " $('#VULName').val('" + temptb.Rows[0][2].ToString() + "'); $('#VUBday').val('" + temptb.Rows[0][5].ToString() + "'); $('#VUState').val('" + temptb.Rows[0][6].ToString() + "');" +
+                        //    " $('#VUCU').val('" + temptb.Rows[0][7].ToString() + "'); $('#VUClass').val('" + temptb.Rows[0][8].ToString() + "'); $('#VUCreatedate').val('" + temptb.Rows[0][9].ToString() + "');" +
+                        //    " $('#VUYahoo').val('" + temptb.Rows[0][11].ToString() + "'); $('#VUMobile').val('" + temptb.Rows[0][12].ToString() + "'); $('#VUShopName').val('" + temptb.Rows[0][14].ToString() + "'); " +
+                        //    "$('#VUWeb').val('" + temptb.Rows[0][15].ToString() + "'); $('#VUWishlist').val('" + temptb.Rows[0][16].ToString() + "');$('#VURole').val('" + temptb.Rows[0][10].ToString() + "');";
+
+                        string tmp1 = "$('#VUEmail').val(\'" + temptb.Rows[0][3].ToString() + "\');";
+                        context.Response.Write(tmp1);
+                    }
+                    else {
+                        context.Response.Write("$('#tUser').text('This User Not Avaliable');"); 
+                    }
                     break; 
                 }
                 case "CreateShop": 
@@ -127,7 +194,10 @@ namespace FullMart.Code.Business
                         break;
                     }
                 default:
-                    break;
+                    {
+                        string a = "aaaa";
+                        break;
+                    }
             }
         }
 

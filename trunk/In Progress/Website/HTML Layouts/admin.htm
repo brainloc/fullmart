@@ -21,6 +21,7 @@
     <script src="themes/script/dropbox.js" type="text/javascript"></script>
     <script src="themes/script/main.js" type="text/javascript"></script>
     <script src="themes/script/admin.js" type="text/javascript"></script>
+    
 </head>
 <body>
     <div id="main" class="center">
@@ -553,6 +554,21 @@
     </div>
 
 
+    <script type="text/javascript">
+        function aaa() {
+        var a1=2;
 
+        setTimeout("a1+=2;alert(a1);", 10000);
+        alert(a1);
+    }
+    function aab() {
+        var a1 = "aaaaaa";
+        alert("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        setTimeout("alert('a2');", 10000);
+    }
+    $(document).ready(function () {
+        $.when(aaa()).then(aab());
+    });
+    </script>
 </body>
 </html>

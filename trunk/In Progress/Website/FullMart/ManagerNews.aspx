@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true" CodeBehind="ManagerNews.aspx.cs" Inherits="FullMart.ManagerNews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/admin.css" rel="stylesheet" type="text/css" />
-    <script src="themes/script/admin.js" type="text/javascript"></script>
+    <script src="/themes/script/admin.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
+
 <div id="Lmenu" class="lb btlr">
         <div class="title block btlr">
             <span>Manager</span></div>

@@ -13,39 +13,13 @@
         <div class="title block btlr">
             <span>Manager</span></div>
         <ul class="lplist">
-            <li><a class="ap" href="#">General Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Term Conditions</a></li>
-                        <li><a href="#">State Manager</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
             </li>
-            <li><a class="ap" href="#">User Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create New User</a></li>
-                        <li><a href="#">Edit User Information</a></li>
-                        <li><a href="#">Change User Permistion</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a>
             </li>
-            <li><a class="ap" href="#">Product Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Manager Categories</a></li>
-                        <li><a href="#">Post New Product</a></li>
-                        <li><a href="#">Select Product On Out Side</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a>
             </li>
-            <li><a class="ap" href="#">News Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create News</a></li>
-                        <li><a href="#">Edit News</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a>
             </li>
             <li><a class="ap" href="#">Answer & Question Manager</a> </li>
         </ul>

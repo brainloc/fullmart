@@ -865,6 +865,7 @@
     <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
     <Content Include="Administration\ManagerGeneral.aspx" />
+    <Content Include="News\ManageNews.aspx" />
     <Content Include="ManagerNews.aspx" />
     <Content Include="ManagerProduct.aspx" />
     <Content Include="media\adv\adv1.jpg" />
@@ -901,14 +902,19 @@
     <Content Include="themes\images\bg.gif" />
     <Content Include="themes\images\bga.png" />
     <Content Include="themes\images\bgApages.png" />
+    <Content Include="themes\images\BGB.png" />
     <Content Include="themes\images\bgbar.png" />
+    <Content Include="themes\images\bgc.png" />
     <Content Include="themes\images\bggcats.png" />
     <Content Include="themes\images\bgmcat.png" />
+    <Content Include="themes\images\bgn.png" />
+    <Content Include="themes\images\BGNC.png" />
     <Content Include="themes\images\BGT.png" />
     <Content Include="themes\images\bgtd.gif" />
     <Content Include="themes\images\bgtlistcat.png" />
     <Content Include="themes\images\bgtopbar.png" />
     <Content Include="themes\images\bgtopmenu.png" />
+    <Content Include="themes\images\bgv.png" />
     <Content Include="themes\images\bgwt.png" />
     <Content Include="themes\images\bgwt1.png" />
     <Content Include="themes\images\bgwt2.png" />
@@ -952,6 +958,7 @@
     <Content Include="themes\images\login.png" />
     <Content Include="themes\images\logo.png" />
     <Content Include="themes\images\logout.png" />
+    <Content Include="themes\images\Mail4.png" />
     <Content Include="themes\images\narrow.png" />
     <Content Include="themes\images\newadv.png" />
     <Content Include="themes\images\newsblue.png" />
@@ -962,6 +969,7 @@
     <Content Include="themes\images\product-bottom.png" />
     <Content Include="themes\images\Q_A.png" />
     <Content Include="themes\images\radio.gif" />
+    <Content Include="themes\images\register.png" />
     <Content Include="themes\images\rightadv.jpg" />
     <Content Include="themes\images\rmaincat.png" />
     <Content Include="themes\images\search.gif" />
@@ -969,6 +977,8 @@
     <Content Include="themes\images\select_left.gif" />
     <Content Include="themes\images\select_right.gif" />
     <Content Include="themes\images\signup-your-shop.png" />
+    <Content Include="themes\images\signup-your-store1.png" />
+    <Content Include="themes\images\signup-your-store2.png" />
     <Content Include="themes\images\slide1.jpg" />
     <Content Include="themes\images\slide2.jpg" />
     <Content Include="themes\images\slide3.jpg" />
@@ -1036,6 +1046,7 @@
     <Content Include="themes\images\ui-icons_f5e175_256x240.png" />
     <Content Include="themes\images\ui-icons_f7a50d_256x240.png" />
     <Content Include="themes\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="themes\images\upload.png" />
     <Content Include="themes\images\verybg.gif" />
     <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
@@ -1159,6 +1170,13 @@
     </Compile>
     <Compile Include="Administration\ManagerGeneral.aspx.designer.cs">
       <DependentUpon>ManagerGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News\ManageNews.aspx.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News\ManageNews.aspx.designer.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManagerNews.aspx.cs">
       <DependentUpon>ManagerNews.aspx</DependentUpon>

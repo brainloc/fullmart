@@ -7,28 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FullMart.themes.script {
+namespace FullMart {
     
     
-    public partial class listnew {
-        
-        /// <summary>
-        /// rpCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCategories;
-        
-        /// <summary>
-        /// dsCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+    public partial class ManageNews {
         
         /// <summary>
         /// rpNewsList control.

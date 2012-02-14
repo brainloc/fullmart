@@ -23,10 +23,10 @@ namespace FullMart
                         DataTable newDetail = GetNewDetailByID(Convert.ToInt32(NewID));
                         if (newDetail != null && newDetail.Rows.Count > 0)
                         {
-                            txtAuthorNew.Text = newDetail.Rows[0][3].ToString();
                             txtContentNew.Text = newDetail.Rows[0][1].ToString();
                             txtTimePostNew.Text = newDetail.Rows[0][6].ToString();
                             txtTitleNew.Text = newDetail.Rows[0][0].ToString();
+                            txtAuthorNew.Text = newDetail.Rows[0][3].ToString();
                             //txtpewviewcontent.Text = newDetail.Rows[0][4].ToString();
                             //imgNew.ToolTip = newDetail.Rows[0][0].ToString();
                             //imgNew.ImageUrl = newDetail.Rows[0][5].ToString();

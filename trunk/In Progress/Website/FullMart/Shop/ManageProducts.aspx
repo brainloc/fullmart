@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../themes/style/admin.css" rel="stylesheet" type="text/css" />
     <script src="../themes/script/admin.js" type="text/javascript"></script>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         $(document).ready(function () {
             //update select
             $("ul.maincat > li").click(function () {
@@ -23,53 +23,30 @@
 
             //insert
         });
-    </script>
+    </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
-    <div id="Lmenu" class="lb btlr">
+<div id="Lmenu" class="lb btlr">
         <div class="title block btlr">
             <span>Manager</span></div>
         <ul class="lplist">
-            <li><a class="ap" href="#">General Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Term Conditions</a></li>
-                        <li><a href="#">State Manager</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
             </li>
-            <li><a class="ap" href="#">User Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create New User</a></li>
-                        <li><a href="#">Edit User Information</a></li>
-                        <li><a href="#">Change User Permistion</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a>
             </li>
-            <li><a class="ap" href="#">Product Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Manager Categories</a></li>
-                        <li><a href="#">Post New Product</a></li>
-                        <li><a href="#">Select Product On Out Side</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a>
             </li>
-            <li><a class="ap" href="#">News Manager</a>
-                <div class="lsubcat b">
-                    <ul>
-                        <li><a href="#">Create News</a></li>
-                        <li><a href="#">Edit News</a></li>
-                    </ul>
-                </div>
+            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a>
             </li>
             <li><a class="ap" href="#">Answer & Question Manager</a> </li>
         </ul>
+        
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
+     <div class="acontent block"><a href="CreateProduct.aspx"><img src="/themes/images/upload.png" /></a>
+         </div>
         <div class="acontent block">
             <p class="atitle">
                 Manager Categories</p>
@@ -115,7 +92,7 @@
                             <div class="clear">
                             </div>
                             <ul class="subcat">
-                                <asp:UpdatePanel ID="updateSubCat" runat="server" OnLoad="updateSubCat_Load">
+                                <asp:UpdatePanel ID="updateSubCat" runat="server">
                                     <ContentTemplate>
                                         <asp:Repeater ID="rpSubCategories" runat="server">
                                             <ItemTemplate>
@@ -202,10 +179,10 @@
                         <tr>
                             <td>
                                 <div class="cmdUser">
-                                    <a href="viewp.aspx?id=1" target="_blank">
+                                    <a href="/ViewProduct.aspx?id=<%# Eval("ID")%>" target="_blank">
                                         <button class="Uview left">
                                         </button>
-                                    </a><a href="editp.aspx?id=1" target="_blank">
+                                    </a><a href="editp.aspx?id=<%# Eval("ID")%>" target="_blank">
                                         <button class="Uedit left">
                                         </button>
                                     </a>
@@ -258,4 +235,10 @@
     </div>
     <div class="clear">
     </div>
+    <div id="cfdeletep">
+        <p><center>Do you want to delete : <span></span> ?</center></p>
+        <input type="hidden" />
+        <center><button>Yes</button><button>No</button></center>
+      </div>
+
 </asp:Content>
