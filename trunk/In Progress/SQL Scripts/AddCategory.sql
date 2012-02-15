@@ -11,13 +11,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 -- =============================================
--- Author:		BTN
+-- Author:		NVN
 -- Create date: 13 Feb 2012
 -- Description:	NO
 -- =============================================
 CREATE PROCEDURE [dbo].[AddCategory]
 	@CatName		NVARCHAR(100),
-	@CatOrder		TINYINT
+	@CatOrder		INT
 AS
 BEGIN
 	
@@ -29,6 +29,10 @@ BEGIN
     VALUES
            (@CatName
            ,@CatOrder)
+     IF(@@IDENTITY IS NULL)
+		RETURN 0
+	 ELSE
+		RETURN @@IDENTITY
 END
 
 GO
