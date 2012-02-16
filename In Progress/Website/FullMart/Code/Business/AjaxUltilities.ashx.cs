@@ -193,6 +193,134 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "GetSubCategoriesByCatID1":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Target = context.Request.Form["Target"] != null ? context.Request.Form["Target"].Trim().Replace("'", "''") : string.Empty;
+                        if (string.IsNullOrEmpty(ID.ToString()) == false)
+                        {
+                            DataTable subCats = new DataTable();
+                            subCats = BindingUltilities.GetSubCategories(Convert.ToInt32(ID));
+                            string tmp1 = "$('" + Target + "').attr('ref'," + ID + ");";
+                            string tmp2 = "";
+                            if (subCats != null)
+                            {
+                                
+                                foreach (DataRow r in subCats.Rows)
+                                {
+                                   tmp2 +="<tr ref='" + r["ID"].ToString() + "'>";
+                                   tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Name"].ToString() + "'/></td>";
+                                   tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Order"].ToString() + "'/></td>";
+                                   tmp2 += "<td><img class='catDel' ref='" + r["ID"].ToString() + "' src='/themes/images/delete.png' /><img class='bindSubCate' ref='" + r["ID"].ToString() + "' src='/themes/images/Arrow_Right.png' /></td>";
+                                   tmp2 += "</tr>";
+                                }
+                                tmp1 += "$('" + Target + "').html(\"" + "$('" + Target + "').html();" + tmp2 + "\");";
+                                
+                            }
+                            context.Response.Write(tmp1);
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('ERROR');");
+                        }
+                        break;
+                    }
+                case "InsertCategories":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        int id=BindingUltilities.AddCategory(Name, int.Parse(Order));
+                        if (id > 0)
+                        {
+                            context.Response.Write("$('table.tbcates tbody').html($('table.tbcates tbody').html() + \"<tr ref='" + id.ToString() + "'><td><input ref='" + id.ToString() + "' value='" + Name + "'/></td><td><input ref='" + id.ToString() + "' value='" + Order + "'/></td><td><img class='catDel' ref='" + id.ToString() + "' src='/themes/images/delete.png' /><img class='bindSubCate' ref='" + id.ToString() + "' src='/themes/images/Arrow_Right.png' /></td></tr>\");");
+                            
+                        }
+                        else {
+                            context.Response.Write("alert('Get Error in Create new Categories')");
+                        }
+                        break;
+                    }
+                case "InsertSubCategories":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var CatID = context.Request.Form["CatID"] != null ? context.Request.Form["CatID"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        int id = BindingUltilities.AddSubCategory(int.Parse(CatID),Name, int.Parse(Order));
+                        if (id > 0)
+                        {
+                            context.Response.Write("$('table.tbsubcates tbody').html($('table.tbsubcates tbody').html() + \"<tr ref='" + id.ToString() + "'><td><input ref='" + id.ToString() + "' value='" + Name + "'/></td><td><input ref='" + id.ToString() + "' value='" + Order + "'/></td><td><img class='catDel' ref='" + id.ToString() + "' src='/themes/images/delete.png' /></td></tr>\");");
+
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Create new SubCategories')");
+                        }
+                        break;
+                    }
+                case "CatsDel": {
+                    context.Response.ContentType = "application/html";
+                    var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                    BindingUltilities.DisableCategoryItem(int.Parse(ID));
+                    context.Response.Write("alert('Delete Completed!')");
+                    break;
+                }
+                case "SubCatsDel":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        BindingUltilities.DisableSubCategoryItem(int.Parse(ID));
+                        context.Response.Write("alert('Delete Completed!')");
+                        break;
+                    }
+                case "CatsUpdate":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        if (BindingUltilities.UpdateCategory(int.Parse(ID), Name, int.Parse(Order)))
+                        {
+                            context.Response.Write("alert('Update Completed!')");
+                        }
+                        else {
+                            context.Response.Write("alert('Get Error in Update Categories')");
+                        }
+                        break;
+                    }
+                case "subCatsUpdate":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        if (BindingUltilities.UpdateSubCategory(int.Parse(ID), Name, int.Parse(Order)))
+                        {
+                            context.Response.Write("alert('Update Completed!')");
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Update SubCategories')");
+                        }
+                        break;
+                    }
+                case "OutstandProduct":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var OS = context.Request.Form["OS"] != null ? context.Request.Form["OS"].Trim().Replace("'", "''") : string.Empty;
+                        if (ProductManagement.OutstandProduct(int.Parse(ID),bool.Parse(OS)))
+                        {
+                            context.Response.Write("$('#message').text('Update Successfully!');$('#message').fadeIn().delay(1000).fadeOut();");
+                        }
+                        else
+                        {
+                            context.Response.Write("$('#message').text('Update Error!');$('#message').fadeIn().delay(2000).fadeOut();");
+                        }
+                        break;
+                    }
                 default:
                     {
                         string a = "aaaa";

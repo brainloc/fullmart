@@ -25,5 +25,23 @@ namespace FullMart.Code.Business
             p.Thumbnail = img.LastIndexOf(".jpg") != -1 ? img.Substring(0, img.LastIndexOf(".jpg")) + "_thumb.jpg" : img + "_thumb.jpg"; 
             ProductManagement.CreateProduct(p);
         }
+        public static void UpdateProduct(int ID,string title, int subCatID, int posterID, int price, string content, string img, int state)
+        {
+            Product p = new Product();
+            p.ID = ID;
+            p.Title = title;
+            p.SubCategoryID = subCatID;
+            p.PosterID = posterID;
+            p.Price = price;
+            p.Content = content;
+            p.Picture = img;
+            p.State = state;
+            if (img != string.Empty)
+            {
+                p.Thumbnail = img.LastIndexOf(".jpg") != -1 ? img.Substring(0, img.LastIndexOf(".jpg")) + "_thumb.jpg" : img + "_thumb.jpg";
+            }
+            else { p.Thumbnail = ""; }
+            ProductManagement.UpdateProduct(p);
+        }
     }
 }

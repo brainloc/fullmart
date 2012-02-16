@@ -9,3 +9,4 @@
 #UpProduct input[type=submit]{display:inline-block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 #UpProduct input[type=submit]:hover{background-position:center bottom}
 .tbtitle{width:510px !important}
+.imgthumbN{height: 150px;width: 150px;position: absolute;margin: -73px 590px;display: block;border:1px solid silver}

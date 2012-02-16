@@ -194,8 +194,8 @@
             <div class="clear">
             </div>
         </div>
-        <div id="footer" class="block">
-            <asp:Label ID="footer" runat="server" Text="Label"></asp:Label></div>
+        <div id="footer" class="footer block">
+            <asp:Label ID="ffooter" runat="server" Text="Label"></asp:Label></div>
     </div>
        <div id="viewnote" class="btlr viewnote">
         <div class="vlistletter">
@@ -444,6 +444,8 @@
             </tfoot>
         </table>
     </div>
-    </form>
-</body>
+    </form><div id="waitloader" style="display: none; position: fixed;top: 0px;left: 0px;width: 100%;height: 100%;background-color: white;text-align: center;opacity: 0.6;">
+      <img src="/themes/images/wait.gif"style="position: fixed; top: 50%;" alt="waiting" />
+    </div>
+</body> 
 </html>

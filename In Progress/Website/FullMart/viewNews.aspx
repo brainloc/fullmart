@@ -10,7 +10,7 @@
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
-                    <li><a class="ap" href='ListProducts.aspx?cat=<%# Eval("ID") %>'>
+                    <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'>
                         <%# Eval("Name") %></a>
                         <div class="lsubcat b">
                             <span class="block title btlr">
@@ -19,7 +19,7 @@
                                 <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
                                     <ItemTemplate>
-                                        <li><a href='ListProducts.aspx?subcat=<%# Eval("ID") %>'>
+                                        <li><a href='/ListProducts.aspx?subcat=<%# Eval("ID") %>'>
                                             <%# Eval("Name") %></a></li>
                                     </ItemTemplate>
                                 </asp:Repeater>

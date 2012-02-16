@@ -16,10 +16,7 @@ namespace FullMart.Shop
             if (this.Page.IsPostBack == false)
             {
                 BindCategories();
-            }
-            else
-            {
-                string a = "asdasd";
+
             }
         }
 
@@ -105,8 +102,8 @@ namespace FullMart.Shop
                         {
                             int catID = Convert.ToInt32(eventArgs.Last());
                             DataTable dsSubcats = BindingUltilities.GetSubCategories(catID);
-                            rpSubCategories.DataSource = dsSubcats;
-                            rpSubCategories.DataBind();
+                            //rpSubCategories.DataSource = dsSubcats;
+                            //rpSubCategories.DataBind();
                             break;
                         }
                     case "Delete":
@@ -147,10 +144,17 @@ namespace FullMart.Shop
             {
                 //First load so the page only has select event                
                 DataTable dsSubcats = BindingUltilities.GetSubCategories(-9999);
-                rpSubCategories.DataSource = dsSubcats;
-                rpSubCategories.DataBind();
+                //rpSubCategories.DataSource = dsSubcats;
+                //rpSubCategories.DataBind();
             }   
         }
 
+        protected string convertos(object os) {
+            bool a = bool.Parse(os.ToString());
+            if (a) {
+                return "checked=\"checked\"";
+            }
+            return "";
+        }
     }
 }

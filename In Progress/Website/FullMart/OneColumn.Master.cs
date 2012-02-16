@@ -24,10 +24,7 @@ namespace FullMart
                     LoginStatus.Visible = true;
                 }
             }
-            DataTable genoption=OptionManagement.GetOption();
-            if(genoption!=null&&genoption.Rows.Count>0){
-                footer.Text = genoption.Rows[1][3].ToString();
-            }
+            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)

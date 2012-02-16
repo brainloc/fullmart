@@ -10,16 +10,16 @@
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
-                    <li><a class="ap" href='?cat=<%# Eval("ID") %>'>
+                    <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'>
                         <%# Eval("Name") %></a>
                         <div class="lsubcat b">
                             <span class="block title btlr">
                                 <%# Eval("Name") %></span>
                             <ul>
-                                <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
+                                                            <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
                                     <ItemTemplate>
-                                        <li><a href='?subcat=<%# Eval("ID") %>'>
+                                        <li><a href='/ListProducts.aspx?subcat=<%# Eval("ID") %>'>
                                             <%# Eval("Name") %></a></li>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -124,9 +124,7 @@
     <div id="cmproduce" class="block">
         <div class="parea b">
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">Khuyến
-                    mãi</span></a><a href="#subcat1" class="subcat"><span>Quà Tặng</span></a><a href="#subcat2"
-                        class="subcat"><span>Others</span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">The Top Product</span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:Repeater ID="rpTopSection" runat="server" DataSourceID="dsTopSection">
@@ -161,9 +159,7 @@
         </div>
         <div class="parea b">
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">Khuyến
-                    mãi</span></a><a href="#subcat1" class="subcat"><span>Quà Tặng</span></a><a href="#subcat2"
-                        class="subcat"><span>Others</span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">Newest Product</span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:Repeater ID="rpNewSection" runat="server" DataSourceID="dsNewSection">
@@ -347,60 +343,82 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Right" runat="server">
+   
+    <asp:SqlDataSource ID="dsListNew" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+        SelectCommand="SELECT [Title], [ID], [ShortContent], [ImageThumb] FROM [News] ORDER BY [CreatedDate] DESC">
+    </asp:SqlDataSource>
     <div id="hotnew" class="lb b">
         <div class="title">
             Hot News</div>
         <div class="listitem">
-            <ul>
-                <li>
-                    <div class="item">
+         <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
+        <AlternatingItemTemplate>
+        <li><div class="item">
                         <div class="left">
-                            <a href="#" title="tieu de bai viet">
-                                <img class="thumb" alt="tieu de bai viet" src="media/upload/product1.jpg" /></a></div>
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
                         <p>
-                            <a href="tieu de bai viet" title="tieu de bai viet">Tieu de rut gon</a> <span>Nội dung
-                                rút gọn của bài viết, Nội dung rút gọn của bài viết, Nội dung rút gọn của bài viết,
-                                Nội dung rút gọn của bài viết, giới hạn tối đa 150 ký tự</span>
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
+                            <span><%# correctshortCT(Eval("ShortContent"),150) %></span>
                         </p>
                     </div>
                     <div class="clear">
                     </div>
                 </li>
-                <li>
-                    <div class="item">
+        </AlternatingItemTemplate>
+        <EmptyDataTemplate>
+            
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <li><div class="item">
                         <div class="left">
-                            <a href="#" title="tieu de bai viet">
-                                <img class="thumb" alt="tieu de bai viet" src="media/upload/product1.jpg" /></a></div>
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
                         <p>
-                            <a href="tieu de bai viet" title="tieu de bai viet">Tieu de rut gon</a> <span>Nội dung
-                                rút gọn của bài viết, Nội dung rút gọn của bài viết, Nội dung rút gọn của bài viết,
-                                Nội dung rút gọn của bài viết, giới hạn tối đa 150 ký tự</span>
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
+                            <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
                         </p>
                     </div>
                     <div class="clear">
                     </div>
                 </li>
-                <li>
-                    <div class="item">
-                        <div class="left">
-                            <a href="#" title="tieu de bai viet">
-                                <img class="thumb" alt="tieu de bai viet" src="media/upload/product1.jpg" /></a></div>
-                        <p class="block">
-                            <a href="tieu de bai viet" title="tieu de bai viet">Tieu de rut gon cua bai viet asd
-                                da dd faf af</a> <span>Nội dung rút gọn của bài viết, Nội dung rút gọn của bài viết,
-                                    Nội dung rút gọn của bài viết, Nội dung rút gọn của bài viết, giới hạn tối đa 150
-                                    ký tự</span>
-                        </p>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </li>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <ul ID="itemPlaceholderContainer" runat="server" style="">
+                <li runat="server" id="itemPlaceholder" />
             </ul>
             <div class="Apages right">
-                <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                    ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                        ref="0">All</a>
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="4">
+                    <Fields><%--
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                        <asp:NumericPagerField />
+                        <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                    </Fields>
+                </asp:DataPager>
+                <a href="/listnew.aspx" ref="0">All</a>
             </div>
+        </LayoutTemplate>
+        <SelectedItemTemplate>
+            <li style="">Title:
+                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                <br />
+                ID:
+                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                <br />
+                ShortContent:
+                <asp:Label ID="ShortContentLabel" runat="server" 
+                    Text='<%# Eval("ShortContent") %>' />
+                <br />
+                ImageThumb:
+                <asp:Label ID="ImageThumbLabel" runat="server" 
+                    Text='<%# Eval("ImageThumb") %>' />
+                <br />
+            </li>
+        </SelectedItemTemplate>
+    </asp:ListView>
             <div class="clear">
             </div>
         </div>

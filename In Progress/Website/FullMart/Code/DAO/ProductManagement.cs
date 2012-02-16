@@ -45,6 +45,55 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static bool UpdateProduct(Product p)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateProduct", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", p.ID));
+                command.Parameters.Add(new SqlParameter("@SubCategoryID", p.SubCategoryID));
+                command.Parameters.Add(new SqlParameter("@Price", p.Price));
+                command.Parameters.Add(new SqlParameter("@Picture", p.Picture));
+                command.Parameters.Add(new SqlParameter("@Thumbnail", p.Thumbnail));
+                command.Parameters.Add(new SqlParameter("@PosterID", p.PosterID));
+                command.Parameters.Add(new SqlParameter("@Content", p.Content));
+                command.Parameters.Add(new SqlParameter("@Title", p.Title));
+                command.Parameters.Add(new SqlParameter("@State", p.State));
+
+                try
+                {
+                    connection.Open();
+                    int isUserCreated = command.ExecuteNonQuery();
+                    return isUserCreated == -1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public static bool OutstandProduct(int ID, bool outstand)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("OutstandProduct", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@os", outstand));
+
+                try
+                {
+                    connection.Open();
+                    int isUserCreated = command.ExecuteNonQuery();
+                    return isUserCreated == -1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
         public static DataTable GetProductDetailByID(int productID)
         {            
             using (SqlConnection connection = GetConnection())

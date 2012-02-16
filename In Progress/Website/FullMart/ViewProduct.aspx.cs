@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using FullMart.Code.DAO;
+using System.Text.RegularExpressions;
 
 namespace FullMart
 {
@@ -15,8 +16,7 @@ namespace FullMart
         {
             if (this.Page.IsPostBack == false)
             {
-                //string productID = Request.QueryString["ID"];
-                string productID = "2";
+                string productID = Request.QueryString["ID"];
                 if (string.IsNullOrEmpty(productID) == false)
                 {
                     try
@@ -72,6 +72,20 @@ namespace FullMart
             DataTable productsOfPoster = new DataTable();
             productsOfPoster = ProductManagement.GetAllProductsOfPoster(posterID);
             return productsOfPoster;
+        }
+        protected string correctshortCT(object content, int length)
+        {
+            if (content != DBNull.Value)
+            {
+                string tmp1 = content.ToString();
+                tmp1 = Regex.Replace(tmp1, @"<(.|\n)*?>", string.Empty);
+                if (tmp1.Length > length)
+                {
+                    return tmp1.Substring(0, length) + "...";
+                }
+                else { return tmp1; }
+            }
+            return content.ToString();
         }
     }
 }

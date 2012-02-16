@@ -57,5 +57,35 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+        public static string GetFooter(string lang) {
+            DataTable genoption = GetOption();
+            if (genoption != null && genoption.Rows.Count > 0)
+            {
+                if (lang == "VI")
+                {
+                    return genoption.Rows[1][3].ToString();
+                }
+                else {
+                    return genoption.Rows[1][2].ToString();
+                }
+            }
+            else { return null; }
+        }
+        public static string GetTermCondition(string lang)
+        {
+            DataTable genoption = GetOption();
+            if (genoption != null && genoption.Rows.Count > 0)
+            {
+                if (lang == "VI")
+                {
+                    return genoption.Rows[0][3].ToString();
+                }
+                else
+                {
+                    return genoption.Rows[0][2].ToString();
+                }
+            }
+            else { return null; }
+        }
     }
 }
