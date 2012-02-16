@@ -26,124 +26,200 @@
     </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
-<div id="Lmenu" class="lb btlr">
+    <div id="Lmenu" class="lb btlr">
         <div class="title block btlr">
             <span>Manager</span></div>
         <ul class="lplist">
             <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
             </li>
-            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a>
-            </li>
-            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a>
-            </li>
-            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a>
-            </li>
+            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a> </li>
+            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a> </li>
+            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a> </li>
             <li><a class="ap" href="#">Answer & Question Manager</a> </li>
         </ul>
-        
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
-     <div class="acontent block"><a href="CreateProduct.aspx"><img src="/themes/images/upload.png" /></a>
-         </div>
-        <div class="acontent block">
-            <p class="atitle">
-                Manager Categories</p>
-            <table>
-                <tr>
+    </div>
+    <div class="acontent block">
+        <a href="CreateProduct.aspx">
+            <img src="/themes/images/upload.png" /></a>
+    </div>
+    <div class="acontent block">
+    <p class="atitle">
+            Manager Categories</p>
+        <span style="color: Red; padding: 10px; font-size: 15px">Press 'tab' when change Order
+            number to check.<br />
+            Press 'Enter' when change Category's Name, Order to Update. </span>
+        <div class="block clear">
+            <table class="tbcates left" cellpadding="0" cellspacing="0">
+                <thead><tr>
                     <td>
-                        Main Categories
+                        Categories Name
                     </td>
                     <td>
-                        Sub Catetgories
+                        Order
                     </td>
-                </tr>
-                <tr>
-                    <td id="dlCategory">
-                        <div class="insstate left">
-                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                class="aip" id="INSCAT" />
-                            <button class="slobox">
-                            </button>
-                            <div class="clear">
-                            </div>
-                            <ul class="maincat">
-                                <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
-                                    <ItemTemplate>
-                                        <li><span id='Category$<%# Eval("ID") %>'><%# Eval("Name") %></span>
-                                            <button class="delState" title="Delete" title="Delete">
-                                            </button>
-                                        </li>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                    SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
-                                </asp:SqlDataSource>
-                            </ul>
-                        </div>
-                    </td>
-                    <td id="dlSubCategory">
-                        <div class="insstate left">
-                            <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
-                                class="aip" id="INSSUBCAT" />
-                            <button class="slobox">
-                            </button>
-                            <div class="clear">
-                            </div>
-                            <ul class="subcat">
-                                <asp:UpdatePanel ID="updateSubCat" runat="server">
-                                    <ContentTemplate>
-                                        <asp:Repeater ID="rpSubCategories" runat="server">
-                                            <ItemTemplate>
-                                                <li><span id='SubCategory$<%# Eval("ID") %>'><%# Eval("Name") %></span>
-                                                    <button class="delState" title="Delete" title="Delete">
-                                                    </button>
-                                                </li>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+                    <td>
+                    </td></tr>
+                </thead>
+                <asp:Repeater ID="rpListCategories" DataSourceID="dsCategories" runat="server">
+                    <ItemTemplate>
+                        <tr ref='<%# Eval("ID") %>'>
+                            <td>
+                                <input ref="<%# Eval("ID") %>" value='<%# Eval("Name") %>' />
+                                <%--<asp:TextBox ID="ABC" Text='<%# Eval("Name") %>'  runat="server" OnTextChanged="ABC"></asp:TextBox>--%>
+                            </td>
+                            <td>
+                                <input ref="<%# Eval("ID") %>" value='<%# Eval("Order") %>' />
+                                <%-- <asp:TextBox ID='ABD' Text='<%# Eval("Order") %>' runat="server"></asp:TextBox>--%>
+                            </td>
+                            <td>
+                                <img class="catDel" ref="<%# Eval("ID") %>" src="/themes/images/delete.png" /><img
+                                    ref="<%# Eval("ID") %>" class="bindSubCate" src="/themes/images/Arrow_Right.png" />
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <tfoot>
+                    <tr class="insertCates">
+                        <td>
+                            <asp:TextBox ID="txtInsert" CssClass="insertNameCates" ToolTip="Press 'Enter' to insert" Text="Press 'Enter' to insert" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtInsertOrder" CssClass="insertOrderCates" ToolTip="..." Text="..."
+                                runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-            <div class="clear">
-            </div>
+            <table class="tbsubcates right" cellpadding="0" cellspacing="0">
+                <thead><tr>
+                    <td>
+                        SubCategories Name
+                    </td>
+                    <td>
+                        Order
+                    </td>
+                    <td>
+                    </td></tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr class="insertCates">
+                        <td>
+                            <asp:TextBox ID="TextBox1" CssClass="insertNameCates" ToolTip="Press 'Enter' to insert" Text="Press 'Enter' to insert" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TextBox2" CssClass="insertOrderCates" ToolTip="..." Text="..." runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-        <div class="acontent block">
-            <p class="atitle">
-                Manager Product</p>
-            <div class="insstate">
-                <asp:TextBox ID="txtsearchPID" CssClass="aip" title="Search by Product ID" Text="Search by Product ID"
-                    runat="server"></asp:TextBox>
-                <button class="SUser">
-                </button>
-            </div>
-            <div class="insstate left">
-                <asp:TextBox ID="txtSProduct" CssClass="aip SProduct" title="Enter Email to search user's product"
-                    Text="Enter Email to search user's product" runat="server"></asp:TextBox>
-            </div>
-            <asp:UpdatePanel ID="updateCategory" runat="server">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="dlCategories" EventName="SelectedIndexChanged" />
-                </Triggers>
-                <ContentTemplate>
+        <div class="clear">
+        </div>
+    </div>
+    <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+        SelectCommand="SELECT [ID],[Name],[Order] FROM [FullMart].[dbo].[Category] WHERE [Order]<> -99 ORDER BY [Order]">
+    </asp:SqlDataSource>
+    <%--<div class="acontent block">
+        
+        <table>
+            <tr>
+                <td>
+                    Main Categories
+                </td>
+                <td>
+                    Sub Catetgories
+                </td>
+            </tr>
+            <tr>
+                <td id="dlCategory">
                     <div class="insstate left">
-                        <asp:DropDownList ID="dlCategories" runat="server" OnSelectedIndexChanged="dlCategories_SelectedIndexChanged"
-                            AutoPostBack="true">
-                        </asp:DropDownList>
+                        <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                            class="aip" id="INSCAT" />
+                        <button class="slobox">
+                        </button>
+                        <div class="clear">
+                        </div>
+                        <ul class="maincat">
+                            <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
+                                <ItemTemplate>
+                                    <li><span id='Category$<%# Eval("ID") %>'>
+                                        <%# Eval("Name") %></span>
+                                        <button class="delState" title="Delete" title="Delete">
+                                        </button>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            
+                        </ul>
                     </div>
+                </td>
+                <td id="dlSubCategory">
                     <div class="insstate left">
-                        <asp:DropDownList ID="dlSubCategories" runat="server">
-                        </asp:DropDownList>
+                        <input type="text" value="Press 'Enter' to insert" title="Press 'Enter' to insert"
+                            class="aip" id="INSSUBCAT" />
+                        <button class="slobox">
+                        </button>
+                        <div class="clear">
+                        </div>
+                        <ul class="subcat">
+                            <asp:UpdatePanel ID="updateSubCat" runat="server">
+                                <ContentTemplate>
+                                    <asp:Repeater ID="rpSubCategories" runat="server">
+                                        <ItemTemplate>
+                                            <li><span id='SubCategory$<%# Eval("ID") %>'>
+                                                <%# Eval("Name") %></span>
+                                                <button class="delState" title="Delete" title="Delete">
+                                                </button>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </ul>
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-            <asp:Button ID="btnSearch" CssClass="bt block" runat="server" Text="Search" OnClick="btnSearch_Click" />
-            <div class="clear">
-            </div>
+                </td>
+            </tr>
+        </table>
+        <div class="clear">
+        </div>
+    </div>--%>
+    <div class="acontent block">
+        <p class="atitle">
+            Manager Product</p>
+        <div class="insstate">
+            <asp:TextBox ID="txtsearchPID" CssClass="aip" title="Search by Product ID" Text="Search by Product ID"
+                runat="server"></asp:TextBox>
+            <button class="SUser">
+            </button>
+        </div>
+        <div class="insstate left">
+            <asp:TextBox ID="txtSProduct" CssClass="aip SProduct" title="Enter Email to search user's product"
+                Text="Enter Email to search user's product" runat="server"></asp:TextBox>
+        </div>
+        <asp:UpdatePanel ID="updateCategory" runat="server">
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="dlCategories" EventName="SelectedIndexChanged" />
+            </Triggers>
+            <ContentTemplate>
+                <div class="insstate left">
+                    <asp:DropDownList ID="dlCategories" runat="server" OnSelectedIndexChanged="dlCategories_SelectedIndexChanged"
+                        AutoPostBack="true">
+                    </asp:DropDownList>
+                </div>
+                <div class="insstate left">
+                    <asp:DropDownList ID="dlSubCategories" runat="server">
+                    </asp:DropDownList>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:Button ID="btnSearch" CssClass="bt block" runat="server" Text="Search" OnClick="btnSearch_Click" />
+        <div class="clear">
         </div>
     </div>
     <div class="MProduct">
@@ -182,11 +258,11 @@
                                     <a href="/ViewProduct.aspx?id=<%# Eval("ID")%>" target="_blank">
                                         <button class="Uview left">
                                         </button>
-                                    </a><a href="editp.aspx?id=<%# Eval("ID")%>" target="_blank">
+                                    </a><a href="/Shop/CreateProduct.aspx?id=<%# Eval("ID")%>" target="_blank">
                                         <button class="Uedit left">
                                         </button>
                                     </a>
-                                    <button class="Udelete left">
+                                    <button ref="<%# Eval("ID")%>" class="Udelete left">
                                     </button>
                                     <div class="clear">
                                     </div>
@@ -194,7 +270,7 @@
                                 <%# Eval("ID")%>
                             </td>
                             <td>
-                                <a href="#link_Product" target="_Blank">
+                                <a href="/ViewProduct.aspx?id=<%# Eval("ID")%>" target="_Blank">
                                     <%# Eval("Title")%></a>
                             </td>
                             <td>
@@ -210,7 +286,7 @@
                                 <%# Eval("Name") %>
                             </td>
                             <td>
-                                <input type="checkbox" class="outstanding" />
+                                <input ref="<%# Eval("ID")%>" <%# convertos(Eval("Outstanding")) %> type="checkbox" class="outstanding" />
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -236,9 +312,40 @@
     <div class="clear">
     </div>
     <div id="cfdeletep">
-        <p><center>Do you want to delete : <span></span> ?</center></p>
+        <p>
+            <center>
+                Do you want to delete : <span></span>?</center>
+        </p>
         <input type="hidden" />
-        <center><button>Yes</button><button>No</button></center>
-      </div>
+        <center>
+            <button>
+                Yes</button>
+            <button>
+                No</button></center>
+    </div>
+    <div id="message"></div>
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+            $(".MProduct table input:checkbox").change(function () {
+                $("#waitloader").show();
+                var ID = $(this).attr("ref");
+                var OS = false;
+                if ($(this).is(':checked')) {
+                    OS = true;
+                }
+                $.ajax({
+                    url: "/Code/Business/AjaxUltilities.ashx?",
+                    type: "POST",
+                    dataType: "script",
+                    data: {
+                        action: "OutstandProduct",
+                        ID: ID,
+                        OS: OS
+                    }
+                });
+                $("#waitloader").hide();
+            });
+        });
+    </script>
 </asp:Content>

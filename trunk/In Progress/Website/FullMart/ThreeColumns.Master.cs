@@ -24,6 +24,7 @@ namespace FullMart
                     LoginStatus.Visible = true;
                 }
             }
+            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)

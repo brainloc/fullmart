@@ -55,6 +55,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="a.aspx" />
     <Content Include="Administration\admin.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -898,6 +899,7 @@
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
+    <Content Include="themes\images\Arrow_Right.png" />
     <Content Include="themes\images\asc.gif" />
     <Content Include="themes\images\Bag_Purchase.png" />
     <Content Include="themes\images\bg.gif" />
@@ -1049,6 +1051,7 @@
     <Content Include="themes\images\ui-icons_fcd113_256x240.png" />
     <Content Include="themes\images\upload.png" />
     <Content Include="themes\images\verybg.gif" />
+    <Content Include="themes\images\wait.gif" />
     <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
     <Content Include="themes\script\admin.js" />
@@ -1106,6 +1109,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="a.aspx.cs">
+      <DependentUpon>a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a.aspx.designer.cs">
+      <DependentUpon>a.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

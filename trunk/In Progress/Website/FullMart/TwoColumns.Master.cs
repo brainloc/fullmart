@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using FullMart.Code.DAO;
 
 namespace FullMart
 {
@@ -23,6 +24,7 @@ namespace FullMart
                     LoginStatus.Visible = true;
                 }
             }
+            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)

@@ -28,7 +28,6 @@ function search() {
     } else {
         url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
     }
-    alert("aa");
     $(location).attr('href', url1);
 }
 function focusout(element, content) {
@@ -77,9 +76,9 @@ function calcart() {
     $("div.fcart tbody tr td:nth-child(5)").calc(
 	            "qty * price",
 	            {
-	            qty: $("div.fcart tbody tr td .nump"),
-	            price: $("div.fcart tbody tr td:nth-child(4)")
-	        },
+	                qty: $("div.fcart tbody tr td .nump"),
+	                price: $("div.fcart tbody tr td:nth-child(4)")
+	            },
 	            function (s) {
 	                return formatCurrency(s.toFixed(0)) + " VND";
 	            },
@@ -204,11 +203,11 @@ $(document).ready(function () {
         }
     });
     // pages
-    $(".Apages a").click(function () {
-        $(this).parent().find(".active").removeClass("active");
-        $(this).addClass("active");
-        return false;
-    });
+//    $(".Apages a").click(function () {
+//        $(this).parent().find(".active").removeClass("active");
+//        $(this).addClass("active");
+//        return false;
+//    });
     //tabs
     $("#tabs li").click(function () {
         var des = $(this).find("a").attr("href");

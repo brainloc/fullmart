@@ -27,7 +27,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
     <div id="UpProduct">
-        <table class="UPtb b bgwt">
+        <asp:Label ID="txtmessage" CssClass="message" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="pnCreate" runat="server"> 
+            <table class="UPtb b bgwt">
             <tr>
                 <td>
                     Tiêu đề :
@@ -55,15 +57,16 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </td>
+               
             </tr>
             <tr>
                 <td>
                     Hình sản phẩm :<br />
-                    <span class="note">size: 150x150px</span>
+                    <span class="note">size: 150x150px</span>Browse Server</button>
                 </td>
                 <td>
                     <%--<asp:TextBox ID="imageProduct" Enabled="false" CssClass="imageProduct" runat="server"></asp:TextBox>--%>
-                    <input id="imgUploader" type="file" runat="server" />
+                    <input id="imgUploader" type="file" runat="server" /> <asp:Image ID="imgthumbN" CssClass="imgthumbN" ToolTip="images Thumb preview" runat="server" />
                     <%--<asp:FileUpload ID="imgUploader" runat="server" />--%>
                 </td>
             </tr>
@@ -99,5 +102,7 @@
                     </tfoot>
            
         </table>
+        </asp:Panel>
+       
     </div>
 </asp:Content>

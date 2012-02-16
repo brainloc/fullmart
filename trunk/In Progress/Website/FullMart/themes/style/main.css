@@ -120,12 +120,12 @@ a{text-decoration:none;}
 #cmslide .item{width:630px;height:300px}
 
 /* list categories*/
-#listcats .title{background:transparent url(../images/bgtlistcat.png) center top repeat-x;color:#fff;height:20px}
+#listcats .title{background:transparent url(../images/bgtlistcat.png) center top repeat-x;color:#fff;height:20px;font-size:14px}
 #listcats .lplist{list-style:none;}
 #listcats .lplist li a{display:block;padding:0px 10px;line-height:20px;background:#e2f1f4 url(../images/larrow.png) right top no-repeat;color:#57a9bd;font-weight:bold;text-transform:capitalize}
 #listcats .lplist li a:hover{background-position:right bottom;background-color:#b6d9f2;color:#ffffff}
 #listcats .lplist li a.active{background-position:right bottom;background-color:#b6d9f2;color:#ffffff}
-#listcats .lplist .lsubcat{background-color:#fff;max-width:630px;display:block;margin-left:198px;position:absolute;z-index:99999999;margin-top:-50px;display:none;border:1px solid #d4ca9a}
+#listcats .lplist .lsubcat{background-color:#fff;max-width:217px;display:block;margin-left:198px;position:absolute;z-index:99999999;margin-top:-50px;display:none;border:1px solid #d4ca9a}
 #listcats .lplist .lsubcat ul{list-style:none;float:left;margin:0px 5px 10px}
 #listcats .lplist .lsubcat li{width:200px;margin:0px 3px 1px;float:left}
 #listcats .lplist .lsubcat li a{display:block;background-image:none}
@@ -143,7 +143,7 @@ a{text-decoration:none;}
 #AAQ .Acontent a:hover{color:#3b3a3a}
 .Apages{margin:5px 10px}
 .Apages a{color:Black;background:transparent url(../images/bgApages.png) no-repeat center top;padding:2px 6px 3px}
-.Apages .active{background-position:center center}
+.Apages .active,.Apages span span{color:Black;background:transparent url(../images/bgApages.png) no-repeat;padding:2px 6px 3px;background-position:center center}
 .Apages a:hover{background-position:center bottom}
 
 /* Hot News*/
@@ -151,7 +151,7 @@ a{text-decoration:none;}
 #hotnew .listitem ul{list-style:none}
 #hotnew .listitem ul li{border-bottom:1px solid #4fd0ed}
 #hotnew .listitem .item img{width:90px;height:90px;padding:5px;background-color:transparent}
-#hotnew .listitem .item p a{color:#00a5d9;font-size:14px;font-weight:bold}
+#hotnew .listitem .item p a{color:#00a5d9;font-size:14px;font-weight:bold;display:block;}
 
 /* newadv */
 #newadv{background-color: #F7E59F;}
@@ -247,3 +247,5 @@ a{text-decoration:none;}
 .vletter table input[disabled=disabled]{background-color:#F0F5FF;width: 649px;}
 .vletter table textarea{width:629px;height:100px;max-width:629px;max-height:100px;min-width:629px;min-height:100px;padding:10px;line-height:20px;}
 .vletter table tfoot button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.message{font-size:20px;font-weight:bold;color:#42AFFF}
+#message{background:black;text-align:center;padding:20px;position:fixed;bottom:0px;right:0px;color:White;font-size:20px;font-weight:bold;display:none}
