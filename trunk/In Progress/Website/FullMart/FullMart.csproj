@@ -891,6 +891,7 @@
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
     <Content Include="News\CreateNews.aspx" />
+    <Content Include="QA.aspx" />
     <Content Include="QAA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Register_.aspx" />
@@ -1207,6 +1208,13 @@
       <DependentUpon>OneColumn.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QA.aspx.cs">
+      <DependentUpon>QA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QA.aspx.designer.cs">
+      <DependentUpon>QA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="QAA.aspx.cs">
       <DependentUpon>QAA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
