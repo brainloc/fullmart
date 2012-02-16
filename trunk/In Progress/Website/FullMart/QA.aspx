@@ -113,91 +113,101 @@
         <div id="fcomment">
             <div id='support'>
                 <div class="Ahead">
-                    <span class="Ausername"><a href="#aa">UserName</a></span></div>
+                    <span class="Ausername"><a href="#aa">
+                        <%# Eval("email") %></a></span></div>
                 <div id='AQtext' class="AQtext b block">
-                    <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
-                    <div id='msinfo' class="bblr msinfo">
-                        <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" />
-                        <div class="right msveryp">
-                            <input class="msvery" type="text" value='Nhập mã xác nhận' /></div>
-                        <p class='very right'>
-                            ABjs</p>
-                    </div>
+                    <asp:UpdatePanel ID="mainPostForm" runat="server">
+                        <ContentTemplate>
+                            <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
+                            <div id='msinfo' class="bblr msinfo">
+                                <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnPost_Click" />
+                                <div class="right msveryp">
+                                    <input class="msvery" type="text" value='Nhập mã xác nhận' /></div>
+                                <p class='very right'>
+                                    ABjs</p>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </div>
-        <ul class="mcomment">
-            <asp:Repeater ID="rpPost" runat="server" DataSourceID="dsPost">
-                <ItemTemplate>
-                    <li>
-                        <div class="Ahead">
-                            <span class="Ausername"><a href="#aa">
-                                <%# Eval("email")%></a></span></div>
-                        <div class="Aarrow">
-                            <%# Eval("CreateDate")%></div>
-                        <div class="Acontent b">
-                            <a href="#a">
-                                <p>
-                                    <%# Eval("Content") %></p>
-                                <button>
-                                    remove</button></a></div>
-                        <span title="number of comment" class="numc">3</span>
-                        <asp:Label ID="txtPostID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
-                        <asp:Label ID="txtPosterID" runat="server" Text='<%# Eval("PosterID") %>' Visible="false"></asp:Label>
-                        <ul class="subcomment">
-                            <asp:Repeater ID="rpComments" runat="server" DataSourceID="dsComments">
-                                <ItemTemplate>
+        <asp:UpdatePanel ID="updatePostList" runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <ul class="mcomment">
+                    <asp:Repeater ID="rpPost" runat="server" DataSourceID="dsPost">
+                        <ItemTemplate>
+                            <li>
+                                <div class="Ahead">
+                                    <span class="Ausername"><a href="#aa">
+                                        <%# Eval("email")%></a></span></div>
+                                <div class="Aarrow">
+                                    <%# Eval("CreateDate")%></div>
+                                <div class="Acontent b">
+                                    <a href="#a">
+                                        <p>
+                                            <%# Eval("Content") %></p>
+                                        <button>
+                                            remove</button></a></div>
+                                <span title="number of comment" class="numc">3</span>
+                                <asp:Label ID="txtPostID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
+                                <asp:Label ID="txtPosterID" runat="server" Text='<%# Eval("PosterID") %>' Visible="false"></asp:Label>
+                                <ul class="subcomment">
+                                    <asp:Repeater ID="rpComments" runat="server" DataSourceID="dsComments">
+                                        <ItemTemplate>
+                                            <li>
+                                                <div class="Ahead">
+                                                    <span class="Ausername"><a href="#aa">
+                                                        <%# Eval("email") %></a></span></div>
+                                                <div class="Aarrow">
+                                                    <%# Eval("CreateDate")%></div>
+                                                <div class="Acontent b">
+                                                    <a href="#a">
+                                                        <p>
+                                                            <%# Eval("Content")%></p>
+                                                        <button>
+                                                            remove</button>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <asp:SqlDataSource ID="dsComments" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                        SelectCommand="SELECT [FullMart].[dbo].[SubAQ].[ID],[email],[AQID],[Content],[FullMart].[dbo].[SubAQ].[CreateDate] FROM [FullMart].[dbo].[SubAQ],[FullMart].[dbo].[User] WHERE [AQID] = @PostID AND [FullMart].[dbo].[User].[ID] = @PosterID ORDER BY [FullMart].[dbo].[SubAQ].[CreateDate] DESC">
+                                        <SelectParameters>
+                                            <asp:ControlParameter ControlID="txtPostID" Name="PostID" />
+                                            <asp:ControlParameter ControlID="txtPosterID" Name="PosterID" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                     <li>
-                                        <div class="Ahead">
-                                            <span class="Ausername"><a href="#aa">
-                                                <%# Eval("email") %></a></span></div>
-                                        <div class="Aarrow">
-                                            <%# Eval("CreateDate")%></div>
-                                        <div class="Acontent b">
-                                            <a href="#a">
-                                                <p>
-                                                    <%# Eval("Content")%></p>
-                                                <button>
-                                                    remove</button>
-                                            </a>
+                                        <div>
+                                            <div class="Ahead">
+                                                <span class="Ausername"><a href="#aa">
+                                                    <%# Eval("email") %></a></span></div>
+                                            <div class="AQtext b block">
+                                                <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
+                                                <div id='Div3' class="bblr msinfo">
+                                                    <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND" />
+                                                    <div class="right msveryp">
+                                                        <input class="msvery" type="text" value='Nh?p mã xác nh?n' />
+                                                    </div>
+                                                    <p class='very right'>
+                                                        ABjs</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                            <asp:SqlDataSource ID="dsComments" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                SelectCommand="SELECT [FullMart].[dbo].[SubAQ].[ID],[email],[AQID],[Content],[FullMart].[dbo].[SubAQ].[CreateDate] FROM [FullMart].[dbo].[SubAQ],[FullMart].[dbo].[User] WHERE [AQID] = @PostID AND [FullMart].[dbo].[User].[ID] = @PosterID ORDER BY [FullMart].[dbo].[SubAQ].[CreateDate] DESC">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="txtPostID" Name="PostID" />
-                                    <asp:ControlParameter ControlID="txtPosterID" Name="PosterID" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
-                            <li>
-                                <div>
-                                    <div class="Ahead">
-                                        <span class="Ausername"><a href="#aa"><%# Eval("email") %></a></span></div>
-                                    <div class="AQtext b block">
-                                        <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
-                                        <div id='Div3' class="bblr msinfo">
-                                            <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND"/>
-                                            <div class="right msveryp">
-                                                <input class="msvery" type="text" value='Nh?p mã xác nh?n' />
-                                            </div>
-                                            <p class='very right'>
-                                                ABjs</p>
-                                        </div>
-                                    </div>
+                                </ul>
+                                <div class="clear">
                                 </div>
                             </li>
-                        </ul>
-                        <div class="clear">
-                        </div>
-                    </li>
-                </ItemTemplate>
-            </asp:Repeater>
-            <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                SelectCommand="SELECT [FullMart].[dbo].[AnswerQuestion].[ID],[PosterID],[email],[FullMart].[dbo].[AnswerQuestion].[CreateDate],[Content] FROM [FullMart].[dbo].[AnswerQuestion],[FullMart].[dbo].[User] WHERE [FullMart].[dbo].[AnswerQuestion].[isActive] = 1	AND [FullMart].[dbo].[User].[ID] = [PosterID] ORDER BY [FullMart].[dbo].[AnswerQuestion].[CreateDate] DESC">
-            </asp:SqlDataSource>
-        </ul>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                        SelectCommand="SELECT [FullMart].[dbo].[AnswerQuestion].[ID],[PosterID],[email],[FullMart].[dbo].[AnswerQuestion].[CreateDate],[Content] FROM [FullMart].[dbo].[AnswerQuestion],[FullMart].[dbo].[User] WHERE [FullMart].[dbo].[AnswerQuestion].[isActive] = 1	AND [FullMart].[dbo].[User].[ID] = [PosterID] ORDER BY [FullMart].[dbo].[AnswerQuestion].[CreateDate] DESC">
+                    </asp:SqlDataSource>
+                </ul>
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <div class="Apages right">
             <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
                 ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"

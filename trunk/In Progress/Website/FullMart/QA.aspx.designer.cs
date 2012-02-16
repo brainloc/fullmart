@@ -31,6 +31,15 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
         
         /// <summary>
+        /// mainPostForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel mainPostForm;
+        
+        /// <summary>
         /// txtPost control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPost;
+        
+        /// <summary>
+        /// updatePostList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePostList;
         
         /// <summary>
         /// rpPost control.

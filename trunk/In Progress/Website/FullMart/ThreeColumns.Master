@@ -30,6 +30,8 @@
 </head>
 <body>
     <form id="mainForm" runat="server">
+    <asp:ScriptManager ID="ScriptManager" runat="server">
+    </asp:ScriptManager>
     <div id="main" class="center">
 
         <div id="header" class="block">
