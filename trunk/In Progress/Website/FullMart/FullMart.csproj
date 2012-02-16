@@ -55,8 +55,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="a.aspx" />
     <Content Include="Administration\admin.aspx" />
+    <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
@@ -1109,12 +1109,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="a.aspx.cs">
-      <DependentUpon>a.aspx</DependentUpon>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="a.aspx.designer.cs">
-      <DependentUpon>a.aspx</DependentUpon>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Administration\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
@@ -1122,6 +1122,13 @@
     </Compile>
     <Compile Include="Administration\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ManageState.aspx.cs">
+      <DependentUpon>ManageState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageState.aspx.designer.cs">
+      <DependentUpon>ManageState.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\ManageUser.aspx.cs">
       <DependentUpon>ManageUser.aspx</DependentUpon>
@@ -1419,6 +1426,7 @@
     <Content Include="OneColumn.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.Master" />
     <None Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <None Include="ckfinder\userfiles\.htaccess" />
     <Content Include="TwoColumns.Master" />

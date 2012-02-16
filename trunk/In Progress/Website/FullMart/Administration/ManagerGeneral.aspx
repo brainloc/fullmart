@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true" CodeBehind="ManagerGeneral.aspx.cs" Inherits="FullMart.ManagerGeneral" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ManagerGeneral.aspx.cs" Inherits="FullMart.ManagerGeneral" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script src="/ckfinder/ckfinder.js" type="text/javascript"></script>

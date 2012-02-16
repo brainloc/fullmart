@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
     CodeBehind="ManageProducts.aspx.cs" Inherits="FullMart.Shop.ManageProducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -323,7 +323,7 @@
             <button>
                 No</button></center>
     </div>
-    <div id="message"></div>
+    
     <script type="text/javascript">
 
         $(document).ready(function () {

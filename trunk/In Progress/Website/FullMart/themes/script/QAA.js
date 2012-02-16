@@ -19,7 +19,7 @@
             $(this).css("color", "silver");
         }
     });
-    $(".numc,.Acontent").click(function () {
+    $(".listitem").delegate(".mcomment .Acontent", "click", function () {
         $(this).parent().find(".subcomment").slideToggle("normal");
         return false;
     });
@@ -31,7 +31,7 @@
             return false;
         }
     });
-    $(".mcomment .Acontent button").click(function () {
+    $("body").delegate(".mcomment .Acontent button", "click", function () {
         var r = confirm("Do you want to delete this question ?");
         if (r) {
             //$(this).parent().parent().parent().remove();
