@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true" CodeBehind="ManageNews.aspx.cs" Inherits="FullMart.ManageNews" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ManageNews.aspx.cs" Inherits="FullMart.ManageNews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/admin.css" rel="stylesheet" type="text/css" />
     <script src="/themes/script/admin.js" type="text/javascript"></script>

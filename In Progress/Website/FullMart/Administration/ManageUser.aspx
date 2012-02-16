@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
     CodeBehind="ManageUser.aspx.cs" Inherits="FullMart.Administration.ManageUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

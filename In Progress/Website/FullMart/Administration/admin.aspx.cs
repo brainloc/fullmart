@@ -16,7 +16,6 @@ namespace FullMart
             {
                 if (!IsPostBack)
                 {
-
                 }
             }
             else { Response.Redirect("../Default.aspx", false); }
