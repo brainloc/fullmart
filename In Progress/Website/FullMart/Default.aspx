@@ -15,6 +15,7 @@
                         <div class="lsubcat b">
                             <span class="block title btlr">
                                 <%# Eval("Name") %></span>
+
                             <ul>
                                                             <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
@@ -45,6 +46,9 @@
         <div class="title">
             <span>Answers & Questions</span></div>
         <div class="listitem">
+            <asp:ListView ID="ListAQ" runat="server">
+            </asp:ListView>
+            <asp:SqlDataSource ID="dsAQ" runat="server"></asp:SqlDataSource>
             <ul>
                 <li>
                     <div class="Ahead">
@@ -353,20 +357,20 @@
             Hot News</div>
         <div class="listitem">
          <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
-        <AlternatingItemTemplate>
+       <%-- <AlternatingItemTemplate>
         <li><div class="item">
                         <div class="left">
                             <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                 <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
                         <p>
                             <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
-                            <span><%# correctshortCT(Eval("ShortContent"),150) %></span>
+                            <span><%# correctshortCT(Eval("ShortContent"), 30) %></span>
                         </p>
                     </div>
                     <div class="clear">
                     </div>
                 </li>
-        </AlternatingItemTemplate>
+        </AlternatingItemTemplate>--%>
         <EmptyDataTemplate>
             
         </EmptyDataTemplate>
@@ -401,23 +405,6 @@
                 <a href="/listnew.aspx" ref="0">All</a>
             </div>
         </LayoutTemplate>
-        <SelectedItemTemplate>
-            <li style="">Title:
-                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                <br />
-                ID:
-                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                <br />
-                ShortContent:
-                <asp:Label ID="ShortContentLabel" runat="server" 
-                    Text='<%# Eval("ShortContent") %>' />
-                <br />
-                ImageThumb:
-                <asp:Label ID="ImageThumbLabel" runat="server" 
-                    Text='<%# Eval("ImageThumb") %>' />
-                <br />
-            </li>
-        </SelectedItemTemplate>
     </asp:ListView>
             <div class="clear">
             </div>

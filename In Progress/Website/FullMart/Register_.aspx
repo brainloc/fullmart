@@ -61,7 +61,7 @@
                         <em class="left">Developing version ! vunam289@gmail.com</em>
                         <!-- Begin User Account -->
                         <a href="#Account" title="User's Account control">
-                            <div id="uus" class="us left">
+                            <div class="uus" class="us left">
                                 UserName</div>
                         </a><a href="#notify" title="User's Notify">
                             <div id="unote" class="us left">

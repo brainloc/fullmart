@@ -9,7 +9,7 @@
 #Lmenu .lplist .lsubcat li a{display:block;background-image:none}
 
 #cleft{width:250px;margin-left:10px;}
-#cmain{width:820px;margin-left:10px;}
+#cmain{width:1080px;margin-left:10px;}
 
 .content{margin:5px auto;white-space:normal;}
 .product {width:215px;height:170px;border:#EAEAEA 1px solid;float:left;margin:6px 20px 35px 20px;background:#FFF;text-align:center;color:#6f8fa5;font-weight:bold}
@@ -42,7 +42,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .insstate select{width:244px;line-height:31px;height:31px;font-size:15px;background-color:#fff;}
 .lUser tbody tr td{line-height:30px}
 .lUser tbody tr:nth-child(even) td{background-color:#E3FFFF}
-.cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;position:absolute;margin-top:0px;display:none}
+.cmdUser{width:102px;height:30px;background:transparent url(../images/bgbar.png) center center no-repeat;display:block}
 .lUser tbody tr:hover .cmdUser{display:block}
 .Uview,.Uedit,.Udelete{height:30px;width:33px;cursor:pointer}
 .detailU,#viewU.viewU{/*width:790px;height:400px;*/display:none}
@@ -60,7 +60,7 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 #cfdelete p,#cfdeletep p,#cfdeleten p{display:block;font-size:20px}
 #cfdelete span,#cfdeletep span,#cfdeleten span{color:Red}
 #cfdelete button,#cfdeletep button,#cfdeleten button{margin:10px 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
-.MProduct table,.MNews table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0}
+.MProduct table,.MNews table{margin-bottom:20px;border-bottom:1px solid #c0c0c0;border-right:1px solid #c0c0c0;width:100%}
 .MProduct table thead tr,.MNews table thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff}
 .MProduct table tbody td,.MNews table tbody td{background-color:#F0F5FF;color:#000}
 .MProduct table tbody td a,.MNews table tbody td a{color:#000}

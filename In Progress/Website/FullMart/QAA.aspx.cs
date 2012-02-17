@@ -12,7 +12,10 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserName"] != null) {
+                hlUser.NavigateUrl = Session["ID"].ToString();
+                hlUser.Text = Session["UserName"].ToString();
+            }
         }
         protected string correctshortCT(object content, int length)
         {

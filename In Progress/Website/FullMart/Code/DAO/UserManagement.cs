@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Web.Security;
 
 namespace FullMart.Code.DAO
 {
@@ -94,25 +95,26 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool Login(string pass,string email)
+        public static DataTable Login(string pass,string email)
         {
             using (SqlConnection connection = GetConnection())
             {
                 SqlCommand command = new SqlCommand("CheckLogin", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@email", email));
+                command.Parameters.Add(new SqlParameter("@pass", pass));
                 try
                 {
                     connection.Open();
                     SqlDataAdapter da = new SqlDataAdapter(command);
-                    DataSet ds = new DataSet();
+                    DataTable ds = new DataTable();
                     da.Fill(ds);
                     connection.Close();
-                    return ds.Tables[0].Rows.Count == 0;
+                    return ds;
                 }
                 catch (Exception ex)
                 {
-                    return false;
+                    return null;
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace FullMart.Shop
                 {
                     try
                     {
+                        
                         DataTable newDetail = ProductManagement.GetProductDetailByID(Convert.ToInt32(ID));
                         if (newDetail != null && newDetail.Rows.Count > 0)
                         {

@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>FullMarts</title>
     <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
     <link rel="stylesheet" type="text/css" href="/themes/style/dialog.css" />
     <link href="/themes/style/tablesorter.css" rel="stylesheet" type="text/css" />
@@ -61,9 +61,10 @@
                     <div class="right clear">
                         <em class="left">Developing version ! vunam289@gmail.com</em>
                         <!-- Begin User Account -->
+                        <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
                         <a href="#Account" title="User's Account control">
-                            <div id="uus" class="left">
-                                <asp:LoginName ID="LoginName" runat="server" />
+                            <div class="uus" class="left">
+                                <asp:Label ID="txtLoginName" runat="server" Text=""></asp:Label>
                             </div>
                         </a><a href="#notify" title="User's Notify">
                             <div id="unote" class="us left">
@@ -72,11 +73,13 @@
                             <div id="ucart" class="us left">
                                 <strong>(3) verifiing</strong></div>
                         </a>
+                            <asp:Button CssClass="lo" ID="btLogout" runat="server" Text="LogOut" onclick="btLogout_Click" />
+                        </asp:Panel>
                         <%--<div class="left">
                             <input id="lo" type="submit" value="" /></div>--%>
                         <!-- End User Account -->
                         <!-- Begin Login -->
-                        <asp:Login ID="loginPanel" CssClass="left" runat="server" OnAuthenticate="loginPanel_Authenticate">
+                       <asp:Login ID="loginPanel" CssClass="left" runat="server" OnAuthenticate="loginPanel_Authenticate">
                             <LayoutTemplate>
                                 <div class="us b left">
                                     <div class="un" title="Username">
@@ -98,7 +101,7 @@
                                     <input id="treg" type="submit" value="" /></div>
                             </LayoutTemplate>
                         </asp:Login>
-                        <asp:LoginStatus ID="LoginStatus" runat="server" Visible="false" />
+                        
                         <!-- End Login -->
                     </div>
                 </div>

@@ -33,9 +33,9 @@ namespace FullMart
             {
                 string tmp1 = content.ToString();
                 tmp1=Regex.Replace(tmp1,@"<(.|\n)*?>", string.Empty);
-                if (tmp1.Length > 200)
+                if (tmp1.Length > length)
                 {
-                    return tmp1.Substring(0, 200) + "...";
+                    return tmp1.Substring(0, length) + "...";
                 }
                 else { return tmp1; }
             }

@@ -10,78 +10,60 @@
 namespace FullMart {
     
     
-    public partial class QA {
+    public partial class ManagerGeneral {
         
         /// <summary>
-        /// rpCategories control.
+        /// lbnotemessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCategories;
+        protected global::System.Web.UI.WebControls.Label lbnotemessage;
         
         /// <summary>
-        /// dsCategories control.
+        /// UserEN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        protected global::CKEditor.NET.CKEditorControl UserEN;
         
         /// <summary>
-        /// dsPost control.
+        /// UserVi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsPost;
+        protected global::CKEditor.NET.CKEditorControl UserVi;
         
         /// <summary>
-        /// mainPostForm control.
+        /// FooterEN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel mainPostForm;
+        protected global::CKEditor.NET.CKEditorControl FooterEN;
         
         /// <summary>
-        /// txtPost control.
+        /// FooterVI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPost;
+        protected global::CKEditor.NET.CKEditorControl FooterVI;
         
         /// <summary>
-        /// btnPost control.
+        /// cmdSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPost;
-        
-        /// <summary>
-        /// updatePostList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePostList;
-        
-        /// <summary>
-        /// rpPost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpPost;
+        protected global::System.Web.UI.WebControls.Button cmdSave;
     }
 }

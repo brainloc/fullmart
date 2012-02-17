@@ -2,8 +2,6 @@
     CodeBehind="ManageProducts.aspx.cs" Inherits="FullMart.Shop.ManageProducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../themes/style/admin.css" rel="stylesheet" type="text/css" />
-    <script src="../themes/script/admin.js" type="text/javascript"></script>
     <%--<script type="text/javascript">
         $(document).ready(function () {
             //update select
@@ -25,20 +23,6 @@
         });
     </script>--%>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
-    <div id="Lmenu" class="lb btlr">
-        <div class="title block btlr">
-            <span>Manager</span></div>
-        <ul class="lplist">
-            <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
-            </li>
-            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a> </li>
-            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a> </li>
-            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a> </li>
-            <li><a class="ap" href="#">Answer & Question Manager</a> </li>
-        </ul>
-    </div>
-</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
     </div>
@@ -47,6 +31,7 @@
             <img src="/themes/images/upload.png" /></a>
     </div>
     <div class="acontent block">
+
     <p class="atitle">
             Manager Categories</p>
         <span style="color: Red; padding: 10px; font-size: 15px">Press 'tab' when change Order
@@ -88,7 +73,7 @@
                             <asp:TextBox ID="txtInsert" CssClass="insertNameCates" ToolTip="Press 'Enter' to insert" Text="Press 'Enter' to insert" runat="server"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtInsertOrder" CssClass="insertOrderCates" ToolTip="..." Text="..."
+                            <asp:TextBox ID="txtInsertOrder" Enabled=false CssClass="insertOrderCates" ToolTip="..." Text="..."
                                 runat="server"></asp:TextBox>
                         </td>
                     </tr>

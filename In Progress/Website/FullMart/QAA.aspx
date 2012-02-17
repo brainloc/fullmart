@@ -106,12 +106,14 @@
         </div>
     </div>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="Center" runat="server">
  <div class="listitem bgwt b block">
             <div id="fcomment">
             <div id='support'>
                 <div class="Ahead">
-                    <span class="Ausername"><a href="#aa">UserName</a></span></div>
+                    <span class="Ausername"><a href="#aa"></a>
+                        <asp:HyperLink ID="hlUser" runat="server"></asp:HyperLink></span></div>
                 <div id='AQtext' class="AQtext b block">
                     <asp:TextBox ID="txtmscontent" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                     <%--<textarea id="txtmscontent" class="txtmscontent" cols="20" rows="2"></textarea>--%>

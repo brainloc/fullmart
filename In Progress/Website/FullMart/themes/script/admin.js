@@ -74,8 +74,12 @@ $(document).ready(function () {
             $(".tbcates .insertOrderCates").css("color", "black");
         }
     });
-    $(".tbcates .insertNameCates,.tbcates .insertOrderCates").keydown(function (data) {
+    $(".tbcates .insertNameCates").keydown(function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
+        if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
+            $(".tbcates .insertOrderCates").val($("table.tbcates tbody tr").length + 1);
+            $(".tbcates .insertOrderCates").css("color", "black");
+        }
         if (charCode == 13) {
             if ($.trim($(".tbcates .insertNameCates").val()) != "Press 'Enter' to insert" && $.trim($(".tbcates .insertNameCates").val()) != "") {
                 var name = $.trim($(".tbcates .insertNameCates").val());

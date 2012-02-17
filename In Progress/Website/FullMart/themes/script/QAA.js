@@ -1,21 +1,25 @@
 ﻿$(document).ready(function () {
-    $(".very").each(function () {
+//    $(".very").each(function () {
+//        $(this).text(genr(4));
+//        $(this).css('background-position', 'left ' + Math.random() * 500 + 'px');
+//        $(this).click(function () {
+//            $(this).text(genr(4));
+//            $(this).css('background-position', 'left ' + Math.random() * 500 + 'px');
+//        });
+    //    });
+    $(".listitem").delegate(".very", "click", function () {
         $(this).text(genr(4));
         $(this).css('background-position', 'left ' + Math.random() * 500 + 'px');
-        $(this).click(function () {
-            $(this).text(genr(4));
-            $(this).css('background-position', 'left ' + Math.random() * 500 + 'px');
-        });
     });
-    $(".msvery").focus(function () {
-        if ($(this).val() == "Nhập mã xác nhận") {
+    $(".listitem").delegate(".msvery","focus",function () {
+        if ($(this).val() == "Captcha") {
             $(this).val("");
             $(this).css("color", "black");
         }
     });
-    $(".msvery").blur(function () {
-        if ($(this).val() == "Nhập mã xác nhận" || $(this).val() == "") {
-            $(this).val("Nhập mã xác nhận");
+    $(".listitem").delegate(".msvery","blur",function () {
+        if ($(this).val() == "Captcha" || $(this).val() == "") {
+            $(this).val("Captcha");
             $(this).css("color", "silver");
         }
     });
@@ -30,9 +34,8 @@
             alert("Please enter captcha correctly !");
             return false;
         }
-        return false;
     });
-    $("body").delegate(".mcomment .Acontent button", "click", function () {
+    $(".listitem").delegate(".mcomment .Acontent button", "click", function () {
         var r = confirm("Do you want to delete this question ?");
         if (r) {
             //$(this).parent().parent().parent().remove();

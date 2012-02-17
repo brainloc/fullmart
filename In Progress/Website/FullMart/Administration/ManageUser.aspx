@@ -2,26 +2,6 @@
     CodeBehind="ManageUser.aspx.cs" Inherits="FullMart.Administration.ManageUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="/themes/style/admin.css" rel="stylesheet" type="text/css" />
-    <script src="/themes/script/admin.js" type="text/javascript"></script>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
-    <div id="Lmenu" class="lb btlr">
-        <div class="title block btlr">
-            <span>Manager</span></div>
-        <ul class="lplist">
-            <li><a class="ap" href="/Administration/ManagerGeneral.aspx">General Manager</a>
-            </li>
-            <li><a class="ap" href="/Administration/ManageUser.aspx">User Manager</a>
-            </li>
-            <li><a class="ap" href="/Shop/ManageProducts.aspx">Product Manager</a>
-            </li>
-            <li><a class="ap" href="/News/ManageNews.aspx">News Manager</a>
-            </li>
-            <li><a class="ap" href="#">Answer & Question Manager</a> </li>
-        </ul>
-        
-    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
@@ -29,7 +9,7 @@
             <p class="atitle">
                 Manager User</p>
             <div class="insstate">
-                <asp:TextBox ID="txtSearchKey" title="Enter Email to search user" Text="Enter Email to search user"
+                <asp:TextBox ID="txtSearchKey" title="Enter Email or Name to search user" Text="Enter Email or Name to search user"
                     CssClass="aip" runat="server"></asp:TextBox>
                 <asp:Button ID="Button1" CssClass="SUser" runat="server" Text="Button" 
                     onclick="Button1_Click" />
@@ -37,8 +17,7 @@
         </div>
     </div>
     <div id="Usertab">
-     
-        
+
         <asp:Panel ID="pnSearchUser" Visible=false runat="server">
             <table id="searchUser" class="usereven tablesorter lUser">
                <thead>
@@ -55,9 +34,7 @@
                         <th>
                             Join Day
                         </th>
-                        <th>
-                            State
-                        </th>
+                        
                         <th>
                             College/University
                         </th>
@@ -66,7 +43,10 @@
                         </th>
                         <th>
                             Birthday
+                        </th><th>
+                            AccountType
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,16 +66,17 @@
                                     <%# Eval("createdate")%>
                                 </td>
                                 <td>
-                                    <%# Eval("state")%>
-                                </td>
-                                <td>
                                     <%# Eval("CU")%>
                                 </td>
                                 <td>
                                     <%# Eval("class")%>
                                 </td>
                                 <td>
-                                    <a href='<%# Eval("bday")%>' target="_blank"><%# Eval("Web")%></a>                                    
+                                    <%# Eval("bday")%>
+                                </td>
+                                <td><%# Eval("roleID")%> </td>
+                                <td style=" width: 100px;">
+                                                                       
                                     <div class="cmdUser">
                                         <button class="Uview left">
                                         </button>
@@ -242,6 +223,7 @@
                         <th>
                             Birthday
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -269,8 +251,8 @@
                                 <td>
                                     <%# Eval("class")%>
                                 </td>
-                                <td>
-                                    <a href='<%# Eval("bday")%>' target="_blank"><%# Eval("Web")%></a>                                    
+                                <td><a href='<%# Eval("web")%>' target="_blank"><%# Eval("Web")%></a>  </td>
+                                <td style=" width: 100px;">                      
                                     <div class="cmdUser">
                                         <button class="Uview left">
                                         </button>
@@ -414,6 +396,7 @@
                         <th>
                             Website
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -438,8 +421,9 @@
                                 <td>
                                     <%# Eval("Shopname")%>
                                 </td>
-                                <td>
-                                    <a href='<%# Eval("Web")%>' target="_blank"><%# Eval("Web")%></a>                                    
+                                <td><a href='<%# Eval("Web")%>' target="_blank"><%# Eval("Web")%></a> </td>
+                                <td style=" width: 100px;">
+                                                                       
                                     <div class="cmdUser">
                                         <button class="Uview left">
                                         </button>
@@ -584,6 +568,7 @@
                         <th>
                             yahoo
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -608,8 +593,9 @@
                                 <td>
                                     <%# Eval("mobile")%>
                                 </td>
-                                <td>
-                                    <%# Eval("yahoo")%>                 
+                                <td><%# Eval("yahoo")%>          </td>
+                                <td style=" width: 100px;">
+                                           
                                     <div class="cmdUser">
                                         <button class="Uview left">
                                         </button>
