@@ -30,6 +30,7 @@
             alert("Please enter captcha correctly !");
             return false;
         }
+        return false;
     });
     $("body").delegate(".mcomment .Acontent button", "click", function () {
         var r = confirm("Do you want to delete this question ?");

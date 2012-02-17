@@ -31,5 +31,28 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void PostComment(int posterID, int AQID, string content)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("PostSubQA", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PosterID", posterID));
+                command.Parameters.Add(new SqlParameter("@AQID", AQID));
+                command.Parameters.Add(new SqlParameter("@Content", content));                
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

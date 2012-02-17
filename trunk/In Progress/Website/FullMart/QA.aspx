@@ -3,7 +3,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/QAA.css" rel="stylesheet" type="text/css" />
-    <script src="/themes/script/QAA.js" type="text/javascript"></script>
+    <script src="/themes/script/QAA.js" type="text/javascript"></script>    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("div.SubCommentSpace > div.msinfo > input[type='submit']").click(function () {
+                var posterID = 1;
+                var postID = 25;
+                var comment = $(this).closest("div.SubCommentSpace").children("textarea:eq(0)").val();
+                var command = "AddComment";
+                var eventArgs = command + "$" + posterID + "$" + postID + "$" + comment;
+                __doPostBack('<%= updatePostList.ClientID %>', eventArgs);                
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
@@ -131,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <asp:UpdatePanel ID="updatePostList" runat="server" UpdateMode="Conditional">
+        <asp:UpdatePanel ID="updatePostList" runat="server" OnLoad="updatePostList_Load">
             <ContentTemplate>
                 <ul class="mcomment">
                     <asp:Repeater ID="rpPost" runat="server" DataSourceID="dsPost">
@@ -183,10 +195,10 @@
                                             <div class="Ahead">
                                                 <span class="Ausername"><a href="#aa">
                                                     <%# Eval("email") %></a></span></div>
-                                            <div class="AQtext b block">
+                                            <div class="AQtext b block SubCommentSpace">
                                                 <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                                 <div id='Div3' class="bblr msinfo">
-                                                    <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND" />
+                                                    <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnComment_Click" />
                                                     <div class="right msveryp">
                                                         <input class="msvery" type="text" value='Nh?p mã xác nh?n' />
                                                     </div>
