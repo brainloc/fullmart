@@ -17,6 +17,7 @@
         });
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -24,7 +25,7 @@
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
-                    <li><a class="ap" href='?cat=<%# Eval("ID") %>'>
+                    <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'>
                         <%# Eval("Name") %></a>
                         <div class="lsubcat b">
                             <span class="block title btlr">
@@ -33,7 +34,7 @@
                                 <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
                                     <ItemTemplate>
-                                        <li><a href='?subcat=<%# Eval("ID") %>'>
+                                        <li><a href='/ListProducts.aspx?subcat=<%# Eval("ID") %>'>
                                             <%# Eval("Name") %></a></li>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -128,15 +129,18 @@
                     <span class="Ausername"><a href="#aa">
                         <%# Eval("email") %></a></span></div>
                 <div id='AQtext' class="AQtext b block">
+                <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                        SelectCommand="SELECT [FullMart].[dbo].[AnswerQuestion].[ID],[PosterID],[email],[FullMart].[dbo].[AnswerQuestion].[CreateDate],[Content] FROM [FullMart].[dbo].[AnswerQuestion],[FullMart].[dbo].[User] WHERE [FullMart].[dbo].[AnswerQuestion].[isActive] = 1	AND [FullMart].[dbo].[User].[ID] = [PosterID] ORDER BY [FullMart].[dbo].[AnswerQuestion].[CreateDate] DESC">
+                    </asp:SqlDataSource>
                     <asp:UpdatePanel ID="mainPostForm" runat="server">
                         <ContentTemplate>
                             <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                             <div id='msinfo' class="bblr msinfo">
                                 <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnPost_Click" />
                                 <div class="right msveryp">
-                                    <input class="msvery" type="text" value='Nhập mã xác nhận' /></div>
-                                <p class='very right'>
-                                    ABjs</p>
+                                    <input class="msvery" type="text" title="Captcha" value='Captcha' /></div>
+
+                                <p class='very right'><%= RandomString()%></p>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -149,7 +153,7 @@
                     <asp:Repeater ID="rpPost" runat="server" DataSourceID="dsPost">
                         <ItemTemplate>
                             <li>
-                                <div class="Ahead">
+                                <div id="<%# Eval("ID") %>" class="Ahead">
                                     <span class="Ausername"><a href="#aa">
                                         <%# Eval("email")%></a></span></div>
                                 <div class="Aarrow">
@@ -200,10 +204,9 @@
                                                 <div id='Div3' class="bblr msinfo">
                                                     <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnComment_Click" />
                                                     <div class="right msveryp">
-                                                        <input class="msvery" type="text" value='Nh?p mã xác nh?n' />
+                                                        <input class="msvery" type="text" value='Captcha' />
                                                     </div>
-                                                    <p class='very right'>
-                                                        ABjs</p>
+                                                    <p class='very right'><%= RandomString()%></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,9 +217,7 @@
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                        SelectCommand="SELECT [FullMart].[dbo].[AnswerQuestion].[ID],[PosterID],[email],[FullMart].[dbo].[AnswerQuestion].[CreateDate],[Content] FROM [FullMart].[dbo].[AnswerQuestion],[FullMart].[dbo].[User] WHERE [FullMart].[dbo].[AnswerQuestion].[isActive] = 1	AND [FullMart].[dbo].[User].[ID] = [PosterID] ORDER BY [FullMart].[dbo].[AnswerQuestion].[CreateDate] DESC">
-                    </asp:SqlDataSource>
+                    
                 </ul>
             </ContentTemplate>
         </asp:UpdatePanel>

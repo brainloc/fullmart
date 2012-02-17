@@ -42,13 +42,14 @@ a{text-decoration:none;}
 .sb,.sb1{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/login.png) center -3px no-repeat;border:none;text-indent:99999px}
 #sb:hover,#sb:active,.sb1:hover,.sb1:active{cursor:pointer;background-position:center -29px}
 #sb:active,.sb1:active{background-position:center -55px}
-#lo{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/logout.png) center -3px no-repeat;border:none}
-#lo:hover,#lo:active{cursor:pointer;background-position:center -29px}
-#lo:active{background-position:center -55px}
+.lo{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/logout.png) center -3px no-repeat;border:none;text-indent:9999px}
+.lo:hover,.lo:active{cursor:pointer;background-position:center -29px}
+.lo:active{background-position:center -55px}
 #treg{width:52px; height:22px;margin:3px;margin-right:10px;background:transparent url(../images/register.png) center -3px no-repeat;border:none}
 #treg:hover,#treg:active{cursor:pointer;background-position:center -29px}
 #treg:active{background-position:center -55px}
-#uus{color:White;font-weight:bold}
+.uus,.uus span{color:White;font-weight:bold;line-height:27px}
+.lgpn a{float:left}
 #unote{background:transparent url(../images/ico.png) 0px 0px no-repeat;color:Yellow}
 #unote strong{margin-left:30px}
 #ucart{color:#8ad6fe;background:transparent url(../images/ico.png) 0px -45px no-repeat;margin-right:10px}

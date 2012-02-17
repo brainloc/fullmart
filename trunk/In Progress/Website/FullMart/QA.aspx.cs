@@ -100,5 +100,19 @@ namespace FullMart
             
             return null;
         }
+        private readonly Random _rng = new Random();
+        private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
+        public string RandomString()
+        {
+            char[] buffer = new char[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                buffer[i] = _chars[_rng.Next(_chars.Length)];
+            }
+            return new string(buffer);
+        }
+
     }
 }

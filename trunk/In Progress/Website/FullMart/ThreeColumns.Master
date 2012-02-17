@@ -44,14 +44,20 @@
                     <div class="right clear">
                         <em class="left">Developing version ! vunam289@gmail.com</em>
                         <!-- Begin User Account -->
+                        <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
                         <a href="#Account" title="User's Account control">
-                            <div id="uus" class="left"> <asp:LoginName ID="LoginName" runat="server" /> </div> </a><a href="#notify" title="User's Notify">
+                            <div class="uus" class="left">
+                                <asp:Label ID="txtLoginName" runat="server" Text=""></asp:Label>
+                            </div>
+                        </a><a href="#notify" title="User's Notify">
                             <div id="unote" class="us left">
                                 <strong>2</strong></div>
                         </a><a href="#Cart" title="User's Cart">
                             <div id="ucart" class="us left">
                                 <strong>(3) verifiing</strong></div>
                         </a>
+                            <asp:Button CssClass="lo" ID="btLogout" runat="server" Text="LogOut" onclick="btLogout_Click" />
+                        </asp:Panel>
                         <%--<div class="left">
                             <input id="lo" type="submit" value="" /></div>--%>
                         <!-- End User Account -->
@@ -78,7 +84,7 @@
                                     <input id="treg" type="submit" value="" /></div>
                             </LayoutTemplate>
                         </asp:Login>
-                        <asp:LoginStatus ID="LoginStatus" runat="server" Visible="false" />
+                        
                         <!-- End Login -->
                     </div>
                 </div>

@@ -865,7 +865,7 @@
     <Content Include="dll\CKEditor.NET.dll" />
     <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
-    <Content Include="Administration\ManagerGeneral.aspx" />
+    <Content Include="Administration\ManageGeneral.aspx" />
     <Content Include="News\ManageNews.aspx" />
     <Content Include="ManagerNews.aspx" />
     <Content Include="ManagerProduct.aspx" />
@@ -1052,6 +1052,7 @@
     <Content Include="themes\images\upload.png" />
     <Content Include="themes\images\verybg.gif" />
     <Content Include="themes\images\wait.gif" />
+    <Content Include="themes\images\Wiki1.png" />
     <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
     <Content Include="themes\script\admin.js" />
@@ -1142,8 +1143,12 @@
     </Compile>
     <Compile Include="Code\Business\FilesUltilities.cs" />
     <Compile Include="Code\Business\ProductBusiness.cs" />
+    <Compile Include="Code\control\ButtonDropDownList.cs" />
+    <Compile Include="Code\control\ButtonTextBox.cs" />
+    <Compile Include="Code\control\GooglePagerField.cs" />
     <Compile Include="Code\DAO\Base.cs" />
     <Compile Include="Code\DAO\BindingUltilities.cs" />
+    <Compile Include="Code\DAO\MemberShip.cs" />
     <Compile Include="Code\DAO\NewManagerment.cs" />
     <Compile Include="Code\DAO\OptionManagement.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
@@ -1183,12 +1188,12 @@
     <Compile Include="list_by_subcate_search.aspx.designer.cs">
       <DependentUpon>list_by_subcate_search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\ManagerGeneral.aspx.cs">
-      <DependentUpon>ManagerGeneral.aspx</DependentUpon>
+    <Compile Include="Administration\ManageGeneral.aspx.cs">
+      <DependentUpon>ManageGeneral.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\ManagerGeneral.aspx.designer.cs">
-      <DependentUpon>ManagerGeneral.aspx</DependentUpon>
+    <Compile Include="Administration\ManageGeneral.aspx.designer.cs">
+      <DependentUpon>ManageGeneral.aspx</DependentUpon>
     </Compile>
     <Compile Include="News\ManageNews.aspx.cs">
       <DependentUpon>ManageNews.aspx</DependentUpon>
@@ -1430,6 +1435,9 @@
     <None Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <None Include="ckfinder\userfiles\.htaccess" />
     <Content Include="TwoColumns.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

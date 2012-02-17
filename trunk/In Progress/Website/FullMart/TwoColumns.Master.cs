@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using FullMart.Code.DAO;
+using System.Web.Security;
 
 namespace FullMart
 {
@@ -15,13 +16,45 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.User.Identity.IsAuthenticated == true)
+            if (Session["UserName"] != null)
             {
-                if (this.Page.IsPostBack == false)
+                if (!IsPostBack)
                 {
                     loginPanel.Visible = false;
                     //LoginStatus.Visible = true;
-                    LoginStatus.Visible = true;
+                    txtLoginName.Text = Session["UserName"].ToString();
+                    pnloged.Visible = true;
+                }
+            }
+            else
+            {
+                if (Request.Cookies["fullmartN"] != null)
+                {
+                    DataTable tmp1 = UserManagement.Login(Request.Cookies["fullmartN"].Values["P"].ToString(), Request.Cookies["fullmartN"].Values["UserName"].ToString());
+                    if (tmp1 != null && tmp1.Rows.Count > 0)
+                    {
+                        Session["UserName"] = tmp1.Rows[0]["UserName"].ToString();
+                        Session["ID"] = tmp1.Rows[0]["ID"].ToString();
+                        Session["role"] = tmp1.Rows[0]["roleID"].ToString();
+                        loginPanel.Visible = false;
+                        //LoginStatus.Visible = true;
+                        txtLoginName.Text = Session["UserName"].ToString();
+                        pnloged.Visible = true;
+                    }
+                    else
+                    {
+
+                        HttpCookie aCookie = new HttpCookie("fullmartN");
+                        aCookie.Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies.Add(aCookie);
+                        loginPanel.Visible = true;
+                        pnloged.Visible = false;
+                    }
+                }
+                else
+                {
+                    loginPanel.Visible = true;
+                    pnloged.Visible = false;
                 }
             }
             ffooter.Text = OptionManagement.GetFooter("VI");
@@ -29,44 +62,37 @@ namespace FullMart
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            bool isUserValidated = ValidateUser(loginPanel.UserName.Trim(), loginPanel.Password.Trim());
+            string us = loginPanel.UserName.Trim();
+            string pw = FormsAuthentication.HashPasswordForStoringInConfigFile(loginPanel.Password, "SHA1");
+            bool isUserValidated = ValidateUser(us, pw);
             e.Authenticated = isUserValidated;
         }
 
         private bool ValidateUser(string username, string password)
         {
-            try
+            DataTable us = UserManagement.Login(password, username);
+            if (us != null && us.Rows.Count > 0)
             {
-                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FullMartConnectionString"].ConnectionString))
-                {
-                    string sqlStatement = string.Format("SELECT * FROM [FullMart].[dbo].[User] WHERE [email] = N'{0}' AND [pass] = N'{1}'", username, password);
-                    SqlCommand command = new SqlCommand(sqlStatement, connection);
-                    SqlDataAdapter dataAdap = new SqlDataAdapter(command);
-                    DataTable data = new DataTable();
-                    try
-                    {
-                        connection.Open();
-                        dataAdap.Fill(data);
+                Session["UserName"] = us.Rows[0]["UserName"].ToString();
+                Session["ID"] = us.Rows[0]["ID"].ToString();
+                Session["role"] = us.Rows[0]["roleID"].ToString();
+                HttpCookie fullmart = new HttpCookie("fullmartN");
+                fullmart.Values["UserName"] = us.Rows[0]["UserName"].ToString();
+                fullmart.Values["ID"] = us.Rows[0]["ID"].ToString();
+                fullmart.Values["P"] = FormsAuthentication.HashPasswordForStoringInConfigFile(us.Rows[0]["pass"].ToString(), "SHA1");
+                Response.Cookies.Add(fullmart);
+                return true;
+            }
+            return false;
+        }
 
-                        if (data != null && data.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+        protected void btLogout_Click(object sender, EventArgs e)
+        {
+            Session["UserName"] = null;
+            HttpCookie aCookie = new HttpCookie("fullmartN");
+            aCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(aCookie);
+            Response.Redirect("~/", false);
         }
     }
 }

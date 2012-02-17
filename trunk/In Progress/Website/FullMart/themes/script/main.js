@@ -1,7 +1,7 @@
 ﻿var maxtitle = 35;//max lenght of title hotnew
 var maxtext = 100; //max lenght of content preview hotnew
 function genr(len, charSet) {
-    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     var rs = '';
     for (var i = 0; i < len; i++) {
         var randomPoz = Math.floor(Math.random() * charSet.length);
