@@ -44,6 +44,9 @@ function catUpdate(ID, Name, Order) {
             Order: Order
         }
     });
+    $(".insertNameCates").val("Press 'Enter' to insert");
+    $(".insertOrderCates").val("...");
+    $(".insertOrderCates,.insertNameCates").css("color", "silver");
     $("#waitloader").hide();
 }
 function subcatUpdate(ID, Name, Order) {
@@ -59,6 +62,9 @@ function subcatUpdate(ID, Name, Order) {
             Order: Order
         }
     });
+    $(".insertNameCates").val("Press 'Enter' to insert");
+    $(".insertOrderCates").val("...");
+    $(".insertOrderCates,.insertNameCates").css("color", "silver");
     $("#waitloader").hide();
 }
 $(document).ready(function () {
@@ -183,6 +189,12 @@ $(document).ready(function () {
                 var CatID = -1;
                 if ($(".tbsubcates tbody").attr("ref") > 0) {
                     CatID = $(".tbsubcates tbody").attr("ref");
+                } else {
+                    alert("Please Select Category you want to insert!");
+                    $(".insertNameCates").val("Press 'Enter' to insert");
+                    $(".insertOrderCates").val("...");
+                    $(".insertOrderCates,.insertNameCates").css("color", "silver");
+                    return false;
                 }
                 if ($(".tbsubcates .insertOrderCates").val() == "..." || $(".tbsubcates .insertOrderCates").val() == "") {
                     $(".tbsubcates .insertOrderCates").val(order);
@@ -202,10 +214,14 @@ $(document).ready(function () {
                         Order: order
                     }
                 });
+                $(".insertNameCates").val("Press 'Enter' to insert");
+                $(".insertOrderCates").val("...");
+                $(".insertOrderCates,.insertNameCates").css("color", "silver");
                 $("#waitloader").hide();
             } else {
-                $(".tbsubcates .insertOrderCates").val("...");
-                $(".tbsubcates .insertOrderCates").css("color", "silver");
+                $(".insertNameCates").val("Press 'Enter' to insert");
+                $(".insertOrderCates").val("...");
+                $(".insertOrderCates,.insertNameCates").css("color", "silver");
             }
             return false;
         }

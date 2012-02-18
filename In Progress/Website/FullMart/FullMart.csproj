@@ -55,6 +55,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="a.aspx" />
     <Content Include="Administration\admin.aspx" />
     <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
@@ -895,7 +896,6 @@
     <Content Include="QA.aspx" />
     <Content Include="QAA.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Register_.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -1110,6 +1110,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="a.aspx.cs">
+      <DependentUpon>a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a.aspx.designer.cs">
+      <DependentUpon>a.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1251,13 +1258,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Register_.aspx.cs">
-      <DependentUpon>Register_.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register_.aspx.designer.cs">
-      <DependentUpon>Register_.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>

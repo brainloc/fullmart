@@ -5,27 +5,32 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Security;
+using FullMart.Code.Entities;
 
 namespace FullMart.Code.DAO
 {
     public class UserManagement : Base
     {
-        public static bool CreateUser(string Fname, string Lname, string email, string password,DateTime birthday, string state, string CU, string Class, int? roleID)
+        public static bool CreateUser(User us)
         {
             using (SqlConnection connection = GetConnection())
             {
                 SqlCommand command = new SqlCommand("CreateUser", connection);
                 command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@fname", Fname));
-                command.Parameters.Add(new SqlParameter("@lname", Lname));
-                command.Parameters.Add(new SqlParameter("@email", email));
-                command.Parameters.Add(new SqlParameter("@pass", password));
-                command.Parameters.Add(new SqlParameter("@bday", birthday));
-                command.Parameters.Add(new SqlParameter("@state", state));
-                command.Parameters.Add(new SqlParameter("@CU", CU));
-                command.Parameters.Add(new SqlParameter("@class", Class));
-                command.Parameters.Add(new SqlParameter("@roleID", roleID));
+                command.Parameters.Add(new SqlParameter("@username", us.username));
+                command.Parameters.Add(new SqlParameter("@fname", us.fname));
+                command.Parameters.Add(new SqlParameter("@lname", us.lname));
+                command.Parameters.Add(new SqlParameter("@email", us.email));
+                command.Parameters.Add(new SqlParameter("@pass", us.pass));
+                command.Parameters.Add(new SqlParameter("@bday", us.birthday));
+                command.Parameters.Add(new SqlParameter("@state", us.state));
+                command.Parameters.Add(new SqlParameter("@CU", us.CU));
+                command.Parameters.Add(new SqlParameter("@class", us.cls));
+                command.Parameters.Add(new SqlParameter("@roleID", us.rID));
+                command.Parameters.Add(new SqlParameter("@mobile", us.mobile));
+                command.Parameters.Add(new SqlParameter("@yahoo", us.yahoo));
+                command.Parameters.Add(new SqlParameter("@web", us.website));
+                command.Parameters.Add(new SqlParameter("@wishlist", us.wishtlist));
 
                 SqlParameter isCreated = new SqlParameter("@isCreated", DbType.Int32);
                 isCreated.Direction = ParameterDirection.ReturnValue;
@@ -73,7 +78,7 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool CheckUser(string email)
+        public static bool CheckUsermail(string email)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -85,6 +90,28 @@ namespace FullMart.Code.DAO
                     connection.Open();
                     SqlDataAdapter da = new SqlDataAdapter(command);
                     DataTable ds=new DataTable();
+                    da.Fill(ds);
+                    connection.Close();
+                    return ds.Rows.Count == 0;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public static bool CheckUsername(string username)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("CheckUser2", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@username", username));
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    DataTable ds = new DataTable();
                     da.Fill(ds);
                     connection.Close();
                     return ds.Rows.Count == 0;
