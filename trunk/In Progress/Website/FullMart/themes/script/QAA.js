@@ -38,7 +38,7 @@
     $(".listitem").delegate(".mcomment .Acontent button", "click", function () {
         var r = confirm("Do you want to delete this question ?");
         if (r) {
-            if ($(this).find(".subcomment") == null) {
+            if ($(this).closest("li").find(".subcomment") == null) {
 
                 var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
                 tmp = eval(tmp);
