@@ -1,9 +1,4 @@
-/****** Object:  StoredProcedure [dbo].[PostQuestion]    Script Date: 02/16/2012 23:49:04 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PostQuestion]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[PostQuestion]
-GO
-
-/****** Object:  StoredProcedure [dbo].[PostQuestion]    Script Date: 02/16/2012 23:49:04 ******/
+/****** Object:  StoredProcedure [dbo].[PostQuestion]    Script Date: 02/18/2012 14:48:34 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -25,14 +20,12 @@ BEGIN
            ([PosterID]
            ,[CreateDate]
            ,[type]
-           ,[Content]
-           ,[isActive])
+           ,[Content])
     VALUES
            (@PosterID
            ,GETUTCDATE()
            ,@Type
-           ,@Content
-           ,1)
+           ,@Content)
 END
 
 GO
