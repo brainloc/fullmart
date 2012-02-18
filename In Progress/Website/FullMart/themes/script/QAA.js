@@ -30,25 +30,9 @@
 
     $(".msinfo input[type=submit]").click(function () {
         var $prtmp = $(this).parent();
-        if ($prtmp.find(".very").text() != $prtmp.find(".msvery").val()) {
+        if ($.trim($prtmp.find(".very").text()) != $.trim($prtmp.find(".msvery").val())) {
             alert("Please enter captcha correctly !");
             return false;
         }
-    });
-    $(".listitem").delegate(".mcomment .Acontent button", "click", function () {
-        var r = confirm("Do you want to delete this question ?");
-        if (r) {
-            if ($(this).closest("li").find(".subcomment") == null) {
-
-                var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
-                tmp = eval(tmp);
-                tmp--;
-                $(this).closest(".subcomment").parent().find(".numc").text(tmp);
-                $(this).closest("li").remove();
-            } else {
-                $(this).closest("li").remove();
-            }
-        }
-        return false;
     });
 });
