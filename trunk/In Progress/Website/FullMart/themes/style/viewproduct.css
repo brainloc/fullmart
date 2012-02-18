@@ -12,3 +12,6 @@
 .viewproduct .headproduct .Posterinfo .buy button{width: 123px;height: 70px;cursor: pointer;font-size: 30px;font-weight: bold;color: white;text-align: center;float: left;}
 .viewproduct .contentproduct{margin-top:10px}
 .viewproduct .contentproduct .contentp{clear:both;overflow-x:hidden;list-style:none;padding:10px}
+.comment .contentproduct{margin-top:0px}
+.comment .contentproduct .contentp{padding:0}
+.AQtext{margin-top:0px;}

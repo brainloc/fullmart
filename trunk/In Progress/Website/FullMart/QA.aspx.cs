@@ -93,10 +93,8 @@ namespace FullMart
         /// <summary>
         /// 
         /// </summary>
-        private readonly Random _rng = new Random();
 
-        private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-
+        private static readonly Random _rng = new Random();
         #endregion
 
         #region Protected Methos
@@ -219,9 +217,11 @@ namespace FullMart
         }
 
         #endregion
+        
 
-        public string RandomString()
+        public static string RandomString()
         {
+            string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             char[] buffer = new char[4];
 
             for (int i = 0; i < 4; i++)

@@ -1097,6 +1097,7 @@
     <Content Include="themes\style\validationEngine.jquery.css" />
     <Content Include="themes\style\viewnews.css" />
     <Content Include="themes\style\viewproduct.css" />
+    <Content Include="ViewComment.aspx" />
     <Content Include="viewNews.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config">
@@ -1293,6 +1294,13 @@
     </Compile>
     <Compile Include="TwoColumns.Master.designer.cs">
       <DependentUpon>TwoColumns.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewComment.aspx.cs">
+      <DependentUpon>ViewComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewComment.aspx.designer.cs">
+      <DependentUpon>ViewComment.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewNews.aspx.cs">
       <DependentUpon>viewNews.aspx</DependentUpon>
