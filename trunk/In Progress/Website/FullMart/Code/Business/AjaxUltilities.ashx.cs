@@ -20,42 +20,55 @@ namespace FullMart.Code.Business
             
             switch (action)
             {
-                case "CreateUser":
-                    {
-                        context.Response.ContentType = "application/html";
-                        var fname = context.Request.Form["ufname"] != null ? context.Request.Form["ufname"].Trim().Replace("'", "''") : string.Empty;
-                        var lname = context.Request.Form["ulname"] != null ? context.Request.Form["ulname"].Trim().Replace("'", "''") : string.Empty;
-                        var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
-                        var pas = context.Request.Form["upass"] != null ? context.Request.Form["upass"].ToString() : string.Empty;
-                        var bday = context.Request.Form["ubirthday"] != null ? context.Request.Form["ubirthday"].Trim().Replace("'", "''") : string.Empty;
-                        var state = context.Request.Form["freguserstate"] != null ? context.Request.Form["freguserstate"].Trim().Replace("'", "''") : string.Empty;
-                        var CU = context.Request.Form["freguserCU"] != null ? context.Request.Form["freguserCU"].Trim().Replace("'", "''") : string.Empty;
-                        var cls = context.Request.Form["freguserclass"] != null ? context.Request.Form["freguserclass"].Trim().Replace("'", "''") : string.Empty;
-                        int? roleID = 3;
+                //case "CreateUser":
+                //    {
+                //        context.Response.ContentType = "application/html";
+                //        var fname = context.Request.Form["ufname"] != null ? context.Request.Form["ufname"].Trim().Replace("'", "''") : string.Empty;
+                //        var lname = context.Request.Form["ulname"] != null ? context.Request.Form["ulname"].Trim().Replace("'", "''") : string.Empty;
+                //        var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
+                //        var pas = context.Request.Form["upass"] != null ? context.Request.Form["upass"].ToString() : string.Empty;
+                //        var bday = context.Request.Form["ubirthday"] != null ? context.Request.Form["ubirthday"].Trim().Replace("'", "''") : string.Empty;
+                //        var state = context.Request.Form["freguserstate"] != null ? context.Request.Form["freguserstate"].Trim().Replace("'", "''") : string.Empty;
+                //        var CU = context.Request.Form["freguserCU"] != null ? context.Request.Form["freguserCU"].Trim().Replace("'", "''") : string.Empty;
+                //        var cls = context.Request.Form["freguserclass"] != null ? context.Request.Form["freguserclass"].Trim().Replace("'", "''") : string.Empty;
+                //        int? roleID = 3;
 
-                        //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        bool isUserCreated = UserManagement.CreateUser(fname, lname, ema, pas, DateTime.Parse(bday), state, CU, cls, roleID);
-                        if (isUserCreated == true)
-                        {
-                            context.Response.Write("showdialogr(\"<Center><strong>Conguration!</strong><br />you Are register successfull<br/><br/></center>\", 200, 65, \"\", true,\"Default.aspx\");");
-                        }
-                        else
-                        {
-                            context.Response.Write("showdialog(\"<Center><strong>Error!</strong><br />This User Already Exist !<br/><br/></center>\", 200, 65, \"\", true);");
-                        }
-                        break;
-                    }
-                case "CheckUser":
+                //        //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
+                //        bool isUserCreated = UserManagement.CreateUser(fname, lname, ema, pas, DateTime.Parse(bday), state, CU, cls, roleID);
+                //        if (isUserCreated == true)
+                //        {
+                //            context.Response.Write("showdialogr(\"<Center><strong>Conguration!</strong><br />you Are register successfull<br/><br/></center>\", 200, 65, \"\", true,\"Default.aspx\");");
+                //        }
+                //        else
+                //        {
+                //            context.Response.Write("showdialog(\"<Center><strong>Error!</strong><br />This User Already Exist !<br/><br/></center>\", 200, 65, \"\", true);");
+                //        }
+                //        break;
+                //    }
+                case "CheckUsermail":
                     {
                         context.Response.ContentType = "application/html";
                         var ema = context.Request.Form["uemail"] != null ? context.Request.Form["uemail"].Trim().Replace("'", "''") : string.Empty;
                         
                         //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        if (UserManagement.CheckUser(ema))
+                        if (UserManagement.CheckUsermail(ema))
                         {
-                            context.Response.Write("$('#uscheckm').text('This email is avaliable');$('#uscheckm').css('color','green');$('#checkUS').text('Change');$('#uemail').attr('disabled','disabled');");
+                            context.Response.Write("$('#uscheckm').text('This email is avaliable');$('#uscheckm').css('color','green');");
                         }
-                        else { context.Response.Write("$('#uscheckm').text('This email is not avaliable');$('#uscheckm').css('color','red');$('#checkUS').text('Check');"); }
+                        else { context.Response.Write("$('#uscheckm').text('This email is not avaliable');$('#uscheckm').css('color','red');"); }
+                        break;
+                    }
+                case "CheckUserName":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var name = context.Request.Form["name"] != null ? context.Request.Form["name"].Trim().Replace("'", "''") : string.Empty;
+
+                        //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
+                        if (UserManagement.CheckUsername(name))
+                        {
+                            context.Response.Write("$('#checkUSnn').text('This UserName is avaliable');$('#checkUSnn').css('color','green');");
+                        }
+                        else { context.Response.Write("$('#checkUSnn').text('This UserName is not avaliable');$('#checkUSnn').css('color','red');"); }
                         break;
                     }
                 case "EditUser":

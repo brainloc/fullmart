@@ -8,6 +8,7 @@ namespace FullMart.Code.Entities
     public class User
     {
         public Int64 ID { get; set; }
+        public string username { get; set; }
         public string fname { get; set; }
         public string lname { get; set; }
         public string email { get; set; }
@@ -26,6 +27,7 @@ namespace FullMart.Code.Entities
         public bool isActive { get; set; }
         public User() {
             ID = 0;
+            username = string.Empty;
             fname = string.Empty;
             lname = string.Empty;
             email = string.Empty;

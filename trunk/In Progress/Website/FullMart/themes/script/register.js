@@ -3,7 +3,6 @@
     for (var i = cy; i > cy - 40; i--) {
         $("#freguserclass").append("<option>"+i+"</option>");
     }
-    $('.freg').jqTransform({ imgPath: 'themes/images/' });
 });
 $(function () {
     $("#ubirthday").datepicker({
@@ -33,14 +32,25 @@ function CreateUser() {
         }
     });
 }
-function CheckUser() {
+function CheckUser(email) {
     $.ajax({
         url: "Code/Business/AjaxUltilities.ashx?",
         type: "POST",
         dataType: "script",
         data: {
-            action: "CheckUser",
-            uemail:$("#uemail").val()
+            action: "CheckUsermail",
+            uemail:email
+        }
+    });
+}
+function CheckUser2(name) {
+    $.ajax({
+        url: "Code/Business/AjaxUltilities.ashx?",
+        type: "POST",
+        dataType: "script",
+        data: {
+            action: "CheckUserName",
+            name:name
         }
     });
 }
@@ -71,92 +81,97 @@ function cksm(field, rules, i, options) {
 }
 
 $(document).ready(function () {
+    if($("#policyuser")==null){
+        var type = querySt("type");
+        if (type == "shop") {
+            $("#reguser").remove();
+            $("#fregshop").validationEngine('attach', { promptPosition: "centerRight", autoPositionUpdate: true,ajaxFormValidation:true, });
+            $("#policyshop").modal({
+                opacity: 40,
+                close: false,
+                autoPosition: true,
+                onClose: function (dialog) {
+                    dialog.data.fadeOut('slow', function () {
+                            dialog.container.slideUp('normal', function () {
+                                dialog.overlay.fadeOut('normal', function () {
+                                    $.modal.close();
+                                });
+                            });
+                        });
+                }
+            });
+            $("#simplemodal-container").css("height", 350 + "px");
+            $("#simplemodal-container").css("width", 700 + "px");
+            var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
+            var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
+            $("#simplemodal-container").css("top", t2);
+            $("#simplemodal-container").css("left", t1);
+        }
+        else {
+            $("#regshop").remove();
+            $("#freguser").validationEngine('attach', { promptPosition: "centerRight", autoPositionUpdate: true });
+            $("#policyuser").modal({
+                opacity: 40,
+                close: false,
+                autoPosition: true,
+                onClose: function (dialog) {
+                        dialog.data.fadeOut('slow', function () {
+                            dialog.container.slideUp('normal', function () {
+                                dialog.overlay.fadeOut('normal', function () {
+                                    $.modal.close();
+                                });
+                            });
+                        });
+                }
+            });
+            $("#simplemodal-container").css("height", 350 + "px");
+            $("#simplemodal-container").css("width", 700 + "px");
+            var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
+            var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
+            $("#simplemodal-container").css("top", t2);
+            $("#simplemodal-container").css("left", t1);
+        }
+        $(".agree button").click(function () {
+            if ($(this).text()=="Agree"||$(this).parent().find("center strong").text()=="Conguration!") {
+                $.modal.close();
+                return false;
+            } else {
+                alert("Please agree with our term condition to register !");
+                return false;
+            }
+        });
+    }
 
-    $('#veryu').text(genr(6));
-    $('#veryu').css('background-position', 'left ' + Math.random() * 500 + 'px');
-    $('#veryu').click(function () {
+    if($("#reguser")!=null){
         $('#veryu').text(genr(6));
         $('#veryu').css('background-position', 'left ' + Math.random() * 500 + 'px');
-    });
-    $('#verys').text(genr(6));
-    $('#verys').css('background-position', 'left ' + Math.random() * 500 + 'px');
-    $('#verys').click(function () {
+        $('#veryu').click(function () {
+            $('#veryu').text(genr(6));
+            $('#veryu').css('background-position', 'left ' + Math.random() * 500 + 'px');
+        });
         $('#verys').text(genr(6));
         $('#verys').css('background-position', 'left ' + Math.random() * 500 + 'px');
-    });
-    var type = querySt("type");
-    if (type == "shop") {
-        $("#reguser").remove();
-        $("#fregshop").validationEngine('attach', { promptPosition: "centerRight", autoPositionUpdate: true,ajaxFormValidation:true, });
-        $("#policyshop").modal({
-            opacity: 40,
-            close: false,
-            autoPosition: true,
-            onClose: function (dialog) {
-                dialog.data.fadeOut('slow', function () {
-                        dialog.container.slideUp('normal', function () {
-                            dialog.overlay.fadeOut('normal', function () {
-                                $.modal.close();
-                            });
-                        });
-                    });
-            }
+        $('#verys').click(function () {
+            $('#verys').text(genr(6));
+            $('#verys').css('background-position', 'left ' + Math.random() * 500 + 'px');
         });
-        $("#simplemodal-container").css("height", 350 + "px");
-        $("#simplemodal-container").css("width", 700 + "px");
-        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
-        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
-        $("#simplemodal-container").css("top", t2);
-        $("#simplemodal-container").css("left", t1);
-    }
-    else {
-        $("#regshop").remove();
-        $("#freguser").validationEngine('attach', { promptPosition: "centerRight", autoPositionUpdate: true });
-        $("#policyuser").modal({
-            opacity: 40,
-            close: false,
-            autoPosition: true,
-            onClose: function (dialog) {
-                    dialog.data.fadeOut('slow', function () {
-                        dialog.container.slideUp('normal', function () {
-                            dialog.overlay.fadeOut('normal', function () {
-                                $.modal.close();
-                            });
-                        });
-                    });
+        $("#checkUS").click(function(){
+            var email = $(this).closest("td").find("input[type=text]");
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!filter.test(email.val())) {$("#uscheckm").text('Please input right email');$("#uscheckm").css("color","red");}else{
+                if(email.val()!=""){CheckUser(email.val())}
             }
+            return false;
         });
-        $("#simplemodal-container").css("height", 350 + "px");
-        $("#simplemodal-container").css("width", 700 + "px");
-        var t1 = ($(window).width() - $("#simplemodal-container").width()) / 2;
-        var t2 = ($(window).height() - $("#simplemodal-container").height()) / 2;
-        $("#simplemodal-container").css("top", t2);
-        $("#simplemodal-container").css("left", t1);
-    }
-    $(".agree button").click(function () {
-        if ($(this).text()=="Agree"||$(this).parent().find("center strong").text()=="Conguration!") {
-            $.modal.close();
+        $("#checkUSn").click(function(){
+            var email = $(this).closest("td").find("input[type=text]");
+            if(email.val().indexOf("admin")==-1){
+                if(email.val()!="")
+                    {
+                        CheckUser2(email.val());
+                    }
+            }else{$('#checkUSnn').text('This UserName is not avaliable');$('#checkUSnn').css('color','red');}
             return false;
-        } else {
-            alert("Please agree with our term condition to register !");
-            return false;
-        }
-    });
-    $("#checkUS").click(function(){
-    var email = $("#uemail").val();
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (!filter.test(email)) {$("#uscheckm").text('Please input right email');$("#uscheckm").css("color","red");}else{
-        if($("#uemail").val()!=""){
-            if($("#uemail").attr("disabled")!="disabled"){
-                CheckUser();
-            }else{
-                $("#uemail").removeAttr("disabled");
-                $("#checkUS").text("Check");
-                $("#uscheckm").text('');
-            }
-       }
+        });
     }
-        return false;
-    });
-
 });

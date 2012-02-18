@@ -22,6 +22,11 @@ namespace FullMart
                 {
                     loginPanel.Visible = false;
                     txtLoginName.Text = Session["UserName"].ToString();
+                    if (int.Parse(Session["role"].ToString()) == 1) {
+                        hlAdmin.NavigateUrl = "/Administration/admin.aspx";
+                        hlAdmin.Text = "Administrator";hlAdmin.Visible = true;
+                        
+                    }
                     pnloged.Visible = true;
                 }
             }else{
@@ -37,6 +42,11 @@ namespace FullMart
                         //LoginStatus.Visible = true;
                         txtLoginName.Text = Session["UserName"].ToString();
                         pnloged.Visible = true;
+                        if (int.Parse(Session["role"].ToString()) == 1)
+                        {
+                            hlAdmin.NavigateUrl = "/Administration/admin.aspx";
+                            hlAdmin.Text = "Administrator";hlAdmin.Visible = true;
+                        }
                     }
                     else {
 
@@ -77,6 +87,11 @@ namespace FullMart
                 fullmart.Values["ID"] = us.Rows[0]["ID"].ToString();
                 fullmart.Values["P"] = FormsAuthentication.HashPasswordForStoringInConfigFile(us.Rows[0]["pass"].ToString(), "SHA1");
                 Response.Cookies.Add(fullmart);
+                if (int.Parse(Session["role"].ToString()) == 1)
+                {
+                    hlAdmin.NavigateUrl = "/Administration/admin.aspx";
+                    hlAdmin.Text = "Administrator";hlAdmin.Visible = true;
+                }
                 return true;
             }
             return false;
