@@ -3,21 +3,40 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/QAA.css" rel="stylesheet" type="text/css" />
-    <script src="/themes/script/QAA.js" type="text/javascript"></script>    
+    <script src="/themes/script/QAA.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("div.SubCommentSpace > div.msinfo > input[type='submit']").click(function () {
-                var posterID = 1;
-                var postID = 25;
-                var comment = $(this).closest("div.SubCommentSpace").children("textarea:eq(0)").val();
-                var command = "AddComment";
-                var eventArgs = command + "$" + posterID + "$" + postID + "$" + comment;
-                __doPostBack('<%= updatePostList.ClientID %>', eventArgs);                
-            });
-        });
+        function AddSubQA(AQObj) {            
+            var posterID = <%= Session["ID"] %>;
+            var postID = $(AQObj).closest("ul.subcomment").attr("id");
+            var comment = $(AQObj).closest("div.SubCommentSpace").children("textarea:eq(0)").val();
+            var command = "AddSubQA";
+            var eventArgs = command + "$" + posterID + "$" + postID + "$" + comment;
+            __doPostBack('<%= updatePostList.ClientID %>', eventArgs);
+        }
+
+        function DeleteSubQA(Obj)
+        {
+            var r = confirm("Do you want to delete this question ?");
+            if (r) {
+                var eventArgs = $(Obj).val();
+                __doPostBack('<%= updatePostList.ClientID %>', eventArgs);
+
+                if ($(this).closest("li").find(".subcomment") == null) {
+
+                    var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
+                    tmp = eval(tmp);
+                    tmp--;
+                    $(this).closest(".subcomment").parent().find(".numc").text(tmp);
+                    $(this).closest("li").remove();
+                } else {
+                    $(this).closest("li").remove();
+                }
+            }
+            return false;
+        }
+
     </script>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -127,11 +146,8 @@
             <div id='support'>
                 <div class="Ahead">
                     <span class="Ausername"><a href="#aa">
-                        <%# Eval("email") %></a></span></div>
+                        <%= Page.User.Identity.Name %></a></span></div>
                 <div id='AQtext' class="AQtext b block">
-                <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                        SelectCommand="SELECT [FullMart].[dbo].[AnswerQuestion].[ID],[PosterID],[email],[FullMart].[dbo].[AnswerQuestion].[CreateDate],[Content] FROM [FullMart].[dbo].[AnswerQuestion],[FullMart].[dbo].[User] WHERE [FullMart].[dbo].[AnswerQuestion].[isActive] = 1	AND [FullMart].[dbo].[User].[ID] = [PosterID] ORDER BY [FullMart].[dbo].[AnswerQuestion].[CreateDate] DESC">
-                    </asp:SqlDataSource>
                     <asp:UpdatePanel ID="mainPostForm" runat="server">
                         <ContentTemplate>
                             <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
@@ -139,8 +155,8 @@
                                 <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnPost_Click" />
                                 <div class="right msveryp">
                                     <input class="msvery" type="text" title="Captcha" value='Captcha' /></div>
-
-                                <p class='very right'><%= RandomString()%></p>
+                                <p class='very right'>
+                                    <%= RandomString()%></p>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -155,58 +171,58 @@
                             <li>
                                 <div id="<%# Eval("ID") %>" class="Ahead">
                                     <span class="Ausername"><a href="#aa">
-                                        <%# Eval("email")%></a></span></div>
+                                        <%# Eval("UserName")%></a></span></div>
                                 <div class="Aarrow">
                                     <%# Eval("CreateDate")%></div>
                                 <div class="Acontent b">
                                     <a href="#a">
                                         <p>
                                             <%# Eval("Content") %></p>
-                                        <button>
-                                            remove</button></a></div>
-                                <span title="number of comment" class="numc">3</span>
+                                        <button value='DeleteQA$<%# Eval("ID") %>' onclick="DeleteSubQA(this)">
+                                            Remove</button></a></div>
+                                <span title="number of comment" class="numc">
+                                    <%# Eval("COMMENTSCOUNT")%></span>
                                 <asp:Label ID="txtPostID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
-                                <asp:Label ID="txtPosterID" runat="server" Text='<%# Eval("PosterID") %>' Visible="false"></asp:Label>
-                                <ul class="subcomment">
+                                <ul class="subcomment" id='<%# Eval("ID") %>'>
                                     <asp:Repeater ID="rpComments" runat="server" DataSourceID="dsComments">
                                         <ItemTemplate>
                                             <li>
                                                 <div class="Ahead">
                                                     <span class="Ausername"><a href="#aa">
-                                                        <%# Eval("email") %></a></span></div>
+                                                        <%# Eval("UserName")%></a></span></div>
                                                 <div class="Aarrow">
                                                     <%# Eval("CreateDate")%></div>
                                                 <div class="Acontent b">
                                                     <a href="#a">
                                                         <p>
                                                             <%# Eval("Content")%></p>
-                                                        <button>
-                                                            remove</button>
+                                                        <button value='DeleteSubQA$<%# Eval("ID") %>' onclick="DeleteSubQA(this)">
+                                                            Remove</button>
                                                     </a>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="dsComments" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                        SelectCommand="SELECT [FullMart].[dbo].[SubAQ].[ID],[email],[AQID],[Content],[FullMart].[dbo].[SubAQ].[CreateDate] FROM [FullMart].[dbo].[SubAQ],[FullMart].[dbo].[User] WHERE [AQID] = @PostID AND [FullMart].[dbo].[User].[ID] = @PosterID ORDER BY [FullMart].[dbo].[SubAQ].[CreateDate] DESC">
+                                        SelectCommand="GetSubQA" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
-                                            <asp:ControlParameter ControlID="txtPostID" Name="PostID" />
-                                            <asp:ControlParameter ControlID="txtPosterID" Name="PosterID" />
+                                            <asp:ControlParameter ControlID="txtPostID" Name="QAID" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                     <li>
                                         <div>
                                             <div class="Ahead">
                                                 <span class="Ausername"><a href="#aa">
-                                                    <%# Eval("email") %></a></span></div>
+                                                    <%= Page.User.Identity.Name %></a></span></div>
                                             <div class="AQtext b block SubCommentSpace">
                                                 <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                                 <div id='Div3' class="bblr msinfo">
-                                                    <asp:Button ID="btnComment" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnComment_Click" />
+                                                    <input type="button" class="mspost right" value="SEND" onclick="AddSubQA(this)" />
                                                     <div class="right msveryp">
                                                         <input class="msvery" type="text" value='Captcha' />
                                                     </div>
-                                                    <p class='very right'><%= RandomString()%></p>
+                                                    <p class='very right'>
+                                                        <%= RandomString()%></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -217,7 +233,8 @@
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-                    
+                    <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                        SelectCommandType="StoredProcedure" SelectCommand="GetQAStatistic"></asp:SqlDataSource>
                 </ul>
             </ContentTemplate>
         </asp:UpdatePanel>
