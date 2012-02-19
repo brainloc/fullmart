@@ -304,5 +304,93 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void AddProductComment(int posterID, int productID, string content)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("AddProductComment", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PosterID", posterID));
+                command.Parameters.Add(new SqlParameter("@ProductID", productID));
+                command.Parameters.Add(new SqlParameter("@Content", content));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();                    
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void AddProductSubComment(int posterID, int commentID, string content)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("AddProductSubComment", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PosterID", posterID));
+                command.Parameters.Add(new SqlParameter("@CommentID", commentID));
+                command.Parameters.Add(new SqlParameter("@Content", content));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void DeleteProductSubComment(int subCommentID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DeleteProductSubComment", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@SubCommentID", subCommentID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void DeleteComment(int commentID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DeleteProductComment", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CommentID", commentID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

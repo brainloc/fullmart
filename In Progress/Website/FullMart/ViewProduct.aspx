@@ -6,8 +6,39 @@
     <link href="/themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
     <script src="/themes/script/viewProduct.js" type="text/javascript"></script>
     <script src="themes/script/QAA.js" type="text/javascript"></script>
-</asp:Content>
+    <script type="text/javascript">
+        function AddSubComment(AQObj) {            
+            var posterID = <%= Session["ID"] %>;
+            var commentID = $(AQObj).closest("ul.subcomment").attr("id");
+            var comment = $(AQObj).closest("div.SubCommentSpace").children("textarea:eq(0)").val();
+            var command = "AddSubComment";
+            var eventArgs = command + "$" + posterID + "$" + commentID + "$" + comment;
+            __doPostBack('<%= updatePostList.ClientID %>', eventArgs);
+        }
 
+        function DeleteComment(Obj)
+        {
+            var r = confirm("Do you want to delete this question ?");
+            if (r) {
+                var eventArgs = $(Obj).val();
+                __doPostBack('<%= updatePostList.ClientID %>', eventArgs);
+
+                if ($(this).closest("li").find(".subcomment") == null) {
+
+                    var tmp = $(this).parents(".subcomment").parent().find(".numc").text();
+                    tmp = eval(tmp);
+                    tmp--;
+                    $(this).closest(".subcomment").parent().find(".numc").text(tmp);
+                    $(this).closest("li").remove();
+                } else {
+                    $(this).closest("li").remove();
+                }
+            }
+            return false;
+        }
+
+    </script>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -119,7 +150,8 @@
                     <p class="titlep btlr block">
                         <%# Eval("Title")%></p>
                     <div class="imagepreview center left">
-                        <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>' alt='<%# Eval("Title") %>' /></div>
+                        <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>'
+                            alt='<%# Eval("Title") %>' /></div>
                     <div class="Posterinfo bgwt left">
                         <div class="buy">
                             <input type="text" class="b nump" value="1" title="Quantity" />
@@ -238,28 +270,30 @@
             </div>
         </div>
     </div>
-   <div class="viewproduct comment">
+    <div class="viewproduct comment">
         <div class="contentproduct block">
-        <p class="titlep btlr block">Comment</p>
+            <p class="titlep btlr block">
+                Comment</p>
             <div class="contentp bgwt">
                 <div class="listitem bgwt b block">
                     <div id="fcomment">
                         <div id='support'>
                             <div class="Ahead">
-                                <span class="Ausername"><a>
-                                    <%= Page.User.Identity.Name %></a>
-                                    <asp:HyperLink ID="hlUser" runat="server"></asp:HyperLink></span></div>
+                                <span class="Ausername"><a href="#aa">
+                                    <%= Page.User.Identity.Name %></a></span></div>
                             <div id='AQtext' class="AQtext b block">
-                                <asp:TextBox ID="txtmscontent" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
-                                <%--<textarea id="txtmscontent" class="txtmscontent" cols="20" rows="2"></textarea>--%>
-                                <div id='msinfo' class="bblr msinfo">
-                                    <%--<button class="mspost right" type="submit" value="Gửi">Gửi</button>--%>
-                                    <asp:Button ID="Button1" CssClass="mspost right" runat="server" Text="SEND" />
-                                    <div class="right msveryp">
-                                        <input class="msvery" type="text" value='Captcha' /></div>
-                                    <p class='very right'>
-                                        <%= FullMart.QA.RandomString() %></p>
-                                </div>
+                                <asp:UpdatePanel ID="mainPostForm" runat="server">
+                                    <ContentTemplate>
+                                        <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
+                                        <div id='msinfo' class="bblr msinfo">
+                                            <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnPost_Click" />
+                                            <div class="right msveryp">
+                                                <input class="msvery" type="text" title="Captcha" value='Captcha' /></div>
+                                            <p class='very right'>
+                                                <%= FullMart.QA.RandomString()%></p>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
                     </div>
@@ -278,11 +312,11 @@
                                                 <a href="#a">
                                                     <p>
                                                         <%# Eval("Content") %></p>
-                                                    <button value='DeleteQA$<%# Eval("ID") %>' onclick="DeleteSubQA(this)">
+                                                    <button value='DeleteComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">
                                                         Remove</button></a></div>
                                             <span title="number of comment" class="numc">
                                                 <%# Eval("COMMENTSCOUNT")%></span>
-                                            <asp:Label ID="txtPostID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
+                                            <asp:Label ID="txtCommentID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                             <ul class="subcomment" id='<%# Eval("ID") %>'>
                                                 <asp:Repeater ID="rpComments" runat="server" DataSourceID="dsComments">
                                                     <ItemTemplate>
@@ -296,7 +330,7 @@
                                                                 <a href="#a">
                                                                     <p>
                                                                         <%# Eval("Content")%></p>
-                                                                    <button value='DeleteSubQA$<%# Eval("ID") %>' onclick="DeleteSubQA(this)">
+                                                                    <button value='DeleteSubComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">
                                                                         Remove</button>
                                                                 </a>
                                                             </div>
@@ -304,9 +338,9 @@
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                                 <asp:SqlDataSource ID="dsComments" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                                    SelectCommand="GetSubQA" SelectCommandType="StoredProcedure">
+                                                    SelectCommand="GetSubComment" SelectCommandType="StoredProcedure">
                                                     <SelectParameters>
-                                                        <asp:ControlParameter ControlID="txtPostID" Name="QAID" />
+                                                        <asp:ControlParameter ControlID="txtCommentID" Name="CommentID" />
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
                                                 <li>
@@ -317,7 +351,7 @@
                                                         <div class="AQtext b block SubCommentSpace">
                                                             <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                                             <div id='Div3' class="bblr msinfo">
-                                                                <input type="button" class="mspost right" value="SEND" onclick="AddSubQA(this)" />
+                                                                <input type="button" class="mspost right" value="SEND" onclick="AddSubComment(this)" />
                                                                 <div class="right msveryp">
                                                                     <input class="msvery" type="text" value='Captcha' />
                                                                 </div>
@@ -333,8 +367,11 @@
                                         </li>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                    SelectCommandType="StoredProcedure" SelectCommand="GetQAStatistic"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetCommentStatistic">
+                                    <SelectParameters>
+                                        <asp:QueryStringParameter ConvertEmptyStringToNull="true" QueryStringField="ID" Name="ProductID" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </ul>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -347,87 +384,89 @@
                     </div>
                 </div>
             </div>
-        <div class="clear">
+            <div class="clear">
+            </div>
         </div>
-    </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Right" runat="server">
-    <asp:SqlDataSource ID="dsListNew" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+    <asp:SqlDataSource ID="dsListNew" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
         SelectCommand="SELECT [Title], [ID], [ShortContent], [ImageThumb] FROM [News] ORDER BY [CreatedDate] DESC">
     </asp:SqlDataSource>
     <div id="hotnew" class="lb b">
         <div class="title">
             Hot News</div>
         <div class="listitem">
-         <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
-        <AlternatingItemTemplate>
-        <li><div class="item">
-                        <div class="left">
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
-                        <p>
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
-                            <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
-                        </p>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </li>
-        </AlternatingItemTemplate>
-        <EmptyDataTemplate>
-            
-        </EmptyDataTemplate>
-        <ItemTemplate>
-            <li><div class="item">
-                        <div class="left">
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
-                        <p>
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
-                            <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
-                        </p>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </li>
-        </ItemTemplate>
-        <LayoutTemplate>
-            <ul ID="itemPlaceholderContainer" runat="server" style="">
-                <li runat="server" id="itemPlaceholder" />
-            </ul>
-            <div class="Apages right">
-                <asp:DataPager ID="DataPager1" runat="server" PageSize="4">
-                    <Fields><%--
+            <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew"
+                EnableModelValidation="True">
+                <AlternatingItemTemplate>
+                    <li>
+                        <div class="item">
+                            <div class="left">
+                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                    <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
+                            <p>
+                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                    <%# Eval("Title") %></a> <span>
+                                        <%# correctshortCT(Eval("ShortContent"),200) %></span>
+                            </p>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </li>
+                </AlternatingItemTemplate>
+                <EmptyDataTemplate>
+                </EmptyDataTemplate>
+                <ItemTemplate>
+                    <li>
+                        <div class="item">
+                            <div class="left">
+                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                    <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
+                            <p>
+                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                    <%# Eval("Title") %></a> <span>
+                                        <%# correctshortCT(Eval("ShortContent"),200) %></span>
+                            </p>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </li>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <ul id="itemPlaceholderContainer" runat="server" style="">
+                        <li runat="server" id="itemPlaceholder" />
+                    </ul>
+                    <div class="Apages right">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="4">
+                            <Fields>
+                                <%--
                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
                             ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
-                        <asp:NumericPagerField />
-                        <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                                <asp:NumericPagerField />
+                                <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
                             ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
-                    </Fields>
-                </asp:DataPager>
-                <a href="/listnew.aspx" ref="0">All</a>
-            </div>
-        </LayoutTemplate>
-        <SelectedItemTemplate>
-            <li style="">Title:
-                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                <br />
-                ID:
-                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                <br />
-                ShortContent:
-                <asp:Label ID="ShortContentLabel" runat="server" 
-                    Text='<%# Eval("ShortContent") %>' />
-                <br />
-                ImageThumb:
-                <asp:Label ID="ImageThumbLabel" runat="server" 
-                    Text='<%# Eval("ImageThumb") %>' />
-                <br />
-            </li>
-        </SelectedItemTemplate>
-    </asp:ListView>
+                            </Fields>
+                        </asp:DataPager>
+                        <a href="/listnew.aspx" ref="0">All</a>
+                    </div>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <li style="">Title:
+                        <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                        <br />
+                        ID:
+                        <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                        <br />
+                        ShortContent:
+                        <asp:Label ID="ShortContentLabel" runat="server" Text='<%# Eval("ShortContent") %>' />
+                        <br />
+                        ImageThumb:
+                        <asp:Label ID="ImageThumbLabel" runat="server" Text='<%# Eval("ImageThumb") %>' />
+                        <br />
+                    </li>
+                </SelectedItemTemplate>
+            </asp:ListView>
             <div class="clear">
             </div>
         </div>

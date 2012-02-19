@@ -58,31 +58,31 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.Repeater rpProductByPoster;
         
         /// <summary>
-        /// hlUser control.
+        /// mainPostForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlUser;
+        protected global::System.Web.UI.UpdatePanel mainPostForm;
         
         /// <summary>
-        /// txtmscontent control.
+        /// txtPost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmscontent;
+        protected global::System.Web.UI.WebControls.TextBox txtPost;
         
         /// <summary>
-        /// Button1 control.
+        /// btnPost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnPost;
         
         /// <summary>
         /// updatePostList control.

@@ -37,7 +37,7 @@ namespace FullMart
                                 }
 
                             }
-                            int posterID = 1;
+                            int posterID = Convert.ToInt32(Session["ID"]);
                             DataTable productsByPoster = GetAllProductsOfPoster(posterID);
                             if (productsByPoster != null && productsByPoster.Rows.Count > 0)
                             {
@@ -49,7 +49,7 @@ namespace FullMart
                     catch (Exception ex)
                     {
                     }
-                }                
+                }
             }
         }
 
@@ -73,6 +73,7 @@ namespace FullMart
             productsOfPoster = ProductManagement.GetAllProductsOfPoster(posterID);
             return productsOfPoster;
         }
+
         protected string correctshortCT(object content, int length)
         {
             if (content != DBNull.Value)
@@ -88,5 +89,116 @@ namespace FullMart
             return content.ToString();
         }
 
+        protected void updatePostList_Load(object sender, EventArgs e)
+        {
+            if (this.Page.IsPostBack)
+            {
+                try
+                {
+                    List<string> eventArgs = ParseEventArgs(Request.Params.Get("__EVENTARGUMENT"));
+
+                    if (eventArgs != null)
+                    {
+                        string command = eventArgs.First();
+
+                        switch (command)
+                        {
+                            case "AddSubComment":
+                                {
+                                    int posterID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                    int commentID = Convert.ToInt32(eventArgs.ElementAt(2));
+                                    string content = eventArgs.Last();
+                                    AddSubComment(posterID, commentID, content);
+                                    break;
+                                }
+                            case "DeleteSubComment":
+                                {
+                                    int subCommentID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                    DeleteProductSubComment(subCommentID);
+                                    break;
+                                }
+                            case "DeleteComment":
+                                {
+                                    int commentID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                    DeleteComment(commentID);
+                                    break;
+                                }
+                        }
+
+                        if (string.IsNullOrEmpty(command) == false)
+                        {
+                            updatePostList.DataBind();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        private List<string> ParseEventArgs(string eventArgs)
+        {
+            if (string.IsNullOrEmpty(eventArgs) == false)
+            {
+                List<string> eventArgsList = new List<string>();
+                List<string> tmp = eventArgs.Split('$').ToList();
+
+                string command = tmp.ElementAt(0);
+                string posterID = tmp.ElementAt(1);
+
+                string postID = string.Empty;
+                if (tmp.Count > 2)
+                {
+                    postID = tmp.ElementAt(2);
+                }
+                string comment = string.Empty;
+                if (tmp.Count > 3)
+                {
+                    comment = eventArgs.Substring(command.Length + posterID.Length + postID.Length + 3);
+                }
+
+                eventArgsList.Add(command);
+                eventArgsList.Add(posterID);
+                eventArgsList.Add(postID);
+                eventArgsList.Add(comment);
+
+                return eventArgsList;
+            }
+
+            return null;
+        }
+
+        protected void btnPost_Click(object sender, EventArgs e)
+        {
+            string content = txtPost.Text.Trim();
+            int posterID = Convert.ToInt32(Session["ID"]);
+            string productID = Request.QueryString["ID"];
+            if (string.IsNullOrEmpty(content) == false)
+            {
+                PostComment(posterID, Convert.ToInt32(productID), content);
+                updatePostList.DataBind();
+            }
+        }
+
+        private void PostComment(int posterID, int productID, string content)
+        {
+            ProductManagement.AddProductComment(posterID, productID, content);
+        }
+
+        private void AddSubComment(int posterID, int commentID, string content)
+        {
+            ProductManagement.AddProductSubComment(posterID, commentID, content);
+        }
+
+        private void DeleteProductSubComment(int subCommentID)
+        {
+            ProductManagement.DeleteProductSubComment(subCommentID);
+        }
+
+        private void DeleteComment(int commentID)
+        {
+            ProductManagement.DeleteComment(commentID);
+        }
     }
 }
