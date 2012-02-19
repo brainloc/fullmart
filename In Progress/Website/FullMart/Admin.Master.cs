@@ -16,32 +16,33 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.User.Identity.IsAuthenticated)
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
+                ffooter.Text = OptionManagement.GetFooter("VI");
+                if (Page.User.Identity.IsAuthenticated)
                 {
                     loginPanel.Visible = false;
                     txtLoginName.Text = Page.User.Identity.Name;
-                    if (int.Parse(Session["role"].ToString()) == 1) {
+                    if (Roles.IsUserInRole("1"))
+                    {
                         hlAdmin.NavigateUrl = "/Administration/admin.aspx";
-                        hlAdmin.Text = "Administrator";hlAdmin.Visible = true;
-                        
-                    }
+                        hlAdmin.Text = "Administrator"; hlAdmin.Visible = true;
+                    }                    
                     pnloged.Visible = true;
                 }
-            }else{
-                loginPanel.Visible = true;
+                else
+                {
+                    loginPanel.Visible = true;
                     pnloged.Visible = false;
+                }                
             }
-            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            string us=loginPanel.UserName.Trim();
-            string pw=FormsAuthentication.HashPasswordForStoringInConfigFile(loginPanel.Password,"SHA1");
-            bool isUserValidated = ValidateUser(us,pw );
-            e.Authenticated = isUserValidated;
+            string us = loginPanel.UserName.Trim();
+            string pw = FormsAuthentication.HashPasswordForStoringInConfigFile(loginPanel.Password, "SHA1");
+            e.Authenticated = ValidateUser(us, pw);
         }
 
         private bool ValidateUser(string username, string password)
@@ -49,32 +50,17 @@ namespace FullMart
             DataTable us = UserManagement.Login(password, username);
             if (us != null && us.Rows.Count > 0)
             {
-                Session["UserName"] = us.Rows[0]["UserName"].ToString();
                 Session["ID"] = us.Rows[0]["ID"].ToString();
-                Session["role"] = us.Rows[0]["roleID"].ToString();
-                HttpCookie fullmart = new HttpCookie("fullmartN");
-                fullmart.Values["UserName"] = us.Rows[0]["UserName"].ToString();
-                fullmart.Values["ID"] = us.Rows[0]["ID"].ToString();
-                fullmart.Expires = DateTime.Now.AddDays(30);
-                fullmart.Values["P"] = FormsAuthentication.HashPasswordForStoringInConfigFile(us.Rows[0]["pass"].ToString(), "SHA1");
-                Response.Cookies.Add(fullmart);
-                if (int.Parse(Session["role"].ToString()) == 1)
-                {
-                    hlAdmin.NavigateUrl = "/Administration/admin.aspx";
-                    hlAdmin.Text = "Administrator";hlAdmin.Visible = true;
-                }
+                Session["roleID"] = Convert.ToInt32(us.Rows[0]["roleID"]);
                 return true;
-            }
+            }            
             return false;
         }
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
-            Session["UserName"] = null;
-            HttpCookie aCookie = new HttpCookie("fullmartN");
-            aCookie.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Add(aCookie);
-            Response.Redirect("~/",false);
+            Session.Abandon();
+            Response.Redirect("~/", false);
         }
     }
 }
