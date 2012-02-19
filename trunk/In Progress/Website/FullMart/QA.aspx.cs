@@ -181,33 +181,7 @@ namespace FullMart
                         if (string.IsNullOrEmpty(command) == false)
                         {
                             updatePostList.DataBind();                            
-                        }
-
-                        //if (command == "AddSubQA")
-                        //{
-                        //    int posterID = Convert.ToInt32(eventArgs.ElementAt(1));
-                        //    int postID = Convert.ToInt32(eventArgs.ElementAt(2));
-                        //    string comment = eventArgs.Last();
-                        //    PostComment(posterID, postID, comment);
-                        //    updatePostList.DataBind();
-                        //    updatePostList.Update();
-                        //}
-                        //else if (command == "DeleteQA")
-                        //{
-                        //    int QAID = Convert.ToInt32(eventArgs.ElementAt(1));
-                        //    int SubQAID = Convert.ToInt32(eventArgs.ElementAt(2));
-
-                        //    updatePostList.DataBind();
-                        //    updatePostList.Update();
-                        //}
-                        //else if (command == "DeleteSubQA")
-                        //{
-                        //    int QAID = Convert.ToInt32(eventArgs.ElementAt(1));
-                        //    int SubQAID = Convert.ToInt32(eventArgs.ElementAt(2));
-
-                        //    updatePostList.DataBind();
-                        //    updatePostList.Update();
-                        //}
+                        }                        
                     }
                 }
                 catch (Exception ex)

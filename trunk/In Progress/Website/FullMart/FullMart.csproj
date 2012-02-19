@@ -55,7 +55,6 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="a.aspx" />
     <Content Include="Administration\admin.aspx" />
     <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
@@ -1097,7 +1096,6 @@
     <Content Include="themes\style\validationEngine.jquery.css" />
     <Content Include="themes\style\viewnews.css" />
     <Content Include="themes\style\viewproduct.css" />
-    <Content Include="ViewComment.aspx" />
     <Content Include="viewNews.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config">
@@ -1111,13 +1109,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="a.aspx.cs">
-      <DependentUpon>a.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="a.aspx.designer.cs">
-      <DependentUpon>a.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1294,13 +1285,6 @@
     </Compile>
     <Compile Include="TwoColumns.Master.designer.cs">
       <DependentUpon>TwoColumns.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ViewComment.aspx.cs">
-      <DependentUpon>ViewComment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewComment.aspx.designer.cs">
-      <DependentUpon>ViewComment.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewNews.aspx.cs">
       <DependentUpon>viewNews.aspx</DependentUpon>
