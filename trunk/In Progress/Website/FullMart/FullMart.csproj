@@ -862,6 +862,7 @@
     <Content Include="ckfinder\_samples\standalone.html" />
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Default.aspx" />
+    <Content Include="Denied.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
     <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
@@ -1172,6 +1173,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Denied.aspx.cs">
+      <DependentUpon>Denied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Denied.aspx.designer.cs">
+      <DependentUpon>Denied.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListProducts.aspx.cs">
       <DependentUpon>ListProducts.aspx</DependentUpon>
