@@ -80,6 +80,25 @@ $(document).ready(function () {
             $(".tbcates .insertOrderCates").css("color", "black");
         }
     });
+    $(".MProduct table input:checkbox").change(function () {
+        $("#waitloader").show();
+        var ID = $(this).attr("ref");
+        var OS = false;
+        if ($(this).is(':checked')) {
+            OS = true;
+        }
+        $.ajax({
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
+            dataType: "script",
+            data: {
+                action: "OutstandProduct",
+                ID: ID,
+                OS: OS
+            }
+        });
+        $("#waitloader").hide();
+    });
     $(".tbcates .insertNameCates").keydown(function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
         if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {

@@ -18,6 +18,7 @@ namespace FullMart.Shop
                 BindCategories();
 
             }
+            Page.MaintainScrollPositionOnPostBack = true;
         }
 
         private void BindCategories()
