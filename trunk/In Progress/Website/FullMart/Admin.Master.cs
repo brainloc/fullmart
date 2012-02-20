@@ -36,6 +36,7 @@ namespace FullMart
                     pnloged.Visible = false;
                 }                
             }
+            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)
@@ -59,6 +60,7 @@ namespace FullMart
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
+            FormsAuthentication.SignOut();
             Session.Abandon();
             Response.Redirect("~/", false);
         }

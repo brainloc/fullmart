@@ -58,15 +58,6 @@ namespace FullMart.Shop {
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// dsCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
-        
-        /// <summary>
         /// txtsearchPID control.
         /// </summary>
         /// <remarks>
@@ -137,5 +128,14 @@ namespace FullMart.Shop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsManagingProductList;
+        
+        /// <summary>
+        /// dsCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
     }
 }

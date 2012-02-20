@@ -15,3 +15,9 @@
 .comment .contentproduct{margin-top:0px}
 .comment .contentproduct .contentp{padding:0}
 .AQtext{margin-top:0px;}
+.getCart td{width:225px}
+.getCart td+td{width:400px}
+.getCart input,.getCart textarea,.getCart select{text-align:left;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.getCart textarea{height:100px;max-height:300px;}
+.getCart table button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+

@@ -20,9 +20,14 @@ namespace FullMart
             {
                 ffooter.Text = OptionManagement.GetFooter("VI");
                 if (Page.User.Identity.IsAuthenticated)
-                {                           
+                {
                     loginPanel.Visible = false;
                     txtLoginName.Text = Page.User.Identity.Name;
+                    if (Roles.IsUserInRole("1"))
+                    {
+                        hlAdmin.NavigateUrl = "/Administration/admin.aspx";
+                        hlAdmin.Text = "Administrator"; hlAdmin.Visible = true;
+                    }
                     pnloged.Visible = true;
                 }
                 else
@@ -31,6 +36,7 @@ namespace FullMart
                     pnloged.Visible = false;
                 }
             }
+            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)
@@ -54,6 +60,7 @@ namespace FullMart
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
+            FormsAuthentication.SignOut();
             Session.Abandon();
             Response.Redirect("~/", false);
         }

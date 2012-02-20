@@ -90,3 +90,4 @@ table.tbcates td+td+td,table.tbsubcates td+td+td{width:52px}
 table.tbcates input,table.tbsubcates input{text-align:center;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 .catDel,.bindSubCate{cursor:pointer;}
 .insertCates input{color:Silver}
+.ui-corner-top a span{font-size:16px;font-weight:bold}

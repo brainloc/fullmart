@@ -14,9 +14,18 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            pnReg.Visible = true;
-            pnTC.Visible = true;
-            pnSuccess.Visible = false;
+            if (!IsPostBack)
+            {
+                pnReg.Visible = true;
+                pnTC.Visible = true;
+                pnSuccess.Visible = false;
+                txtTC.Text = OptionManagement.GetTermCondition("VI");
+            }
+            else {
+                pnReg.Visible = true;
+                pnTC.Visible = false;
+                pnSuccess.Visible = false;
+            }
         }
 
         protected void cmdCreateUSer_Click(object sender, EventArgs e)
