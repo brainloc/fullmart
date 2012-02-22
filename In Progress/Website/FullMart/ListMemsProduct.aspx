@@ -332,8 +332,90 @@
             </div>
         </div>
     </asp:Panel>
-    <asp:Panel ID="pnViewCat" Visible=false runat="server">
-    cat
+    <asp:Panel ID="pnViewCat" Visible="false" runat="server">
+        <div class="parea b">
+            <asp:Repeater ID="rpCat" DataSourceID="dsCat" runat="server">
+                <ItemTemplate>
+                    <div class="gcats btl">
+                        <span class="gtitle btl"><a href="<%# Eval("SUBID") %>" class="maincat btl"><span
+                            class="btl">
+                            <%# Eval("NAMESUB")%></asp:Label>
+                            <asp:Label ID="lblSubCategoryID" runat="server" Text='<%# Eval("SUBID") %>' Visible="false"></asp:Label>
+                        </span></a></span>
+                    </div>
+                    <div class="listp">
+                        <div class="content">
+                            <asp:ListView ID="ListView3" DataSourceID="dsViewSubcat" runat="server" DataKeyNames="ID"
+                                EnableModelValidation="True">
+                                <EmptyDataTemplate>
+                                    No Product to display !.
+                                </EmptyDataTemplate>
+                                <ItemTemplate>
+                                    <li style="">
+                                        <div class="product">
+                                            <a href='/ViewProduct.aspx?ID=<%# Eval("ID") %>'>
+                                                <div class="content">
+                                                    <center>
+                                                        <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>'
+                                                            alt='<%# Eval("Title") %>' />
+                                                    </center>
+                                                </div>
+                                                <div class="bottom">
+                                                </div>
+                                                <div class="nameproduct">
+                                                    <%# Eval("Title") %><p>
+                                                        <%# Eval("Price") %>
+                                                        vnd</p>
+                                                    <div class="salef">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <ul id="itemPlaceholderContainer" runat="server" class="clear">
+                                        <li runat="server" id="itemPlaceholder" />
+                                    </ul>
+                                    <div class="clear">
+                                    </div>
+                                    <div class="Apages right">
+                                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                                            <Fields>
+                                                <asp:NumericPagerField />
+                                            </Fields>
+                                        </asp:DataPager>
+                                        <%--<a href="/QA.aspx" ref="0">All</a>--%>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </LayoutTemplate>
+                            </asp:ListView>
+                            <asp:SqlDataSource ID="dsViewSubcat" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+                SelectCommand="SELECT Product.Thumbnail, Product.CreatedDate, Product.Price, Product.ID, Product.Title, Product.type, [User].roleID FROM SubCategory INNER JOIN Product ON SubCategory.ID = Product.SubCategoryID INNER JOIN [User] ON Product.PosterID = [User].ID WHERE (SubCategory.ID = @SubCategoryID) AND ([User].roleID = 3) ORDER BY Product.type">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblSubCategoryID" DefaultValue="0" Name="SubCategoryID" Type="Int32"  />
+                </SelectParameters>
+                    </asp:SqlDataSource>
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater> 
+            <asp:SqlDataSource ID="dsCat" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+                SelectCommand="GetListSubSameCat" SelectCommandType="StoredProcedure">
+                <SelectParameters>
+                    <asp:QueryStringParameter DefaultValue="0" Name="ID" QueryStringField="cat" 
+                        Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+        </div>
+    </asp:Panel>
+    <asp:Panel ID="pnViewType" Visible=false runat="server">
+    
     </asp:Panel>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Right" runat="server">

@@ -15,10 +15,12 @@
 .comment .contentproduct{margin-top:0px}
 .comment .contentproduct .contentp{padding:0}
 .AQtext{margin-top:0px;}
-.getCart{display:none}
+.getCart{display:none;position:absolute;background:#fff;border:5px solid #42AFFF;padding:10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;z-index:99999999}
+.getCart *{font-size:13px}
+.getCart .modalclose{background: url(../images/x.png) no-repeat;width: 25px;height: 29px;display: inline;z-index: 3200;position: absolute;top: -15px;right: -16px;cursor: pointer;}
 .getCart td{width:225px}
 .getCart td+td{width:400px}
 .getCart input,.getCart textarea,.getCart select{text-align:left;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 .getCart textarea{height:100px;max-height:300px;}
-.getCart table button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
+.getCart table button{display:block;margin:10px auto 0px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 
