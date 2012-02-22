@@ -112,6 +112,24 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.SqlDataSource dsPost;
         
         /// <summary>
+        /// idTinhThanhFull control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList idTinhThanhFull;
+        
+        /// <summary>
+        /// idQuanHuyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList idQuanHuyen;
+        
+        /// <summary>
         /// dsListNew control.
         /// </summary>
         /// <remarks>
