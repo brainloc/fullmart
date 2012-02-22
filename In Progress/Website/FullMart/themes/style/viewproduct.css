@@ -15,6 +15,7 @@
 .comment .contentproduct{margin-top:0px}
 .comment .contentproduct .contentp{padding:0}
 .AQtext{margin-top:0px;}
+.getCart{display:none}
 .getCart td{width:225px}
 .getCart td+td{width:400px}
 .getCart input,.getCart textarea,.getCart select{text-align:left;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}

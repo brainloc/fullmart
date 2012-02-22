@@ -20,3 +20,6 @@
 .bx-pager{padding:7px 0px;position:absolute;border:1px solid silver;bottom:15px;left:10px;z-index:9999;font-weight:bold}
 .pager-link{padding:7px 10px;background:transparent url(../images/bgwt2.png);color:#858383}
 .pager-active{background:transparent url(../images/bgwt1.png);color:silver}
+
+.listp .content ul{list-style:none;}
+.listp .content ul li{float:left}

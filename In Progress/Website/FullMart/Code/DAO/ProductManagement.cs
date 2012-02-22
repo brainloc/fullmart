@@ -25,7 +25,7 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@Content", p.Content));
                 command.Parameters.Add(new SqlParameter("@Title", p.Title));
                 command.Parameters.Add(new SqlParameter("@State", p.State));
- 
+                command.Parameters.Add(new SqlParameter("@Type", 1));
 
                 SqlParameter isCreated = new SqlParameter("@isCreated", DbType.Int32);
                 isCreated.Direction = ParameterDirection.ReturnValue;
@@ -60,7 +60,7 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@Content", p.Content));
                 command.Parameters.Add(new SqlParameter("@Title", p.Title));
                 command.Parameters.Add(new SqlParameter("@State", p.State));
-
+                command.Parameters.Add(new SqlParameter("@Type", 1));
                 try
                 {
                     connection.Open();
@@ -82,6 +82,25 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@ID", ID));
                 command.Parameters.Add(new SqlParameter("@os", outstand));
 
+                try
+                {
+                    connection.Open();
+                    int isUserCreated = command.ExecuteNonQuery();
+                    return isUserCreated == -1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public static bool delProduct(Product p)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("delProduct", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", p.ID));
                 try
                 {
                     connection.Open();

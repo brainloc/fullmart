@@ -291,5 +291,44 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetUserRole(string email)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetUserRole", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@email", email));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+        public static bool isAdminbyNoM(string NoM) {
+            DataTable tmpAdmin= GetUserRole(NoM);
+            if (tmpAdmin != null && tmpAdmin.Rows.Count > 0) {
+                if (tmpAdmin.Rows[0]["roleID"].ToString() == "1") {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

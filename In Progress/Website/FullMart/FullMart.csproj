@@ -864,9 +864,12 @@
     <Content Include="Default.aspx" />
     <Content Include="Denied.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
+    <Content Include="Error.aspx" />
+    <Content Include="ListMemsProduct.aspx" />
     <Content Include="ListProducts.aspx" />
     <Content Include="list_by_subcate_search.aspx" />
     <Content Include="Administration\ManageGeneral.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="News\ManageNews.aspx" />
     <Content Include="ManagerNews.aspx" />
     <Content Include="ManagerProduct.aspx" />
@@ -893,8 +896,8 @@
     <Content Include="media\upload\product8.jpg" />
     <Content Include="media\upload\product9.jpg" />
     <Content Include="News\CreateNews.aspx" />
+    <Content Include="PostAdv.aspx" />
     <Content Include="QA.aspx" />
-    <Content Include="QAA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
@@ -1089,6 +1092,7 @@
     <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
     <Content Include="themes\style\Listnews.css" />
     <Content Include="themes\style\main.css" />
+    <Content Include="themes\style\memproduct.css" />
     <Content Include="themes\style\PIE.htc" />
     <Content Include="themes\style\QAA.css" />
     <Content Include="themes\style\register.css" />
@@ -1149,6 +1153,7 @@
     <Compile Include="Code\DAO\Base.cs" />
     <Compile Include="Code\DAO\BindingUltilities.cs" />
     <Compile Include="Code\DAO\MemberShip.cs" />
+    <Compile Include="Code\DAO\MemsProduct.cs" />
     <Compile Include="Code\DAO\NewManagerment.cs" />
     <Compile Include="Code\DAO\OptionManagement.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
@@ -1181,6 +1186,20 @@
     <Compile Include="Denied.aspx.designer.cs">
       <DependentUpon>Denied.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListMemsProduct.aspx.cs">
+      <DependentUpon>ListMemsProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListMemsProduct.aspx.designer.cs">
+      <DependentUpon>ListMemsProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListProducts.aspx.cs">
       <DependentUpon>ListProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1201,6 +1220,13 @@
     </Compile>
     <Compile Include="Administration\ManageGeneral.aspx.designer.cs">
       <DependentUpon>ManageGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="News\ManageNews.aspx.cs">
       <DependentUpon>ManageNews.aspx</DependentUpon>
@@ -1237,6 +1263,13 @@
     <Compile Include="OneColumn.Master.designer.cs">
       <DependentUpon>OneColumn.Master</DependentUpon>
     </Compile>
+    <Compile Include="PostAdv.aspx.cs">
+      <DependentUpon>PostAdv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostAdv.aspx.designer.cs">
+      <DependentUpon>PostAdv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QA.aspx.cs">
       <DependentUpon>QA.aspx</DependentUpon>
@@ -1244,13 +1277,6 @@
     </Compile>
     <Compile Include="QA.aspx.designer.cs">
       <DependentUpon>QA.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="QAA.aspx.cs">
-      <DependentUpon>QAA.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QAA.aspx.designer.cs">
-      <DependentUpon>QAA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

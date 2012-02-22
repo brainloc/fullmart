@@ -12,10 +12,20 @@ namespace FullMart
 {
     public partial class ViewProduct : System.Web.UI.Page
     {
+        public static string tmprole = "";
+        public static bool tmpisAdmin = false;
+        public static int usID = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.IsPostBack == false)
             {
+                if (Page.User.Identity.IsAuthenticated)
+                {
+                    tmpisAdmin = UserManagement.isAdminbyNoM(Page.User.Identity.Name);
+                    usID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0][0].ToString());
+                    
+                }
+
                 string productID = Request.QueryString["ID"];
                 if (string.IsNullOrEmpty(productID) == false)
                 {
@@ -30,20 +40,20 @@ namespace FullMart
                             if (String.IsNullOrEmpty(subCatID) == false)
                             {
                                 DataTable productsOfCat = GetAllProductsOfCategoryBySubCatID(Convert.ToInt32(subCatID));
-                                if (productsOfCat != null && productsOfCat.Rows.Count > 0)
-                                {
-                                    rpProductsOfCurrentCategory.DataSource = productsOfCat;
-                                    rpProductsOfCurrentCategory.DataBind();
-                                }
+                                ListView2.DataSource = productsOfCat;
+                                ListView2.DataBind();
+                                //if (productsOfCat != null && productsOfCat.Rows.Count > 0)
+                                //{
+                                //    ListView2.DataSource = productsOfCat;
+                                //    ListView2.DataBind();
+                                //}
 
                             }
-                            int posterID = Convert.ToInt32(Session["ID"]);
+                            int posterID = Convert.ToInt32(productDetail.Rows[0]["PosterID"].ToString());
                             DataTable productsByPoster = GetAllProductsOfPoster(posterID);
-                            if (productsByPoster != null && productsByPoster.Rows.Count > 0)
-                            {
-                                rpProductByPoster.DataSource = productsByPoster;
-                                rpProductByPoster.DataBind();
-                            }
+                            ListView3.DataSource = productsByPoster;
+                            ListView3.DataBind();
+                            
                         }
                     }
                     catch (Exception ex)
@@ -93,6 +103,10 @@ namespace FullMart
         {
             if (this.Page.IsPostBack)
             {
+                if (!Page.User.Identity.IsAuthenticated)
+                {
+                    Response.Redirect("~/Login.aspx", false);
+                }
                 try
                 {
                     List<string> eventArgs = ParseEventArgs(Request.Params.Get("__EVENTARGUMENT"));
@@ -105,7 +119,7 @@ namespace FullMart
                         {
                             case "AddSubComment":
                                 {
-                                    int posterID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                    int posterID = usID;
                                     int commentID = Convert.ToInt32(eventArgs.ElementAt(2));
                                     string content = eventArgs.Last();
                                     AddSubComment(posterID, commentID, content);
@@ -171,8 +185,12 @@ namespace FullMart
 
         protected void btnPost_Click(object sender, EventArgs e)
         {
+            if (!Page.User.Identity.IsAuthenticated) {
+                Response.Redirect("~/Login.aspx", false);
+            }
             string content = txtPost.Text.Trim();
-            int posterID = Convert.ToInt32(Session["ID"]);
+            txtPost.Text = "";
+            int posterID = usID;
             string productID = Request.QueryString["ID"];
             if (string.IsNullOrEmpty(content) == false)
             {

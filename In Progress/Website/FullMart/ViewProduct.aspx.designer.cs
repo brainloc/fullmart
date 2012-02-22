@@ -40,22 +40,22 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.Repeater rpProductDetail;
         
         /// <summary>
-        /// rpProductsOfCurrentCategory control.
+        /// ListView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpProductsOfCurrentCategory;
+        protected global::System.Web.UI.WebControls.ListView ListView2;
         
         /// <summary>
-        /// rpProductByPoster control.
+        /// ListView3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpProductByPoster;
+        protected global::System.Web.UI.WebControls.ListView ListView3;
         
         /// <summary>
         /// mainPostForm control.
@@ -94,13 +94,13 @@ namespace FullMart {
         protected global::System.Web.UI.UpdatePanel updatePostList;
         
         /// <summary>
-        /// rpPost control.
+        /// ListView4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpPost;
+        protected global::System.Web.UI.WebControls.ListView ListView4;
         
         /// <summary>
         /// dsPost control.

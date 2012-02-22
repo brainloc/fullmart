@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OneColumn.Master" AutoEventWireup="true"
     CodeBehind="CreateProduct.aspx.cs" Inherits="FullMart.Shop.CreateProduct" ValidateRequest="false"
     EnableEventValidation="false" %>
-
 <%@ Register TagPrefix="ckeditor" Namespace="CKEditor.NET" Assembly="CKEditor.NET" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function CreateProduct() {
             $.ajax({
@@ -36,6 +35,7 @@
                 </td>
                 <td>
                     <%--<input type="text" id="tbtitle" />--%>
+
                     <asp:TextBox CssClass="tbtitle" ID="txtTitle" runat="server"></asp:TextBox>
                 </td>
             </tr>
@@ -56,6 +56,19 @@
                             </asp:DropDownList>
                         </ContentTemplate>
                     </asp:UpdatePanel>
+                </td>
+               
+            </tr>
+            <tr>
+                <td>
+                    State :
+                </td>
+                <td id="Td1"><asp:DropDownList ID="dlState" runat="server" DataSourceID="dsState" 
+                        DataTextField="StateName" DataValueField="id">
+                            </asp:DropDownList>
+                    <asp:SqlDataSource ID="dsState" runat="server" DataSourceMode="DataReader" 
+                        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+                        SelectCommand="SELECT [id], [StateName], [Order] FROM [State] ORDER BY [Order]"></asp:SqlDataSource>
                 </td>
                
             </tr>
