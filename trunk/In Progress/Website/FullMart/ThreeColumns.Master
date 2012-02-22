@@ -128,7 +128,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="dsStates" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                        SelectCommand="SELECT [id],[StateName] FROM [FullMart].[dbo].[State] ORDER BY [Order]">
+                                        SelectCommand="SELECT [id],[StateName] FROM [dbo].[State] ORDER BY [Order]">
                                     </asp:SqlDataSource>
                                 </ul>
                             </dd>
@@ -146,7 +146,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                        SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
+                                        SelectCommand="SELECT [ID],[Name] FROM [dbo].[Category] ORDER BY [Order]">
                                     </asp:SqlDataSource>
                                 </ul>
                             </dd>

@@ -232,7 +232,7 @@
         </div>
        --%>
         <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-            SelectCommand="SELECT [ID],[Name],[Order] FROM [FullMart].[dbo].[Category] WHERE [Order]<> -99 ORDER BY [Order]">
+            SelectCommand="SELECT [ID],[Name],[Order] FROM [dbo].[Category] WHERE [Order]<> -99 ORDER BY [Order]">
         </asp:SqlDataSource>
     
      <%--   <div id="tabsP-1" class="acontent block">

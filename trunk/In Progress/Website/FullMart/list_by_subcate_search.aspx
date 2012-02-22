@@ -22,7 +22,7 @@
                                     </ItemTemplate>
                                 </asp:Repeater>
                                 <asp:SqlDataSource ID="dsSubCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                    SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[SubCategory] WHERE [CategoryID] = @CategoryID">
+                                    SelectCommand="SELECT [ID],[Name] FROM [dbo].[SubCategory] WHERE [CategoryID] = @CategoryID">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="lblCategoryID" Name="CategoryID" Type="Int32" />
                                     </SelectParameters>
@@ -33,7 +33,7 @@
                 </ItemTemplate>
             </asp:Repeater>
             <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                SelectCommand="SELECT [ID],[Name] FROM [FullMart].[dbo].[Category] ORDER BY [Order]">
+                SelectCommand="SELECT [ID],[Name] FROM [dbo].[Category] ORDER BY [Order]">
             </asp:SqlDataSource>
         </ul>
     </div>

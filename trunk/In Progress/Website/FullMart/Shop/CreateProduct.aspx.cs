@@ -16,54 +16,63 @@ namespace FullMart.Shop
         {
             if (this.Page.IsPostBack == false)
             {
-                string ID = Request.QueryString["ID"];
-                if (string.IsNullOrEmpty(ID) != true)
+                if (Page.User.Identity.IsAuthenticated)
                 {
-                    try
+                    string ID = Request.QueryString["ID"];
+                    if (string.IsNullOrEmpty(ID) != true)
                     {
-                        
-                        DataTable newDetail = ProductManagement.GetProductDetailByID(Convert.ToInt32(ID));
-                        if (newDetail != null && newDetail.Rows.Count > 0)
+                        try
                         {
-                            btnCreateProduct.Text = "SAVE";
-                            txtTitle.Text = newDetail.Rows[0][10].ToString();
-                            txtPrice.Text=newDetail.Rows[0][2].ToString();
-                            string idSubcate = newDetail.Rows[0][1].ToString();
-                            DataTable subcats1 = new DataTable();
-                            subcats1 = BindingUltilities.GetNameCatSubCatByIDSub(int.Parse(idSubcate));
-                            DataTable subcats = new DataTable();
-                            subcats = BindingUltilities.GetListSubSameCat(int.Parse(idSubcate));
-                            if (subcats != null)
+
+                            DataTable newDetail = ProductManagement.GetProductDetailByID(Convert.ToInt32(ID));
+                            if (newDetail != null && newDetail.Rows.Count > 0)
                             {
-                                dlSubCategories.DataSource = subcats;
-                                dlSubCategories.DataTextField = "NAMESUB";
-                                dlSubCategories.DataValueField = "SUBID";
-                                dlSubCategories.DataBind();
-                                dlSubCategories.SelectedValue = idSubcate;
+                                btnCreateProduct.Text = "SAVE";
+                                txtTitle.Text = newDetail.Rows[0][10].ToString();
+                                txtPrice.Text = newDetail.Rows[0][2].ToString();
+                                string idSubcate = newDetail.Rows[0][1].ToString();
+                                dlState.SelectedValue = newDetail.Rows[0][11].ToString();
+                                DataTable subcats1 = new DataTable();
+                                subcats1 = BindingUltilities.GetNameCatSubCatByIDSub(int.Parse(idSubcate));
+                                DataTable subcats = new DataTable();
+                                subcats = BindingUltilities.GetListSubSameCat(int.Parse(idSubcate));
+                                if (subcats != null)
+                                {
+                                    dlSubCategories.DataSource = subcats;
+                                    dlSubCategories.DataTextField = "NAMESUB";
+                                    dlSubCategories.DataValueField = "SUBID";
+                                    dlSubCategories.DataBind();
+                                    dlSubCategories.SelectedValue = idSubcate;
+                                }
+                                DataTable cats = new DataTable();
+                                cats = BindingUltilities.GetCategories();
+                                if (cats != null)
+                                {
+                                    DataRow r = cats.NewRow();
+                                    r["ID"] = "-9999";
+                                    r["Name"] = "Please select a category...";
+                                    cats.Rows.InsertAt(r, 0);
+                                    dlCategories.DataSource = cats;
+                                    dlCategories.DataTextField = "Name";
+                                    dlCategories.DataValueField = "ID";
+                                    dlCategories.DataBind();
+                                    dlCategories.SelectedValue = subcats1.Rows[0][0].ToString();
+                                }
+                                imgthumbN.ImageUrl = "/media/upload/" + newDetail.Rows[0][3].ToString();
+                                CKENet.Text = newDetail.Rows[0]["Content"].ToString();
                             }
-                            DataTable cats = new DataTable();
-                            cats = BindingUltilities.GetCategories();
-                            if (cats != null)
-                            {
-                                DataRow r = cats.NewRow();
-                                r["ID"] = "-9999";
-                                r["Name"] = "Please select a category...";
-                                cats.Rows.InsertAt(r, 0);
-                                dlCategories.DataSource = cats;
-                                dlCategories.DataTextField = "Name";
-                                dlCategories.DataValueField = "ID";
-                                dlCategories.DataBind();
-                                dlCategories.SelectedValue=subcats1.Rows[0][0].ToString();
-                            }
-                            imgthumbN.ImageUrl = "/media/upload/" + newDetail.Rows[0][3].ToString();
-                            CKENet.Text = newDetail.Rows[0]["Content"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
+                        BindCategories();
                     }
-                }else{
-                BindCategories();
+                }
+                else { 
+                    
                 }
             }
         }
@@ -93,7 +102,7 @@ namespace FullMart.Shop
                 string ID = Request.QueryString["ID"];
                 if (string.IsNullOrEmpty(ID) != true)
                 {
-                    int state = 1;
+                    int state = int.Parse(dlState.SelectedValue);
                     string title = txtTitle.Text.Trim();
                     int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
                     int posterID = 1;

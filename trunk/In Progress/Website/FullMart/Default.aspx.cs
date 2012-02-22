@@ -23,8 +23,8 @@ namespace FullMart
                 //MaxItemsNewSection.AppSettings.Settings["MaxItemsNewSection"].Value = "20";
                 //MaxItemsNewSection.Save();
 
-                dsTopSection.SelectCommand = String.Format("SELECT TOP {0} [ID],[Price],[Thumbnail],[Title] FROM [FullMart].[dbo].[Product] WHERE [Outstanding] = 1 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsTopSection"].ToString());
-                dsNewSection.SelectCommand = String.Format("SELECT TOP {0} [ID],[Price],[Thumbnail],[Title] FROM [FullMart].[dbo].[Product] ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsNewSection"].ToString());
+                dsTopSection.SelectCommand = String.Format("SELECT TOP {0} [dbo].[Product].[ID] AS ID,[Price],[Thumbnail],[Title] FROM [dbo].[Product],[dbo].[User] WHERE [Outstanding] = 1 AND [Type] = 1 AND [PosterID]=[dbo].[User].[ID] AND [roleID] <>3 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsTopSection"].ToString());
+                dsNewSection.SelectCommand = String.Format("SELECT TOP {0} [dbo].[Product].[ID] AS ID,[Price],[Thumbnail],[Title] FROM [dbo].[Product],[dbo].[User] WHERE [Outstanding] = 1 AND [Type] = 1 AND [PosterID]=[dbo].[User].[ID] AND [roleID] <>3 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsNewSection"].ToString());
             }
         }
 

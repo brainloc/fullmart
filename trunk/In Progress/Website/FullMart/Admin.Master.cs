@@ -18,7 +18,6 @@ namespace FullMart
         {
             if (!IsPostBack)
             {
-                ffooter.Text = OptionManagement.GetFooter("VI");
                 if (Page.User.Identity.IsAuthenticated)
                 {
                     loginPanel.Visible = false;
