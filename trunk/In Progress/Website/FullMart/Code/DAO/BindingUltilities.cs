@@ -298,5 +298,34 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetZoneByStateID(int stateID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetZoneByStateID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@StateID", stateID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable zoneOfState = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(zoneOfState);
+
+                    if (zoneOfState != null && zoneOfState.Rows.Count > 0)
+                    {
+                        return zoneOfState;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
