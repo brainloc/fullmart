@@ -5,10 +5,10 @@
    <div class="center b loginform" >
         <asp:Login ID="loginPanel" CssClass="center b bgwt" OnAuthenticate="loginPanel_Authenticate" DestinationPageUrl="~/Default.aspx" runat="server">
             <LayoutTemplate>
-                <table cellpadding="0">
+                <table cellpadding="0" style="padding:0px 20px">
                                 <tr>
-                                    <td align="center" colspan="2">
-                                        Log In</td>
+                                    <td align="center" colspan="2">Log In</td>
+                                    
                                 </tr>
                                 <tr>
                                     <td align="right">
@@ -48,7 +48,12 @@
                                             ValidationGroup="loginPanel" />
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><a href=" "</td>
+                                </tr>
                             </table>
+                            Administrator: vunam4; Shop: vunam2; Member:vunam, vunam1, vunam3<br />
+                                    pass : qweqwe1
             </LayoutTemplate>
         </asp:Login>
     </div>

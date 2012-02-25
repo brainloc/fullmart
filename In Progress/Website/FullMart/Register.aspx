@@ -104,7 +104,7 @@
                             <td>
                                 Your Birthday<span style="color: red">*</span>
                             </td>
-                            <td><asp:TextBox ID="txtbirthday" CssClass="validate[required]"  runat="server"></asp:TextBox>
+                            <td><asp:TextBox ID="txtbirthday" CssClass="ubirthday"  runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                     ControlToValidate="txtbirthday" ErrorMessage="This field request"></asp:RequiredFieldValidator>
                             </td>
@@ -211,7 +211,9 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="pnSuccess" runat="server">
-        Register Successful!
+        <div style="text-align:center;font-size:20px; width:1000px;" class="center block bgwt">
+            Register Successful!
+        </div>
     </asp:Panel>
     <div class="block clear">
     </div>

@@ -449,7 +449,7 @@
             </div>
         </div>
     </div>
-    <div class="getCart">
+   <%-- <div class="getCart">
         <a class="modalclose" title="Close"></a>
         <asp:UpdatePanel ID="updatePurchaseForm" runat="server" UpdateMode="Conditional">
             <Triggers>
@@ -557,7 +557,7 @@
                 </table>
             </ContentTemplate>
         </asp:UpdatePanel>
-    </div>
+    </div>--%>
     <script type="text/javascript">
 
     </script>

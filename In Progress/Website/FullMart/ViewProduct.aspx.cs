@@ -60,7 +60,7 @@ namespace FullMart
                     {
                     }
                 }
-                BindStates();
+                //BindStates();
             }
         }
 
@@ -104,16 +104,17 @@ namespace FullMart
         {
             if (this.Page.IsPostBack)
             {
-                if (!Page.User.Identity.IsAuthenticated)
-                {
-                    Response.Redirect("~/Login.aspx", false);
-                }
+                
                 try
                 {
                     List<string> eventArgs = ParseEventArgs(Request.Params.Get("__EVENTARGUMENT"));
 
                     if (eventArgs != null)
                     {
+                        if (!Page.User.Identity.IsAuthenticated)
+                        {
+                            Response.Redirect("~/Login.aspx", false);
+                        }
                         string command = eventArgs.First();
 
                         switch (command)
@@ -221,49 +222,49 @@ namespace FullMart
             ProductManagement.DeleteComment(commentID);
         }
 
-        protected void idTinhThanhFull_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string stateID = idTinhThanhFull.SelectedItem.Value;
-            if (string.IsNullOrEmpty(stateID) == false)
-            {
-                DataTable zonesOfState = new DataTable();
-                zonesOfState = BindingUltilities.GetZoneByStateID(Convert.ToInt32(stateID));
+        //protected void idTinhThanhFull_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string stateID = idTinhThanhFull.SelectedItem.Value;
+        //    if (string.IsNullOrEmpty(stateID) == false)
+        //    {
+        //        DataTable zonesOfState = new DataTable();
+        //        zonesOfState = BindingUltilities.GetZoneByStateID(Convert.ToInt32(stateID));
 
-                if (zonesOfState != null)
-                {
-                    idQuanHuyen.DataSource = zonesOfState;
-                    idQuanHuyen.DataTextField = "Name";
-                    idQuanHuyen.DataValueField = "ID";
-                    idQuanHuyen.DataBind();
-                }
-                else
-                {
-                    idQuanHuyen.Items.Clear();
-                }
-            }
-            else
-            {
-                idQuanHuyen.Items.Clear();
-            }
-        }
+        //        if (zonesOfState != null)
+        //        {
+        //            idQuanHuyen.DataSource = zonesOfState;
+        //            idQuanHuyen.DataTextField = "Name";
+        //            idQuanHuyen.DataValueField = "ID";
+        //            idQuanHuyen.DataBind();
+        //        }
+        //        else
+        //        {
+        //            idQuanHuyen.Items.Clear();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        idQuanHuyen.Items.Clear();
+        //    }
+        //}
 
-        private void BindStates()
-        {
-            DataTable states = new DataTable();
-            states = BindingUltilities.GetStates();
-            if (states != null)
-            {
-                DataRow r = states.NewRow();
-                r["ID"] = "-9999";
-                r["StateName"] = "Please select a state...";
-                states.Rows.InsertAt(r, 0);
-                idTinhThanhFull.DataSource = states;
-                idTinhThanhFull.DataTextField = "StateName";
-                idTinhThanhFull.DataValueField = "id";
-                idTinhThanhFull.DataBind();
-                idTinhThanhFull.SelectedIndex = 0;
-            }
-        }
+        //private void BindStates()
+        //{
+        //    DataTable states = new DataTable();
+        //    states = BindingUltilities.GetStates();
+        //    if (states != null)
+        //    {
+        //        DataRow r = states.NewRow();
+        //        r["ID"] = "-9999";
+        //        r["StateName"] = "Please select a state...";
+        //        states.Rows.InsertAt(r, 0);
+        //        idTinhThanhFull.DataSource = states;
+        //        idTinhThanhFull.DataTextField = "StateName";
+        //        idTinhThanhFull.DataValueField = "id";
+        //        idTinhThanhFull.DataBind();
+        //        idTinhThanhFull.SelectedIndex = 0;
+        //    }
+        //}
 
         protected void btnContiue_Click(object sender, EventArgs e)
         {

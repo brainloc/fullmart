@@ -256,9 +256,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#tabsP").tabs({
-                cookie: { expires: 30 }
-            });
+            $("#tabsP").tabs();
         });
     </script>
 </asp:Content>
