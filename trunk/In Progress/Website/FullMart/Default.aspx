@@ -15,7 +15,6 @@
                         <div class="lsubcat b">
                             <span class="block title btlr">
                                 <%# Eval("Name") %></span>
-
                             <ul>
                                                             <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">

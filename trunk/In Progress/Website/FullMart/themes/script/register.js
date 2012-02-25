@@ -1,37 +1,12 @@
 ﻿$(function () {
-    var cy = 2011;// lay nam he thong tra vao day
-    for (var i = cy; i > cy - 40; i--) {
-        $("#freguserclass").append("<option>"+i+"</option>");
-    }
-});
-$(function () {
-    $("#ubirthday").datepicker({
+    $(".ubirthday").datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'YY-MM-DD',
         yearRange: 'c-50:c'
     });
 
 });
-function CreateUser() {
-    $.ajax({
-        url: "/Code/Business/AjaxUltilities.ashx?",
-        type: "POST",
-        dataType: "script",
-        data: {
-            action: "CreateUser",
-            ufname:$("#ufname").val(),
-            ulname:$("#ulname").val(),
-            uemail:$("#uemail").val(),
-            upass:$("#upass").val(),
-            ubirthday:$("#ubirthday").val(),
-            freguserstate:$("#freguserstate").val(),
-            freguserCU:$("#freguserCU").val(),
-            freguserclass:$("#freguserclass").val(),
-
-        }
-    });
-}
 function CheckUser(email) {
     $.ajax({
         url: "Code/Business/AjaxUltilities.ashx?",

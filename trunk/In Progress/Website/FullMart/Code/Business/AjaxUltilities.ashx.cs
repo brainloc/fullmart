@@ -75,6 +75,7 @@ namespace FullMart.Code.Business
                     {
                         context.Response.ContentType = "application/html";
                         int irole=3;
+                        var username = context.Request.Form["username"] != null ? context.Request.Form["username"].Trim().Replace("'", "''") : string.Empty;
                         var email = context.Request.Form["email"] != null ? context.Request.Form["email"].Trim().Replace("'", "''") : string.Empty;
                         var pass = context.Request.Form["pass"] != null ? context.Request.Form["pass"].Trim().Replace("'", "''") : string.Empty;
                         var fname = context.Request.Form["fname"] != null ? context.Request.Form["fname"].Trim().Replace("'", "''") : string.Empty;
@@ -96,7 +97,7 @@ namespace FullMart.Code.Business
                             case "adminitrator": { irole = 1; break;}
                             case "shop": { irole = 2; break; }
                         }
-                        if (UserManagement.UpdateUserinfor(fname, lname, email, pass, bday, state, CU, cls, irole,yahoo,mobile,shopname,web,wishlist))
+                        if (UserManagement.UpdateUserinfor(username, fname, lname, email, pass, bday, state, CU, cls, irole, yahoo, mobile, shopname, web, wishlist))
                         {
                             context.Response.Write("$('.simplemodal-data').html('Users Information Update Successfully !');resizeDA(250, 30);");
                         }
@@ -225,7 +226,7 @@ namespace FullMart.Code.Business
                                    tmp2 +="<tr ref='" + r["ID"].ToString() + "'>";
                                    tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Name"].ToString() + "'/></td>";
                                    tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Order"].ToString() + "'/></td>";
-                                   tmp2 += "<td><img class='catDel' ref='" + r["ID"].ToString() + "' src='/themes/images/delete.png' /><img class='bindSubCate' ref='" + r["ID"].ToString() + "' src='/themes/images/Arrow_Right.png' /></td>";
+                                   tmp2 += "<td><img class='catDel' ref='" + r["ID"].ToString() + "' src='/themes/images/delete.png' /></td>";
                                    tmp2 += "</tr>";
                                 }
                                 tmp1 += "$('" + Target + "').html(\"" + "$('" + Target + "').html();" + tmp2 + "\");";

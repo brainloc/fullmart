@@ -98,8 +98,7 @@
                                     <%--<input id="sb" type="submit" value="" />--%>
                                     <asp:Button ID="LoginButton" CssClass="sb1" runat="server" CommandName="Login" Text="Log In" />
                                 </div>
-                                <div class="left">
-                                    <input id="treg" type="submit" value="" /></div>
+                                <div class="left"><a href="/Register.aspx" title="Register" ><div id="treg"></div></a></div>
                             </LayoutTemplate>
                         </asp:Login>
                         
@@ -119,7 +118,7 @@
             </div>
             <div id="menu">
                 <ul id="topm">
-                    <li class="active"><a href="#" title="aa">Student hot deal</a></li>
+                    <li class="active"><a href="/ListMemsProduct.aspx" title="View Advertiser">View Advertiser</a></li>
                     <li><a href="#" title="aa">Accommodation</a></li>
                     <li><a href="#" title="aa">Travel & Plant</a></li>
                     <li><a href="#" title="aa">Hot Voucher</a></li>
@@ -178,11 +177,11 @@
                             <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
                     </div>
                     <div class="sys left">
-                        <a href="RegisterN.aspx?type=shop" title="SignUp your Store">
+                        <a href="/Register.aspx" title="SignUp your Store">
                             <img src="/themes/images/signup-your-shop.png" alt="SignUp your Store" /></a>
                     </div>
                     <div class="sys left">
-                        <a href="RegisterN.aspx" title="Post your Adv">
+                        <a href="/PostAdv.aspx" title="Post your Adv">
                             <img src="/themes/images/postAD.png" alt="Post your Adv" /></a>
                     </div>
                 </div>
@@ -202,6 +201,7 @@
             <asp:Label ID="ffooter" runat="server" Text="Label"></asp:Label></div>
     </div>
        <div id="viewnote" class="btlr viewnote">
+    <a class="modalclose" title="Close"></a>
         <div class="vlistletter">
             <p class="hnote btlr">
                 <span class="left">Title new / sender</span> <span class="right">Time</span>
@@ -319,6 +319,7 @@
         </div>
     </div>
     <div id="fcart" class="fcart">
+    <a class="modalclose" title="Close"></a>
         <table cellpadding="0" cellspacing="0">
         <thead><tr><th>Quantity</th><th>Item</th><th>Order Code</th><th>Unit Price(VND)</th><th>Total</th><th>Short Message<br />(200 characters)</th><th>Remove</th></tr></thead>
             <tbody>

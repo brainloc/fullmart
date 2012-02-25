@@ -99,6 +99,27 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    $("#unote").click(function () {
+        var t1 = ($(window).width() - $("#viewnote").width()) / 2;
+        var t2 = ($(window).height() - $("#viewnote").height()) / 2;
+        $("#viewnote").css("top", t2);
+        $("#viewnote").css("left", t1);
+        $("#waitloader").show();
+        $("#viewnote").fadeIn();
+        return false;
+    });
+    $("a.modalclose").click(function () {
+        $(this).parent().fadeOut();
+        $("#waitloader").hide();
+    });
+//    $("#unote").click(function () {
+//        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
+//        $(".delms").click(function () {
+//            $(this).parents("tr").hide();
+//            return false;
+//        });
+//        return false;
+//    });    
     $("#sbsearch").click(function () {
         search();
         return false;
@@ -114,14 +135,7 @@ $(document).ready(function () {
             $(this).html(strtmp + "<p>" + str2 + "</p>");
         }
     });
-    $("#unote").click(function () {
-        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
-        $(".delms").click(function () {
-            $(this).parents("tr").hide();
-            return false;
-        });
-        return false;
-    });
+
     $(".viewnote .vlistletter ul li").click(function () {
         $(".vlistletter").slideUp("normal", function () {
             $(".viewnote").css("height", "293px");
@@ -142,7 +156,12 @@ $(document).ready(function () {
     //Cart script
     $("#ucart").click(function () {
         calcart();
-        showdialog("", 825, 360, "div.fcart", true);
+        var t1 = ($(window).width() - $("div.fcart").width()) / 2;
+        var t2 = ($(window).height() - $("div.fcart").height()) / 2;
+        $("div.fcart").css("top", t2);
+        $("div.fcart").css("left", t1);
+        $("#waitloader").show();
+        $("div.fcart").fadeIn();
         return false;
     });
     $("div.fcart tbody tr td .nump").keyup(function () {
@@ -151,11 +170,6 @@ $(document).ready(function () {
     $("div.fcart tbody tr td:nth-child(7) button").click(function () {
         $(this).parents("tr").remove();
         calcart();
-        return false;
-    });
-
-    $("#treg").click(function () {
-        showdialog("<Center style='margin-right: 15px;'><strong><a href='RegisterN.aspx?type=shop' title='Register your shop'><img alt='Register your shop' src='themes/images/signup-your-store1.png' /></a></strong><br /><strong><a href='RegisterN.aspx' title='Register User'><img alt='Register User' src='themes/images/signup-your-store2.png' /></a></strong></center>", 250, 180, "", true);
         return false;
     });
 

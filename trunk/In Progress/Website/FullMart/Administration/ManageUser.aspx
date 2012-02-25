@@ -26,10 +26,10 @@
                             Email
                         </th>
                         <th>
-                            First Name
+                            UserName
                         </th>
                         <th>
-                            Last Name
+                           Full Name
                         </th>
                         <th>
                             Join Day
@@ -57,10 +57,10 @@
                                     <%# Eval("email")%>
                                 </td>
                                 <td>
-                                    <%# Eval("fname")%>
+                                    <%# Eval("UserName")%>
                                 </td>
                                 <td>
-                                    <%# Eval("lname")%>
+                                    <%# Eval("fname")%> <%# Eval("lname")%>
                                 </td>
                                 <td>
                                     <%# Eval("createdate")%>
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                      <div class="detailU"><div class="viewU">
-                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <span id="tUser" class="tUser"><%# Eval("UserName")%></span>
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -264,7 +264,7 @@
                                         </div>
                                     </div>
                                     <div class="detailU"><div class="viewU">
-                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <span id="tUser" class="tUser"><%# Eval("UserName")%></span>
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -436,7 +436,7 @@
                                     </div>
                                     
                                     <div class="detailU"><div class="viewU">
-                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <span id="tUser" class="tUser"><%# Eval("UserName")%></span>
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -608,7 +608,7 @@
                                     </div>
                                     <div class="detailU">
                                     <div class="viewU">
-                                        <span id="tUser"><%# Eval("email")%></span>
+                                        <span id="tUser" class="tUser"><%# Eval("UserName")%></span>
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -710,14 +710,14 @@
                     </asp:Repeater>
                     <asp:SqlDataSource ID="dsAdministratorList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetAllUserByRole">
                         <SelectParameters>
-                            <asp:QueryStringParameter Name="roleID" DefaultValue='2' />
+                            <asp:QueryStringParameter Name="roleID" DefaultValue='1' />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </tbody>
             </table>
         </div>
     </div>
-    <div id="viewU" class="viewU">
+    <%--<div id="viewU" class="viewU">
         <div class="cmdUser">
             <button class="Uview left">
             </button>
@@ -822,7 +822,7 @@
                 </tr>
             </tfoot>
         </table>
-    </div>
+    </div>--%>
     <div id="cfdelete">
         <p>
             <center>

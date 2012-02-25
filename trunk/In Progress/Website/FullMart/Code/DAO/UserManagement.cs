@@ -41,7 +41,12 @@ namespace FullMart.Code.DAO
                     connection.Open();
                     command.ExecuteNonQuery();
                     int isUserCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
-                    return isUserCreated == 1;
+                    if (isUserCreated == 1) {
+                        Roles.AddUserToRole(us.username, us.rID.ToString());
+                        Roles.AddUserToRole(us.email, us.rID.ToString());
+                        return true;
+                    }
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -229,7 +234,7 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool UpdateUserinfor(string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
+        public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -259,7 +264,19 @@ namespace FullMart.Code.DAO
                     connection.Open();
                     command.ExecuteNonQuery();
                     int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
-                    return isUserCreated == 1;
+                    if (isUserCreated == 1)
+                    {
+                        Roles.RemoveUserFromRole(username, "1");
+                        Roles.RemoveUserFromRole(username, "2");
+                        Roles.RemoveUserFromRole(email, "1");
+                        Roles.RemoveUserFromRole(email, "2");
+                        Roles.RemoveUserFromRole(username, "3");
+                        Roles.RemoveUserFromRole(email, "3");
+                        Roles.AddUserToRole(username, roleID.ToString());
+                        Roles.AddUserToRole(email, roleID.ToString());
+                        return true;
+                    }
+                    return false;
                 }
                 catch (Exception ex)
                 {

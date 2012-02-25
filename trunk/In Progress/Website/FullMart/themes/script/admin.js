@@ -2,28 +2,33 @@
     if ($.trim(a.text()) != "SAVE") {
         $.modal.close();
     } else {
-        $.ajax({
-            url: "/Code/Business/AjaxUltilities.ashx?",
-            type: "POST",
-            dataType: "script",
-            data: {
-                action: "EditUser",
-                email: a.parents(".viewU").find(".VUEmail").val(),
-                pass: a.parents(".viewU").find(".VUPass").val(),
-                fname: a.parents(".viewU").find(".VUFName").val(),
-                lname: a.parents(".viewU").find(".VULName").val(),
-                birthday: a.parents(".viewU").find(".VUBday").val(),
-                state: a.parents(".viewU").find(".VUState").val(),
-                CU: a.parents(".viewU").find(".VUCU").val(),
-                cls: a.parents(".viewU").find(".VUClass").val(),
-                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
-                mobile: a.parents(".viewU").find(".VUMobile").val(),
-                shopname: a.parents(".viewU").find(".VUShopName").val(),
-                web: a.parents(".viewU").find(".VUWeb").val(),
-                role: a.parents(".viewU").find(".VURole").val(),
-                wishlist: a.parents(".viewU").find(".VUWishlist").val()
-            }
-        });
+        $.modal.close();
+        alert("This function's developing, please wait next version!");
+        
+//        $.ajax({
+//            url: "/Code/Business/AjaxUltilities.ashx?",
+//            type: "POST",
+//            dataType: "script",
+//            data: {
+//                action: "EditUser",
+//                username: $.trim(a.parents(".viewU").find(".tUser").text()),
+//                email: a.parents(".viewU").find(".VUEmail").val(),
+//                pass: a.parents(".viewU").find(".VUPass").val(),
+//                fname: a.parents(".viewU").find(".VUFName").val(),
+//                lname: a.parents(".viewU").find(".VULName").val(),
+//                birthday: a.parents(".viewU").find(".VUBday").val(),
+//                state: a.parents(".viewU").find(".VUState").val(),
+//                CU: a.parents(".viewU").find(".VUCU").val(),
+//                cls: a.parents(".viewU").find(".VUClass").val(),
+//                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
+//                mobile: a.parents(".viewU").find(".VUMobile").val(),
+//                shopname: a.parents(".viewU").find(".VUShopName").val(),
+//                web: a.parents(".viewU").find(".VUWeb").val(),
+//                role: a.parents(".viewU").find(".VURole").val(),
+//                wishlist: a.parents(".viewU").find(".VUWishlist").val()
+//            }
+    //        });
+    
     }
     return false;
 }

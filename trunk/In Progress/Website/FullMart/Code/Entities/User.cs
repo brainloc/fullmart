@@ -19,7 +19,7 @@ namespace FullMart.Code.Entities
         public string cls { get; set; }
         public string yahoo { get; set; }
         public string mobile { get; set; }
-        public string shopName { get; set; }
+        public int shopName { get; set; }
         public string website { get; set; }
         public string wishtlist { get; set; }
         public DateTime createdate { get; set; }
@@ -38,7 +38,7 @@ namespace FullMart.Code.Entities
             cls = string.Empty;
             yahoo = string.Empty;
             mobile = string.Empty;
-            shopName = string.Empty;
+            shopName = -1;
             website = string.Empty;
             wishtlist = string.Empty;
             createdate = DateTime.Now;
