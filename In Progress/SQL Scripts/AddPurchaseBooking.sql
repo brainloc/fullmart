@@ -1,9 +1,9 @@
-/****** Object:  StoredProcedure [dbo].[AddPurchaseBooking]    Script Date: 02/25/2012 14:00:53 ******/
+/****** Object:  StoredProcedure [dbo].[AddPurchaseBooking]    Script Date: 02/25/2012 21:32:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddPurchaseBooking]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[AddPurchaseBooking]
 GO
 
-/****** Object:  StoredProcedure [dbo].[AddPurchaseBooking]    Script Date: 02/25/2012 14:00:53 ******/
+/****** Object:  StoredProcedure [dbo].[AddPurchaseBooking]    Script Date: 02/25/2012 21:32:17 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -28,30 +28,50 @@ AS
 BEGIN
 
 	SET NOCOUNT ON;
-
-    INSERT INTO [FullMart].[dbo].[Cart]
-           ([ProductID]
-           ,[Amount]
-           ,[Buyer]
-           ,[CreateDate]
-           ,[MoreDetail]
-           ,[isRead]
-           ,[RecipientsName]
-           ,[RecipientsPhone]
-           ,[RecipientsAddress]
-           ,[RecipientsEmail])
-     VALUES
-           (@ProductID
-           ,@Amount
-           ,@BuyerID
-           ,GETUTCDATE()
-           ,@MoreDetail
-           ,0
-           ,@RecipientName
-           ,@RecipientPhone
-           ,@RecipientAddress
-           ,@RecipientEmail)
+	  
+	IF(EXISTS(SELECT [ID] 
+			FROM [FullMart].[dbo].[Cart]
+			WHERE [isSubmited] = 0 
+			      AND [ProductID] = @ProductID 
+			      AND [Buyer] = @BuyerID))
+		/*Update existed order: Amount field*/
+		BEGIN
+			UPDATE [FullMart].[dbo].[Cart]
+		    SET [Amount] = [Amount] + @Amount
+		    WHERE [isSubmited] = 0 
+			      AND [ProductID] = @ProductID 
+			      AND [Buyer] = @BuyerID
+		END
+	ELSE
+		/*Insert new order*/
+		BEGIN
+			INSERT INTO [FullMart].[dbo].[Cart]
+			   ([ProductID]
+			   ,[Amount]
+			   ,[Buyer]
+			   ,[CreateDate]
+			   ,[MoreDetail]
+			   ,[isRead]
+			   ,[RecipientsName]
+			   ,[RecipientsPhone]
+			   ,[RecipientsAddress]
+			   ,[RecipientsEmail]
+			   ,[isSubmited])
+		    VALUES
+			   (@ProductID
+			   ,@Amount
+			   ,@BuyerID
+			   ,GETUTCDATE()
+			   ,@MoreDetail
+			   ,0
+			   ,@RecipientName
+			   ,@RecipientPhone
+			   ,@RecipientAddress
+			   ,@RecipientEmail
+			   ,0)
+		END	    
 END
+
 
 GO
 
