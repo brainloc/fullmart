@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data;
 using FullMart.Code.DAO;
 using System.Web.Security;
+using System.Text;
 
 namespace FullMart
 {
@@ -60,9 +61,32 @@ namespace FullMart
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
+            FormsAuthentication.SignOut();            
             Session.Abandon();
             Response.Redirect("~/", false);
+        }
+
+        protected void rpCart_ItemCommand(object sender, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Remove")
+            {
+                ProductManagement.RemovePurchaseBooking(Convert.ToInt32(e.CommandArgument));
+                dsCart.DataBind();
+            }
+        }
+
+        protected void btnVerify_Click(object sender, EventArgs e)
+        {
+            string idCollection = "(";
+            foreach (RepeaterItem i in rpCart.Items)
+            {
+                Button btnRemove = (Button)(i.Controls[1]);
+                idCollection += btnRemove.CommandArgument + ",";
+            }
+
+            idCollection = idCollection.Substring(0, idCollection.Length - 1) + ")";
+
+            ProductManagement.SubmitOrder(idCollection);
         }
     }
 }

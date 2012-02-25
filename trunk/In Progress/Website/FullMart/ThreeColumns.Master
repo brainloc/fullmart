@@ -212,8 +212,8 @@
         <div id="footer" class="footer block">
             <asp:Label ID="ffooter" runat="server" Text="Label"></asp:Label></div>
     </div>
-    <div id="viewnote" class="btlr viewnote">    
-    <a class="modalclose" title="Close"></a>
+    <div id="viewnote" class="btlr viewnote">
+        <a class="modalclose" title="Close"></a>
         <div class="vlistletter">
             <p class="hnote btlr">
                 <span class="left">Title new / sender</span> <span class="right">Time</span>
@@ -330,183 +330,102 @@
             </table>
         </div>
     </div>
-    <div id="fcart" class="fcart">    
-    <a class="modalclose" title="Close"></a>
-        <table cellpadding="0" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>
-                        Quantity
-                    </th>
-                    <th>
-                        Item
-                    </th>
-                    <th>
-                        Order Code
-                    </th>
-                    <th>
-                        Unit Price(VND)
-                    </th>
-                    <th>
-                        Total
-                    </th>
-                    <th>
-                        Short Message<br />
-                        (200 characters)
-                    </th>
-                    <th>
-                        Remove
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    </td><td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="totalp">8,000,000</span>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <th colspan="7">
-                        <button>
-                            verify</button>
-                    </th>
-                </tr>
-            </tfoot>
-        </table>
+    <div id="fcart" class="fcart">
+        <asp:UpdatePanel ID="updateCart" runat="server">
+            <ContentTemplate>
+                <a class="modalclose" title="Close"></a>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Item
+                            </th>
+                            <th>
+                                Order Code
+                            </th>
+                            <th>
+                                Unit Price(VND)
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                            <th>
+                                Short Message<br />
+                                (200 characters)
+                            </th>
+                            <th>
+                                Remove
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:Repeater ID="rpCart" runat="server" DataSourceID="dsCart" OnItemCommand="rpCart_ItemCommand">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="b nump" value='<%# Eval("Amount") %>' title="Quantity" />
+                                    </td>
+                                    <td>
+                                        <a href='ViewProduct.aspx?ID=<%# Eval("ProductID") %>'>
+                                            <%# Eval("Title") %></a>
+                                    </td>
+                                    <td>
+                                        123-1
+                                    </td>
+                                    <td>
+                                        <%# Eval("Price") %>
+                                    </td>
+                                    <td>
+                                        8,000,000
+                                    </td>
+                                    <td>
+                                        <input maxlength="200" value='<%# Eval("MoreDetail") %>' />
+                                    </td>
+                                    <td>
+                                        <%--<button id="btnRemove" runat="server">
+                                    Remove</button>--%>
+                                        <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument='<%# Eval("ID") %>' />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <asp:SqlDataSource ID="dsCart" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                            SelectCommand="GetCart" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:SessionParameter ConvertEmptyStringToNull="true" SessionField="ID" Name="BuyerID" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            </td><td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="totalp">8,000,000</span>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="7">
+                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click">verify</button>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     </form>
     <div id="waitloader" style="display: none; position: fixed; top: 0px; left: 0px;
