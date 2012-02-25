@@ -23,7 +23,7 @@ namespace FullMart
                 {
                     tmpisAdmin = UserManagement.isAdminbyNoM(Page.User.Identity.Name);
                     usID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0][0].ToString());
-                    
+
                 }
 
                 string productID = Request.QueryString["ID"];
@@ -53,7 +53,7 @@ namespace FullMart
                             DataTable productsByPoster = GetAllProductsOfPoster(posterID);
                             ListView3.DataSource = productsByPoster;
                             ListView3.DataBind();
-                            
+
                         }
                     }
                     catch (Exception ex)
@@ -186,7 +186,8 @@ namespace FullMart
 
         protected void btnPost_Click(object sender, EventArgs e)
         {
-            if (!Page.User.Identity.IsAuthenticated) {
+            if (!Page.User.Identity.IsAuthenticated)
+            {
                 Response.Redirect("~/Login.aspx", false);
             }
             string content = txtPost.Text.Trim();
@@ -245,7 +246,7 @@ namespace FullMart
                 idQuanHuyen.Items.Clear();
             }
         }
-       
+
         private void BindStates()
         {
             DataTable states = new DataTable();
@@ -262,6 +263,38 @@ namespace FullMart
                 idTinhThanhFull.DataBind();
                 idTinhThanhFull.SelectedIndex = 0;
             }
+        }
+
+        protected void btnContiue_Click(object sender, EventArgs e)
+        {
+            string product = Request.QueryString["ID"];
+            string buyer = Session["ID"].ToString();
+
+            if (string.IsNullOrEmpty(product) == false && string.IsNullOrEmpty(buyer) == false)
+            {
+                try
+                {
+                    int productID = Convert.ToInt32(product);
+                    int amount = Convert.ToInt32(txtAmount.Text.Trim());
+                    int buyerID = Convert.ToInt32(buyer);
+
+                    string moreDetail = txtNote.Text.Trim();
+                    string recipientName = txtName.Text.Trim();
+                    string recipientPhone = txtPhoneNumber.Text.Trim();
+                    string recipientAddress = txtAddress.Text.Trim();
+                    string recipientEmail = txtEmail.Text.Trim();
+
+                    AddPurchaseBooking(productID, amount, buyerID, moreDetail, recipientName, recipientPhone, recipientAddress, recipientEmail);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        private void AddPurchaseBooking(int productID, int amount, int buyerID, string moreDetail, string recipientName, string recipientPhone, string recipientAddress, string recipientEmail)
+        {
+            ProductManagement.AddPurchaseBooking(productID, amount, buyerID, moreDetail, recipientName, recipientPhone, recipientAddress, recipientEmail);
         }
     }
 }

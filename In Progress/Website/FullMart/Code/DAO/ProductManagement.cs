@@ -411,5 +411,33 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void AddPurchaseBooking(int productID, int amount, int buyerID, string moreDetail, string recipientName, string recipientPhone, string recipientAddress, string recipientEmail)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("AddPurchaseBooking", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ProductID", productID));
+                command.Parameters.Add(new SqlParameter("@Amount", amount));
+                command.Parameters.Add(new SqlParameter("@BuyerID", buyerID));
+                command.Parameters.Add(new SqlParameter("@MoreDetail", moreDetail));
+                command.Parameters.Add(new SqlParameter("@RecipientName", recipientName));
+                command.Parameters.Add(new SqlParameter("@RecipientPhone", recipientPhone));
+                command.Parameters.Add(new SqlParameter("@RecipientAddress", recipientAddress));
+                command.Parameters.Add(new SqlParameter("@RecipientEmail", recipientEmail));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@
     <script src="/themes/script/viewProduct.js" type="text/javascript"></script>
     <script src="themes/script/QAA.js" type="text/javascript"></script>
     <script type="text/javascript">
-        function AddSubComment(AQObj) {            
+        function AddSubComment(AQObj) {
             var posterID = '<%= Session["ID"] %>';
             var commentID = $(AQObj).closest("ul.subcomment").attr("id");
             var comment = $(AQObj).closest("div.SubCommentSpace").children("textarea:eq(0)").val();
@@ -16,8 +16,7 @@
             __doPostBack('<%= updatePostList.ClientID %>', eventArgs);
         }
 
-        function DeleteComment(Obj)
-        {
+        function DeleteComment(Obj) {
             var r = confirm("Do you want to delete this question ?");
             if (r) {
                 var eventArgs = $(Obj).val();
@@ -71,8 +70,7 @@
                 </ItemTemplate>
             </asp:Repeater>
             <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                SelectCommand="SELECT [ID],[Name] FROM [dbo].[Category] ORDER BY [Order]">
-            </asp:SqlDataSource>
+                SelectCommand="SELECT [ID],[Name] FROM [dbo].[Category] ORDER BY [Order]"></asp:SqlDataSource>
         </ul>
     </div>
     <div class="ladv lb">
@@ -153,12 +151,13 @@
                         <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>'
                             alt='<%# Eval("Title") %>' ref="<%# tmprole = Eval("roleID").ToString()%>" /></div>
                     <div class="Posterinfo bgwt left">
-                    <% if(tmprole!="3"){ %>
+                        <% if (tmprole != "3")
+                           { %>
                         <div class="buy">
                             <input type="text" class="b nump" value="1" title="Quantity" />
                             <button>
                                 Buy It</button></div>
-                      <% } %>          
+                        <% } %>
                         <ul>
                             <li>Price: <span class="price">
                                 <%# Eval("Price")%>
@@ -209,8 +208,7 @@
                     Product Same Categories</span></a></span></div>
             <div class="listp">
                 <div class="content">
-                    <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID"
-                        EnableModelValidation="True">
+                    <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID" EnableModelValidation="True">
                         <EmptyDataTemplate>
                             No Product to display !.
                         </EmptyDataTemplate>
@@ -259,7 +257,6 @@
                     </div>
                 </div>
             </div>
-           
         </div>
         <div class="parea b">
             <div class="gcats btl">
@@ -316,7 +313,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
     <div class="viewproduct comment">
@@ -363,10 +359,12 @@
                                             <a href="#a">
                                                 <p>
                                                     <%# Eval("Content") %></p>
-                                                    <% if (tmpisAdmin){ %>
-                                                        <button value='DeleteComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">Remove</button></a>
-                                                    <%  } %>
-                                                    </div>
+                                                <% if (tmpisAdmin)
+                                                   { %>
+                                                <button value='DeleteComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">
+                                                    Remove</button></a>
+                                            <%  } %>
+                                        </div>
                                         <span title="number of comment" class="numc">
                                             <%# Eval("COMMENTSCOUNT")%></span>
                                         <asp:Label ID="txtCommentID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
@@ -375,16 +373,18 @@
                                                 <ItemTemplate>
                                                     <li>
                                                         <div class="Ahead">
-                                                            <span class="Ausername"><a href="#aa"><%# Eval("UserName")%></a></span></div>
+                                                            <span class="Ausername"><a href="#aa">
+                                                                <%# Eval("UserName")%></a></span></div>
                                                         <div class="Aarrow">
                                                             <%# Eval("CreateDate")%></div>
                                                         <div class="Acontent b">
                                                             <a href="#a">
                                                                 <p>
                                                                     <%# Eval("Content")%></p>
-                                                                <% if (tmpisAdmin){ %>
-                                                                    <button value='DeleteSubComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">
-                                                                        Remove</button>
+                                                                <% if (tmpisAdmin)
+                                                                   { %>
+                                                                <button value='DeleteSubComment$<%# Eval("ID") %>' onclick="DeleteComment(this)">
+                                                                    Remove</button>
                                                                 <%} %>
                                                             </a>
                                                         </div>
@@ -400,7 +400,8 @@
                                             <li>
                                                 <div>
                                                     <div class="Ahead">
-                                                        <span class="Ausername"><a href="#aa"><%= Page.User.Identity.Name %></a></span></div>
+                                                        <span class="Ausername"><a href="#aa">
+                                                            <%= Page.User.Identity.Name %></a></span></div>
                                                     <div class="AQtext b block SubCommentSpace">
                                                         <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                                         <div id='Div3' class="bblr msinfo">
@@ -432,11 +433,12 @@
                                     </div>
                                 </LayoutTemplate>
                             </asp:ListView>
-                            <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetCommentStatistic">
-                                    <SelectParameters>
-                                        <asp:QueryStringParameter ConvertEmptyStringToNull="true" QueryStringField="ID" Name="ProductID" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                            <asp:SqlDataSource ID="dsPost" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                SelectCommandType="StoredProcedure" SelectCommand="GetCommentStatistic">
+                                <SelectParameters>
+                                    <asp:QueryStringParameter ConvertEmptyStringToNull="true" QueryStringField="ID" Name="ProductID" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <div class="clear">
@@ -448,188 +450,113 @@
         </div>
     </div>
     <div class="getCart">
-    <a class="modalclose" title="Close"></a>
-        <table style="width: 97%" cellpadding="2">
-            <tbody>
-                <tr>
-                    <td colspan="2">
-                        <div>
-                            Nhập thông tin người nhận hàng:</div>
-                        <div class="message" style="display: none">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 10px">
-                        Họ tên người nhận hàng
-                    </td>
-                    <td style="padding-top: 10px">
-                        <input type="text" class="text" id="txtname" name="txtname"">
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 10px">
-                        Số Lượng :
-                    </td>
-                    <td style="padding-top: 10px">
-                        <input type="text" class="text" id="soluong">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Thành phố/Tỉnh:
-                    </td>
-                    <td>
-                        <select id="idTinhThanhFull" name="idTinhThanhFull" class="selectbox">
-                            <option value="1-4" selected="true">TP Hồ Chí Minh</option>
-                            <option value="2-5">Hà Nội</option>
-                            <option value="5-2">An Giang</option>
-                            <option value="6-2">Bà Rịa Vũng Tàu</option>
-                            <option value="7-1">Bắc Cạn</option>
-                            <option value="8-1">Bắc Giang</option>
-                            <option value="10-2">Bạc Liêu</option>
-                            <option value="11-1">Bắc Ninh</option>
-                            <option value="12-2">Bến Tre</option>
-                            <option value="13-3">Bình Định</option>
-                            <option value="14-2">Bình Dương</option>
-                            <option value="15-2">Bình Phước</option>
-                            <option value="16-2">Bình Thuận</option>
-                            <option value="17-2">Cà Mau</option>
-                            <option value="3-1">Cần Thơ</option>
-                            <option value="18-1">Cao Bằng</option>
-                            <option value="4-1">Đà Nẵng</option>
-                            <option value="19-2">Dak Lak</option>
-                            <option value="20-2">Dak Nong</option>
-                            <option value="67-5">Điện Biên</option>
-                            <option value="9-2">Đồng Nai</option>
-                            <option value="22-2">Đồng Tháp</option>
-                            <option value="23-3">Gia Lai</option>
-                            <option value="25-1">Hà Giang</option>
-                            <option value="26-1">Hà Nam</option>
-                            <option value="27-1">Hà Tây</option>
-                            <option value="28-1">Hà Tĩnh</option>
-                            <option value="31-1">Hải Dương</option>
-                            <option value="32-1">Hải Phòng</option>
-                            <option value="33-2">Hậu Giang</option>
-                            <option value="24-1">Hoà Bình</option>
-                            <option value="29-1">Hòa Bình</option>
-                            <option value="30-1">Hưng Yên</option>
-                            <option value="34-3">Khánh Hòa</option>
-                            <option value="35-2">Kiên Giang</option>
-                            <option value="36-3">Kon Tum</option>
-                            <option value="37-1">Lai Châu</option>
-                            <option value="40-2">Lâm Đồng</option>
-                            <option value="41-1">Lạng Sơn</option>
-                            <option value="39-1">Lào Cai</option>
-                            <option value="38-2">Long An</option>
-                            <option value="42-1">Nam Định</option>
-                            <option value="43-1">Nghệ An</option>
-                            <option value="44-1">Ninh Bình </option>
-                            <option value="45-1">Ninh Thuận</option>
-                            <option value="46-1">Phú Thọ</option>
-                            <option value="47-3">Phú Yên</option>
-                            <option value="48-3">Quảng Bình</option>
-                            <option value="49-3">Quảng Nam</option>
-                            <option value="50-3">Quảng Ngãi</option>
-                            <option value="66-1">Quảng Ninh</option>
-                            <option value="51-3">Quảng Trị</option>
-                            <option value="52-2">Sóc Trăng</option>
-                            <option value="53-1">Sơn La</option>
-                            <option value="61-2">Tây Ninh</option>
-                            <option value="55-1">Thái Bình</option>
-                            <option value="56-1">Thái Nguyên</option>
-                            <option value="54-1">Thanh Hóa</option>
-                            <option value="57-3">Thừa Thiên-Huế</option>
-                            <option value="58-2">Tiền Giang</option>
-                            <option value="59-2">Trà Vinh</option>
-                            <option value="60-1">Tuyên Quang</option>
-                            <option value="63-2">Vĩnh Long</option>
-                            <option value="64-1">Vĩnh Phúc</option>
-                            <option value="65-1">Yên Bái</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Quận/Huyện:
-                    </td>
-                    <td>
-                        <div id="id">
-                            <select id="idQuanHuyen" name="idQuanHuyen" class="selectbox">
-                                <option value="undefined">Chọn Quận (Huyện)</option>
-                                <option value="1">Quận 1</option>
-                                <option value="2">Quận 2</option>
-                                <option value="3">Quận 3</option>
-                                <option value="4">Quận 4</option>
-                                <option value="5">Quận 5</option>
-                                <option value="6">Quận 6</option>
-                                <option value="7">Quận 7</option>
-                                <option value="8">Quận 8</option>
-                                <option value="9">Quận 9</option>
-                                <option value="10">Quận 10</option>
-                                <option value="11">Quận 11</option>
-                                <option value="12">Quận 12</option>
-                                <option value="13">Quận Phú Nhuận</option>
-                                <option value="14">Quận Bình Thạnh</option>
-                                <option value="15">Quận Gò Vấp</option>
-                                <option value="16">Quận Tân Bình</option>
-                                <option value="17">Quận Bình Tân</option>
-                                <option value="18">Quận Thủ Đức</option>
-                                <option value="19">Quận Tân Phú</option>
-                                <option value="20">Huyện Nhà Bè</option>
-                                <option value="21">Huyện Hóc Môn</option>
-                                <option value="22">Huyện Củ Chi</option>
-                                <option value="23">Huyên Cần Giờ</option>
-                                <option value="24">Huyện Bình Chánh</option>
-                            </select>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Địa chỉ :
-                    </td>
-                    <td>
-                        <input type="text" class="text" id="txtaddress" name="txtaddress">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Số điện thoại:
-                    </td>
-                    <td>
-                        <input type="text" class="text" id="txttelefone" name="txttelefone">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Email (nếu có):
-                    </td>
-                    <td>
-                        <input type="text" class="text" id="txtemail" name="txtemail">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Ghi chú
-                    </td>
-                    <td>
-                        <textarea id="txtnote" class="text" name="txtnote" rows="4"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <button>tiếp theo</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td style="height: 10px;" colspan="2">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <a class="modalclose" title="Close"></a>
+        <asp:UpdatePanel ID="updatePurchaseForm" runat="server" UpdateMode="Conditional">
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="idTinhThanhFull" EventName="SelectedIndexChanged" />
+            </Triggers>
+            <ContentTemplate>
+                <table style="width: 97%" cellpadding="2">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <div>
+                                    Nhập thông tin người nhận hàng:</div>
+                                <div class="message" style="display: none">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px">
+                                Họ tên người nhận hàng
+                            </td>
+                            <td style="padding-top: 10px">
+                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                <%--<input type="text" class="text" id="txtname" name="txtname" />--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px">
+                                Số Lượng :
+                            </td>
+                            <td style="padding-top: 10px">
+                                <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
+                                <%--<input type="text" class="text" id="soluong" />--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Thành phố/Tỉnh:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="idTinhThanhFull" runat="server" CssClass="selectbox" OnSelectedIndexChanged="idTinhThanhFull_SelectedIndexChanged"
+                                    AutoPostBack="true">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Quận/Huyện:
+                            </td>
+                            <td>
+                                <div id="id">
+                                    <asp:DropDownList ID="idQuanHuyen" runat="server" CssClass="selectbox">
+                                    </asp:DropDownList>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Địa chỉ :
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                                <%--<input type="text" class="text" id="txtaddress" name="txtaddress">--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Số điện thoại:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                                <%--<input type="text" class="text" id="txttelefone" name="txttelefone">--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email (nếu có):
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                <%--<input type="text" class="text" id="txtemail" name="txtemail">--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ghi chú
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtNote" TextMode="MultiLine" Rows="4" runat="server"></asp:TextBox>
+                                <%--<textarea id="txtnote" class="text" name="txtnote" rows="4"></textarea>--%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <%--<asp:Button ID="btnOK" runat="server" Text="Tiếp Theo" />--%>
+                                <button runat="server" id="btnContiue" onserverclick="btnContiue_Click" onclick="">Tiếp theo</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td style="height: 10px;" colspan="2">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     <script type="text/javascript">
 
