@@ -25,6 +25,17 @@
     <script src="/themes/script/dropbox.js" type="text/javascript"></script>
     <script src="/themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
     <script src="/themes/script/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("div#viewnote li.orderItem").mousedown(function () {
+                var orderItemID = $(this).attr("id");
+                if (!orderItemID == false) {
+                    __doPostBack('<%= updateOrderInfo.ClientID %>', orderItemID);
+                    return false;
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -226,114 +237,80 @@
                         ref="0">...</a>
             </div>
             <ul>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
+                <asp:Repeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
+                    <ItemTemplate>
+                        <li class="orderItem" id='<%# Eval("ID") %>'>
+                            <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
+                                <p class="ntitle">
+                                    <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
+                                        class="time"><%# Eval("CreateDate") %></span></p>
+                                <span class="nsender"><a href="#viewuser">Sender:
+                                    <%# Eval("email") %></a></span></div>
+                        </li>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:SqlDataSource ID="dsNewOrders" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                    SelectCommand="GetNewOrders" SelectCommandType="StoredProcedure">
+                    <SelectParameters>
+                        <asp:SessionParameter ConvertEmptyStringToNull="true" Name="UserID" SessionField="ID" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 <div class="clear">
                 </div>
             </ul>
         </div>
-        <div id="vletter" class="vletter">
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            <span>Email: </span>
-                            <input disabled="disabled" id="VUEmail" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>Product: </span>
-                            <input disabled="disabled" id="Text1" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Product ID </span>
-                            <input id="VUCU" type="text" />
-                        </td>
-                        <td>
-                            <span>Quantity: </span>
-                            <input id="VUClass" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>More Detail:</span>
-                            <textarea disabled="disabled" id="VUWishlist"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="2">
-                            <div>
-                                <button>
-                                    CLOSE</button></div>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+        <asp:UpdatePanel ID="updateOrderInfo" runat="server" OnLoad="updateOrderInfo_Load" UpdateMode="Conditional">
+            <ContentTemplate>
+                <div id="vletter" class="vletter">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <span>Email: </span>
+                                    <input disabled="disabled" id="VUEmail" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span>Product: </span>
+                                    <input disabled="disabled" id="txtProductTitle" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Product ID </span>
+                                    <input id="VUCU" type="text" runat="server" />
+                                </td>
+                                <td>
+                                    <span>Quantity: </span>
+                                    <input id="VUClass" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span>More Detail:</span>
+                                    <textarea disabled="disabled" id="VUWishlist" runat="server"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">
+                                    <div>
+                                        <button>
+                                            CLOSE</button></div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     <div id="fcart" class="fcart">
+        <a class="modalclose" title="Close"></a>
         <asp:UpdatePanel ID="updateCart" runat="server">
             <ContentTemplate>
-                <a class="modalclose" title="Close"></a>
                 <table cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
@@ -419,7 +396,8 @@
                         </tr>
                         <tr>
                             <th colspan="7">
-                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click">verify</button>
+                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click">
+                                    verify</button>
                             </th>
                         </tr>
                     </tfoot>

@@ -14,7 +14,7 @@ using System.Text;
 namespace FullMart
 {
     public partial class ThreeColumns : System.Web.UI.MasterPage
-    {        
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -51,7 +51,7 @@ namespace FullMart
         {
             DataTable us = UserManagement.Login(password, username);
             if (us != null && us.Rows.Count > 0)
-            {   
+            {
                 Session["ID"] = us.Rows[0]["ID"].ToString();
                 Session["roleID"] = Convert.ToInt32(us.Rows[0]["roleID"]);
                 return true;
@@ -61,7 +61,7 @@ namespace FullMart
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();            
+            FormsAuthentication.SignOut();
             Session.Abandon();
             Response.Redirect("~/", false);
         }
@@ -87,6 +87,40 @@ namespace FullMart
             idCollection = idCollection.Substring(0, idCollection.Length - 1) + ")";
 
             ProductManagement.SubmitOrder(idCollection);
+        }
+
+        protected void updateOrderInfo_Load(object sender, EventArgs e)
+        {
+            string orderID = Request.Params.Get("__EVENTARGUMENT");
+
+            if (string.IsNullOrEmpty(orderID) == false)
+            {
+                try
+                {
+                    DataTable orderInfo = ProductManagement.GetOrderInfo(Convert.ToInt32(orderID));
+
+                    if (orderInfo != null && orderInfo.Rows.Count > 0)
+                    {
+                        VUEmail.Value = orderInfo.Rows[0]["RecipientsEmail"].ToString();
+                        txtProductTitle.Value = orderInfo.Rows[0]["Title"].ToString();
+                        VUCU.Value = orderInfo.Rows[0]["ProductID"].ToString();
+                        VUClass.Value = orderInfo.Rows[0]["Amount"].ToString();
+                        VUWishlist.Value = orderInfo.Rows[0]["MoreDetail"].ToString();
+                    }
+                    else
+                    {
+                        VUEmail.Value = string.Empty;
+                        txtProductTitle.Value = string.Empty;
+                        VUCU.Value = string.Empty;
+                        VUClass.Value = string.Empty;
+                        VUWishlist.Value = string.Empty;
+                    }
+                    updateOrderInfo.Update();
+                }
+                catch (Exception ex)
+                {
+                }
+            }
         }
     }
 }
