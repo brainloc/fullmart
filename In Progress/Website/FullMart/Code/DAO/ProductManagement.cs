@@ -481,5 +481,35 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetOrderInfo(int orderID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetOrderInfo", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@OrderID", orderID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable orderInfo = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(orderInfo);
+
+                    if (orderInfo != null && orderInfo.Rows.Count > 0)
+                    {
+                        return orderInfo;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
