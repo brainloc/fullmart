@@ -223,43 +223,47 @@
         <div id="footer" class="footer block">
             <asp:Label ID="ffooter" runat="server" Text="Label"></asp:Label></div>
     </div>
-    <div id="viewnote" class="btlr viewnote">
+    <div id="viewnote" class="btlr viewnote ndialog">
         <a class="modalclose" title="Close"></a>
-        <div class="vlistletter">
-            <p class="hnote btlr">
-                <span class="left">Title new / sender</span> <span class="right">Time</span>
-                <div class="clear">
+        <asp:UpdatePanel ID="updateListLetter" runat="server">
+            <ContentTemplate>
+                <div class="vlistletter">
+                    <p class="hnote btlr">
+                        <span class="left">Title new / sender</span> <span class="right">Time</span>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <div class="Apages">
+                        <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
+                            ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
+                                ref="0">...</a>
+                    </div>
+                    <ul>
+                        <asp:Repeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
+                            <ItemTemplate>
+                                <li class="orderItem" id='<%# Eval("ID") %>'>
+                                    <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
+                                        <p class="ntitle">
+                                            <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
+                                                class="time"><%# Eval("CreateDate") %></span></p>
+                                        <span class="nsender"><a href="#viewuser">Sender:
+                                            <%# Eval("email") %></a></span></div>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <asp:SqlDataSource ID="dsNewOrders" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                            SelectCommand="GetNewOrders" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:SessionParameter ConvertEmptyStringToNull="true" Name="UserID" SessionField="ID" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <div class="clear">
+                        </div>
+                    </ul>
                 </div>
-            </p>
-            <div class="Apages">
-                <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                    ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                        ref="0">...</a>
-            </div>
-            <ul>
-                <asp:Repeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
-                    <ItemTemplate>
-                        <li class="orderItem" id='<%# Eval("ID") %>'>
-                            <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
-                                <p class="ntitle">
-                                    <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
-                                        class="time"><%# Eval("CreateDate") %></span></p>
-                                <span class="nsender"><a href="#viewuser">Sender:
-                                    <%# Eval("email") %></a></span></div>
-                        </li>
-                    </ItemTemplate>
-                </asp:Repeater>
-                <asp:SqlDataSource ID="dsNewOrders" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                    SelectCommand="GetNewOrders" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                        <asp:SessionParameter ConvertEmptyStringToNull="true" Name="UserID" SessionField="ID" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-                <div class="clear">
-                </div>
-            </ul>
-        </div>
-        <asp:UpdatePanel ID="updateOrderInfo" runat="server" OnLoad="updateOrderInfo_Load" UpdateMode="Conditional">
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel ID="updateOrderInfo" runat="server" OnLoad="updateOrderInfo_Load">
             <ContentTemplate>
                 <div id="vletter" class="vletter">
                     <table>
@@ -307,7 +311,7 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <div id="fcart" class="fcart">
+    <div id="fcart" class="fcart ndialog">
         <a class="modalclose" title="Close"></a>
         <asp:UpdatePanel ID="updateCart" runat="server">
             <ContentTemplate>

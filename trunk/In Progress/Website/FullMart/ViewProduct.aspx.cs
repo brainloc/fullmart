@@ -286,6 +286,8 @@ namespace FullMart
                     string recipientEmail = txtEmail.Text.Trim();
 
                     AddPurchaseBooking(productID, amount, buyerID, moreDetail, recipientName, recipientPhone, recipientAddress, recipientEmail);
+                    UpdatePanel updateCart = (UpdatePanel)(Master.FindControl("updateCart"));
+                    updateCart.DataBind();
                 }
                 catch (Exception ex)
                 {

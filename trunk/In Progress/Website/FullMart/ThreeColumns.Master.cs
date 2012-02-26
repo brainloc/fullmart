@@ -87,6 +87,7 @@ namespace FullMart
             idCollection = idCollection.Substring(0, idCollection.Length - 1) + ")";
 
             ProductManagement.SubmitOrder(idCollection);
+            updateListLetter.DataBind();
         }
 
         protected void updateOrderInfo_Load(object sender, EventArgs e)
