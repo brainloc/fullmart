@@ -111,15 +111,20 @@ $(document).ready(function () {
     $("a.modalclose").click(function () {
         $(this).parent().fadeOut();
         $("#waitloader").hide();
+        return false;
     });
-//    $("#unote").click(function () {
-//        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
-//        $(".delms").click(function () {
-//            $(this).parents("tr").hide();
-//            return false;
-//        });
-//        return false;
-//    });    
+    $(".ndialog").delegate("button", "click", function () {
+        $(".ndialog").fadeOut();
+        $("#waitloader").hide();
+    });
+    //    $("#unote").click(function () {
+    //        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
+    //        $(".delms").click(function () {
+    //            $(this).parents("tr").hide();
+    //            return false;
+    //        });
+    //        return false;
+    //    });    
     $("#sbsearch").click(function () {
         search();
         return false;
@@ -217,11 +222,11 @@ $(document).ready(function () {
         }
     });
     // pages
-//    $(".Apages a").click(function () {
-//        $(this).parent().find(".active").removeClass("active");
-//        $(this).addClass("active");
-//        return false;
-//    });
+    //    $(".Apages a").click(function () {
+    //        $(this).parent().find(".active").removeClass("active");
+    //        $(this).addClass("active");
+    //        return false;
+    //    });
     //tabs
     $("#tabs li").click(function () {
         var des = $(this).find("a").attr("href");

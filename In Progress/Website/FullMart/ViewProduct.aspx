@@ -449,7 +449,7 @@
             </div>
         </div>
     </div>
-    <div class="getCart">
+    <div class="getCart ndialog">
         <a class="modalclose" title="Close"></a>
         <asp:UpdatePanel ID="updatePurchaseForm" runat="server" UpdateMode="Conditional">
             <Triggers>
