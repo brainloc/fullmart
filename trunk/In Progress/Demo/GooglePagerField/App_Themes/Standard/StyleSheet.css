@@ -1,0 +1,20 @@
+﻿.googleNavegationBar
+{
+    color: black; background-color:#E6E6E6; font-family:Arial; font-style:normal; font-size:13px;  BORDER-LEFT: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid; padding: 0px 10px 0px 10px;
+}
+.tableInfo
+{
+	BORDER-LEFT: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid;
+}
+.tableInfo TH
+{
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; FONT-FAMILY: Tahoma, Arial, Helvetica; 
+}
+.tableInfo TD
+{
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; FONT-FAMILY: Tahoma, Arial, Helvetica;
+}
+.tableInfo TH
+{
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: #eeeeee; COLOR: #666666; 
+}
