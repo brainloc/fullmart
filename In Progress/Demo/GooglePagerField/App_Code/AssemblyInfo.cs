@@ -1,0 +1,1 @@
+﻿//[assembly: SqlNetFramework.Configuration.ApplicationSettings(SqlNetFramework.Configuration.ApplicationType.Web)]

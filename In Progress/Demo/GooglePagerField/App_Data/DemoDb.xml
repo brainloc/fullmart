@@ -1,0 +1,9 @@
+<XmlSqlDataStore xmlns="http://tempuri.org/XmlSqlDataStore.xsd">
+  <SqlStatement>
+    <SqlStatementId>0</SqlStatementId>
+    <SqlStatementName>All soccer players</SqlStatementName>
+    <CommandText><![CDATA[SELECT * FROM SoccerPlayer]]></CommandText>
+    <SqlStatementType>Text</SqlStatementType>
+    <LastModification>2008-02-28T00:00:00-06:00</LastModification>
+  </SqlStatement>
+</XmlSqlDataStore>
