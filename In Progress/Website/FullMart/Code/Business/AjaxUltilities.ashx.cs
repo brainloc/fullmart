@@ -148,22 +148,6 @@ namespace FullMart.Code.Business
                     }
                     break; 
                 }
-                case "CreateShop": 
-                    {
-                        context.Response.ContentType = "text/plain";
-                        var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;
-                        var sfname = context.Request.Form["sfname"] != null ? context.Request.Form["sfname"].Trim().Replace("'", "''") : string.Empty;
-                        var slname = context.Request.Form["slname"] != null ? context.Request.Form["slname"].Trim().Replace("'", "''") : string.Empty;
-                        var spass = context.Request.Form["spass"] != null ? context.Request.Form["spass"].ToString() : string.Empty;
-                        var semail = context.Request.Form["semail"] != null ? context.Request.Form["semail"].Trim().Replace("'", "''") : string.Empty;
-                        var sweb = context.Request.Form["sweb"] != null ? context.Request.Form["sweb"].Trim().Replace("'", "''") : string.Empty;
-                        var fregsstate = context.Request.Form["fregsstate"] != null ? context.Request.Form["fregsstate"].Trim().Replace("'", "''") : string.Empty;
-                        int? roleID = 2;
-
-                        //UserManagement.CreateUser(fname,lname,ema,pas,DateTime.Parse(bday),state,CU,cls,roleID);
-                        UserManagement.CreateShop(shopname, sfname, slname, spass, semail, sweb, fregsstate,roleID);
-                    break;
-                }
                 case "Login":
                     {
                         context.Response.ContentType = "text/plain";

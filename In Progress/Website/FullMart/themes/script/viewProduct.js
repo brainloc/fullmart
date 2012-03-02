@@ -13,4 +13,8 @@
         $("div.getCart").fadeOut();
         $("#waitloader").hide();
     });
+    $(".listimg img").hover(function () {
+        $("#imgpreM").attr("src", $(this).attr("src"));
+    });
+    //$(".price").text(mashmoney($.trim($(".price").text())));
 });

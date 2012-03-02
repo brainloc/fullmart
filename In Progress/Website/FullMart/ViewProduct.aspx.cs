@@ -12,9 +12,11 @@ namespace FullMart
 {
     public partial class ViewProduct : System.Web.UI.Page
     {
-        public static string tmprole = "";
-        public static bool tmpisAdmin = false;
-        public static int usID = 0;
+        public string tmprole = "";
+        public bool tmpisAdmin = false;
+        public int usID = 0;
+        public string shopID = "-1";
+        public string shopchecked = "Checking";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.IsPostBack == false)
@@ -35,6 +37,39 @@ namespace FullMart
                         if (productDetail != null && productDetail.Rows.Count > 0)
                         {
                             rpProductDetail.DataSource = productDetail;
+                            shopID = productDetail.Rows[0]["ShopID"].ToString();
+                            if (shopID != "-1")
+                            {
+                                if (bool.Parse(productDetail.Rows[0]["ShopActive"].ToString()))
+                                {
+                                    if (bool.Parse(productDetail.Rows[0]["ShopChecked"].ToString()))
+                                    {
+                                        shopchecked = "Checked";
+                                    }
+                                }
+                                else
+                                {
+                                    shopchecked = "Closed";
+                                }
+                            }
+                            else {
+                                productDetail.Columns.Add("ShopAddress");
+                                productDetail.Rows[0]["ShopAddress"] = "";
+                                productDetail.Columns.Add("ShopYahoo");
+                                productDetail.Rows[0]["ShopYahoo"] = "";
+                                productDetail.Columns.Add("ShopCreatedDate");
+                                productDetail.Rows[0]["ShopCreatedDate"] = "";
+                                productDetail.Columns.Add("ShopPhone");
+                                productDetail.Rows[0]["ShopPhone"] = "";
+                                productDetail.Columns.Add("ShopName");
+                                productDetail.Rows[0]["ShopName"] = "";
+                                productDetail.Columns.Add("ShopActive");
+                                productDetail.Rows[0]["ShopActive"] = "";
+                                productDetail.Columns.Add("ShopChecked");
+                                productDetail.Rows[0]["ShopChecked"] = "";
+                                productDetail.Columns.Add("Shoprate");
+                                productDetail.Rows[0]["Shoprate"] = "";
+                            }
                             rpProductDetail.DataBind();
                             string subCatID = productDetail.Rows[0]["SubCategoryID"].ToString();
                             if (String.IsNullOrEmpty(subCatID) == false)
@@ -54,6 +89,9 @@ namespace FullMart
                             ListView3.DataSource = productsByPoster;
                             ListView3.DataBind();
 
+                        }
+                        else {
+                            Response.Redirect("~/", false);
                         }
                     }
                     catch (Exception ex)

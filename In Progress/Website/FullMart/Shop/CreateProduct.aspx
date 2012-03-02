@@ -5,23 +5,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-        function CreateProduct() {
-            $.ajax({
-                url: "Code/Business/AjaxUltilities.ashx?",
-                type: "POST",
-                dataType: "script",
-                data: {
-                    action: "CreateProduct",
-                    SubCategoryID: $("#shopname").val(),
-                    Price: $("#semail").val(),
-                    sfname: $("#sfname").val(),
-                    slname: $("#slname").val(),
-                    spass: $("#spass").val(),
-                    sweb: $("#sweb").val(),
-                    fregsstate: $("#fregsstate").val()
-                }
-            });
-        }
+//        function CreateProduct() {
+//            $.ajax({
+//                url: "Code/Business/AjaxUltilities.ashx?",
+//                type: "POST",
+//                dataType: "script",
+//                data: {
+//                    action: "CreateProduct",
+//                    SubCategoryID: $("#shopname").val(),
+//                    Price: $("#semail").val(),
+//                    sfname: $("#sfname").val(),
+//                    slname: $("#slname").val(),
+//                    spass: $("#spass").val(),
+//                    sweb: $("#sweb").val(),
+//                    fregsstate: $("#fregsstate").val()
+//                }
+//            });
+//        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
@@ -75,11 +75,20 @@
             <tr>
                 <td>
                     Hình sản phẩm :<br />
-                    <span class="note">size: 150x150px</span>Browse Server</button>
+                    <span class="note">size: 250x250px</span></button>
                 </td>
                 <td>
                     <%--<asp:TextBox ID="imageProduct" Enabled="false" CssClass="imageProduct" runat="server"></asp:TextBox>--%>
-                    <input id="imgUploader" type="file" runat="server" /> <asp:Image ID="imgthumbN" CssClass="imgthumbN" ToolTip="images Thumb preview" runat="server" />
+                     <asp:Image ID="imgthumbN" CssClass="imgthumbN" runat="server" />
+                    <input id="imgUploader" type="file" runat="server" /><img id="imgplus" src="/themes/images/plus.png" /><br class="clear block" />
+                    <asp:TextBox ID="txtimg1" CssClass="imgmpreview" ToolTip="Another product's image" Text="Another product's image" runat="server"></asp:TextBox><br style="display:none" />
+                    <asp:TextBox ID="txtimg2" CssClass="imgmpreview" ToolTip="Another product's image" Text="Another product's image" runat="server"></asp:TextBox><br style="display:none" />
+                    <asp:TextBox ID="txtimg3" CssClass="imgmpreview" ToolTip="Another product's image" Text="Another product's image" runat="server"></asp:TextBox>
+
+                    <%--<input id="imgUploader1" type="file" runat="server" /><br />
+                    <input id="imgUploader2" type="file" runat="server" /><br />
+                    <input id="imgUploader3" type="file" runat="server" />--%>
+                   
                     <%--<asp:FileUpload ID="imgUploader" runat="server" />--%>
                 </td>
             </tr>
@@ -89,7 +98,7 @@
                 </td>
                 <td>
                     <%--<input type="text" id="tbPrice" />--%>
-                    <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPrice" CssClass="tprice" runat="server"></asp:TextBox>
                     VNĐ
                 </td>
             </tr>

@@ -5,6 +5,7 @@
     <link href="themes/style/QAA.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
     <script src="/themes/script/viewProduct.js" type="text/javascript"></script>
+    <%--<script src="/themes/script/cloud-zoom.1.0.2.min.js" type="text/javascript"></script>--%>
     <script src="themes/script/QAA.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddSubComment(AQObj) {
@@ -38,6 +39,7 @@
 
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -144,12 +146,33 @@
     <div class="viewproduct b bgwt block">
         <asp:Repeater ID="rpProductDetail" runat="server">
             <ItemTemplate>
-                <div class="headproduct block">
-                    <p class="titlep btlr block">
-                        <%# Eval("Title")%></p>
-                    <div class="imagepreview center left">
-                        <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>'
-                            alt='<%# Eval("Title") %>' ref="<%# tmprole = Eval("roleID").ToString()%>" /></div>
+                <div class="headproduct block clear">
+                    <p class="titlep btlr block"><%# Eval("Title")%></p>
+                    <%--<a href='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>' class='cloud-zoom' id='zoom1' rel="adjustX: 10, adjustY:-4">
+                        <img src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>" alt='' title="Optional title display" />
+                    </a>--%>
+                    <div class="imagepreview b center left">
+                        <img id="imgpreM" src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>'
+                            alt='<%# Eval("Title") %>' ref="<%# tmprole = Eval("roleID").ToString()%>" />
+                       <% if (tmprole != "3")
+                          { %>
+                        <div class="listimg">
+                               <%--<a href='http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14235.jpg' class='cloud-zoom-gallery' title='Thumbnail 1'
+                                rel="useZoom: 'zoom1', smallImage: 'http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14235.jpg' ">
+                                <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14235.jpg" alt="Thumbnail 1" /></a>
+                                <a href='http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14232.jpg' class='cloud-zoom-gallery' title='Thumbnail 1'
+                                rel="useZoom: 'zoom1', smallImage: 'http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14232.jpg' ">
+                                <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14232.jpg" alt="Thumbnail 2" /></a>
+                                <a href='http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg' class='cloud-zoom-gallery' title='Thumbnail 1'
+                                rel="useZoom: 'zoom1', smallImage: 'http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg' ">
+                                <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg" alt="Thumbnail 3" /></a>--%>
+                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14235.jpg"/>
+                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14232.jpg"/>
+                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg" />
+                        </div>
+                        <%} %>
+                        <div class="clear"></div>
+                    </div>
                     <div class="Posterinfo bgwt left">
                         <% if (tmprole != "3")
                            { %>
@@ -172,22 +195,93 @@
                                     <li><a href='mailto:<%# Eval("email") %>'>
                                         <img src="/themes/images/email-Icon.png" alt="Email" /></a></li>
                                     <li><a href='ymsgr:sendIM?<%# Eval("yahoo") %>'>
-                                        <img src='http://opi.yahoo.com/online?u=vunam289&amp;m=g&amp;t=1' alt="Chat trực tiếp"
+                                        <img src="/themes/images/icon-chat.jpg" alt="Chat trực tiếp"
                                             title="Chat trực tiếp" /></a></li>
                                     <li>
-                                        <img src="/themes/images/Phone-Icon.png" />
-                                        :
-                                        <%# Eval("mobile") %></li>
+                                        <img alt="Phone" src="/themes/images/Phone-Icon.png" /> : <%# Eval("mobile") %></li>
                                 </ul>
                             </li>
                         </ul>
+                        
+                        <div class="clear block"></div>
                     </div>
-                    <div class="clear">
+                    <% if (tmprole != "3"&& shopID!="-1")
+                       { %>
+                    <div class="Shopdetail clear">
+                    <div class="summary-info right">
+                        <div class="summary-info-box clearfix">
+                        <h3 class="name-shop"><a href="#" title="<%# Eval("ShopName") %>"><%# Eval("ShopName") %></a>  </h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    Status
+                                </td>
+                                <td>
+                                    <%=shopchecked %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Created Date
+                                </td>
+                                <td>
+                                    <%# Eval("ShopCreatedDate")%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Address
+                                </td>
+                                <td>
+                                    <%# Eval("ShopAddress")%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Phone
+                                </td>
+                                <td>
+                                    <%# Eval("ShopPhone")%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/themes/images/icon-chat.jpg" />Yahoo !ID :
+                                </td>
+                                <td>
+                                    <%# Eval("ShopYahoo")%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Rate
+                                </td>
+                                <td>
+                                <span class="rate"><%# Eval("Shoprate")%></span>
+                                </td>
+                            </tr>
+                        </table>
+                        </div></div>
                     </div>
+                    <% } %>
+                    <div class="clear block">
+                            <!-- AddThis Button BEGIN -->
+                                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                                    <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
+                                    </a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4">
+                                    </a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style">
+                                    </a>
+                                </div>
+                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f4f9c9f470f6fdf"></script>
+                                <!-- AddThis Button END -->
+                        </div>
                 </div>
+                <script type="text/javascript">
+                    
+                </script>
+                <div class="clear block"></div>
                 <div class="contentproduct block">
-                    <p class="titlep btlr block">
-                        Product info</p>
+                    <p class="titlep btlr block">Product info</p>
                     <div class="contentp">
                         <p>
                             &nbsp;</p>
@@ -572,22 +666,6 @@
         <div class="listitem">
             <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew"
                 EnableModelValidation="True">
-                <AlternatingItemTemplate>
-                    <li>
-                        <div class="item">
-                            <div class="left">
-                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                    <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
-                            <p>
-                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                    <%# Eval("Title") %></a> <span>
-                                        <%# correctshortCT(Eval("ShortContent"),200) %></span>
-                            </p>
-                        </div>
-                        <div class="clear">
-                        </div>
-                    </li>
-                </AlternatingItemTemplate>
                 <EmptyDataTemplate>
                 </EmptyDataTemplate>
                 <ItemTemplate>
@@ -624,21 +702,6 @@
                         <a href="/listnew.aspx" ref="0">All</a>
                     </div>
                 </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <li style="">Title:
-                        <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                        <br />
-                        ID:
-                        <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                        <br />
-                        ShortContent:
-                        <asp:Label ID="ShortContentLabel" runat="server" Text='<%# Eval("ShortContent") %>' />
-                        <br />
-                        ImageThumb:
-                        <asp:Label ID="ImageThumbLabel" runat="server" Text='<%# Eval("ImageThumb") %>' />
-                        <br />
-                    </li>
-                </SelectedItemTemplate>
             </asp:ListView>
             <div class="clear">
             </div>

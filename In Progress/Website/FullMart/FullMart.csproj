@@ -899,6 +899,7 @@
     <Content Include="PostAdv.aspx" />
     <Content Include="QA.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="ShopC.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -945,10 +946,12 @@
     <Content Include="themes\images\delete.png" />
     <Content Include="themes\images\desc.gif" />
     <Content Include="themes\images\email-Icon.png" />
+    <Content Include="themes\images\favs.png" />
     <Content Include="themes\images\first.png" />
     <Content Include="themes\images\goc-phai.png" />
     <Content Include="themes\images\hotnews.png" />
     <Content Include="themes\images\ico.png" />
+    <Content Include="themes\images\icon-chat.jpg" />
     <Content Include="themes\images\IDblue.png" />
     <Content Include="themes\images\input\input_left-focus.gif" />
     <Content Include="themes\images\input\input_left-hover.gif" />
@@ -970,6 +973,7 @@
     <Content Include="themes\images\newsblue.png" />
     <Content Include="themes\images\next.png" />
     <Content Include="themes\images\Phone-Icon.png" />
+    <Content Include="themes\images\plus.png" />
     <Content Include="themes\images\postAD.png" />
     <Content Include="themes\images\pre.png" />
     <Content Include="themes\images\product-bottom.png" />
@@ -1059,6 +1063,7 @@
     <Content Include="themes\images\Window.png" />
     <Content Include="themes\images\x.png" />
     <Content Include="themes\script\admin.js" />
+    <Content Include="themes\script\cloud-zoom.1.0.2.min.js" />
     <Content Include="themes\script\dropbox.js" />
     <Content Include="themes\script\jquery-1.4.1.min.js" />
     <Content Include="themes\script\jquery-1.7.js" />
@@ -1096,6 +1101,7 @@
     <Content Include="themes\style\PIE.htc" />
     <Content Include="themes\style\QAA.css" />
     <Content Include="themes\style\register.css" />
+    <Content Include="themes\style\RShop.css" />
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\UpProduct.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
@@ -1285,6 +1291,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopC.aspx.cs">
+      <DependentUpon>ShopC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopC.aspx.designer.cs">
+      <DependentUpon>ShopC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1473,7 +1486,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1318</DevelopmentServerPort>
+          <DevelopmentServerPort>24853</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

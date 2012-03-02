@@ -43,7 +43,6 @@ namespace FullMart.Code.DAO
                     int isUserCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
                     if (isUserCreated == 1) {
                         Roles.AddUserToRole(us.username, us.rID.ToString());
-                        Roles.AddUserToRole(us.email, us.rID.ToString());
                         return true;
                     }
                     return false;
@@ -54,7 +53,7 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool CreateShop(string shopname,string sfname,string slname,string spass,string semail,string sweb,string fregsstate,int? roleID)
+        public static bool CreateShop(string shopname,string userName,string Adress,string Phone,string Yahoo)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -62,20 +61,26 @@ namespace FullMart.Code.DAO
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add(new SqlParameter("@Shopname", shopname));
-                command.Parameters.Add(new SqlParameter("@Fname", sfname));
-                command.Parameters.Add(new SqlParameter("@Lname", slname));
-                command.Parameters.Add(new SqlParameter("@Pass", spass));
-                command.Parameters.Add(new SqlParameter("@Email", semail));
-                command.Parameters.Add(new SqlParameter("@Web", sweb));
-                command.Parameters.Add(new SqlParameter("@state", fregsstate));
-                command.Parameters.Add(new SqlParameter("@roleID", roleID));
+                command.Parameters.Add(new SqlParameter("@username", userName));
+                command.Parameters.Add(new SqlParameter("@Adress", Adress));
+                command.Parameters.Add(new SqlParameter("@phone", Phone));
+                command.Parameters.Add(new SqlParameter("@chat", Yahoo));
+                SqlParameter Created = new SqlParameter("@isCreated", DbType.Int32);
+                Created.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(Created);
                 try
                 {
                     connection.Open();
                     int tp = command.ExecuteNonQuery();
-                    //int isCreated = Convert.ToInt32(command.Parameters[0].ToString());
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
                     connection.Close();
-                    return tp == 1;
+                    if (isCreated == 1)
+                    {
+                        Roles.RemoveUserFromRole(userName, "3");
+                        Roles.AddUserToRole(userName, "2");
+                        return true;
+                    }
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -234,6 +239,36 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+        public static DataTable GetShopInfor(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetShopInfor", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+        
         public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
         {
             using (SqlConnection connection = GetConnection())
@@ -277,6 +312,36 @@ namespace FullMart.Code.DAO
                         return true;
                     }
                     return false;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static bool UpdateShopbyUser(string shopname, string userName, string Adress, string Phone, string Yahoo)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateShopbyUser", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Shopname", shopname));
+                command.Parameters.Add(new SqlParameter("@username", userName));
+                command.Parameters.Add(new SqlParameter("@Adress", Adress));
+                command.Parameters.Add(new SqlParameter("@phone", Phone));
+                command.Parameters.Add(new SqlParameter("@chat", Yahoo));
+                SqlParameter Created = new SqlParameter("@isCreated", DbType.Int32);
+                Created.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(Created);
+                try
+                {
+                    connection.Open();
+                    int tp = command.ExecuteNonQuery();
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    connection.Close();
+                    return isCreated == 1;
                 }
                 catch (Exception ex)
                 {
@@ -338,6 +403,37 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static DataTable GetUserInforbyID(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetUserInforbyID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+        
         public static bool isAdminbyNoM(string NoM) {
             DataTable tmpAdmin= GetUserRole(NoM);
             if (tmpAdmin != null && tmpAdmin.Rows.Count > 0) {

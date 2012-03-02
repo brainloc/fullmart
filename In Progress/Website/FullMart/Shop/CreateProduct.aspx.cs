@@ -71,8 +71,8 @@ namespace FullMart.Shop
                         BindCategories();
                     }
                 }
-                else { 
-                    
+                else {
+                    Response.Redirect("~/login.aspx?ReturnUrl=%2fShop%2fCreateProduct.aspx", false);
                 }
             }
         }
@@ -106,16 +106,32 @@ namespace FullMart.Shop
                     string title = txtTitle.Text.Trim();
                     int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
                     int posterID = 1;
-                    int price = Convert.ToInt32(txtPrice.Text);
+                    string price = txtPrice.Text.Replace(",","");
                     string content = HttpUtility.HtmlDecode(CKENet.Text);
+                    string image1 = string.Empty;
+                    string image2 = string.Empty;
+                    string image3 = string.Empty;
+                    if (txtimg1.Text.Trim() != "" && txtimg1.Text.Trim() != "Another product's image") {
+                        image1 = txtimg1.Text;
+                    }
+                    if (txtimg2.Text.Trim() != "" && txtimg2.Text.Trim() != "Another product's image")
+                    {
+                        image2 = txtimg2.Text;
+                    }
+                    if (txtimg3.Text.Trim() != "" && txtimg3.Text.Trim() != "Another product's image")
+                    {
+                        image3 = txtimg3.Text;
+                    }
                     string imgURL = string.Empty;
                     if (imgUploader.PostedFile.FileName != string.Empty)
                     {
-                        txtmessage.Text = "Please select image product!";
                         imgURL = FilesUltilities.UploadImages(imgUploader.PostedFile.FileName, imgUploader, 70, 70, Request.PhysicalApplicationPath + "\\media\\upload\\");
                     }
-                        //string imgURL = imageProduct.Text;
-                        ProductBusiness.UpdateProduct(int.Parse(ID), title, subCatID, posterID, price, content, imgURL, state);
+                    else { 
+                        imgURL = imgthumbN.ImageUrl;
+                    }
+                        
+                        ProductBusiness.UpdateProduct(int.Parse(ID), title, subCatID, posterID, price, content, imgURL, state,image1,image2,image3);
                         txtmessage.Text = "Product Updated Successfull ! <a href='/Default.aspx'>Click here to go to homepage</a>";    
                         pnCreate.Visible = false;
                 }
@@ -125,8 +141,23 @@ namespace FullMart.Shop
                 string title = txtTitle.Text.Trim();
                 int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
                 int posterID = 1;
-                int price = Convert.ToInt32(txtPrice.Text);
+                string price = txtPrice.Text.Replace(",", "");
                 string content = HttpUtility.HtmlDecode(CKENet.Text);
+                string image1 = string.Empty;
+                string image2 = string.Empty;
+                string image3 = string.Empty;
+                if (txtimg1.Text.Trim() != "" && txtimg1.Text.Trim() != "Another product's image")
+                {
+                    image1 = txtimg1.Text;
+                }
+                if (txtimg2.Text.Trim() != "" && txtimg2.Text.Trim() != "Another product's image")
+                {
+                    image2 = txtimg2.Text;
+                }
+                if (txtimg3.Text.Trim() != "" && txtimg3.Text.Trim() != "Another product's image")
+                {
+                    image3 = txtimg3.Text;
+                }
                 if (imgUploader.PostedFile.FileName == string.Empty)
                 {
                     txtmessage.Text = "Please select image product!";
@@ -136,7 +167,7 @@ namespace FullMart.Shop
                     string imgURL = FilesUltilities.UploadImages(imgUploader.PostedFile.FileName, imgUploader, 70, 70, Request.PhysicalApplicationPath + "\\media\\upload\\");
                 
                     //string imgURL = imageProduct.Text;
-                    ProductBusiness.CreateProduct(title, subCatID, posterID, price, content, imgURL, state);
+                    ProductBusiness.CreateProduct(title, subCatID, posterID, price, content, imgURL, state,image1,image2,image3);
                     txtmessage.Text = "Product Updated Successfull ! <a href='/Default.aspx'>Click here to go to homepage</a>";
                     pnCreate.Visible = false;
                 }

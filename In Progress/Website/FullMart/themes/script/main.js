@@ -19,6 +19,24 @@ function querySt(ji) {
         }
     }
 }
+function isUrl(s) {
+    var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+    return regexp.test(s);
+}
+function mashmoney(data) {
+    var tmp = "";
+    tmp = data.replace(/,/g, "");
+    tmp = tmp.split("")[0].split("");
+    var tmp1 = tmp[tmp.length - 1];
+    for (i = 1; i < tmp.length; i++) {
+        if (i % 3 == 0) {
+            tmp1 = tmp[tmp.length - i - 1] + "," + tmp1;
+        } else {
+            tmp1 = tmp[tmp.length - i - 1] + "" + tmp1;
+        }
+    }
+    return tmp1;
+}
 function search() {
     var key = $("#search").val();
     var url1 = window.location.origin;
@@ -99,6 +117,14 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    $(".rate").each(function () {
+        var nr = $(this).text();
+        var nums = "";
+        for (i = 0; i < nr; i++) {
+            nums += "<img src=\"/themes/images/favs.png\" alt=\"rate\" />";
+        }
+        $(this).html(nums);
+    });
     $("#unote").click(function () {
         var t1 = ($(window).width() - $("#viewnote").width()) / 2;
         var t2 = ($(window).height() - $("#viewnote").height()) / 2;
@@ -141,23 +167,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".viewnote .vlistletter ul li").click(function () {
-        $(".vlistletter").slideUp("normal", function () {
-            $(".viewnote").css("height", "293px");
-            resizeDA(800, 295);
-        });
-        $(".vletter").show();
-        $(this).find(".noread").removeClass("noread");
-        return false;
-    });
-    $(".vletter table tfoot button").click(function () {
-        resizeDA(800, 423);
-        $(".vlistletter").slideDown("normal", function () {
-            $(".viewnote").css("height", "418px");
-        });
-        $(".vletter").hide();
-        return false;
-    });
+
     //Cart script
     $("#ucart").click(function () {
         calcart();

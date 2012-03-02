@@ -14,6 +14,7 @@ namespace FullMart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 pnReg.Visible = true;
@@ -44,7 +45,7 @@ namespace FullMart
             us.email = txtmail.Text.Trim();
             us.CU = txtUC.Text.Trim();
             us.cls=txtClass.Text.Trim();
-            us.birthday = DateTime.Parse(txtbirthday.Text.Trim());
+            us.birthday = DateTime.ParseExact(txtbirthday.Text.Trim(),"dd/mm/yyyy",null);
             if (UserManagement.CreateUser(us))
             {
                 pnReg.Visible = false;

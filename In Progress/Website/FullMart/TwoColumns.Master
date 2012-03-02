@@ -161,7 +161,7 @@
                             <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
                     </div>
                     <div class="sys left">
-                        <a href="/Register.aspx" title="SignUp your Store">
+                        <a href="/ShopC.aspx" title="SignUp your Store">
                             <img src="/themes/images/signup-your-shop.png" alt="SignUp your Store" /></a>
                     </div>
                     <div class="sys left">
