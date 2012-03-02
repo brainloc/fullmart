@@ -2,7 +2,7 @@
     $(".ubirthday").datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'YY-MM-DD',
+        dateFormat: 'dd/mm/yy',
         yearRange: 'c-50:c'
     });
 

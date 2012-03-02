@@ -25,7 +25,9 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@Content", p.Content));
                 command.Parameters.Add(new SqlParameter("@Title", p.Title));
                 command.Parameters.Add(new SqlParameter("@State", p.State));
-
+                command.Parameters.Add(new SqlParameter("@img1", p.image1));
+                command.Parameters.Add(new SqlParameter("@img2", p.image2));
+                command.Parameters.Add(new SqlParameter("@img3", p.image3));
 
                 SqlParameter isCreated = new SqlParameter("@isCreated", DbType.Int32);
                 isCreated.Direction = ParameterDirection.ReturnValue;
@@ -61,6 +63,9 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@Content", p.Content));
                 command.Parameters.Add(new SqlParameter("@Title", p.Title));
                 command.Parameters.Add(new SqlParameter("@State", p.State));
+                command.Parameters.Add(new SqlParameter("@img1", p.image1));
+                command.Parameters.Add(new SqlParameter("@img2", p.image2));
+                command.Parameters.Add(new SqlParameter("@img3", p.image3));
 
                 try
                 {

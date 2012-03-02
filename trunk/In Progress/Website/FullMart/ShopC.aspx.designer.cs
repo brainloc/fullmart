@@ -7,153 +7,207 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FullMart.Shop {
+namespace FullMart {
     
     
-    public partial class CreateProduct {
+    public partial class ShopC {
         
         /// <summary>
-        /// txtmessage control.
+        /// lbmess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtmessage;
+        protected global::System.Web.UI.WebControls.Label lbmess;
         
         /// <summary>
-        /// pnCreate control.
+        /// pnRshop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnCreate;
+        protected global::System.Web.UI.WebControls.Panel pnRshop;
         
         /// <summary>
-        /// txtTitle control.
+        /// pnRshop1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        protected global::System.Web.UI.WebControls.Panel pnRshop1;
         
         /// <summary>
-        /// UpdatePanel control.
+        /// lbShop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        protected global::System.Web.UI.WebControls.Label lbShop;
         
         /// <summary>
-        /// dlCategories control.
+        /// cmdAgree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlCategories;
+        protected global::System.Web.UI.WebControls.Button cmdAgree;
         
         /// <summary>
-        /// dlSubCategories control.
+        /// pnRshop2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlSubCategories;
+        protected global::System.Web.UI.WebControls.Panel pnRshop2;
         
         /// <summary>
-        /// dlState control.
+        /// txtShopName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlState;
+        protected global::System.Web.UI.WebControls.TextBox txtShopName;
         
         /// <summary>
-        /// dsState control.
+        /// txtAdress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsState;
+        protected global::System.Web.UI.WebControls.TextBox txtAdress;
         
         /// <summary>
-        /// imgthumbN control.
+        /// txtPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgthumbN;
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
         
         /// <summary>
-        /// imgUploader control.
+        /// txtYahoo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile imgUploader;
+        protected global::System.Web.UI.WebControls.TextBox txtYahoo;
         
         /// <summary>
-        /// txtimg1 control.
+        /// cmdCREATEShop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtimg1;
+        protected global::System.Web.UI.WebControls.Button cmdCREATEShop;
         
         /// <summary>
-        /// txtimg2 control.
+        /// pnRshop3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtimg2;
+        protected global::System.Web.UI.WebControls.Panel pnRshop3;
         
         /// <summary>
-        /// txtimg3 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtimg3;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtPrice control.
+        /// pnShop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        protected global::System.Web.UI.WebControls.Panel pnShop;
         
         /// <summary>
-        /// CKENet control.
+        /// lbShopName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl CKENet;
+        protected global::System.Web.UI.WebControls.Label lbShopName;
         
         /// <summary>
-        /// btnCreateProduct control.
+        /// lbstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateProduct;
+        protected global::System.Web.UI.WebControls.Label lbstatus;
+        
+        /// <summary>
+        /// lbCreatedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCreatedDate;
+        
+        /// <summary>
+        /// lbAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAddress;
+        
+        /// <summary>
+        /// lbPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPhone;
+        
+        /// <summary>
+        /// lbYahoo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbYahoo;
+        
+        /// <summary>
+        /// lbrate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbrate;
+        
+        /// <summary>
+        /// cmdedit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdedit;
     }
 }

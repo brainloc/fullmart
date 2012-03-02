@@ -103,7 +103,7 @@ namespace FullMart
                     string title = txtTitle.Text.Trim();
                     int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
                     int posterID = 1;
-                    int price = Convert.ToInt32(txtPrice.Text);
+                    string price = txtPrice.Text.Replace(",", "");
                     string content = HttpUtility.HtmlDecode(CKENet.Text);
                     string imgURL = string.Empty;
                     if (imgUploader.PostedFile.FileName != string.Empty)
@@ -124,7 +124,7 @@ namespace FullMart
                 string title = txtTitle.Text.Trim();
                 int subCatID = Convert.ToInt32(dlSubCategories.SelectedItem.Value);
                 int posterID = 1;
-                int price = Convert.ToInt32(txtPrice.Text);
+                string price = txtPrice.Text.Replace(",", "");
                 string content = HttpUtility.HtmlDecode(CKENet.Text);
                 if (imgUploader.PostedFile.FileName == string.Empty)
                 {

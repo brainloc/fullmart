@@ -87,5 +87,22 @@ namespace FullMart.Code.DAO
             }
             else { return null; }
         }
+
+        public static string GetTermConditionShop(string lang)
+        {
+            DataTable genoption = GetOption();
+            if (genoption != null && genoption.Rows.Count > 0)
+            {
+                if (lang == "VI")
+                {
+                    return genoption.Rows[2][3].ToString();
+                }
+                else
+                {
+                    return genoption.Rows[2][2].ToString();
+                }
+            }
+            else { return null; }
+        }
     }
 }

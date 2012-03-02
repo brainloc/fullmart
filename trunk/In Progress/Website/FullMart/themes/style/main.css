@@ -15,6 +15,8 @@ a{text-decoration:none;}
 .title{ text-align:center;text-transform:uppercase;font-weight:bold;font-size:20px;padding:5px;height:40px;background:transparent url(../images/hotnews.png) center top no-repeat;color:#fff}
 .lb{border:1px solid silver;margin-bottom:10px}
 .shadow{-moz-box-shadow: 3px 3px 3px #888;-webkit-box-shadow: 3px 3px 3px #888;box-shadow: 3px 3px 3px #888;}
+.rate{display:block;clear:both;height:18px}
+.rate img{float:left;width:16px;height:16px;margin:0;padding:0}
 
 /* border radius*/
 .btlr{-webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;border-top-left-radius: 5px;border-top-right-radius: 5px;}

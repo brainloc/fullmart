@@ -435,48 +435,48 @@ $(document).ready(function () {
             }
         });
     }
-    $("#INSState").keypress(function (data) {
-        if (data.which == 13) {
-            alert('gọi ajax insert');
-            insertSC("insertState", $("#INSState").val());
-            //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
-            $("#INSState").val("");
-            return false;
-        }
-    });
-    $("#INSCAT").keypress(function (data) {
-        if (data.which == 13) {
-            var tmp = $("#INSCAT").val();
-            alert(tmp);
-            //insertSC("insertcat", tmp);
-            $(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
-            $("#INSCAT").val("");
-            return false;
-        }
-    });
-    $("#INSSUBCAT").keypress(function (data) {
-        if (data.which == 13) {
-            if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
-                alert('gọi ajax insert');
-                $.ajax({
-                    url: "/Code/Business/AjaxUltilities.ashx?",
-                    type: "POST",
-                    dataType: "script",
-                    data: {
-                        action: "insertsubcat",
-                        maincategory: $("#INSCAT").val(),
-                        subcategory: $("#INSSUBCAT").val()
-                    }
-                });
-                //$(".subcat").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delSubCat','" + $("#INSSUBCAT").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
-                $("#INSSUBCAT").val("");
-                return false;
-            } else {
-                alert("Please Input or select main categories");
-            }
-            return false;
-        }
-    });
+//    $("#INSState").keypress(function (data) {
+//        if (data.which == 13) {
+//            alert('gọi ajax insert');
+//            insertSC("insertState", $("#INSState").val());
+//            //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
+//            $("#INSState").val("");
+//            return false;
+//        }
+//    });
+//    $("#INSCAT").keypress(function (data) {
+//        if (data.which == 13) {
+//            var tmp = $("#INSCAT").val();
+//            alert(tmp);
+//            //insertSC("insertcat", tmp);
+//            $(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
+//            $("#INSCAT").val("");
+//            return false;
+//        }
+//    });
+//    $("#INSSUBCAT").keypress(function (data) {
+//        if (data.which == 13) {
+//            if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
+//                alert('gọi ajax insert');
+//                $.ajax({
+//                    url: "/Code/Business/AjaxUltilities.ashx?",
+//                    type: "POST",
+//                    dataType: "script",
+//                    data: {
+//                        action: "insertsubcat",
+//                        maincategory: $("#INSCAT").val(),
+//                        subcategory: $("#INSSUBCAT").val()
+//                    }
+//                });
+//                //$(".subcat").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delSubCat','" + $("#INSSUBCAT").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
+//                $("#INSSUBCAT").val("");
+//                return false;
+//            } else {
+//                alert("Please Input or select main categories");
+//            }
+//            return false;
+//        }
+//    });
     $(".state .delState").click(function () {
         alert("delete ajax state : " + $(this).parent().find("span").text());
         delSC("delState", $(this).parent().find("span").text());

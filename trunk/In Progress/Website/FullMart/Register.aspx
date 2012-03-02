@@ -164,7 +164,7 @@
                                 Website Address
                             </td>
                             <td>
-                                <asp:TextBox ID="txtWebsite" Text="http://" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtWebsite" Text="" runat="server"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                                     ErrorMessage="Please input correct format website" 
                                     ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" 
