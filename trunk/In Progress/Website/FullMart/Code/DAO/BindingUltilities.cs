@@ -476,5 +476,9 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static string GetResourceValue(string key) {
+            return Resources.LocalizedText.ResourceManager.GetString(key);
+        }
     }
 }
