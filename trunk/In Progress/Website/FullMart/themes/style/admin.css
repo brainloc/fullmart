@@ -82,12 +82,12 @@ p.atitle{line-height:35px; font-size:15px;color:#006BD9;font-weight:bold}
 .BrowseServer{height: 100%;padding: 0px 10px;background: transparent url(/themes/images/ui-bg_gloss-wave_50_6eac2c_500x100.png) center center;}
 .imgthumbN{border-width: 0px;height: 150px;width: 150px;position: absolute;margin: -100px 90px;display:none}
 .UPtb tr:nth-child(2):hover .imgthumbN{display:block}
-table.tbcates,table.tbsubcates{width:250px;border:1px solid #42AFFF;margin:0px 30px;}
-table.tbcates thead tr,table.tbsubcates thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff;padding:0px 5px}
-table.tbcates td,table.tbsubcates td{width:200px;padding:3px}
-table.tbcates td+td,table.tbsubcates td+td{width:35px}
-table.tbcates td+td+td,table.tbsubcates td+td+td{width:52px}
-table.tbcates input,table.tbsubcates input{text-align:center;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
-.catDel,.bindSubCate{cursor:pointer;}
-.insertCates input{color:Silver}
+table.tbcates,table.tbsubcates,table.tbstates,table.tbsubstates{width:250px;border:1px solid #42AFFF;margin:0px 30px;}
+table.tbcates thead tr,table.tbsubcates thead tr,table.tbstates thead tr,table.tbsubstates thead tr{background:transparent url(../images/BGT.png) center center  repeat-x;height:30px; color:#fff;padding:0px 5px}
+table.tbcates td,table.tbsubcates td,table.tbstates td,table.tbsubstates td{width:200px;padding:3px}
+table.tbcates td+td,table.tbsubcates td+td,table.tbstates td+td,table.tbsubstates td+td{width:35px}
+table.tbcates td+td+td,table.tbsubcates td+td+td,table.tbstates td+td+td,table.tbsubstates td+td+td{width:52px}
+table.tbcates input,table.tbsubcates input,table.tbstates input,table.tbsubstates input{text-align:center;width:100%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.catDel,.bindSubCate,.sDel,.bindSubstate{cursor:pointer;}
+.insertCates input,.insertstates input{color:Silver}
 .ui-corner-top a span{font-size:16px;font-weight:bold}

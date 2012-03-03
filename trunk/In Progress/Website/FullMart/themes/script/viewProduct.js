@@ -13,6 +13,11 @@
         $("div.getCart").fadeOut();
         $("#waitloader").hide();
     });
+    $(".listimg img").each(function () {
+        if ($(this).attr("src") == "") {
+            $(this).remove();
+        }
+    });
     $(".listimg img").hover(function () {
         $("#imgpreM").attr("src", $(this).attr("src"));
     });

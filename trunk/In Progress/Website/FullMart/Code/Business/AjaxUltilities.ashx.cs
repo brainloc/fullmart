@@ -191,6 +191,39 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "GetSubStateByID":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Target = context.Request.Form["Target"] != null ? context.Request.Form["Target"].Trim().Replace("'", "''") : string.Empty;
+                        if (string.IsNullOrEmpty(ID.ToString()) == false)
+                        {
+                            DataTable subCats = new DataTable();
+                            subCats = BindingUltilities.GetZoneByStateID(Convert.ToInt32(ID));
+                            string tmp1 = "$('" + Target + "').attr('ref'," + ID + ");";
+                            string tmp2 = "";
+                            if (subCats != null)
+                            {
+
+                                foreach (DataRow r in subCats.Rows)
+                                {
+                                    tmp2 += "<tr ref='" + r["ID"].ToString() + "'>";
+                                    tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Name"].ToString() + "'/></td>";
+                                    tmp2 += "<td><input ref='" + r["ID"].ToString() + "' value='" + r["Order"].ToString() + "'/></td>";
+                                    tmp2 += "<td><img class='sDel' ref='" + r["ID"].ToString() + "' src='/themes/images/delete.png' /></td>";
+                                    tmp2 += "</tr>";
+                                }
+                                tmp1 += "$('" + Target + "').html(\"" + "$('" + Target + "').html();" + tmp2 + "\");";
+
+                            }
+                            context.Response.Write(tmp1);
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('ERROR');");
+                        }
+                        break;
+                    }
                 case "GetSubCategoriesByCatID1":
                     {
                         context.Response.ContentType = "application/html";
@@ -240,6 +273,23 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "InsertState":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        int id = BindingUltilities.AddState(Name, int.Parse(Order));
+                        if (id > 0)
+                        {
+                            context.Response.Write("$('table.tbstates tbody').html($('table.tbstates tbody').html() + \"<tr ref='" + id.ToString() + "'><td><input ref='" + id.ToString() + "' value='" + Name + "'/></td><td><input ref='" + id.ToString() + "' value='" + Order + "'/></td><td><img class='sDel' ref='" + id.ToString() + "' src='/themes/images/delete.png' /><img class='bindSubstate' ref='" + id.ToString() + "' src='/themes/images/Arrow_Right.png' /></td></tr>\");");
+
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Create new State')");
+                        }
+                        break;
+                    }
                 case "InsertSubCategories":
                     {
                         context.Response.ContentType = "application/html";
@@ -258,6 +308,24 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "InsertSubState":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var CatID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        int id = BindingUltilities.AddSubState(int.Parse(CatID), Name, int.Parse(Order));
+                        if (id > 0)
+                        {
+                            context.Response.Write("$('table.tbsubstates tbody').html($('table.tbsubstates tbody').html() + \"<tr ref='" + id.ToString() + "'><td><input ref='" + id.ToString() + "' value='" + Name + "'/></td><td><input ref='" + id.ToString() + "' value='" + Order + "'/></td><td><img class='sDel' ref='" + id.ToString() + "' src='/themes/images/delete.png' /></td></tr>\");");
+
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Create new Zone')");
+                        }
+                        break;
+                    }
                 case "CatsDel": {
                     context.Response.ContentType = "application/html";
                     var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
@@ -265,11 +333,27 @@ namespace FullMart.Code.Business
                     context.Response.Write("alert('Delete Completed!')");
                     break;
                 }
+                case "StateDel":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        BindingUltilities.DisableState(int.Parse(ID));
+                        context.Response.Write("alert('Delete Completed!')");
+                        break;
+                    }
                 case "SubCatsDel":
                     {
                         context.Response.ContentType = "application/html";
                         var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
                         BindingUltilities.DisableSubCategoryItem(int.Parse(ID));
+                        context.Response.Write("alert('Delete Completed!')");
+                        break;
+                    }
+                case "SubStateDel":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        BindingUltilities.DisableSubState(int.Parse(ID));
                         context.Response.Write("alert('Delete Completed!')");
                         break;
                     }
@@ -288,6 +372,22 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "StateUpdate":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        if (BindingUltilities.UpdateState(int.Parse(ID), Name, int.Parse(Order)))
+                        {
+                            context.Response.Write("alert('Update Completed!')");
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Update State')");
+                        }
+                        break;
+                    }
                 case "subCatsUpdate":
                     {
                         context.Response.ContentType = "application/html";
@@ -301,6 +401,22 @@ namespace FullMart.Code.Business
                         else
                         {
                             context.Response.Write("alert('Get Error in Update SubCategories')");
+                        }
+                        break;
+                    }
+                case "subStateUpdate":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var Name = context.Request.Form["Name"] != null ? context.Request.Form["Name"].Trim().Replace("'", "''") : string.Empty;
+                        var Order = context.Request.Form["Order"] != null ? context.Request.Form["Order"].Trim().Replace("'", "''") : string.Empty;
+                        if (BindingUltilities.UpdateSubState(int.Parse(ID), Name, int.Parse(Order)))
+                        {
+                            context.Response.Write("alert('Update Completed!')");
+                        }
+                        else
+                        {
+                            context.Response.Write("alert('Get Error in Update Zone')");
                         }
                         break;
                     }

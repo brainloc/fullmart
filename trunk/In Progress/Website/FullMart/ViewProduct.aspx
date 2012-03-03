@@ -77,70 +77,49 @@
     </div>
     <div class="ladv lb">
         <img src="/themes/images/leftadv.jpg" /></div>
-    <div id="AAQ" class="lb b">
-        <div class="title">
-            <span>Answers & Questions</span></div>
-        <div class="listitem">
-            <ul>
-                <li>
-                    <div class="Ahead">
-                        <span class="Ausername"><a href="#aa">sniperPro</a></span></div>
-                    <div class="Aarrow">
-                        21/11/2011</div>
-                    <div class="Acontent b">
-                        <a href="a">
-                            <p>
-                                Something need to know about this website .....</p>
-                        </a>
+    <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
+                <EmptyDataTemplate>
+                    No data was returned.
+                </EmptyDataTemplate>
+               <ItemTemplate>
+                    <li>
+                        <div class="Ahead">
+                            <span class="Ausername"><a><%# Eval("UserName") %></a></span></div>
+                        <div class="Aarrow">
+                            <%# Eval("CreateDate") %></div>
+                        <div class="Acontent b">
+                            <a href="QA.aspx#CQA<%# Eval("ID") %>">
+                                <p>
+                                    <%# Eval("Content") %></p>
+                            </a>
+                        </div>
+                    </li>
+                </ItemTemplate>
+
+                <LayoutTemplate>
+                    <div id="AAQ" class="lb b">
+                        <div class="title">
+                            <span>Answers & Questions</span></div>
+                        <div class="listitem">
+                            <ul id="itemPlaceholderContainer" runat="server" style="">
+                                <li runat="server" id="itemPlaceholder" />
+                            </ul>
+                             <div  class="Apages right">
+                                <asp:DataPager ID="DataPager1" runat="server" PageSize="5">
+                                    <Fields>
+                                        <asp:NumericPagerField />
+                                    </Fields>
+                                </asp:DataPager>
+                                <a href="/QA.aspx" ref="0">All</a>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
                     </div>
-                </li>
-                <li>
-                    <div class="Ahead">
-                        <span class="Ausername"><a href="#aa">sniperPro</a></span></div>
-                    <div class="Aarrow">
-                        21/11/2011</div>
-                    <div class="Acontent b">
-                        <a href="a">
-                            <p>
-                                Something need to know about this website .....</p>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="Ahead">
-                        <span class="Ausername"><a href="#aa">sniperPro</a></span></div>
-                    <div class="Aarrow">
-                        21/11/2011</div>
-                    <div class="Acontent b">
-                        <a href="a">
-                            <p>
-                                Something need to know about this website .....</p>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="Ahead">
-                        <span class="Ausername"><a href="#aa">sniperPro</a></span></div>
-                    <div class="Aarrow">
-                        21/11/2011</div>
-                    <div class="Acontent b">
-                        <a href="a">
-                            <p>
-                                Something need to know about this website Something need to know about this website
-                                Something need to know about this website .....</p>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <div class="Apages right">
-                <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                    ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                        ref="0">All</a>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-    </div>
+                   
+                </LayoutTemplate>
+            </asp:ListView>
+            <asp:SqlDataSource ID="dsAQ" runat="server"  ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"  SelectCommand="GetQAStatistic" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Center" runat="server">
     <div class="viewproduct b bgwt block">
@@ -166,9 +145,9 @@
                                 <a href='http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg' class='cloud-zoom-gallery' title='Thumbnail 1'
                                 rel="useZoom: 'zoom1', smallImage: 'http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg' ">
                                 <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg" alt="Thumbnail 3" /></a>--%>
-                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14235.jpg"/>
-                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14232.jpg"/>
-                            <img src="http://resource.hula.vn/images/shop/products/2012/2/1/normal/dong-ho-cap-doi-mai-nho-14234.jpg" />
+                            <img src="<%# Eval("img1").ToString() %>"/>
+                            <img src="<%# Eval("img2").ToString() %>"/>
+                            <img src="<%# Eval("img3").ToString() %>"/>
                         </div>
                         <%} %>
                         <div class="clear"></div>

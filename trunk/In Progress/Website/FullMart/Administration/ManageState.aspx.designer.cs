@@ -13,13 +13,13 @@ namespace FullMart.Administration {
     public partial class ManageState {
         
         /// <summary>
-        /// rpListCategories control.
+        /// rpListStates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpListCategories;
+        protected global::System.Web.UI.WebControls.Repeater rpListStates;
         
         /// <summary>
         /// txtInsert control.
@@ -58,12 +58,12 @@ namespace FullMart.Administration {
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// dsCategories control.
+        /// dsListStates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsListStates;
     }
 }

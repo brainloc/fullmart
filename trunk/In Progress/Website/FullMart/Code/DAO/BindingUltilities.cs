@@ -153,6 +153,7 @@ namespace FullMart.Code.DAO
             }
         }
 
+        
         public static void DisableCategoryItem(int catID)
         {
             using (SqlConnection connection = GetConnection())
@@ -174,6 +175,27 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static void DisableState(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DisableState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+        
         public static void DisableSubCategoryItem(int SubcatID)
         {
             using (SqlConnection connection = GetConnection())
@@ -182,6 +204,27 @@ namespace FullMart.Code.DAO
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add(new SqlParameter("@CatID", SubcatID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
+
+        public static void DisableSubState(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DisableSubState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
 
                 try
                 {
@@ -220,6 +263,86 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static int AddState(string Name, int Order)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("CreateState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Name", Name));
+                command.Parameters.Add(new SqlParameter("@Order", Order));
+                SqlParameter isUpdated = new SqlParameter("@isCreated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    return isCreated;
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public static int AddSubState(int ID, string Name, int Order)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("CreateSubState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@Name", Name));
+                command.Parameters.Add(new SqlParameter("@Order", Order));
+                SqlParameter isUpdated = new SqlParameter("@isCreated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    return isCreated;
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public static bool UpdateState(int ID, string Name, int Order)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@Name", Name));
+                command.Parameters.Add(new SqlParameter("@Order", Order));
+                SqlParameter isUpdated = new SqlParameter("@isCreated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    return isCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
         public static bool UpdateCategory(int ID,string catName, int catOrder)
         {
             using (SqlConnection connection = GetConnection())
@@ -246,6 +369,32 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static bool UpdateSubState(int ID, string Name, int Order)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateSubState", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@Name", Name));
+                command.Parameters.Add(new SqlParameter("@Order", Order));
+                SqlParameter isUpdated = new SqlParameter("@isCreated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isCreated = Convert.ToInt32(command.Parameters["@isCreated"].Value.ToString());
+                    return isCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        
         public static int AddSubCategory(int catID, string subcatName, int subcatOrder)
         {
             using (SqlConnection connection = GetConnection())
