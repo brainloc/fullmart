@@ -105,7 +105,8 @@
     <div id="cmproduce" class="block">
         <div class="parea b">
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">The Top Product</span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">
+                    <asp:Label ID="txtTopProductPane" runat="server" Text="<%$ Resources:LocalizedText, txtTopProductPane %>"></asp:Label>The Top Product</span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:Repeater ID="rpTopSection" runat="server" DataSourceID="dsTopSection">

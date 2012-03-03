@@ -39,6 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="DataPagerRepeater">
+      <HintPath>dll\DataPagerRepeater.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -58,6 +61,12 @@
     <Content Include="Administration\admin.aspx" />
     <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
+    <Content Include="bin\CKEditor.NET.dll" />
+    <Content Include="bin\CKFinder.dll" />
+    <Content Include="bin\CKFinder.pdb" />
+    <Content Include="bin\DataPagerRepeater.dll" />
+    <Content Include="bin\FullMart.dll" />
+    <Content Include="bin\FullMart.pdb" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -927,6 +936,8 @@
     <Content Include="themes\images\bgwt2.png" />
     <Content Include="themes\images\btn_left.gif" />
     <Content Include="themes\images\btn_right.gif" />
+    <Content Include="themes\images\button_arrow_left.gif" />
+    <Content Include="themes\images\button_arrow_right.gif" />
     <Content Include="themes\images\buy.png" />
     <Content Include="themes\images\checkbox.gif" />
     <Content Include="themes\images\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
@@ -1148,6 +1159,19 @@
     <Compile Include="Administration\ManageUser.aspx.designer.cs">
       <DependentUpon>ManageUser.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\ButtonDropDownList.cs" />
+    <Content Include="App_Code\ButtonTextBox.cs" />
+    <Content Include="App_Code\GooglePagerField.cs" />
+    <Compile Include="App_GlobalResources\LocalizedText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\LocalizedText.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedText.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Business\AjaxUltilities.ashx.cs">
       <DependentUpon>AjaxUltilities.ashx</DependentUpon>
     </Compile>
@@ -1164,7 +1188,6 @@
     <Compile Include="Code\DAO\OptionManagement.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
     <Compile Include="Code\DAO\QAManagement.cs" />
-    <Compile Include="Code\DAO\StatesManagement.cs" />
     <Compile Include="Code\DAO\UserManagement.cs" />
     <Compile Include="Code\Entities\AnswerAndQuestion.cs" />
     <Compile Include="Code\Entities\Cart.cs" />
@@ -1351,7 +1374,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_GlobalResources\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />
     <Folder Include="ckeditor\_samples\api_dialog\" />
@@ -1479,6 +1501,18 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.en.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Text.RegularExpressions;
+using System.Globalization;
+using System.Threading;
 
 namespace FullMart
 {
@@ -41,6 +43,22 @@ namespace FullMart
                 else { return tmp1; }
             }
             return content.ToString();
+        }
+
+        protected override void InitializeCulture()
+        {
+            string ui = Request.QueryString["lang"];
+            if (string.IsNullOrEmpty(ui))
+                ui = "vi";
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 }
