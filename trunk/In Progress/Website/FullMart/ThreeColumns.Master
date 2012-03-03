@@ -207,6 +207,7 @@
         </div>
         <div class="block clear">
         </div>
+        <div class="clear"></div>
         <div id="mcontent" class="block">
             <div id="cleft" class="left">
                 <asp:ContentPlaceHolder ID="Left" runat="server">

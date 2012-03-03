@@ -3,6 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -106,7 +107,7 @@
         <div class="parea b">
             <div class="gcats btl">
                 <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">
-                    <asp:Label ID="txtTopProductPane" runat="server" Text="<%$ Resources:LocalizedText, txtTopProductPane %>"></asp:Label>The Top Product</span></a></span></div>
+                    <asp:Label ID="txtTopProductPane" runat="server" Text="<%$ Resources:LocalizedText, txtTopProductPane %>"></asp:Label></span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:Repeater ID="rpTopSection" runat="server" DataSourceID="dsTopSection">

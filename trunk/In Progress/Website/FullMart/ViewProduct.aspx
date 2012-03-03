@@ -39,7 +39,6 @@
 
     </script>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -189,7 +188,7 @@
                     <div class="Shopdetail clear">
                     <div class="summary-info right">
                         <div class="summary-info-box clearfix">
-                        <h3 class="name-shop"><a href="#" title="<%# Eval("ShopName") %>"><%# Eval("ShopName") %></a>  </h3>
+                        <h3 class="name-shop"><a href="/ShopPage.aspx?Shop=<%# Eval("ShopID") %>" title="<%# Eval("ShopName") %>"><%# Eval("ShopName") %></a>  </h3>
                         <table>
                             <tr>
                                 <td>
@@ -390,8 +389,7 @@
     </div>
     <div class="viewproduct comment">
         <div class="contentproduct block">
-            <p class="titlep btlr block">
-                Comment</p>
+            <p class="titlep btlr block"><asp:Label ID="Label1" runat="server" Text="<%$ Resources:LocalizedText, comment %>"></asp:Label> </asp:Label></p>
             <div class="contentp bgwt">
                 <div class="listitem bgwt b block">
                     <div id="fcomment">
@@ -630,7 +628,7 @@
                 </table>
             </ContentTemplate>
         </asp:UpdatePanel>
-    </div>--%>
+    </div>
     <script type="text/javascript">
 
     </script>

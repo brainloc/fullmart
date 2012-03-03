@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using FullMart.Code.DAO;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Globalization;
 
 namespace FullMart
 {
@@ -336,6 +338,21 @@ namespace FullMart
         private void AddPurchaseBooking(int productID, int amount, int buyerID, string moreDetail, string recipientName, string recipientPhone, string recipientAddress, string recipientEmail)
         {
             ProductManagement.AddPurchaseBooking(productID, amount, buyerID, moreDetail, recipientName, recipientPhone, recipientAddress, recipientEmail);
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = Request.QueryString["lang"];
+            if (string.IsNullOrEmpty(ui))
+                ui = "vi";
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 }

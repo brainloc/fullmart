@@ -61,12 +61,6 @@
     <Content Include="Administration\admin.aspx" />
     <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
-    <Content Include="bin\CKEditor.NET.dll" />
-    <Content Include="bin\CKFinder.dll" />
-    <Content Include="bin\CKFinder.pdb" />
-    <Content Include="bin\DataPagerRepeater.dll" />
-    <Content Include="bin\FullMart.dll" />
-    <Content Include="bin\FullMart.pdb" />
     <Content Include="ckeditor\ckeditor.js" />
     <Content Include="ckeditor\config.js" />
     <Content Include="ckeditor\contents.css" />
@@ -909,6 +903,7 @@
     <Content Include="QA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShopC.aspx" />
+    <Content Include="ShopPage.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -936,8 +931,6 @@
     <Content Include="themes\images\bgwt2.png" />
     <Content Include="themes\images\btn_left.gif" />
     <Content Include="themes\images\btn_right.gif" />
-    <Content Include="themes\images\button_arrow_left.gif" />
-    <Content Include="themes\images\button_arrow_right.gif" />
     <Content Include="themes\images\buy.png" />
     <Content Include="themes\images\checkbox.gif" />
     <Content Include="themes\images\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
@@ -1095,6 +1088,7 @@
     <Content Include="themes\script\main.js" />
     <Content Include="themes\script\QAA.js" />
     <Content Include="themes\script\register.js" />
+    <Content Include="themes\script\ShopPage.js" />
     <Content Include="themes\script\UpProduct.js" />
     <Content Include="themes\script\viewProduct.js" />
     <Content Include="themes\style\admin.css" />
@@ -1113,6 +1107,7 @@
     <Content Include="themes\style\QAA.css" />
     <Content Include="themes\style\register.css" />
     <Content Include="themes\style\RShop.css" />
+    <Content Include="themes\style\ShopPages.css" />
     <Content Include="themes\style\tablesorter.css" />
     <Content Include="themes\style\UpProduct.css" />
     <Content Include="themes\style\validationEngine.jquery.css" />
@@ -1322,6 +1317,13 @@
     <Compile Include="ShopC.aspx.designer.cs">
       <DependentUpon>ShopC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopPage.aspx.cs">
+      <DependentUpon>ShopPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopPage.aspx.designer.cs">
+      <DependentUpon>ShopPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1503,15 +1505,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\LocalizedText.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>LocalizedText.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\LocalizedText.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>LocalizedText.en.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\LocalizedText.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
