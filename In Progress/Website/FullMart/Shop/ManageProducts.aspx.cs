@@ -157,5 +157,71 @@ namespace FullMart.Shop
             }
             return "";
         }
+
+        protected void dsManagingProductList_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+            dsManagingProductList.SelectParameters["SortBy"].DefaultValue = "Price";
+        }
+
+        /* Viewstate values for sorting and paging */
+
+        private string SortExpression
+        {
+            get
+            {
+                object o = ViewState["SortExpression"];
+                if (o == null)
+                    return "ProductName";
+                else
+                    return o.ToString();
+            }
+            set
+            {
+                ViewState["SortExpression"] = value;
+            }
+        }
+
+        private int StartRowIndex
+        {
+            get
+            {
+                object o = ViewState["StartRowIndex"];
+                if (o == null)
+                    return 0;
+                else
+                    return (int)o;
+            }
+            set
+            {
+                ViewState["StartRowIndex"] = value;
+            }
+        }
+
+        private int MaximumRows
+        {
+            get
+            {
+                object o = ViewState["MaximumRows"];
+                if (o == null)
+                    return 5;
+                else
+                    return (int)o;
+            }
+            set
+            {
+                ViewState["MaximumRows"] = value;
+            }
+        }
+
+        protected void SetSortExpression(object sender, EventArgs e)
+        {
+            Button clickedOne = (Button)(sender);
+
+            if (clickedOne != null)
+            {
+                txtSortExpression.Text = clickedOne.CommandName;
+                //dsManagingProductList.Select(null);
+            }
+        }
     }
 }
