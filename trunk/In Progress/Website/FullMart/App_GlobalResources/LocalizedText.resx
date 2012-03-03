@@ -117,10 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="BuyIt" xml:space="preserve">
+    <value>Mua</value>
+  </data>
+  <data name="checking" xml:space="preserve">
+    <value>Đang xác thực</value>
+  </data>
+  <data name="closed" xml:space="preserve">
+    <value>Đóng cửa</value>
+  </data>
   <data name="comment" xml:space="preserve">
     <value>Nhận Xét</value>
   </data>
+  <data name="createdDate" xml:space="preserve">
+    <value>Ngày tham gia</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="rate" xml:space="preserve">
+    <value>Đánh giá</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>GỬI</value>
+  </data>
+  <data name="shopchecked" xml:space="preserve">
+    <value>Đã xác thực</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>Tình Trạng</value>
+  </data>
   <data name="txtTopProductPane" xml:space="preserve">
     <value>Tiếng Việt</value>
+  </data>
+  <data name="visitShop" xml:space="preserve">
+    <value>Ghé thăm shop </value>
   </data>
 </root>
