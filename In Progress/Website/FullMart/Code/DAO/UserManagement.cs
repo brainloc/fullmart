@@ -268,7 +268,66 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        
+
+        public static DataTable GetAllProductsByPoster(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetAllProductsByPoster", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PosterID", ID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static DataTable GetUShopByShopID(int ID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetUShopByShopID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+
+                SqlDataAdapter dbAdapter = new SqlDataAdapter(command);
+                DataTable pDetail = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    dbAdapter.Fill(pDetail);
+
+                    if (pDetail != null && pDetail.Rows.Count > 0)
+                    {
+                        return pDetail;
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
         public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
         {
             using (SqlConnection connection = GetConnection())
