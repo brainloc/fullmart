@@ -68,7 +68,7 @@
                             </asp:DropDownList>
                     <asp:SqlDataSource ID="dsState" runat="server" DataSourceMode="DataReader" 
                         ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
-                        SelectCommand="SELECT [id], [StateName], [Order] FROM [State] ORDER BY [Order]"></asp:SqlDataSource>
+                        SelectCommand="GetStates" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </td>
                
             </tr>

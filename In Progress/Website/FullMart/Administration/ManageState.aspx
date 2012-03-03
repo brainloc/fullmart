@@ -3,17 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
  <div class="acontent block">
-
-    <p class="atitle">
-            Manager Categories</p>
+     <p class="atitle">
+            Manager States</p>
         <span style="color: Red; padding: 10px; font-size: 15px">Press 'tab' when change Order
             number to check.<br />
-            Press 'Enter' when change Category's Name, Order to Update. </span>
+            Press 'Enter' when change States's Name, Order to Update. </span>
         <div class="block clear">
-            <table class="tbcates left" cellpadding="0" cellspacing="0">
+            <table class="tbstates left" cellpadding="0" cellspacing="0">
                 <thead><tr>
                     <td>
-                        Categories Name
+                        State Name
                     </td>
                     <td>
                         Order
@@ -21,11 +20,11 @@
                     <td>
                     </td></tr>
                 </thead>
-                <asp:Repeater ID="rpListCategories" DataSourceID="dsCategories" runat="server">
+                <asp:Repeater ID="rpListStates" DataSourceID="dsListStates" runat="server">
                     <ItemTemplate>
                         <tr ref='<%# Eval("ID") %>'>
                             <td>
-                                <input ref="<%# Eval("ID") %>" value='<%# Eval("Name") %>' />
+                                <input ref="<%# Eval("ID") %>" value='<%# Eval("StateName") %>' />
                                 <%--<asp:TextBox ID="ABC" Text='<%# Eval("Name") %>'  runat="server" OnTextChanged="ABC"></asp:TextBox>--%>
                             </td>
                             <td>
@@ -33,7 +32,7 @@
                                 <%-- <asp:TextBox ID='ABD' Text='<%# Eval("Order") %>' runat="server"></asp:TextBox>--%>
                             </td>
                             <td>
-                                <img class="catDel" ref="<%# Eval("ID") %>" src="/themes/images/delete.png" /><img
+                                <img class="sDel" ref="<%# Eval("ID") %>" src="/themes/images/delete.png" /><img
                                     ref="<%# Eval("ID") %>" class="bindSubCate" src="/themes/images/Arrow_Right.png" />
                             </td>
                         </tr>
@@ -51,10 +50,10 @@
                     </tr>
                 </tfoot>
             </table>
-            <table class="tbsubcates right" cellpadding="0" cellspacing="0">
+            <table class="tbsubstates right" cellpadding="0" cellspacing="0">
                 <thead><tr>
                     <td>
-                        SubCategories Name
+                        Zone Name
                     </td>
                     <td>
                         Order
@@ -79,7 +78,7 @@
         <div class="clear">
         </div>
     </div>
-    <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-        SelectCommand="SELECT [ID],[Name],[Order] FROM [dbo].[Category] WHERE [Order]<> -99 ORDER BY [Order]">
+    <asp:SqlDataSource ID="dsListStates" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+        SelectCommand="GetStates" SelectCommandType="StoredProcedure">
     </asp:SqlDataSource>
 </asp:Content>

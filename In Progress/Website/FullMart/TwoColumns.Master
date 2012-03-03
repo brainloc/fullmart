@@ -43,7 +43,7 @@
                 </div>
                  <div class="tbc">
                     <div class="right clear">
-                        <em class="left">Developing version ! vunam289@gmail.com</em>
+                        
                         <!-- Begin User Account -->
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">                        
                         <asp:HyperLink ID="hlAdmin" Visible=true runat="server"></asp:HyperLink>
@@ -128,7 +128,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="dsStates" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                        SelectCommand="SELECT [id],[StateName] FROM [dbo].[State] ORDER BY [Order]">
+                                        SelectCommand="GetStates" SelectCommandType="StoredProcedure">
                                     </asp:SqlDataSource>
                                 </ul>
                             </dd>
@@ -146,8 +146,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="dsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                                        SelectCommand="SELECT [ID],[Name] FROM [dbo].[Category] ORDER BY [Order]">
-                                    </asp:SqlDataSource>
+                                        SelectCommand="GetCategories" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                 </ul>
                             </dd>
                         </dl>

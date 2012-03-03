@@ -26,16 +26,20 @@ namespace FullMart.Shop
 
                             DataTable newDetail = ProductManagement.GetProductDetailByID(Convert.ToInt32(ID));
                             if (newDetail != null && newDetail.Rows.Count > 0)
-                            {
+                            {   
+                                dlState.DataSourceID = "dsState";
+                                dlState.DataBind();
                                 btnCreateProduct.Text = "SAVE";
-                                txtTitle.Text = newDetail.Rows[0][10].ToString();
-                                txtPrice.Text = newDetail.Rows[0][2].ToString();
-                                string idSubcate = newDetail.Rows[0][1].ToString();
-                                dlState.SelectedValue = newDetail.Rows[0][11].ToString();
+                                txtTitle.Text = newDetail.Rows[0]["Title"].ToString();
+                                txtPrice.Text = newDetail.Rows[0]["Price"].ToString();
+                                string idSubcate = newDetail.Rows[0]["SubCategoryID"].ToString();
+                                
+                                dlState.SelectedValue = newDetail.Rows[0]["StateName"].ToString();
                                 DataTable subcats1 = new DataTable();
                                 subcats1 = BindingUltilities.GetNameCatSubCatByIDSub(int.Parse(idSubcate));
                                 DataTable subcats = new DataTable();
                                 subcats = BindingUltilities.GetListSubSameCat(int.Parse(idSubcate));
+
                                 if (subcats != null)
                                 {
                                     dlSubCategories.DataSource = subcats;

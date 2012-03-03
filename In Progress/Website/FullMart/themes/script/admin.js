@@ -54,7 +54,43 @@ function catUpdate(ID, Name, Order) {
     $(".insertOrderCates,.insertNameCates").css("color", "silver");
     $("#waitloader").hide();
 }
-function subcatUpdate(ID, Name, Order) {
+function stateUpdate(ID, Name, Order) {
+    $("#waitloader").show();
+    $.ajax({
+        url: "/Code/Business/AjaxUltilities.ashx?",
+        type: "POST",
+        dataType: "script",
+        data: {
+            action: "StateUpdate",
+            ID: ID,
+            Name: Name,
+            Order: Order
+        }
+    });
+    $(".insertNameCates").val("Press 'Enter' to insert");
+    $(".insertOrderCates").val("...");
+    $(".insertOrderCates,.insertNameCates").css("color", "silver");
+    $("#waitloader").hide();
+}
+function subStateUpdate(ID, Name, Order) {
+    $("#waitloader").show();
+    $.ajax({
+        url: "/Code/Business/AjaxUltilities.ashx?",
+        type: "POST",
+        dataType: "script",
+        data: {
+            action: "subStateUpdate",
+            ID: ID,
+            Name: Name,
+            Order: Order
+        }
+    });
+    $(".insertNameCates").val("Press 'Enter' to insert");
+    $(".insertOrderCates").val("...");
+    $(".insertOrderCates,.insertNameCates").css("color", "silver");
+    $("#waitloader").hide();
+}
+function subCatsUpdate(ID, Name, Order) {
     $("#waitloader").show();
     $.ajax({
         url: "/Code/Business/AjaxUltilities.ashx?",
@@ -83,6 +119,12 @@ $(document).ready(function () {
         if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
             $(".tbcates .insertOrderCates").val($("table.tbcates tbody tr").length + 1);
             $(".tbcates .insertOrderCates").css("color", "black");
+        }
+    });
+    $(".tbstates .insertNameCates").change(function () {
+        if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
+            $(".tbstates .insertOrderCates").val($("table.tbstates tbody tr").length + 1);
+            $(".tbstates .insertOrderCates").css("color", "black");
         }
     });
     $(".MProduct table input:checkbox").change(function () {
@@ -139,6 +181,41 @@ $(document).ready(function () {
             return false;
         }
     });
+    $(".tbstates .insertNameCates").keydown(function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
+            $(".tbstates .insertOrderCates").val($("table.tbstates tbody tr").length + 1);
+            $(".tbstates .insertOrderCates").css("color", "black");
+        }
+        if (charCode == 13) {
+            if ($.trim($(".tbstates .insertNameCates").val()) != "Press 'Enter' to insert" && $.trim($(".tbstates .insertNameCates").val()) != "") {
+                var name = $.trim($(".tbstates .insertNameCates").val());
+                var order = $("table.tbstates tbody tr").length + 1;
+                if ($(".tbstates .insertOrderCates").val() == "..." || $(".tbstates .insertOrderCates").val() == "") {
+                    $(".tbstates .insertOrderCates").val(order);
+                } else {
+                    order = $(".tbstates .insertOrderCates").val();
+                }
+                $(".tbstates .insertOrderCates").css("color", "black");
+                $("#waitloader").show();
+                $.ajax({
+                    url: "/Code/Business/AjaxUltilities.ashx?",
+                    type: "POST",
+                    dataType: "script",
+                    data: {
+                        action: "InsertState",
+                        Name: name,
+                        Order: order
+                    }
+                });
+                $("#waitloader").hide();
+            } else {
+                $(".insertOrderCates").val("...");
+                $(".insertOrderCates").css("color", "silver");
+            }
+            return false;
+        }
+    });
     $(".tbcates tbody").delegate("tr td:nth-child(2) input", "keydown", function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
         if (charCode == 13) {
@@ -146,6 +223,20 @@ $(document).ready(function () {
             var Order = $(this).val();
             var Name = $(this).parents("tr").find("td:nth-child(1) input").val();
             catUpdate(id, Name, Order);
+            return false;
+        }
+        else {
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) { return false; } else { return true; }
+        }
+        return false;
+    });
+    $(".tbstates tbody").delegate("tr td:nth-child(2) input", "keydown", function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            var id = $(this).attr("ref");
+            var Order = $(this).val();
+            var Name = $(this).parents("tr").find("td:nth-child(1) input").val();
+            stateUpdate(id, Name, Order);
             return false;
         }
         else {
@@ -163,6 +254,16 @@ $(document).ready(function () {
             return false;
         }
     });
+    $(".tbstates tbody").delegate("tr td:nth-child(1) input", "keydown", function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            var id = $(this).attr("ref");
+            var Name = $(this).val();
+            var Order = $(this).parents("tr").find("td:nth-child(2) input").val();
+            stateUpdate(id, Name, Order);
+            return false;
+        }
+    });
     $(".tbcates tbody").delegate(".catDel", "click", function () {
         var idc = $(this).attr("ref");
         if (confirm("Do you want to delete : " + $(this).parents("tr").find("td:nth-child(1) input").val())) {
@@ -173,6 +274,24 @@ $(document).ready(function () {
                 dataType: "script",
                 data: {
                     action: "CatsDel",
+                    ID: idc
+                }
+            });
+            $("#waitloader").hide();
+            $(this).parents("tr").remove();
+        }
+        return false;
+    });
+    $(".tbstates tbody").delegate(".sDel", "click", function () {
+        var idc = $(this).attr("ref");
+        if (confirm("Do you want to delete : " + $(this).parents("tr").find("td:nth-child(1) input").val())) {
+            $("#waitloader").show();
+            $.ajax({
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "StateDel",
                     ID: idc
                 }
             });
@@ -198,10 +317,33 @@ $(document).ready(function () {
         $("#waitloader").hide();
         return false;
     });
+    $(".tbstates tbody").delegate(".bindSubCate", "click", function () {
+        var idc = $(this).attr("ref");
+        $("#waitloader").show();
+        $('.tbsubstates tbody').empty();
+        $.ajax({
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
+            dataType: "script",
+            data: {
+                action: "GetSubStateByID",
+                ID: idc,
+                Target: ".tbsubstates tbody"
+            }
+        });
+        $("#waitloader").hide();
+        return false;
+    });
     $(".tbsubcates .insertNameCates").change(function () {
         if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
             $(".tbsubcates .insertOrderCates").val($("table.tbsubcates tbody tr").length + 1);
             $(".tbsubcates .insertOrderCates").css("color", "black");
+        }
+    });
+    $(".tbsubstates .insertNameCates").change(function () {
+        if ($.trim($(this).val()) != "Press 'Enter' to insert" && $.trim($(this).val()) != "") {
+            $(".tbsubstates .insertOrderCates").val($("table.tbsubstates tbody tr").length + 1);
+            $(".tbsubstates .insertOrderCates").css("color", "black");
         }
     });
     $(".tbsubcates .insertNameCates,.tbsubcates .insertOrderCates").keydown(function (data) {
@@ -250,13 +392,73 @@ $(document).ready(function () {
             return false;
         }
     });
+    $(".tbsubstates .insertNameCates,.tbsubstates .insertOrderCates").keydown(function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            if ($.trim($(".tbsubstates .insertNameCates").val()) != "Press 'Enter' to insert" && $.trim($(".tbsubstates .insertNameCates").val()) != "") {
+                var name = $.trim($(".tbsubstates .insertNameCates").val());
+                var order = $("table.tbsubstates tbody tr").length + 1;
+                var CatID = -1;
+                if ($(".tbsubstates tbody").attr("ref") > 0) {
+                    CatID = $(".tbsubstates tbody").attr("ref");
+                } else {
+                    alert("Please Select Category you want to insert!");
+                    $(".insertNameCates").val("Press 'Enter' to insert");
+                    $(".insertOrderCates").val("...");
+                    $(".insertOrderCates,.insertNameCates").css("color", "silver");
+                    return false;
+                }
+                if ($(".tbsubstates .insertOrderCates").val() == "..." || $(".tbsubstates .insertOrderCates").val() == "") {
+                    $(".tbsubstates .insertOrderCates").val(order);
+                } else {
+                    order = $(".tbsubstates .insertOrderCates").val();
+                }
+                $(".tbsubstates .insertOrderCates").css("color", "black");
+                $("#waitloader").show();
+                $.ajax({
+                    url: "/Code/Business/AjaxUltilities.ashx?",
+                    type: "POST",
+                    dataType: "script",
+                    data: {
+                        action: "InsertSubState",
+                        ID: CatID,
+                        Name: name,
+                        Order: order
+                    }
+                });
+                $(".insertNameCates").val("Press 'Enter' to insert");
+                $(".insertOrderCates").val("...");
+                $(".insertOrderCates,.insertNameCates").css("color", "silver");
+                $("#waitloader").hide();
+            } else {
+                $(".insertNameCates").val("Press 'Enter' to insert");
+                $(".insertOrderCates").val("...");
+                $(".insertOrderCates,.insertNameCates").css("color", "silver");
+            }
+            return false;
+        }
+    });
     $(".tbsubcates tbody").delegate("tr td:nth-child(2) input", "keydown", function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
         if (charCode == 13) {
             var id = $(this).attr("ref");
             var Order = $(this).val();
             var Name = $(this).parents("tr").find("td:nth-child(1) input").val();
-            subcatUpdate(id, Name, Order);
+            subCatsUpdate(id, Name, Order);
+            return false;
+        }
+        else {
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) { return false; } else { return true; }
+        }
+        return false;
+    });
+    $(".tbsubstates tbody").delegate("tr td:nth-child(2) input", "keydown", function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            var id = $(this).attr("ref");
+            var Order = $(this).val();
+            var Name = $(this).parents("tr").find("td:nth-child(1) input").val();
+            subStateUpdate(id, Name, Order);
             return false;
         }
         else {
@@ -271,6 +473,16 @@ $(document).ready(function () {
             var Name = $(this).val();
             var Order = $(this).parents("tr").find("td:nth-child(2) input").val();
             subcatUpdate(id, Name, Order);
+            return false;
+        }
+    });
+    $(".tbsubstates tbody").delegate("tr td:nth-child(1) input", "keydown", function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            var id = $(this).attr("ref");
+            var Name = $(this).val();
+            var Order = $(this).parents("tr").find("td:nth-child(2) input").val();
+            subStateUpdate(id, Name, Order);
             return false;
         }
     });
@@ -292,6 +504,24 @@ $(document).ready(function () {
         }
         return false;
     });
+    $(".tbsubstates tbody").delegate(".sDel", "click", function () {
+        var idc = $(this).attr("ref");
+        if (confirm("Do you want to delete : " + $(this).parents("tr").find("td:nth-child(1) input").val())) {
+            $("#waitloader").show();
+            $.ajax({
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "SubStateDel",
+                    ID: idc
+                }
+            });
+            $("#waitloader").hide();
+            $(this).parents("tr").remove();
+        }
+        return false;
+    });
     $("table.tbcates tbody").delegate("tr td:nth-child(2) input", "blur", function () {
         var trl = $("table.tbcates tbody tr");
         var num = trl.length;
@@ -305,8 +535,23 @@ $(document).ready(function () {
             }
         }
     });
+    $("table.tbstates tbody").delegate("tr td:nth-child(2) input", "blur", function () {
+        var trl = $("table.tbstates tbody tr");
+        var num = trl.length;
+        var id = $(this).attr("ref");
+        var order = $(this).val();
+        for (var i = 0; i <= num; i++) {
+            if ($(trl[i]).find("td:nth-child(2) input").val() == order && $(trl[i]).find("td:nth-child(2) input").attr("ref") != id) {
+                $(trl[i]).find("td:nth-child(2) input").select();
+                i = 0;
+                break;
+            }
+        }
+    });
     focusoutc("table.tbcates tr.insertCates input");
     focusoutc("table.tbsubcates tr.insertCates input");
+    focusoutc("table.tbstates tr.insertCates input");
+    focusoutc("table.tbsubstates tr.insertCates input");
     $(".BrowseServer").click(function () {
         var finder = new CKFinder();
         finder.basePath = '/ckfinder/'; // The path for the installation of CKFinder (default = "/ckfinder/").

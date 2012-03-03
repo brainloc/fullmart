@@ -1164,6 +1164,7 @@
     <Compile Include="Code\DAO\OptionManagement.cs" />
     <Compile Include="Code\DAO\ProductManagement.cs" />
     <Compile Include="Code\DAO\QAManagement.cs" />
+    <Compile Include="Code\DAO\StatesManagement.cs" />
     <Compile Include="Code\DAO\UserManagement.cs" />
     <Compile Include="Code\Entities\AnswerAndQuestion.cs" />
     <Compile Include="Code\Entities\Cart.cs" />
@@ -1350,6 +1351,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_GlobalResources\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\_samples\adobeair\" />
     <Folder Include="ckeditor\_samples\api_dialog\" />
