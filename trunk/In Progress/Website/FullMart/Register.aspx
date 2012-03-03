@@ -40,7 +40,7 @@
                     <table class="tbf">
                         <tr>
                             <td>
-                                UserName:<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("username") %><span style="color: red">*</span>
                                 
                             </td>
                             <td>
@@ -48,12 +48,12 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                     ErrorMessage="This field request" ControlToValidate="txtUserName" 
                                     SetFocusOnError="True"></asp:RequiredFieldValidator> 
-                                    <br style="clear:both" /><span id="checkUSn">Check</span>&nbsp;<span id="checkUSnn"></span>
+                                    <br style="clear:both" /><span id="checkUSn"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("check") %></span>&nbsp;<span id="checkUSnn"></span>
                                </td>
                         </tr>
                         <tr>
                             <td>
-                                First Name<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %><span style="color: red">*</span>
                             </td>
                             <td><asp:TextBox ID="txtFname" CssClass="validate[required]"  runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
@@ -62,7 +62,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Last Name<span style="color: red">*</span>
+                               <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %><span style="color: red">*</span>
                             </td>
                             <td><asp:TextBox ID="txtLname" CssClass="validate[required]"  runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
@@ -82,7 +82,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Password<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("password") %><span style="color: red">*</span>
                             </td>
                             <td><asp:TextBox ID="txtPass" CssClass="validate[required,custom[passl]]" TextMode="Password"  runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
@@ -92,7 +92,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Confirm Password<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("confirmpassword") %><span style="color: red">*</span>
                             </td>
                             <td><asp:TextBox ID="txtpasscf" CssClass="validate[required,funcCall[ckmk]]" TextMode="Password"  runat="server"></asp:TextBox>
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" 
@@ -102,16 +102,14 @@
                         </tr>
                         <tr>
                             <td>
-                                Your Birthday<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %><span style="color: red">*</span>
                             </td>
                             <td><asp:TextBox ID="txtbirthday" CssClass="ubirthday"  runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
-                                    ControlToValidate="txtbirthday" ErrorMessage="This field request"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Your State<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourlocation") %>
                             </td>
                             <td>
                                 <asp:DropDownList ID="drlState" runat="server" DataSourceID="dsState" 
@@ -125,23 +123,18 @@
                         </tr>
                         <tr>
                             <td>
-                                Your College/ University<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtUC" CssClass="validate[required]"  runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
-                                    ControlToValidate="txtUC" ErrorMessage="This field request"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Class<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %><span style="color: red">*</span>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtClass" CssClass="validate[required]"  runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
-                                    ErrorMessage="This field request" ControlToValidate="txtClass"></asp:RequiredFieldValidator>
-                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -153,7 +146,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Mobile
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
                             </td>
                             <td>
                                  <asp:TextBox ID="txtmobile" runat="server"></asp:TextBox>
@@ -161,7 +154,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Website Address
+                                Website
                             </td>
                             <td>
                                 <asp:TextBox ID="txtWebsite" Text="" runat="server"></asp:TextBox>
@@ -173,7 +166,7 @@
                         </tr>
                         <tr>
                             <td>
-                               Your Wishlist
+                               <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourwishlist") %>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtWishlist" TextMode="MultiLine" runat="server"></asp:TextBox>
@@ -181,7 +174,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Captcha image
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("captcha") %>
                             </td>
                             <td>
                                 <p id='veryu' class='very' title="reload image">
@@ -190,7 +183,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Enter Captcha image<span style="color: red">*</span>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("entercaptcha") %><span style="color: red">*</span>
                             </td>
                             <td>
                                 <input class="validate[required,funcCall[ckcap]]" type="text" id="freguserckcap"
