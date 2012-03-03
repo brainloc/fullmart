@@ -1,9 +1,15 @@
-/****** Object:  StoredProcedure [dbo].[GetUserInforbyID]    Script Date: 03/03/2012 18:06:16 ******/
+/****** Object:  StoredProcedure [dbo].[GetUserInforbyID]    Script Date: 03/03/2012 18:14:43 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetUserInforbyID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GetUserInforbyID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetUserInforbyID]    Script Date: 03/03/2012 18:14:43 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		NVN
@@ -16,23 +22,29 @@ AS
 BEGIN
 	
 	  SET NOCOUNT ON;	  
-	  SELECT [fname]
-		  ,[lname]
-		  ,[email]
-		  ,[pass]
-		  ,[bday]
-		  ,[state]
-		  ,[CU]
-		  ,[class]
-		  ,[createdate]
-		  ,[yahoo]
-		  ,[mobile]
-		  ,[Web]
-		  ,[Wishlist]
-		  ,[UserName]
-	  FROM [FullMart].[dbo].[User]
-	  WHERE [ID] = @ID
+	  SELECT [ID]
+      ,[fname]
+      ,[lname]
+      ,[email]
+      ,[pass]
+      ,[bday]
+      ,[state]
+      ,[CU]
+      ,[class]
+      ,[createdate]
+      ,[roleID]
+      ,[yahoo]
+      ,[mobile]
+      ,[ShopID]
+      ,[Web]
+      ,[Wishlist]
+      ,[isActive]
+      ,[UserName]
+      ,[isBanned]
+    FROM [FullMart].[dbo].[User]
+	WHERE [ID] = @ID
 END
+
 
 GO
 
