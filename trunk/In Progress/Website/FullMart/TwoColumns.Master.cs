@@ -87,6 +87,7 @@ namespace FullMart
 
             ProductManagement.SubmitOrder(idCollection);
             updateListLetter.DataBind();
+            updateCart.DataBind();
         }
         
         protected void LangEN_Click(object sender, EventArgs e)
