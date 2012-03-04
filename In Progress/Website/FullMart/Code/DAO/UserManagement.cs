@@ -502,5 +502,44 @@ namespace FullMart.Code.DAO
             }
             return false;
         }
+
+        public static bool UpdateUserInfo(User us)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateUserInfo", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", us.ID));
+                command.Parameters.Add(new SqlParameter("@fname", us.fname));
+                command.Parameters.Add(new SqlParameter("@lname", us.lname));
+                command.Parameters.Add(new SqlParameter("@email", us.email));
+                command.Parameters.Add(new SqlParameter("@pass", us.pass));
+                command.Parameters.Add(new SqlParameter("@bday", us.birthday));
+                command.Parameters.Add(new SqlParameter("@state", us.state));
+                command.Parameters.Add(new SqlParameter("@CU", us.CU));
+                command.Parameters.Add(new SqlParameter("@class", us.cls));
+                command.Parameters.Add(new SqlParameter("@mobile", us.mobile));
+                command.Parameters.Add(new SqlParameter("@yahoo", us.yahoo));
+                command.Parameters.Add(new SqlParameter("@web", us.website));
+                command.Parameters.Add(new SqlParameter("@wishlist", us.wishtlist));
+
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserUpdated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserUpdated == 1;
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    return false;
+                }
+            }
+        }
     }
 }

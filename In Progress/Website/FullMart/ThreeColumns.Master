@@ -78,7 +78,7 @@
                         <!-- Begin User Account -->
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
                             <asp:HyperLink ID="hlAdmin" Visible="true" runat="server"></asp:HyperLink>
-                            <a href="#Account" title="User's Account control">
+                            <a href='Register.aspx?Action=Edit' title="User's Account control">
                                 <div class="uus" class="left">
                                     <asp:Label ID="txtLoginName" runat="server" Text=""></asp:Label>
                                 </div>

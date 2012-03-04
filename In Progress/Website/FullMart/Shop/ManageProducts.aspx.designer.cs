@@ -139,58 +139,49 @@ namespace FullMart.Shop {
         protected global::System.Web.UI.WebControls.Button btnSortByProductName;
         
         /// <summary>
-        /// lnkSortByProductName control.
+        /// btnSortByPostdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortByProductName;
+        protected global::System.Web.UI.WebControls.Button btnSortByPostdate;
         
         /// <summary>
-        /// lnkSortByPostdate control.
+        /// btnSortByPoster control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortByPostdate;
+        protected global::System.Web.UI.WebControls.Button btnSortByPoster;
         
         /// <summary>
-        /// lnkSortByPoster control.
+        /// btnSortByPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortByPoster;
+        protected global::System.Web.UI.WebControls.Button btnSortByPrice;
         
         /// <summary>
-        /// lnkSortByPrice control.
+        /// btnSortBySubCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortByPrice;
+        protected global::System.Web.UI.WebControls.Button btnSortBySubCat;
         
         /// <summary>
-        /// lnkSortBySubCat control.
+        /// btnSortByOS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortBySubCat;
-        
-        /// <summary>
-        /// lnkSortByOS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSortByOS;
+        protected global::System.Web.UI.WebControls.Button btnSortByOS;
         
         /// <summary>
         /// rpManagingProductList control.

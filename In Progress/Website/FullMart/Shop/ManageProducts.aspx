@@ -138,28 +138,38 @@
                                         <asp:Button ID="btnSortByID" runat="server" Text="ID" CommandName="ID" OnClick="SetSortExpression" />
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortByProductName" runat="server" Text="Product's Name" CommandName="Title" OnClick="SetSortExpression" />
-                                        <asp:HyperLink ID="lnkSortByProductName" runat="server"></asp:HyperLink>
+                                        <asp:Button ID="btnSortByProductName" runat="server" Text="Product's Name" CommandName="Title"
+                                            OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortByProductName" runat="server"></asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:HyperLink ID="lnkSortByPostdate" runat="server">Post date</asp:HyperLink>
+                                        <asp:Button ID="btnSortByPostdate" runat="server" Text="Post date" CommandName="CreatedDate"
+                                            OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortByPostdate" runat="server">Post date</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:HyperLink ID="lnkSortByPoster" runat="server">Poster</asp:HyperLink>
+                                        <asp:Button ID="btnSortByPoster" runat="server" Text="Poster" CommandName="email"
+                                            OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortByPoster" runat="server">Poster</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:HyperLink ID="lnkSortByPrice" runat="server">Price(vnd)</asp:HyperLink>
+                                        <asp:Button ID="btnSortByPrice" runat="server" Text="Price(vnd)" CommandName="Price"
+                                            OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortByPrice" runat="server">Price(vnd)</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:HyperLink ID="lnkSortBySubCat" runat="server">Sub Category</asp:HyperLink>
+                                        <asp:Button ID="btnSortBySubCat" runat="server" Text="Sub Category" CommandName="Name"
+                                            OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortBySubCat" runat="server">Sub Category</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:HyperLink ID="lnkSortByOS" runat="server">OS</asp:HyperLink>
+                                        <asp:Button ID="btnSortByOS" runat="server" Text="OS" CommandName="Outstanding" OnClick="SetSortExpression" />
+                                        <%--<asp:HyperLink ID="lnkSortByOS" runat="server">OS</asp:HyperLink>--%>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <Custom:DataPagerRepeater ID="rpManagingProductList" runat="server" DataSourceID="dsManagingProductList">
+                                <Custom:DataPagerRepeater ID="rpManagingProductList" runat="server" DataSourceID="odsManagingProductList">
                                     <ItemTemplate>
                                         <tr>
                                             <td>
@@ -201,18 +211,31 @@
                                         </tr>
                                     </ItemTemplate>
                                 </Custom:DataPagerRepeater>
-                                <asp:Label ID="txtSortExpression" runat="server" Text="Title" Visible="false"></asp:Label>
-                                <asp:SqlDataSource ID="dsManagingProductList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+                                <asp:Label ID="txtSortExpression" runat="server" Text="ID" Visible="false"></asp:Label>
+                                <asp:SqlDataSource ID="dsManagingProductList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
                                     SelectCommandType="StoredProcedure" SelectCommand="GetManagingProductList">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="txtsearchPID" ConvertEmptyStringToNull="true" Name="ProductID" />
                                         <asp:ControlParameter ControlID="txtSProduct" ConvertEmptyStringToNull="true" Name="Email" />
                                         <asp:ControlParameter ControlID="dlCategories" ConvertEmptyStringToNull="true" Name="CatID" />
                                         <asp:ControlParameter ControlID="dlSubCategories" ConvertEmptyStringToNull="true"
-                                            Name="SubcatID" />   
-                                            <asp:ControlParameter ControlID="txtSortExpression" ConvertEmptyStringToNull="true" Name="SortBy" />                                     
-                                    </SelectParameters>                                    
+                                            Name="SubcatID" />
+                                        <asp:ControlParameter ControlID="txtSortExpression" ConvertEmptyStringToNull="true"
+                                            Name="SortBy" />
+                                    </SelectParameters>
                                 </asp:SqlDataSource>
+                                <%--<asp:ObjectDataSource ID="odsManagingProductList" runat="server" OnSelecting="odsManagingProductList_Selecting"
+                                    SelectCommandType="StoredProcedure" SelectCommand="GetManagingProductList">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="txtsearchPID" ConvertEmptyStringToNull="true" Name="ProductID" />
+                                        <asp:ControlParameter ControlID="txtSProduct" ConvertEmptyStringToNull="true" Name="Email" />
+                                        <asp:ControlParameter ControlID="dlCategories" ConvertEmptyStringToNull="true" Name="CatID" />
+                                        <asp:ControlParameter ControlID="dlSubCategories" ConvertEmptyStringToNull="true"
+                                            Name="SubcatID" />
+                                        <asp:ControlParameter ControlID="txtSortExpression" ConvertEmptyStringToNull="true"
+                                            Name="SortBy" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>--%>
                             </tbody>
                         </table>
                         <%--<div class="Apages right">

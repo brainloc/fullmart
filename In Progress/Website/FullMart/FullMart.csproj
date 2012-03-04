@@ -39,7 +39,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
-    <Reference Include="DataPagerRepeater">
+    <Reference Include="DataPagerRepeater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DataPagerRepeater.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -867,6 +868,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Denied.aspx" />
     <Content Include="dll\CKEditor.NET.dll" />
+    <Content Include="dll\DataPagerRepeater.dll" />
     <Content Include="Error.aspx" />
     <Content Include="ListMemsProduct.aspx" />
     <Content Include="ListProducts.aspx" />
@@ -903,7 +905,6 @@
     <Content Include="QA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShopC.aspx" />
-    <Content Include="ShopPage.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -1172,9 +1173,6 @@
     </Compile>
     <Compile Include="Code\Business\FilesUltilities.cs" />
     <Compile Include="Code\Business\ProductBusiness.cs" />
-    <Compile Include="Code\control\ButtonDropDownList.cs" />
-    <Compile Include="Code\control\ButtonTextBox.cs" />
-    <Compile Include="Code\control\GooglePagerField.cs" />
     <Compile Include="Code\DAO\Base.cs" />
     <Compile Include="Code\DAO\BindingUltilities.cs" />
     <Compile Include="Code\DAO\MemberShip.cs" />
@@ -1316,13 +1314,6 @@
     </Compile>
     <Compile Include="ShopC.aspx.designer.cs">
       <DependentUpon>ShopC.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ShopPage.aspx.cs">
-      <DependentUpon>ShopPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ShopPage.aspx.designer.cs">
-      <DependentUpon>ShopPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
