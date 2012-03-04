@@ -95,36 +95,12 @@ namespace FullMart
         }
 
         protected void LangEN_Click(object sender, EventArgs e)
-        {
-            if (Request.Cookies["lang"] == null)
-            {
-                HttpCookie lang = new HttpCookie("lang");
-                lang.Value = "en";
-                Response.Cookies.Add(lang);
-            }
-            else
-            {
-                HttpCookie lang = Request.Cookies["lang"];
-                lang.Value = "en";
-                Response.Cookies.Add(Response.Cookies["lang"]);
-            }
+        {           
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void LangVI_Click(object sender, EventArgs e)
-        {
-            if (Request.Cookies["lang"] == null)
-            {
-                HttpCookie lang = new HttpCookie("lang");
-                lang.Value = "vi";
-                Response.Cookies.Add(lang);
-            }
-            else
-            {
-                HttpCookie lang = Request.Cookies["lang"];
-                lang.Value = "vi";
-                Response.Cookies.Add(Response.Cookies["lang"]);
-            }
+        {         
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 

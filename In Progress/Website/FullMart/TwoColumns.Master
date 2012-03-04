@@ -43,9 +43,9 @@
                 </div>
                 <div class="tbc">
                     <div class="left">
-                        <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en" Text=""
-                            OnClick="LangEN_Click" />
-                        <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi"
+                        <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en SetEngByDefault"
+                            Text="" OnClick="LangEN_Click" />
+                        <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi SetViByDefault"
                             OnClick="LangVI_Click" /></div>
                     <div class="right">
                         <!-- Begin User Account -->

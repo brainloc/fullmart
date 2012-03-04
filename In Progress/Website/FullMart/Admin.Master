@@ -41,10 +41,10 @@
                 <div class="tbr">
                 </div>
                 <div class="left">
-                    <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en" Text=""
-                        OnClick="LangEN_Click" />
-                    <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi"
-                        OnClick="LangVI_Click" /></div>
+                    <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en SetEngByDefault"
+                            Text="" OnClick="LangEN_Click" />
+                        <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi SetViByDefault"
+                            OnClick="LangVI_Click" /></div>
                 <div class="tbc">
                     <div class="right">
                         <!-- Begin User Account -->
