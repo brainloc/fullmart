@@ -35,7 +35,7 @@ a{text-decoration:none;}
 .bt:hover{background-position:center bottom}
 .note{color:Silver;font-size:12px;display:block}
 
-
+.delmail{float:right;padding:0px padding-left:10px}
 
 /* User */
 .us{margin:2px 5px;background:white url(../images/ico.png) 0px -68px no-repeat}
@@ -260,3 +260,4 @@ a{text-decoration:none;}
 .message{font-size:20px;font-weight:bold;color:#42AFFF}
 #message{background:black;text-align:center;padding:20px;position:fixed;bottom:0px;right:0px;color:White;font-size:20px;font-weight:bold;display:none}
 .dlType{width:50px}
+#ucart strong div,#unote strong div{display: inline-block;}

@@ -248,7 +248,7 @@
     </div>
     <div id="viewnote" class="btlr viewnote ndialog">
         <a class="modalclose" title="Close"></a>
-        <asp:UpdatePanel ID="updateListLetter" runat="server">
+        <asp:UpdatePanel Visible=false ID="updateListLetter" runat="server">
             <ContentTemplate>
                 <div class="vlistletter">
                     <p class="hnote btlr">
@@ -277,6 +277,7 @@
                         <Custom:DataPagerRepeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
                             <ItemTemplate>
                                 <li class="orderItem" id='<%# Eval("ID") %>'>
+                                <asp:ImageButton CssClass="delmail" ImageUrl="/themes/images/delete.png" ID="delmail" runat="server" /> 
                                     <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
                                         <p class="ntitle">
                                             <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
@@ -349,7 +350,7 @@
     </div>
     <div id="fcart" class="fcart ndialog">
         <a class="modalclose" title="Close"></a>
-        <asp:UpdatePanel ID="updateCart" runat="server">
+        <asp:UpdatePanel Visible=false ID="updateCart" runat="server">
             <ContentTemplate>
                 <table cellpadding="0" cellspacing="0">
                     <thead>
