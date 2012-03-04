@@ -133,8 +133,7 @@
                                 </div>
                                 <div class="left">
                                     <a href="Register.aspx" title="Register">
-                                        <div id="treg">
-                                            Register</div>
+                                        <div id="treg"></div>
                                     </a>
                                 </div>
                             </LayoutTemplate>
@@ -157,8 +156,8 @@
                 <ul id="topm">
                     <li><a href="/Administration/ManageGeneral.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managepages") %>">
                         <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managepages") %></a></li>
-                    <li><a href="/Administration/ManageUser.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageuser") %>">
-                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageuser") %></a></li>
+                    <li><a href="/Administration/ManageUser.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageusers") %>">
+                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageusers")%></a></li>
                     <li><a href="/Shop/ManageProducts.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageproduct") %>">
                         <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageproduct") %></a></li>
                     <li><a href="/Administration/ManageCategories.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managecategories") %>">

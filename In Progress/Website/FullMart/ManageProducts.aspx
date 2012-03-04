@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
-    CodeBehind="ManageProducts.aspx.cs" Inherits="FullMart.Shop.ManageProducts" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OneColumn.Master" AutoEventWireup="true" CodeBehind="ManageProducts.aspx.cs" Inherits="FullMart.ManageProducts" %>
 <%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
-    <div class="State block" id="State">
+<asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
+<div class="State block" id="State">
     </div>
     <div id="tabsP">
         <ul>
@@ -20,7 +18,7 @@
         <asp:UpdatePanel ID="updateSelectProducts" runat="server">
             <ContentTemplate>
                 <div id="tabs1P-3">
-                    <a href="CreateProduct.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %>"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %></a>
+                    <a href="/PostAdv.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %>"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %></a>
                     <div class="insstate">
                         <asp:TextBox ID="txtsearchPID" CssClass="aip" title="Search by Product ID" Text="Search by Product ID"
                             runat="server"></asp:TextBox>

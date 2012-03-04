@@ -173,6 +173,8 @@ a{text-decoration:none;}
 #newadv .tabsi a{color:#5f5b5b}
 #newadv .tabsi ul{list-style:none}
 #newadv .tabsi ul li{display:block;padding:5px;border-bottom:1px solid #f3c6a2}
+#newadv .tabsi ul li img{width:50px;height:50px;padding:5px;background-color:transparent}
+#newadv .tabsi ul li p a{color:#00a5d9;font-size:14px;font-weight:bold;display:block;}
 #newadv .tabsi.active{display:block}
 /* scrollbar*/
 .scrollable {overflow: hidden !important;position: relative;}

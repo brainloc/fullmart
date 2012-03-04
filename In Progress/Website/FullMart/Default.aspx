@@ -2,7 +2,6 @@
     CodeBehind="Default.aspx.cs" Inherits="FullMart.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
@@ -40,7 +39,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="/themes/images/leftadv.jpg" />
+        <!--<img src="/themes/images/leftadv.jpg" />-->
     </div>
    
    <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
@@ -89,17 +88,22 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Center" runat="server">
     <div id="cmslide" class="block">
         <div id='mslider'>
-            <div class="item">
-                <img src="/themes/images/slide1.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide2.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide3.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide4.jpg" /></div>
-        </div>
+            <asp:Repeater ID="rpslider" DataSourceID="dsslider" runat="server">
+                <ItemTemplate>
+                    <div class="item">
+                        <img src="<%# Eval("EN") %>" /></div>
+                </ItemTemplate>
+            </asp:Repeater>
+        <asp:SqlDataSource ID="dsslider" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+            SelectCommand="SELECT [EN] FROM [GeneralOption] WHERE ([Option] = @Option)">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="Slider" Name="Option" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <div class="clear">
         </div>
+    </div>
     </div>
     <div id="cmproduce" class="block">
         <div class="parea b">
@@ -191,10 +195,10 @@
         <ItemTemplate>
             <li><div class="item">
                         <div class="left">
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                            <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                 <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
                         <p>
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
+                            <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
                             <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
                         </p>
                     </div>
@@ -231,40 +235,70 @@
         <div class="advc">
             <div id="NAtab1" class="tabsi active">
                 <ul>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,</a></li>
+                    <asp:Repeater ID="rpadvSell" DataSourceID="dsADVSell" runat="server">
+                    <ItemTemplate>
+                        <li>
+                            <div class="item">
+                                <div class="left">
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                <p>
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <%# Eval("Title") %></a> <span>
+                                            <%# Eval("CreatedDate")%></span>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
-                <a class="All" href="#All">>>See All</a></div>
+                <a class="All" href="/ListMemsProduct.aspx">>>See All</a></div>
             <div id="NAtab2" class="tabsi">
                 <ul>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,2</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,2</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,2</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,2</a></li>
+                    <asp:Repeater ID="rpBuy" DataSourceID="dsADVBuy" runat="server">
+                    <ItemTemplate>
+                        <li>
+                            <div class="item">
+                                <div class="left">
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                <p>
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <%# Eval("Title") %></a> <span>
+                                            <%# Eval("CreatedDate")%></span>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
-                <a class="All" href="#All">>>See All</a></div>
+                <a class="All" href="/ListMemsProduct.aspx">>>See All</a></div>
             <div id="NAtab3" class="tabsi">
                 <ul>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,3</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,3</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,3</a></li>
-                    <li><a href="#">noi dung quang cao, noi dung quang cao, noi dung quang cao, noi dung
-                        quang cao, noi dung quang cao, noi dung quang cao,3</a></li>
+                    <asp:Repeater ID="rpShare" DataSourceID="dsADVShare" runat="server">
+                    <ItemTemplate>
+                        <li>
+                            <div class="item">
+                                <div class="left">
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                <p>
+                                    <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                        <%# Eval("Title") %></a> <span>
+                                            <%# Eval("CreatedDate")%></span>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
-                <a class="All" href="#All">>>See All</a></div>
+                <a class="All" href="/ListMemsProduct.aspx">>>See All</a></div>
         </div>
         <ul id="tabs">
             <li class="active"><a href="#NAtab1">SELL</a></li>
@@ -274,4 +308,25 @@
         <div class="clear">
         </div>
     </div>
+    <asp:SqlDataSource ID="dsADVSell" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+        SelectCommand="SELECT TOP 5 [ID], [Price], [Thumbnail], [Title], [CreatedDate], [type] FROM [Product] WHERE ([type] = @type) ORDER BY [CreatedDate]">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="type" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="dsADVBuy" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+        SelectCommand="SELECT TOP 5 [ID], [Price], [Thumbnail], [Title], [CreatedDate], [type] FROM [Product] WHERE ([type] = @type) ORDER BY [CreatedDate]">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="2" Name="type" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="dsADVShare" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
+        SelectCommand="SELECT TOP 5 [ID], [Price], [Thumbnail], [Title], [CreatedDate], [type] FROM [Product] WHERE ([type] = @type) ORDER BY [CreatedDate]">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="3" Name="type" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>

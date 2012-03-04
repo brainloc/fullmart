@@ -2,6 +2,25 @@
     CodeBehind="ManageUser.aspx.cs" Inherits="FullMart.Administration.ManageUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".bannUS").change(function () {
+            var ID=$(this).attr("ref");
+            var status = false;
+            status = ($(this).attr("checked") != "undefined" && $(this).attr("checked") == "checked");
+            $.ajax({
+                url: "/Code/Business/AjaxUltilities.ashx?",
+                type: "POST",
+                dataType: "script",
+                data: {
+                    action: "banUS",
+                    ID: ID,
+                    status: status
+                }
+            });
+        });
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
@@ -73,7 +92,9 @@
                                 <td>
                                     <%# Eval("bday")%>
                                 </td>
-                                <td><%# Eval("roleID")%> </td>
+                                <td><%#Eval("roleID")%></td>
+                                <td> <input class="bannUS" ref="<%# Eval("ID") %>" <%# convertban(Eval("isBanned")) %> type="checkbox" /><%#  convertos(Eval("isBanned"))%> </td>
+                               
                                 <td style=" width: 100px;">
                                                                        
                                     <div class="cmdUser">
@@ -144,8 +165,8 @@
                                                         <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
-                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>: </span>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -193,6 +214,7 @@
             <li><a href="#Usert">User</a></li>
             <li><a href="#Shopt">Shop</a></li>
             <li><a href="#Adminitratort">Adminitrator</a></li>
+            <li><a href="#Banned">Banned</a></li>
         </ul>
         <div id="Usert" class="usereven">            
             <table id="Table1" class="tablesorter lUser">
@@ -320,8 +342,8 @@
                                                         <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
-                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                        <%--<span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
+                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />--%>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -715,113 +737,185 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <%--<div id="viewU" class="viewU">
-        <div class="cmdUser">
-            <button class="Uview left">
-            </button>
-            <button class="Uedit left">
-            </button>
-            <button class="Udelete left">
-            </button>
-            <div class="clear">
-            </div>
-        </div>
-        <span id="tUser"></span>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <span>Email: </span>
-                        <input disabled="disabled" class="VUEmail" type="text" />
-                    </td>
-                    <td>
-                        <span>Password: </span>
-                        <input class="VUPass" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>First Name:</span><input class="VUFName" type="text" />
-                    </td>
-                    <td>
-                        <span>Last Name</span><input class="VULName" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Birthday: </span>
-                        <input class="VUBday" type="text" />
-                    </td>
-                    <td>
-                        <span>State: </span>
-                        <input class="VUState" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>College/University: </span>
-                        <input class="VUCU" type="text" />
-                    </td>
-                    <td>
-                        <span>Class: </span>
-                        <input class="VUClass" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Join Date: </span>
-                        <input class="VUCreatedate" type="text" />
-                    </td>
-                    <td>
-                        <span>Yahoo: </span>
-                        <input class="VUYahoo" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Mobile: </span>
-                        <input class="VUMobile" type="text" />
-                    </td>
-                    <td>
-                        <span>Shop Name: </span>
-                        <input class="VUShopName" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Website: </span>
-                        <input class="VUWeb" type="text" />
-                    </td>
-                    <td>
-                        <span>User type: </span>
-                        <select class="VURole">
-                            <option>User</option>
-                            <option>Shop</option>
-                            <option>Adminitrator</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <span>WishList:</span>
-                        <textarea disabled="disabled" class="VUWishlist"></textarea>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2">
-                        <div>
-                            <center>
-                                <button onclick="btUser($(this));">
+        <div id="Banned" class="usereven">
+            <table id="banned" class="usereven tablesorter lUser">
+               <thead>
+                    <tr>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("username") %>
+                        </th>
+                        <th>
+                           <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("fullname") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>
+                        </th>
+                        
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>
+                        </th><th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>
+                        </th>
+                        <th><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="rpbanned" runat="server" DataSourceID="dsbanned">
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <%# Eval("email")%>
+                                </td>
+                                <td>
+                                    <%# Eval("UserName")%>
+                                </td>
+                                <td>
+                                    <%# Eval("fname")%> <%# Eval("lname")%>
+                                </td>
+                                <td>
+                                    <%# Eval("createdate")%>
+                                </td>
+                                <td>
+                                    <%# Eval("CU")%>
+                                </td>
+                                <td>
+                                    <%# Eval("class")%>
+                                </td>
+                                <td>
+                                    <%# Eval("bday")%>
+                                </td>
+                                <td><%#Eval("roleID")%></td>
+                                <td><input class="bannUS" ref="<%# Eval("ID") %>" <%# convertban(Eval("isBanned")) %> type="checkbox" /><%#  convertos(Eval("isBanned"))%> </td>
+                               
+                                <td style=" width: 100px;">
+                                                                       
+                                    <div class="cmdUser">
+                                        <button class="Uview left">
+                                        </button>
+                                        <button class="Uedit left">
+                                        </button>
+                                        <button class="Udelete left">
+                                        </button>
+                                        <div class="clear">
+                                        </div>
+                                    </div>
+                                     <div class="detailU"><div class="viewU">
+                                        <span id="tUser" class="tUser"><%# Eval("UserName")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Email: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("password") %>: </span>
+                                                        <input class="VUPass" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %>:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %></span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>: </span>
+                                                        <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %>: </span>
+                                                        <input class="VUState" value="<%# Eval("state")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>: </span>
+                                                        <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>: </span>
+                                                        <input class="VUClass" value="<%# Eval("class")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>: </span>
+                                                        <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span>Yahoo: </span>
+                                                        <input class="VUYahoo" value="<%# Eval("yahoo")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>: </span>
+                                                        <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>: </span>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Website: </span>
+                                                        <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>: </span>
+                                                        <select class="VURole">
+                                                            <option selected="selected">Member</option>
+                                                            <option>Shop</option>
+                                                            <option>Administrator</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("wishlist") %>:</span>
+                                                        <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btUser($(this));">
                                                                     CLOSE</button></center>
-                        </div>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>--%>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SqlDataSource ID="dsbanned" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetAllUserByBanned">
+                    </asp:SqlDataSource>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
     <div id="cfdelete">
         <p>
             <center>

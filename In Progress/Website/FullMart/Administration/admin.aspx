@@ -27,7 +27,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageuser") %>
+                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageusers")%>
                         </div>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageQA") %>
+                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageQA")%>
                         </div>
                     </a>
                 </div>

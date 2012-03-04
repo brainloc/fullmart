@@ -5,6 +5,8 @@ using System.Web;
 using FullMart.Code.DAO;
 using System.Data;
 using System.Text;
+using System.Security;
+using System.Web.Security;
 
 namespace FullMart.Code.Business
 {
@@ -93,6 +95,9 @@ namespace FullMart.Code.Business
                         var role = context.Request.Form["role"] != null ? context.Request.Form["role"].Trim().Replace("'", "''") : string.Empty;
                         var wishlist = context.Request.Form["wishlist"] != null ? context.Request.Form["wishlist"].Trim().Replace("'", "''") : string.Empty;
                         role = role.ToLower();
+                        if (!string.IsNullOrEmpty(pass)){
+                            pass=FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "SHA1");
+                        }
                         switch (role)
                         {
                             case "adminitrator": { irole = 1; break; }
@@ -117,6 +122,27 @@ namespace FullMart.Code.Business
                             context.Response.Write("$('#cfdelete').hide(); $('.simplemodal-wrap').append('<div class=\"simplemodal-data\"><center>User Disabled !</center></div>');$.delay(1000).modal.close();$('.MNews table tr').each(function(){if($.trim($(this).find('td:nth-child(1)').text())==\"" + email + "\"){$(this).remove();}});");
                         }
                         else { context.Response.Write("$('#cfdelete').hide(); $('.simplemodal-wrap').append('<div class=\"simplemodal-data\"><center>User Undeleted !</center></div>');"); }
+                        break;
+                    }
+                case "banUS":
+                    {
+                        context.Response.ContentType = "application/html";
+                        var IDU = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                        var status = context.Request.Form["status"] != null ? context.Request.Form["status"].Trim().Replace("'", "''") : string.Empty;
+                        int ID = 0;
+                        if (IDU != null && IDU != string.Empty)
+                        {
+                            ID = int.Parse(IDU);
+                            if (UserManagement.banUnban(ID, bool.Parse(status)))
+                            {
+                                context.Response.Write("$('#message').text('Update Successfully!');$('#message').fadeIn().delay(1000).fadeOut();");
+                            }
+                            else { context.Response.Write("$('#message').text('Update Unsuccessfully!');$('#message').fadeIn().delay(1000).fadeOut();"); }
+                        }
+                        else
+                        {
+                            context.Response.Write("$('#message').text('Wrong User ID!');$('#message').fadeIn().delay(1000).fadeOut();");
+                        }
                         break;
                     }
                 case "delNews":

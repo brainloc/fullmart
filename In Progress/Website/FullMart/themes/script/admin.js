@@ -2,32 +2,29 @@
     if ($.trim(a.text()) != "SAVE") {
         $.modal.close();
     } else {
-        $.modal.close();
-        alert("This function's developing, please wait next version!");
-        
-//        $.ajax({
-//            url: "/Code/Business/AjaxUltilities.ashx?",
-//            type: "POST",
-//            dataType: "script",
-//            data: {
-//                action: "EditUser",
-//                username: $.trim(a.parents(".viewU").find(".tUser").text()),
-//                email: a.parents(".viewU").find(".VUEmail").val(),
-//                pass: a.parents(".viewU").find(".VUPass").val(),
-//                fname: a.parents(".viewU").find(".VUFName").val(),
-//                lname: a.parents(".viewU").find(".VULName").val(),
-//                birthday: a.parents(".viewU").find(".VUBday").val(),
-//                state: a.parents(".viewU").find(".VUState").val(),
-//                CU: a.parents(".viewU").find(".VUCU").val(),
-//                cls: a.parents(".viewU").find(".VUClass").val(),
-//                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
-//                mobile: a.parents(".viewU").find(".VUMobile").val(),
-//                shopname: a.parents(".viewU").find(".VUShopName").val(),
-//                web: a.parents(".viewU").find(".VUWeb").val(),
-//                role: a.parents(".viewU").find(".VURole").val(),
-//                wishlist: a.parents(".viewU").find(".VUWishlist").val()
-//            }
-    //        });
+        $.ajax({
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
+            dataType: "script",
+            data: {
+                action: "EditUser",
+                username: $.trim(a.parents(".viewU").find(".tUser").text()),
+                email: a.parents(".viewU").find(".VUEmail").val(),
+                pass: a.parents(".viewU").find(".VUPass").val(),
+                fname: a.parents(".viewU").find(".VUFName").val(),
+                lname: a.parents(".viewU").find(".VULName").val(),
+                birthday: a.parents(".viewU").find(".VUBday").val(),
+                state: a.parents(".viewU").find(".VUState").val(),
+                CU: a.parents(".viewU").find(".VUCU").val(),
+                cls: a.parents(".viewU").find(".VUClass").val(),
+                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
+                mobile: a.parents(".viewU").find(".VUMobile").val(),
+                shopname: a.parents(".viewU").find(".VUShopName").val(),
+                web: a.parents(".viewU").find(".VUWeb").val(),
+                role: a.parents(".viewU").find(".VURole").val(),
+                wishlist: a.parents(".viewU").find(".VUWishlist").val()
+            }
+            });
     
     }
     return false;
@@ -658,6 +655,7 @@ $(document).ready(function () {
     //    focusout("#SProduct", "Enter Email to search user's product");
     focusout("#searchPID", "Search by Product's ID");
 
+
     function insertSC(type, content) {
         $.ajax({
             url: "/Code/Business/AjaxUltilities.ashx?",
@@ -680,48 +678,48 @@ $(document).ready(function () {
             }
         });
     }
-//    $("#INSState").keypress(function (data) {
-//        if (data.which == 13) {
-//            alert('gọi ajax insert');
-//            insertSC("insertState", $("#INSState").val());
-//            //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
-//            $("#INSState").val("");
-//            return false;
-//        }
-//    });
-//    $("#INSCAT").keypress(function (data) {
-//        if (data.which == 13) {
-//            var tmp = $("#INSCAT").val();
-//            alert(tmp);
-//            //insertSC("insertcat", tmp);
-//            $(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
-//            $("#INSCAT").val("");
-//            return false;
-//        }
-//    });
-//    $("#INSSUBCAT").keypress(function (data) {
-//        if (data.which == 13) {
-//            if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
-//                alert('gọi ajax insert');
-//                $.ajax({
-//                    url: "/Code/Business/AjaxUltilities.ashx?",
-//                    type: "POST",
-//                    dataType: "script",
-//                    data: {
-//                        action: "insertsubcat",
-//                        maincategory: $("#INSCAT").val(),
-//                        subcategory: $("#INSSUBCAT").val()
-//                    }
-//                });
-//                //$(".subcat").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delSubCat','" + $("#INSSUBCAT").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
-//                $("#INSSUBCAT").val("");
-//                return false;
-//            } else {
-//                alert("Please Input or select main categories");
-//            }
-//            return false;
-//        }
-//    });
+    //    $("#INSState").keypress(function (data) {
+    //        if (data.which == 13) {
+    //            alert('gọi ajax insert');
+    //            insertSC("insertState", $("#INSState").val());
+    //            //$(".state").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delState','" + $("#INSState").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
+    //            $("#INSState").val("");
+    //            return false;
+    //        }
+    //    });
+    //    $("#INSCAT").keypress(function (data) {
+    //        if (data.which == 13) {
+    //            var tmp = $("#INSCAT").val();
+    //            alert(tmp);
+    //            //insertSC("insertcat", tmp);
+    //            $(".maincat").prepend("<li><span>" + tmp + "</span><button onclick=\"delSC('delMainCat','" + tmp + "');$(this).parent().remove();\" class='delState' title='Delete' title='Delete'></button></li>");
+    //            $("#INSCAT").val("");
+    //            return false;
+    //        }
+    //    });
+    //    $("#INSSUBCAT").keypress(function (data) {
+    //        if (data.which == 13) {
+    //            if ($("#INSCAT").val() != "" && $("#INSCAT").val() != "Press 'Enter' to insert") {
+    //                alert('gọi ajax insert');
+    //                $.ajax({
+    //                    url: "/Code/Business/AjaxUltilities.ashx?",
+    //                    type: "POST",
+    //                    dataType: "script",
+    //                    data: {
+    //                        action: "insertsubcat",
+    //                        maincategory: $("#INSCAT").val(),
+    //                        subcategory: $("#INSSUBCAT").val()
+    //                    }
+    //                });
+    //                //$(".subcat").prepend("<li><span>" + $("#INSState").val() + "</span><button onclick=\"delSC('delSubCat','" + $("#INSSUBCAT").val() + "')\" class='delState' title='Delete' title='Delete'></button></li>");
+    //                $("#INSSUBCAT").val("");
+    //                return false;
+    //            } else {
+    //                alert("Please Input or select main categories");
+    //            }
+    //            return false;
+    //        }
+    //    });
     $(".state .delState").click(function () {
         alert("delete ajax state : " + $(this).parent().find("span").text());
         delSC("delState", $(this).parent().find("span").text());

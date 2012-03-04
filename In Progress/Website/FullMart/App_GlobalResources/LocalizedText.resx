@@ -219,7 +219,7 @@
   <data name="manageusers" xml:space="preserve">
     <value>Quảng lý người dùng</value>
   </data>
-  <data name="mangeQA" xml:space="preserve">
+  <data name="manageQA" xml:space="preserve">
     <value>Quản lý hỏi đáp</value>
   </data>
   <data name="moredetail" xml:space="preserve">
@@ -401,5 +401,14 @@
   </data>
   <data name="price" xml:space="preserve">
     <value>Giá</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="numberNewestProducts" xml:space="preserve">
+    <value>Số lượng sản phẩm mới nhất hiện trên trang chủ</value>
+  </data>
+  <data name="numberTopProducts" xml:space="preserve">
+    <value>Số lượng sản phẩm nổi bật hiện trên trang chủ</value>
   </data>
 </root>

@@ -16,14 +16,8 @@ namespace FullMart
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.IsPostBack == false)
-            {  
-                //Configuration MaxItemsTopSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-                //MaxItemsTopSection.AppSettings.Settings["MaxItemsTopSection"].Value = "40";
-                //MaxItemsTopSection.Save();
-
-                //Configuration MaxItemsNewSection = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-                //MaxItemsNewSection.AppSettings.Settings["MaxItemsNewSection"].Value = "20";
-                //MaxItemsNewSection.Save();
+            {
+                
 
                 dsTopSection.SelectCommand = String.Format("SELECT TOP {0} [dbo].[Product].[ID] AS ID,[Price],[Thumbnail],[Title] FROM [dbo].[Product],[dbo].[User] WHERE [Outstanding] = 1 AND [Type] = 1 AND [PosterID]=[dbo].[User].[ID] AND [roleID] <>3 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsTopSection"].ToString());
                 dsNewSection.SelectCommand = String.Format("SELECT TOP {0} [dbo].[Product].[ID] AS ID,[Price],[Thumbnail],[Title] FROM [dbo].[Product],[dbo].[User] WHERE [Outstanding] = 1 AND [Type] = 1 AND [PosterID]=[dbo].[User].[ID] AND [roleID] <>3 ORDER BY [CreatedDate] DESC", ConfigurationManager.AppSettings["MaxItemsNewSection"].ToString());

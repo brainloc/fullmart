@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Địa chỉ.
+        /// </summary>
+        internal static string address {
+            get {
+                return ResourceManager.GetString("address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thêm vào giỏ hàng.
         /// </summary>
         internal static string addtocart {
@@ -358,6 +367,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quản lý hỏi đáp.
+        /// </summary>
+        internal static string manageQA {
+            get {
+                return ResourceManager.GetString("manageQA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quảng lý khu vực.
         /// </summary>
         internal static string managestates {
@@ -372,15 +390,6 @@ namespace Resources {
         internal static string manageusers {
             get {
                 return ResourceManager.GetString("manageusers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quản lý hỏi đáp.
-        /// </summary>
-        internal static string mangeQA {
-            get {
-                return ResourceManager.GetString("mangeQA", resourceCulture);
             }
         }
         
@@ -426,6 +435,24 @@ namespace Resources {
         internal static string noproduct {
             get {
                 return ResourceManager.GetString("noproduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số lượng sản phẩm mới nhất hiện trên trang chủ.
+        /// </summary>
+        internal static string numberNewestProducts {
+            get {
+                return ResourceManager.GetString("numberNewestProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số lượng sản phẩm nổi bật hiện trên trang chủ.
+        /// </summary>
+        internal static string numberTopProducts {
+            get {
+                return ResourceManager.GetString("numberTopProducts", resourceCulture);
             }
         }
         

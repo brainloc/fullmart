@@ -24,6 +24,7 @@
 //        }
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
     <div id="UpProduct">
         <asp:Label ID="txtmessage" CssClass="message" runat="server" Text=""></asp:Label>
