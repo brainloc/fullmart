@@ -1,4 +1,4 @@
-﻿var maxtitle = 35;//max lenght of title hotnew
+﻿var maxtitle = 35; //max lenght of title hotnew
 var maxtext = 100; //max lenght of content preview hotnew
 function genr(len, charSet) {
     charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -42,7 +42,7 @@ function search() {
     var url1 = window.location.origin;
     if ($("#slcats dt a span").text() != "Please select the category") {
         var catID = $("#slcats dt a span").attr('id');
-      url1 = url1 + "/list_by_subcate_search.aspx?cat=" + id + "&title=" + key;
+        url1 = url1 + "/list_by_subcate_search.aspx?cat=" + id + "&title=" + key;
     } else {
         url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
     }
@@ -108,6 +108,13 @@ function calcart() {
 		            );
 	            }
             );
+}
+
+function setCookie(c_name, value, exdays) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+    document.cookie = c_name + "=" + c_value;
 }
 $(document).ready(function () {
     if ($.browser.msie && $.browser.version < 9) {
@@ -288,5 +295,13 @@ $(document).ready(function () {
         });
         $(".vletter").hide();
         return false;
+    });
+
+    $(".SetEngByDefault").click(function () {
+        setCookie("lang", "en", 1);
+    });
+
+    $(".SetViByDefault").click(function () {
+        setCookie("lang", "vi", 1);
     });
 });

@@ -25,7 +25,7 @@
     <script src="/themes/script/jquery.calculation.min.js" type="text/javascript"></script>
     <script src="/themes/script/dropbox.js" type="text/javascript"></script>
     <script src="/themes/script/jquery.bxSlider.min.js" type="text/javascript"></script>
-    <script src="/themes/script/main.js" type="text/javascript"></script>
+    <script src="/themes/script/main.js" type="text/javascript"></script>    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -42,10 +42,10 @@
                 </div>
                 <div class="tbc">
                     <div class="left">
-                        <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en" Text=""
+                        <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en SetEngByDefault" Text=""
                             OnClick="LangEN_Click" />
-                        <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi"
-                            OnClick="LangVI_Click" /></div>
+                        <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi SetEngByDefault"
+                            OnClick="LangVI_Click"/></div>
                     <div class="right">
                         <!-- Begin User Account -->
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">

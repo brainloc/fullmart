@@ -49,7 +49,7 @@ namespace FullMart.Administration
             {
                 ui = Request.Cookies["lang"].Value;
             }
-            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            string culture = ui == "en" ? "en-us" : "vi-VN";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
             base.InitializeCulture();
