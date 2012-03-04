@@ -10,7 +10,7 @@
 namespace FullMart {
     
     
-    public partial class viewNews {
+    public partial class ShopPage {
         
         /// <summary>
         /// rpCategories control.
@@ -49,39 +49,57 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.SqlDataSource dsAQ;
         
         /// <summary>
-        /// txtTitleNew control.
+        /// rpShopInfor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTitleNew;
+        protected global::System.Web.UI.WebControls.Repeater rpShopInfor;
         
         /// <summary>
-        /// txtTimePostNew control.
+        /// dsShopInfor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTimePostNew;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsShopInfor;
         
         /// <summary>
-        /// txtContentNew control.
+        /// UShopID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtContentNew;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden UShopID;
         
         /// <summary>
-        /// txtAuthorNew control.
+        /// ListProductShop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtAuthorNew;
+        protected global::System.Web.UI.WebControls.ListView ListProductShop;
+        
+        /// <summary>
+        /// dsListNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsListNew;
+        
+        /// <summary>
+        /// ListView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView1;
     }
 }

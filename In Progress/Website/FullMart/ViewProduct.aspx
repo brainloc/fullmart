@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ThreeColumns.Master" AutoEventWireup="true"
     CodeBehind="ViewProduct.aspx.cs" Inherits="FullMart.ViewProduct" %>
-
+    <%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="themes/style/QAA.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
@@ -42,7 +42,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
-            <span>Categories</span></div>
+            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories")%></span></div>
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
@@ -78,7 +78,7 @@
         <img src="/themes/images/leftadv.jpg" /></div>
     <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
                 <EmptyDataTemplate>
-                    No data was returned.
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                 </EmptyDataTemplate>
                <ItemTemplate>
                     <li>
@@ -98,7 +98,7 @@
                 <LayoutTemplate>
                     <div id="AAQ" class="lb b">
                         <div class="title">
-                            <span>Answers & Questions</span></div>
+                            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("answerQuestion")%></span></div>
                         <div class="listitem">
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
@@ -125,6 +125,7 @@
         <asp:Repeater ID="rpProductDetail" runat="server">
             <ItemTemplate>
                 <div class="headproduct block clear">
+                    
                     <p class="titlep btlr block"><%# Eval("Title")%></p>
                     <%--<a href='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>' class='cloud-zoom' id='zoom1' rel="adjustX: 10, adjustY:-4">
                         <img src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Picture") %>" alt='' title="Optional title display" />
@@ -156,17 +157,16 @@
                            { %>
                         <div class="buy">
                             <input type="text" class="b nump" value="1" title="Quantity" />
-                            <button>
-                                Buy It</button></div>
+                            <button><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("BuyIt") %></button></div>
                         <% } %>
-                        <ul>
-                            <li>Price: <span class="price">
+                        <ul>                            
+                            <li><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("price") %>: <span class="price">
                                 <%# Eval("Price")%>
                                 VNĐ</span> </li>
-                            <li>Poster: <a href="#" title='Ghé thăm Shop của <%# Eval("PosterName") %>'>
+                            <li><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("poster") %>: <a href="#" title='<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("visitShop") %><%# Eval("PosterName") %>'>
                                 <%# Eval("PosterName") %></a></li>
-                            <li>Post date: 11-07-2011 | 15:12 </li>
-                            <li>State :
+                            <li><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("postdate") %>: <%# Eval("CreatedDate") %> </li>
+                            <li><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %> :
                                 <%# Eval("StateName")%></li>
                             <li>Contact :
                                 <ul>
@@ -188,11 +188,11 @@
                     <div class="Shopdetail clear">
                     <div class="summary-info right">
                         <div class="summary-info-box clearfix">
-                        <h3 class="name-shop"><a href="/ShopPage.aspx?Shop=<%# Eval("ShopID") %>" title="<%# Eval("ShopName") %>"><%# Eval("ShopName") %></a>  </h3>
+                        <h3 class="name-shop"><a href="/ShopPage.aspx?Shop=<%# Eval("ShopID") %>" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("visitShop") %><%# Eval("ShopName") %>"><%# Eval("ShopName") %></a>  </h3>
                         <table>
                             <tr>
                                 <td>
-                                    Status
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>
                                 </td>
                                 <td>
                                     <%=shopchecked %>
@@ -200,7 +200,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Created Date
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createdDate") %>
                                 </td>
                                 <td>
                                     <%# Eval("ShopCreatedDate")%>
@@ -208,7 +208,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Address
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %>
+
                                 </td>
                                 <td>
                                     <%# Eval("ShopAddress")%>
@@ -216,7 +217,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Phone
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
                                 </td>
                                 <td>
                                     <%# Eval("ShopPhone")%>
@@ -232,7 +233,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Rate
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %>
+
                                 </td>
                                 <td>
                                 <span class="rate"><%# Eval("Shoprate")%></span>
@@ -259,7 +261,7 @@
                 </script>
                 <div class="clear block"></div>
                 <div class="contentproduct block">
-                    <p class="titlep btlr block">Product info</p>
+                    <p class="titlep btlr block"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("productinfo") %></p>
                     <div class="contentp">
                         <p>
                             &nbsp;</p>
@@ -276,13 +278,12 @@
     <div id="cmproduce" class="block">
         <div class="parea b">
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">Other
-                    Product Same Categories</span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("otherproductsamecat") %></span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID" EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct")%>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -332,13 +333,12 @@
         </div>
         <div class="parea b">
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">Other
-                    Product Same Poster</span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("otherproductsameposter")%></span></a></span></div>
             <div class="listp">
                 <div class="content">
                     <asp:ListView ID="ListView3" runat="server" DataKeyNames="ID" EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct")%>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -389,7 +389,7 @@
     </div>
     <div class="viewproduct comment">
         <div class="contentproduct block">
-            <p class="titlep btlr block"><asp:Label ID="Label1" runat="server" Text="<%$ Resources:LocalizedText, comment %>"></asp:Label> </asp:Label></p>
+            <p class="titlep btlr block"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("comment")%></p>
             <div class="contentp bgwt">
                 <div class="listitem bgwt b block">
                     <div id="fcomment">
@@ -402,7 +402,7 @@
                                     <ContentTemplate>
                                         <asp:TextBox ID="txtPost" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                         <div id='msinfo' class="bblr msinfo">
-                                            <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="SEND" OnClick="btnPost_Click" />
+                                            <asp:Button ID="btnPost" CssClass="mspost right" runat="server" Text="<%$ Resources:LocalizedText, send %>" OnClick="btnPost_Click" />
                                             <div class="right msveryp">
                                                 <input class="msvery" type="text" title="Captcha" value='Captcha' /></div>
                                             <p class='very right'>
@@ -436,7 +436,7 @@
                                                     Remove</button></a>
                                             <%  } %>
                                         </div>
-                                        <span title="number of comment" class="numc">
+                                        <span title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("numcomment")%>" class="numc">
                                             <%# Eval("COMMENTSCOUNT")%></span>
                                         <asp:Label ID="txtCommentID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                         <ul class="subcomment" id='<%# Eval("ID") %>'>
@@ -476,7 +476,7 @@
                                                     <div class="AQtext b block SubCommentSpace">
                                                         <asp:TextBox ID="txtSubComment" runat="server" TextMode="MultiLine" CssClass="txtmscontent"></asp:TextBox>
                                                         <div id='Div3' class="bblr msinfo">
-                                                            <input type="button" class="mspost right" value="SEND" onclick="AddSubComment(this)" />
+                                                            <input type="button" class="mspost right" runat="server" value="<%$ Resources:LocalizedText, send %>" onclick="AddSubComment(this)" />
                                                             <div class="right msveryp">
                                                                 <input class="msvery" type="text" value='Captcha' />
                                                             </div>
@@ -532,14 +532,14 @@
                         <tr>
                             <td colspan="2">
                                 <div>
-                                    Nhập thông tin người nhận hàng:</div>
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("receipientinfo")%>:</div>
                                 <div class="message" style="display: none">
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td style="padding-top: 10px">
-                                Họ tên người nhận hàng
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("receipient")%>
                             </td>
                             <td style="padding-top: 10px">
                                 <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
@@ -548,7 +548,7 @@
                         </tr>
                         <tr>
                             <td style="padding-top: 10px">
-                                Số Lượng :
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("quantity")%>
                             </td>
                             <td style="padding-top: 10px">
                                 <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
@@ -557,7 +557,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Thành phố/Tỉnh:
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location")%>
                             </td>
                             <td>
                                 <asp:DropDownList ID="idTinhThanhFull" runat="server" CssClass="selectbox" OnSelectedIndexChanged="idTinhThanhFull_SelectedIndexChanged"
@@ -567,7 +567,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Quận/Huyện:
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("zone")%>
                             </td>
                             <td>
                                 <div id="id">
@@ -587,7 +587,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Số điện thoại:
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone")%>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
@@ -596,7 +596,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Email (nếu có):
+                                Email (<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("option")%>):
                             </td>
                             <td>
                                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
@@ -615,7 +615,7 @@
                         <tr>
                             <td colspan="3">
                                 <%--<asp:Button ID="btnOK" runat="server" Text="Tiếp Theo" />--%>
-                                <button runat="server" id="btnContiue" onserverclick="btnContiue_Click" onclick="">Tiếp theo</button>
+                                <button runat="server" id="btnContiue" onserverclick="btnContiue_Click" onclick=""><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("addtocart")%></button>
                             </td>
                         </tr>
                         <tr>
@@ -634,52 +634,49 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Right" runat="server">
-    <asp:SqlDataSource ID="dsListNew" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+<asp:SqlDataSource ID="dsListNew" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
         SelectCommand="SELECT [Title], [ID], [ShortContent], [ImageThumb] FROM [News] ORDER BY [CreatedDate] DESC">
     </asp:SqlDataSource>
     <div id="hotnew" class="lb b">
-        <div class="title">
-            Hot News</div>
+        <div class="title" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %>"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %></div>
         <div class="listitem">
-            <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew"
-                EnableModelValidation="True">
-                <EmptyDataTemplate>
-                </EmptyDataTemplate>
-                <ItemTemplate>
-                    <li>
-                        <div class="item">
-                            <div class="left">
-                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                    <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
-                            <p>
-                                <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                    <%# Eval("Title") %></a> <span>
-                                        <%# correctshortCT(Eval("ShortContent"),200) %></span>
-                            </p>
-                        </div>
-                        <div class="clear">
-                        </div>
-                    </li>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <ul id="itemPlaceholderContainer" runat="server" style="">
-                        <li runat="server" id="itemPlaceholder" />
-                    </ul>
-                    <div class="Apages right">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="4">
-                            <Fields>
-                                <%--
+         <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
+        <EmptyDataTemplate>
+            
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <li><div class="item">
+                        <div class="left">
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                                <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
+                        <p>
+                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
+                            <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
+                        </p>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </li>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <ul ID="itemPlaceholderContainer" runat="server" style="">
+                <li runat="server" id="itemPlaceholder" />
+            </ul>
+            <div class="Apages right">
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="4">
+                    <Fields><%--
                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
                             ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
-                                <asp:NumericPagerField />
-                                <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                        <asp:NumericPagerField />
+                        <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
                             ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
-                            </Fields>
-                        </asp:DataPager>
-                        <a href="/listnew.aspx" ref="0">All</a>
-                    </div>
-                </LayoutTemplate>
-            </asp:ListView>
+                    </Fields>
+                </asp:DataPager>
+                <a href="/listnew.aspx" ref="0">All</a>
+            </div>
+        </LayoutTemplate>
+    </asp:ListView>
             <div class="clear">
             </div>
         </div>
@@ -687,8 +684,7 @@
     <div class="ladv lb">
         <img src="/themes/images/rightadv.jpg" /></div>
     <div id="newadv" class="lb b">
-        <div class="title">
-            New ADV</div>
+        <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("newadv")%></div>
         <div class="advc">
             <div id="NAtab1" class="tabsi active">
                 <ul>

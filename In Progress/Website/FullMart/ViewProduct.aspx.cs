@@ -16,7 +16,6 @@ namespace FullMart
     {
         public string tmprole = "";
         public bool tmpisAdmin = false;
-        public int usID = 0;
         public string shopID = "-1";
         public string shopchecked = "Checking";
         protected void Page_Load(object sender, EventArgs e)
@@ -26,8 +25,6 @@ namespace FullMart
                 if (Page.User.Identity.IsAuthenticated)
                 {
                     tmpisAdmin = UserManagement.isAdminbyNoM(Page.User.Identity.Name);
-                    usID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0][0].ToString());
-
                 }
 
                 string productID = Request.QueryString["ID"];
@@ -46,12 +43,15 @@ namespace FullMart
                                 {
                                     if (bool.Parse(productDetail.Rows[0]["ShopChecked"].ToString()))
                                     {
-                                        shopchecked = "Checked";
+                                        shopchecked = FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopchecked");
+                                    }
+                                    else { 
+                                        shopchecked = FullMart.Code.DAO.BindingUltilities.GetResourceValue("checking");
                                     }
                                 }
                                 else
                                 {
-                                    shopchecked = "Closed";
+                                    shopchecked = FullMart.Code.DAO.BindingUltilities.GetResourceValue("closed"); ;
                                 }
                             }
                             else {
@@ -153,7 +153,7 @@ namespace FullMart
                     {
                         if (!Page.User.Identity.IsAuthenticated)
                         {
-                            Response.Redirect("~/Login.aspx", false);
+                            Response.Redirect("~/Login.aspx", true);
                         }
                         string command = eventArgs.First();
 
@@ -161,7 +161,7 @@ namespace FullMart
                         {
                             case "AddSubComment":
                                 {
-                                    int posterID = usID;
+                                    int posterID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0]["ID"].ToString());
                                     int commentID = Convert.ToInt32(eventArgs.ElementAt(2));
                                     string content = eventArgs.Last();
                                     AddSubComment(posterID, commentID, content);
@@ -233,7 +233,7 @@ namespace FullMart
             }
             string content = txtPost.Text.Trim();
             txtPost.Text = "";
-            int posterID = usID;
+            int posterID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0]["ID"].ToString());
             string productID = Request.QueryString["ID"];
             if (string.IsNullOrEmpty(content) == false)
             {
@@ -341,9 +341,11 @@ namespace FullMart
         }
         protected override void InitializeCulture()
         {
-            string ui = Request.QueryString["lang"];
-            if (string.IsNullOrEmpty(ui))
-                ui = "vi";
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
             string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);

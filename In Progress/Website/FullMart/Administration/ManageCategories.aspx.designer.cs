@@ -7,72 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FullMart.themes.script {
+namespace FullMart.Administration {
     
     
-    public partial class listnew {
+    public partial class ManageCategories {
         
         /// <summary>
-        /// rpCategories control.
+        /// rpListCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCategories;
+        protected global::System.Web.UI.WebControls.Repeater rpListCategories;
         
         /// <summary>
-        /// dsCategories control.
+        /// txtInsert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        protected global::System.Web.UI.WebControls.TextBox txtInsert;
         
         /// <summary>
-        /// ListAQ control.
+        /// txtInsertOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListAQ;
+        protected global::System.Web.UI.WebControls.TextBox txtInsertOrder;
         
         /// <summary>
-        /// dsAQ control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsAQ;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// rpNewsList control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DataPagerRepeater.DataPagerRepeater rpNewsList;
-        
-        /// <summary>
-        /// dsNewsList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsNewsList;
-        
-        /// <summary>
-        /// DataPager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager DataPager1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
     }
 }

@@ -4,8 +4,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="acontent block"><a href="CreateNews.aspx"><img src="/themes/images/upload.png" /></a>
     <div class="acontent b block">
-        <p class="atitle">
-            Manager News</p>
+        <p class="atitle"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managenews") %></p>
         <div class="MNews">
             <table cellpadding="0" cellspacing="0">
                 <thead>
@@ -14,13 +13,13 @@
                             ID
                         </th>
                         <th>
-                            News title
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("title") %>
                         </th>
                         <th>
-                            Post date
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("postdate") %>
                         </th>
                         <th>
-                            Poster
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("poster") %>
                         </th>
                     </tr>
                     
@@ -34,7 +33,7 @@
                                         <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" target="_blank">
                                             <button class="Uview left">
                                             </button>
-                                        </a><a href="editp.aspx?id=<%# Eval("ID") %>" target="_blank">
+                                        </a><a href="/News/CreateNews.aspx?id=<%# Eval("ID") %>" target="_blank">
                                             <button class="Uedit left">
                                             </button>
                                         </a>
@@ -71,7 +70,7 @@
     </div>
 
     <div id="cfdeleten">
-        <p><center>Do you want to delete New : <span></span> ?</center></p>
+        <p><center><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("confirmdelete") %> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("news") %> : <span></span> ?</center></p>
         <input type="hidden" />
         <center><button>Yes</button><button>No</button></center>
       </div>

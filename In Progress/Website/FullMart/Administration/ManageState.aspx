@@ -3,8 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
  <div class="acontent block">
-     <p class="atitle">
-            Manager States</p>
+     <p class="atitle"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managestates") %></p>
         <span style="color: Red; padding: 10px; font-size: 15px">Press 'tab' when change Order
             number to check.<br />
             Press 'Enter' when change States's Name, Order to Update. </span>
@@ -12,10 +11,10 @@
             <table class="tbstates left" cellpadding="0" cellspacing="0">
                 <thead><tr>
                     <td>
-                        State Name
+                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %>
                     </td>
                     <td>
-                        Order
+                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("order") %>
                     </td>
                     <td>
                     </td></tr>
@@ -53,10 +52,10 @@
             <table class="tbsubstates right" cellpadding="0" cellspacing="0">
                 <thead><tr>
                     <td>
-                        Zone Name
+                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("zone") %>
                     </td>
                     <td>
-                        Order
+                       <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("order") %>
                     </td>
                     <td>
                     </td></tr>

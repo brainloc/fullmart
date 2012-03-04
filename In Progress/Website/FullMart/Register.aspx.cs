@@ -118,22 +118,6 @@ namespace FullMart
             }
         }
 
-        protected override void InitializeCulture()
-        {
-            string ui = Request.QueryString["lang"];
-            if (string.IsNullOrEmpty(ui))
-                ui = "vi";
-            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
-            base.InitializeCulture();
-        }
-
-        protected override void OnPreInit(EventArgs e)
-        {
-            base.OnPreInit(e);
-        }
-
         private void BindUserInfoToRegisterForm(DataTable userInfo)
         {
             txtUserName.Text = userInfo.Rows[0]["UserName"].ToString();
@@ -160,6 +144,23 @@ namespace FullMart
             txtmobile.Text = userInfo.Rows[0]["mobile"].ToString();
             txtWebsite.Text = userInfo.Rows[0]["Web"].ToString();
             txtWishlist.Text = userInfo.Rows[0]["Wishlist"].ToString();
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ThreeColumns.Master" AutoEventWireup="true" CodeBehind="ListMemsProduct.aspx.cs" Inherits="FullMart.ListMemsProduct" %>
+<%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/memproduct.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
-            <span>Categories</span></div>
+            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories") %></span></div>
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
@@ -42,7 +43,7 @@
         <img src="/themes/images/leftadv.jpg" /></div>
      <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
                 <EmptyDataTemplate>
-                    No Product to display !.
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                 </EmptyDataTemplate>
                <ItemTemplate>
                     <li>
@@ -61,7 +62,7 @@
                 <LayoutTemplate>
                     <div id="AAQ" class="lb b">
                         <div class="title">
-                            <span>Answers & Questions</span></div>
+                            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("answerQuestion") %></span></div>
                         <div class="listitem">
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
@@ -96,7 +97,7 @@
                     <asp:ListView ID="lvSell" DataSourceID="dsSell" runat="server" DataKeyNames="ID"
                         EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                           <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -156,7 +157,7 @@
                 <div class="content">
                     <asp:ListView ID="LvBuy" DataSourceID="dsBuy" runat="server" DataKeyNames="ID" EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -217,7 +218,7 @@
                     <asp:ListView ID="ListView1" DataSourceID="dsShare" runat="server" DataKeyNames="ID"
                         EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -281,7 +282,7 @@
                     <asp:ListView ID="ListView2" DataSourceID="dsViewSub" runat="server" DataKeyNames="ID"
                         EnableModelValidation="True">
                         <EmptyDataTemplate>
-                            No Product to display !.
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <li style="">
@@ -334,7 +335,8 @@
     </asp:Panel>
     <asp:Panel ID="pnViewCat" Visible="false" runat="server">
         <div class="parea b">
-            <asp:Repeater ID="rpCat" DataSourceID="dsCat" runat="server">
+
+            <Custom:DataPagerRepeater ID="rpCat" DataSourceID="dsCat" runat="server">
                 <ItemTemplate>
                     <div class="gcats btl">
                         <span class="gtitle btl"><a href="<%# Eval("SUBID") %>" class="maincat btl"><span
@@ -403,7 +405,7 @@
                         </div>
                     </div>
                 </ItemTemplate>
-            </asp:Repeater> 
+            </Custom:DataPagerRepeater>
             <asp:SqlDataSource ID="dsCat" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
                 SelectCommand="GetListSubSameCat" SelectCommandType="StoredProcedure">

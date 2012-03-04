@@ -49,6 +49,24 @@ namespace FullMart {
         protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
+        /// LangEN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LangEN;
+        
+        /// <summary>
+        /// LangVI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LangVI;
+        
+        /// <summary>
         /// pnloged control.
         /// </summary>
         /// <remarks>
@@ -175,13 +193,22 @@ namespace FullMart {
         protected global::System.Web.UI.UpdatePanel updateListLetter;
         
         /// <summary>
+        /// DataPager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager DataPager1;
+        
+        /// <summary>
         /// rpNewOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpNewOrders;
+        protected global::DataPagerRepeater.DataPagerRepeater rpNewOrders;
         
         /// <summary>
         /// dsNewOrders control.

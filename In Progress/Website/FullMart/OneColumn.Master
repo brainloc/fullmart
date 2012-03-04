@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OneColumn.master.cs"
     Inherits="FullMart.OneColumn" %>
-
+    <%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -57,8 +57,10 @@
                 </div>
                 <div class="tbr">
                 </div>
-                <div class="tbc">
-                    <div class="right clear">
+                <div class="tbc"><div class="left">
+                            <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en" Text="" onclick="LangEN_Click" />
+                            <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi" onclick="LangVI_Click" /></div>
+                    <div class="right">
                         
                         <!-- Begin User Account -->
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">                        
@@ -199,254 +201,198 @@
         <div id="footer" class="footer block">
             <asp:Label ID="ffooter" runat="server" Text="Label"></asp:Label></div>
     </div>
-       <div id="viewnote" class="btlr viewnote">
-    <a class="modalclose" title="Close"></a>
-        <div class="vlistletter">
-            <p class="hnote btlr">
-                <span class="left">Title new / sender</span> <span class="right">Time</span>
-                <div class="clear">
-                </div>
-            </p>
-            <div class="Apages">
-                <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                    ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                        ref="0">...</a>
+    <div id="viewnote" class="btlr viewnote ndialog">
+        <a class="modalclose" title="Close"></a>
+        <asp:UpdatePanel ID="updateListLetter" runat="server">
+            <ContentTemplate>
+                <div class="vlistletter">
+                    <p class="hnote btlr">
+                        <span class="left"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("titlenews") %> / <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("sender") %></span> <span class="right"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("time") %></span>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <div class="Apages right">
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="4" PagedControlID="rpNewOrders">
+                    <Fields><%--
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                        <asp:NumericPagerField />
+                        <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                    </Fields>
+                </asp:DataPager>
+                <a href="/listnew.aspx" ref="0">All</a>
             </div>
-            <ul>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div class="noread">
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <li>
-                    <div>
-                        <p class="ntitle">
-                            <a href="#ID" title="new order for your product">new order for your product</a><span
-                                class="time">12:02 20/01/2012</span></p>
-                        <span class="nsender"><a href="#viewuser">Sender....@gmail.com</a></span></div>
-                </li>
-                <div class="clear">
+                    <ul>
+                        <Custom:DataPagerRepeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
+                            <ItemTemplate>
+                                <li class="orderItem" id='<%# Eval("ID") %>'>
+                                    <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
+                                        <p class="ntitle">
+                                            <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
+                                                class="time"><%# Eval("CreateDate") %></span></p>
+                                        <span class="nsender"><a href="#viewuser">Sender:
+                                            <%# Eval("email") %></a></span></div>
+                                </li>
+                            </ItemTemplate>
+                        </Custom:DataPagerRepeater>
+
+                        <asp:SqlDataSource ID="dsNewOrders" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                            SelectCommand="GetNewOrders" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:SessionParameter ConvertEmptyStringToNull="true" Name="UserID" SessionField="ID" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <div class="clear">
+                        </div>
+                    </ul>
                 </div>
-            </ul>
-        </div>
-        <div id="vletter" class="vletter">
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            <span>Email: </span>
-                            <input disabled="disabled" id="VUEmail" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>Product: </span>
-                            <input disabled="disabled" id="Text1" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Product ID </span>
-                            <input id="VUCU" type="text" />
-                        </td>
-                        <td>
-                            <span>Quantity: </span>
-                            <input id="VUClass" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <span>More Detail:</span>
-                            <textarea disabled="disabled" id="VUWishlist"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="2">
-                            <div>
-                                <button>
-                                    CLOSE</button></div>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel ID="updateOrderInfo" runat="server" OnLoad="updateOrderInfo_Load">
+            <ContentTemplate>
+                <div id="vletter" class="vletter">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <span>Email: </span>
+                                    <input disabled="disabled" id="VUEmail" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("product") %>: </span>
+                                    <input disabled="disabled" id="txtProductTitle" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("productid") %> </span>
+                                    <input id="VUCU" type="text" runat="server" />
+                                </td>
+                                <td>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("quantity") %>: </span>
+                                    <input id="VUClass" type="text" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("moredetail") %>:</span>
+                                    <textarea disabled="disabled" id="VUWishlist" runat="server"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">
+                                    <div>
+                                        <button>
+                                            CLOSE</button></div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
-    <div id="fcart" class="fcart">
-    <a class="modalclose" title="Close"></a>
-        <table cellpadding="0" cellspacing="0">
-        <thead><tr><th>Quantity</th><th>Item</th><th>Order Code</th><th>Unit Price(VND)</th><th>Total</th><th>Short Message<br />(200 characters)</th><th>Remove</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td><a href="viewproduct.htm">Iphone 4</a>
-                        
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="b nump" value="1" title="Quantity" />
-                    </td>
-                    <td>
-                        <a href="viewproduct.htm">Iphone 4</a>
-                    </td>
-                    <td>
-                        123-1
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        8,000,000
-                    </td>
-                    <td>
-                        <input maxlength="200" />
-                    </td>
-                    <td>
-                        <button>
-                            Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot><tr></td><td></td><td></td><td></td><td></td><td><span class="totalp">8,000,000</span></td><td></td><td></td></tr>
-            <tr><th colspan="7"><button>verify</button></th></tr>
-            </tfoot>
-        </table>
+    <div id="fcart" class="fcart ndialog">
+        <a class="modalclose" title="Close"></a>
+        <asp:UpdatePanel ID="updateCart" runat="server">
+            <ContentTemplate>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("quantity") %>
+                            </th>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("product") %>
+                            </th>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("ordernumber") %>
+                            </th>
+                            <th>
+                               <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("price") %>(VND)
+                            </th>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("total") %>
+                            </th>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shortmess") %><br />
+                                (200 characters)
+                            </th>
+                            <th>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("remove") %>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:Repeater ID="rpCart" runat="server" DataSourceID="dsCart" OnItemCommand="rpCart_ItemCommand">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="b nump" value='<%# Eval("Amount") %>' title="Quantity" />
+                                    </td>
+                                    <td>
+                                        <a href='ViewProduct.aspx?ID=<%# Eval("ProductID") %>'>
+                                            <%# Eval("Title") %></a>
+                                    </td>
+                                    <td>
+                                        123-1
+                                    </td>
+                                    <td>
+                                        <%# Eval("Price") %>
+                                    </td>
+                                    <td>
+                                        8,000,000
+                                    </td>
+                                    <td>
+                                        <input maxlength="200" value='<%# Eval("MoreDetail") %>' />
+                                    </td>
+                                    <td>
+                                        <%--<button id="btnRemove" runat="server">
+                                    Remove</button>--%>
+                                        <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument='<%# Eval("ID") %>' />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <asp:SqlDataSource ID="dsCart" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                            SelectCommand="GetCart" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:SessionParameter ConvertEmptyStringToNull="true" SessionField="ID" Name="BuyerID" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            </td><td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="totalp">8,000,000</span>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="7">
+                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("verify") %></button>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     </form><div id="waitloader" style="display: none; position: fixed;top: 0px;left: 0px;width: 100%;height: 100%;background-color: white;text-align: center;opacity: 0.6;">
       <img src="/themes/images/wait.gif"style="position: fixed; top: 50%;" alt="waiting" />

@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ThreeColumns.master.cs"
     Inherits="FullMart.ThreeColumns" %>
+<%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,7 +50,6 @@
             //                return false;
             //            });
             //            $(".vlistletter").delegate("table tfoot button", "click", function () {
-            //                resizeDA(800, 423);
             //                $(".vlistletter").slideDown("normal", function () {
             //                    $(".viewnote").css("height", "418px");
             //                });
@@ -72,8 +72,10 @@
                 </div>
                 <div class="tbr">
                 </div>
-                <div class="tbc">
-                    <div class="right clear">
+                <div class="tbc"><div class="left">
+                            <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en" Text="" onclick="LangEN_Click" />
+                            <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi" onclick="LangVI_Click" /></div>
+                    <div class="right">
                         
                         <!-- Begin User Account -->
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
@@ -137,7 +139,7 @@
             </div>
             <div id="menu">
                 <ul id="topm">
-                    <li class="active"><a href="/ListMemsProduct.aspx" title="View Advertiser">View Advertiser</a></li>
+                    <li class="active"><a href="/ListMemsProduct.aspx" title="View Advertiser"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("viewadvertiser") %></a></li>
                     <li><a href="#" title="aa">Accommodation</a></li>
                     <li><a href="#" title="aa">Travel & Plant</a></li>
                     <li><a href="#" title="aa">Hot Voucher</a></li>
@@ -151,7 +153,7 @@
                 <div id="topsearch" class="block">
                     <div class="left">
                         <dl id="slcity" class="dropdown bgwt b">
-                            <dt><a href="#" class="b"><span>Please select the country</span></a><div class="nr">
+                            <dt><a href="#" class="b"><span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("pleaseselectlocation") %></span></a><div class="nr">
                             </div>
                             </dt>
                             <dd>
@@ -171,7 +173,7 @@
                     </div>
                     <div class="left">
                         <dl id="slcats" class="dropdown bgwt b">
-                            <dt><a href="#" class="b"><span>Please select the category</span></a></dt>
+                            <dt><a href="#" class="b"><span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("pleaseselectcategory") %></span></a></dt>
                             <dd>
                                 <ul>
                                     <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
@@ -252,17 +254,24 @@
             <ContentTemplate>
                 <div class="vlistletter">
                     <p class="hnote btlr">
-                        <span class="left">Title new / sender</span> <span class="right">Time</span>
+                        <span class="left"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("titlenews") %> / <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("sender") %></span> <span class="right"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("time") %></span>
                         <div class="clear">
                         </div>
                     </p>
-                    <div class="Apages">
-                        <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                            ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                                ref="0">...</a>
-                    </div>
+                    <div class="Apages right">
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="4" PagedControlID="rpNewOrders">
+                    <Fields><%--
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                        <asp:NumericPagerField />
+                        <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                    </Fields>
+                </asp:DataPager>
+                <a href="/listnew.aspx" ref="0">All</a>
+            </div>
                     <ul>
-                        <asp:Repeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
+                        <Custom:DataPagerRepeater ID="rpNewOrders" runat="server" DataSourceID="dsNewOrders">
                             <ItemTemplate>
                                 <li class="orderItem" id='<%# Eval("ID") %>'>
                                     <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>>
@@ -273,7 +282,8 @@
                                             <%# Eval("email") %></a></span></div>
                                 </li>
                             </ItemTemplate>
-                        </asp:Repeater>
+                        </Custom:DataPagerRepeater>
+
                         <asp:SqlDataSource ID="dsNewOrders" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
                             SelectCommand="GetNewOrders" SelectCommandType="StoredProcedure">
                             <SelectParameters>
@@ -299,23 +309,23 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span>Product: </span>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("product") %>: </span>
                                     <input disabled="disabled" id="txtProductTitle" type="text" runat="server" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span>Product ID </span>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("productid") %> </span>
                                     <input id="VUCU" type="text" runat="server" />
                                 </td>
                                 <td>
-                                    <span>Quantity: </span>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("quantity") %>: </span>
                                     <input id="VUClass" type="text" runat="server" />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span>More Detail:</span>
+                                    <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("moredetail") %>:</span>
                                     <textarea disabled="disabled" id="VUWishlist" runat="server"></textarea>
                                 </td>
                             </tr>
@@ -342,26 +352,26 @@
                     <thead>
                         <tr>
                             <th>
-                                Quantity
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("quantity") %>
                             </th>
                             <th>
-                                Item
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("product") %>
                             </th>
                             <th>
-                                Order Code
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("ordernumber") %>
                             </th>
                             <th>
-                                Unit Price(VND)
+                               <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("price") %>(VND)
                             </th>
                             <th>
-                                Total
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("total") %>
                             </th>
                             <th>
-                                Short Message<br />
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shortmess") %><br />
                                 (200 characters)
                             </th>
                             <th>
-                                Remove
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("remove") %>
                             </th>
                         </tr>
                     </thead>
@@ -423,8 +433,7 @@
                         </tr>
                         <tr>
                             <th colspan="7">
-                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click">
-                                    verify</button>
+                                <button id="btnVerify" runat="server" onserverclick="btnVerify_Click"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("verify") %></button>
                             </th>
                         </tr>
                     </tfoot>

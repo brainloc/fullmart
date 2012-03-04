@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FullMart.Code.DAO;
 using System.Data;
+using System.Threading;
+using System.Globalization;
 
 namespace FullMart
 {
@@ -38,6 +40,23 @@ namespace FullMart
             if (tmp1 != null && tmp1.Rows.Count > 0) {
                 lbSubTitle.Text = tmp1.Rows[0]["NAMESUB"].ToString();
             }
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 }

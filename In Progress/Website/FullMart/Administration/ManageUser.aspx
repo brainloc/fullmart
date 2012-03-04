@@ -6,8 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <div class="State block" id="State">
         <div class="acontent block">
-            <p class="atitle">
-                Manager User</p>
+            <p class="atitle"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageusers") %></p>
             <div class="insstate">
                 <asp:TextBox ID="txtSearchKey" title="Enter Email or Name to search user" Text="Enter Email or Name to search user"
                     CssClass="aip" runat="server"></asp:TextBox>
@@ -17,7 +16,6 @@
         </div>
     </div>
     <div id="Usertab">
-
         <asp:Panel ID="pnSearchUser" Visible=false runat="server">
             <table id="searchUser" class="usereven tablesorter lUser">
                <thead>
@@ -26,25 +24,25 @@
                             Email
                         </th>
                         <th>
-                            UserName
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("username") %>
                         </th>
                         <th>
-                           Full Name
+                           <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("fullname") %>
                         </th>
                         <th>
-                            Join Day
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>
                         </th>
                         
                         <th>
-                            College/University
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>
                         </th>
                         <th>
-                            class
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>
                         </th>
                         <th>
-                            Birthday
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>
                         </th><th>
-                            AccountType
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>
                         </th>
                         <th></th>
                     </tr>
@@ -97,41 +95,41 @@
                                                         <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Password: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("password") %>: </span>
                                                         <input class="VUPass" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %>:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %></span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Birthday: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>: </span>
                                                         <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>State: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %>: </span>
                                                         <input class="VUState" value="<%# Eval("state")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>College/University: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>: </span>
                                                         <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Class: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>: </span>
                                                         <input class="VUClass" value="<%# Eval("class")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Join Date: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>: </span>
                                                         <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
                                                     </td>
                                                     <td>
@@ -141,11 +139,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Mobile: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>: </span>
                                                         <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Shop Name: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
                                                         <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
                                                     </td>
                                                 </tr>
@@ -155,7 +153,7 @@
                                                         <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>User type: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>: </span>
                                                         <select class="VURole">
                                                             <option selected="selected">Member</option>
                                                             <option>Shop</option>
@@ -165,7 +163,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <span>WishList:</span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("wishlist") %>:</span>
                                                         <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
                                                     </td>
                                                 </tr>
@@ -203,25 +201,25 @@
                             Email
                         </th>
                         <th>
-                            First Name
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %>
                         </th>
                         <th>
-                            Last Name
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %>
                         </th>
                         <th>
-                            Join Day
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>
                         </th>
                         <th>
-                            State
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %>
                         </th>
                         <th>
-                            College/University
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>
                         </th>
                         <th>
-                            class
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>
                         </th>
                         <th>
-                            Birthday
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>
                         </th>
                         <th></th>
                     </tr>
@@ -273,41 +271,41 @@
                                                         <input disabled="disabled" class="VUEmail" value="<%# Eval("email")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Password: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("password") %>: </span>
                                                         <input class="VUPass" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>First Name:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %>:</span><input class="VUFName" value="<%# Eval("fname")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Last Name</span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %></span><input class="VULName" value="<%# Eval("lname")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Birthday: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %>: </span>
                                                         <input class="VUBday" value="<%# Eval("bday")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>State: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("location") %>: </span>
                                                         <input class="VUState" value="<%# Eval("state")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>College/University: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourUC") %>: </span>
                                                         <input class="VUCU" value="<%# Eval("CU")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Class: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("uclass") %>: </span>
                                                         <input class="VUClass" value="<%# Eval("class")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Join Date: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("joindate") %>: </span>
                                                         <input class="VUCreatedate" value="<%# Eval("createdate")%>" type="text" />
                                                     </td>
                                                     <td>
@@ -317,11 +315,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span>Mobile: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>: </span>
                                                         <input class="VUMobile" value="<%# Eval("mobile")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>Shop Name: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
                                                         <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
                                                     </td>
                                                 </tr>
@@ -331,7 +329,7 @@
                                                         <input class="VUWeb" value="<%# Eval("web")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span>User type: </span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>: </span>
                                                         <select class="VURole">
                                                             <option selected="selected">Member</option>
                                                             <option>Shop</option>
@@ -341,7 +339,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <span>WishList:</span>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("wishlist") %>:</span>
                                                         <textarea disabled="disabled" value="<%# Eval("Wishlist")%>" class="VUWishlist"></textarea>
                                                     </td>
                                                 </tr>
