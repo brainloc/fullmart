@@ -44,6 +44,7 @@
                         </th><th>
                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("accounttype") %>
                         </th>
+                        <th><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %></th>
                         <th></th>
                     </tr>
                 </thead>

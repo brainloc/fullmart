@@ -342,10 +342,10 @@ namespace FullMart
         protected override void InitializeCulture()
         {
             string ui = "en";
-            if (Request.Cookies["lang"] != null)
-            {
-                ui = Request.Cookies["lang"].Value;
-            }
+            //if (Request.Cookies["lang"] != null)
+            //{
+            //    ui = Request.Cookies["lang"].Value;
+            //}
             string culture = ui == "en" ? "en-us" : "vi-VN";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);

@@ -94,18 +94,16 @@ namespace FullMart
        
         protected void LangEN_Click(object sender, EventArgs e)
         {
-            if (Request.Cookies["lang"] != null)
+            if (Request.Cookies["lang"] == null)
             {
                 HttpCookie lang = new HttpCookie("lang");
                 lang.Value = "en";
-                lang.Expires = DateTime.Now.AddDays(30);
                 Response.Cookies.Add(lang);
             }
             else
             {
                 HttpCookie lang = Request.Cookies["lang"];
                 lang.Value = "en";
-                lang.Expires = DateTime.Now.AddDays(30);
                 Response.Cookies.Add(Response.Cookies["lang"]);
             }
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -113,18 +111,16 @@ namespace FullMart
 
         protected void LangVI_Click(object sender, EventArgs e)
         {
-            if (Request.Cookies["lang"] != null)
+            if (Request.Cookies["lang"] == null)
             {
                 HttpCookie lang = new HttpCookie("lang");
                 lang.Value = "vi";
-                lang.Expires = DateTime.Now.AddDays(30);
                 Response.Cookies.Add(lang);
             }
             else
             {
                 HttpCookie lang = Request.Cookies["lang"];
                 lang.Value = "vi";
-                lang.Expires = DateTime.Now.AddDays(30);
                 Response.Cookies.Add(Response.Cookies["lang"]);
             }
             Response.Redirect(Request.Url.AbsoluteUri);
