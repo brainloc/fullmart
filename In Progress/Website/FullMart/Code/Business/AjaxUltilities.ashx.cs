@@ -448,17 +448,18 @@ namespace FullMart.Code.Business
                         context.Response.ContentType = "application/html";
 
                         var orderInfoID = context.Request.Form["orderInfoID"] != null ? context.Request.Form["orderInfoID"].Trim().Replace("'", "''") : string.Empty;
+                        var userID = context.Request.Form["currentUserID"] != null ? context.Request.Form["currentUserID"].Trim().Replace("'", "''") : string.Empty;
 
-                        if (string.IsNullOrEmpty(orderInfoID) == false)
+                        if (string.IsNullOrEmpty(orderInfoID) == false && string.IsNullOrEmpty(userID) == false)
                         {
                             DataTable orderInfo = ProductManagement.GetOrderInfo(Convert.ToInt32(orderInfoID));
 
                             if (orderInfo != null && orderInfo.Rows.Count > 0)
                             {
                                 ProductManagement.MarkOrderInfoAsRead(Convert.ToInt32(orderInfoID));
-                                int unreadMails = BindingUltilities.GetUnreadMailCount(Convert.ToInt32(3));
-                                string jsBindCommand = string.Format("$('#VUEmail').val('{0}');$('#Text1').val('{1}');$('#VUCU').val('{2}');$('#VUClass').val('{3}');$('#VUWishlist').val('{4}');$('.unreadMailCount').text({5});$('#waitloader').hide();", orderInfo.Rows[0]["RecipientsEmail"].ToString(), orderInfo.Rows[0]["Title"].ToString(), orderInfo.Rows[0]["ProductID"].ToString(), orderInfo.Rows[0]["Amount"].ToString(), orderInfo.Rows[0]["MoreDetail"].ToString(),unreadMails);
-                                
+                                int unreadMails = BindingUltilities.GetUnreadMailCount(Convert.ToInt32(userID));
+                                string jsBindCommand = string.Format("$('#VUEmail').val('{0}');$('#Text1').val('{1}');$('#VUCU').val('{2}');$('#VUClass').val('{3}');$('#VUWishlist').val('{4}');$('.unreadMailCount').text({5});$('#waitloader').hide();", orderInfo.Rows[0]["RecipientsEmail"].ToString(), orderInfo.Rows[0]["Title"].ToString(), orderInfo.Rows[0]["ProductID"].ToString(), orderInfo.Rows[0]["Amount"].ToString(), orderInfo.Rows[0]["MoreDetail"].ToString(), unreadMails);
+
                                 context.Response.Write(jsBindCommand);
                             }
                         }
