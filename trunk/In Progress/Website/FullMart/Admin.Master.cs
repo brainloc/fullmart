@@ -128,5 +128,23 @@ namespace FullMart
             }
             Response.Redirect(Request.Url.AbsoluteUri);
         }
+
+        protected void dsCart_Selected(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            lblUnsubmittedPurchaseCount.Text = e.AffectedRows.ToString();
+            updateUnsubmittedPurchaseCount.Update();
+
+            DataView viewMail = (DataView)dsNewOrders.Select(DataSourceSelectArguments.Empty);
+            int unreadMailCount = 0;
+            foreach (DataRow r in viewMail.Table.Rows)
+            {
+                if (Convert.ToBoolean(r.ItemArray[7]) == false)
+                {
+                    unreadMailCount++;
+                }
+            }
+            lblUnreadMailCount.Text = unreadMailCount.ToString();
+            updateUnreadMailCount.Update();
+        } 
     }
 }

@@ -456,7 +456,9 @@ namespace FullMart.Code.Business
                             if (orderInfo != null && orderInfo.Rows.Count > 0)
                             {
                                 ProductManagement.MarkOrderInfoAsRead(Convert.ToInt32(orderInfoID));
-                                string jsBindCommand = string.Format("$('#VUEmail').val('{0}');$('#Text1').val('{1}');$('#VUCU').val('{2}');$('#VUClass').val('{3}');$('#VUWishlist').val('{4}');$('#waitloader').hide();", orderInfo.Rows[0]["RecipientsEmail"].ToString(), orderInfo.Rows[0]["Title"].ToString(), orderInfo.Rows[0]["ProductID"].ToString(), orderInfo.Rows[0]["Amount"].ToString(), orderInfo.Rows[0]["MoreDetail"].ToString());
+                                int unreadMails = BindingUltilities.GetUnreadMailCount(Convert.ToInt32(3));
+                                string jsBindCommand = string.Format("$('#VUEmail').val('{0}');$('#Text1').val('{1}');$('#VUCU').val('{2}');$('#VUClass').val('{3}');$('#VUWishlist').val('{4}');$('.unreadMailCount').text({5});$('#waitloader').hide();", orderInfo.Rows[0]["RecipientsEmail"].ToString(), orderInfo.Rows[0]["Title"].ToString(), orderInfo.Rows[0]["ProductID"].ToString(), orderInfo.Rows[0]["Amount"].ToString(), orderInfo.Rows[0]["MoreDetail"].ToString(),unreadMails);
+                                
                                 context.Response.Write(jsBindCommand);
                             }
                         }

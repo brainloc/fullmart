@@ -57,10 +57,24 @@
                                 </div>
                             </a><a href="#notify" title="User's Notify">
                                 <div id="unote" class="us left">
-                                    <strong></strong></div>
+                                    <strong>
+                                        <asp:UpdatePanel ID="updateUnreadMailCount" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <asp:Label ID="lblUnreadMailCount" runat="server" Text="" CssClass="unreadMailCount">&nbsp;</asp:Label>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </strong>
+                                </div>
                             </a><a href="#Cart" title="User's Cart">
                                 <div id="ucart" class="us left">
-                                    <strong>0</strong><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("verifiing") %></div>
+                                    <strong>
+                                        <asp:UpdatePanel ID="updateUnsubmittedPurchaseCount" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <asp:Label ID="lblUnsubmittedPurchaseCount" runat="server" Text="">&nbsp;</asp:Label>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </strong>
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("verifiing") %></div>
                             </a>
                             <asp:Button CssClass="lo" ID="btLogout" runat="server" Text="LogOut" OnClick="btLogout_Click" />
                         </asp:Panel>
@@ -364,7 +378,7 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <asp:SqlDataSource ID="dsCart" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                        <asp:SqlDataSource ID="dsCart" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" OnSelected="dsCart_Selected"
                             SelectCommand="GetCart" SelectCommandType="StoredProcedure">
                             <SelectParameters>
                                 <asp:SessionParameter ConvertEmptyStringToNull="true" SessionField="ID" Name="BuyerID" />

@@ -94,6 +94,42 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.Label txtLoginName;
         
         /// <summary>
+        /// updateUnreadMailCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updateUnreadMailCount;
+        
+        /// <summary>
+        /// lblUnreadMailCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnreadMailCount;
+        
+        /// <summary>
+        /// updateUnsubmittedPurchaseCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updateUnsubmittedPurchaseCount;
+        
+        /// <summary>
+        /// lblUnsubmittedPurchaseCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnsubmittedPurchaseCount;
+        
+        /// <summary>
         /// btLogout control.
         /// </summary>
         /// <remarks>
