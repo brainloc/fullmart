@@ -517,5 +517,26 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void MarkOrderInfoAsRead(int orderInfoID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("MarkOrderInfoAsRead", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@OrderInfoID", orderInfoID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }
