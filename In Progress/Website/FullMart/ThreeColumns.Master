@@ -56,10 +56,10 @@
                                 </div>
                             </a><a href="#notify" title="User's Notify">
                                 <div id="unote" class="us left">
-                                    <strong>2</strong></div>
+                                    <strong>0</strong></div>
                             </a><a href="#Cart" title="User's Cart">
                                 <div id="ucart" class="us left">
-                                    <strong>(3) verifiing</strong></div>
+                                    <strong>0</strong><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("verifiing") %></div>
                             </a>
                             <asp:Button CssClass="lo" ID="btLogout" runat="server" Text="LogOut" OnClick="btLogout_Click" />
                         </asp:Panel>

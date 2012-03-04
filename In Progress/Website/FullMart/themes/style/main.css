@@ -58,7 +58,7 @@ a{text-decoration:none;}
 #unote{background:transparent url(../images/ico.png) 0px 0px no-repeat;color:Yellow}
 #unote strong{margin-left:30px}
 #ucart{color:#8ad6fe;background:transparent url(../images/ico.png) 0px -45px no-repeat;margin-right:10px}
-#ucart strong{margin-left:30px;}
+#ucart strong{margin-left:30px;color:yellow}
 
 
 /* select box */
