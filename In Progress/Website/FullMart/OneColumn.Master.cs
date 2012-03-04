@@ -32,6 +32,33 @@ namespace FullMart
                     {
                         hlAdmin.NavigateUrl = "/Administration/admin.aspx";
                         hlAdmin.Text = "Administrator"; hlAdmin.Visible = true;
+                        updateCart.Visible = true;
+                        updateListLetter.Visible = true;
+                        updateUnreadMailCount.Visible = true;
+                        updateUnsubmittedPurchaseCount.Visible = true;
+                    }
+                    else
+                    {
+                        if (Roles.IsUserInRole("2"))
+                        {
+                            hlAdmin.NavigateUrl = "/Shop/CreateProduct.aspx";
+                            hlAdmin.Text = "ShopUser"; hlAdmin.Visible = true;
+                            updateCart.Visible = true;
+                            updateListLetter.Visible = true;
+                            updateUnreadMailCount.Visible = true;
+                            updateUnsubmittedPurchaseCount.Visible = true;
+                        }
+                        else
+                        {
+                            if (Roles.IsUserInRole("3"))
+                            {
+                                hlAdmin.NavigateUrl = "/CreateProduct.aspx";
+                                hlAdmin.Text = "User"; hlAdmin.Visible = true;
+                                updateCart.Visible = true;
+                                updateUnreadMailCount.Visible = false;
+                                updateUnsubmittedPurchaseCount.Visible = true;
+                            }
+                        }
                     }
                     pnloged.Visible = true;
                 }
