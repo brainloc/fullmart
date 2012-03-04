@@ -55,6 +55,13 @@
                     $('#VUWishlist').val("");
                 }
             });
+
+            $("div#viewnote").delegate("li.orderItem > input.delmail", "click", function () {
+                var orderItemID = $(this).parent("li.orderItem").attr("id");   
+                var command = "DelMail#";                
+                __doPostBack('<%= updateListLetter.ClientID %>',command + orderItemID);          
+                return false;
+           });
         });
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -248,7 +255,7 @@
     </div>
     <div id="viewnote" class="btlr viewnote ndialog">
         <a class="modalclose" title="Close"></a>
-        <asp:UpdatePanel Visible=false ID="updateListLetter" runat="server">
+        <asp:UpdatePanel Visible="false" ID="updateListLetter" runat="server" OnLoad="updateListLetter_Load">
             <ContentTemplate>
                 <div class="vlistletter">
                     <p class="hnote btlr">

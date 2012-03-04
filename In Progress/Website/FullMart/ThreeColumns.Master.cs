@@ -42,7 +42,8 @@ namespace FullMart
                         updateUnreadMailCount.Visible = true;
                         updateUnsubmittedPurchaseCount.Visible = true;
                     }
-                    else {
+                    else
+                    {
                         if (Roles.IsUserInRole("2"))
                         {
                             hlAdmin.NavigateUrl = "/Shop/CreateProduct.aspx";
@@ -116,7 +117,7 @@ namespace FullMart
 
         protected void Search_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnVerify_Click(object sender, EventArgs e)
@@ -136,12 +137,12 @@ namespace FullMart
         }
 
         protected void LangEN_Click(object sender, EventArgs e)
-        {           
+        {
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void LangVI_Click(object sender, EventArgs e)
-        {         
+        {
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
@@ -161,6 +162,17 @@ namespace FullMart
             }
             lblUnreadMailCount.Text = unreadMailCount.ToString();
             updateUnreadMailCount.Update();
-        } 
+        }      
+
+        protected void updateListLetter_Load(object sender, EventArgs e)
+        {
+            string eventArgs = Request.Params.Get("__EVENTARGUMENT");
+            if (string.IsNullOrEmpty(eventArgs) == false)
+            {
+                string orderInfoID = eventArgs.Substring(eventArgs.LastIndexOf('#') + 1);
+                ProductManagement.RemoveOrderMailInfo(Convert.ToInt32(orderInfoID));
+                updateListLetter.DataBind();
+            }
+        }
     }
 }
