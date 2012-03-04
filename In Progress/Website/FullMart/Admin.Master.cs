@@ -71,7 +71,7 @@ namespace FullMart
             if (e.CommandName == "Remove")
             {
                 ProductManagement.RemovePurchaseBooking(Convert.ToInt32(e.CommandArgument));
-                dsCart.DataBind();
+                updateCart.DataBind();
             }
         }
 
