@@ -745,6 +745,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chủ Shop.
+        /// </summary>
+        internal static string shopowner {
+            get {
+                return ResourceManager.GetString("shopowner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tin nhắn ngắn.
         /// </summary>
         internal static string shortmess {

@@ -29,6 +29,37 @@
     }
     return false;
 }
+function btshop(a) {
+    if ($.trim(a.text()) != "SAVE") {
+        $.modal.close();
+    } else {
+        $.ajax({
+            url: "/Code/Business/AjaxUltilities.ashx?",
+            type: "POST",
+            dataType: "script",
+            data: {
+                action: "EditUser",
+                username: $.trim(a.parents(".viewU").find(".tUser").text()),
+                email: a.parents(".viewU").find(".VUEmail").val(),
+                pass: a.parents(".viewU").find(".VUPass").val(),
+                fname: a.parents(".viewU").find(".VUFName").val(),
+                lname: a.parents(".viewU").find(".VULName").val(),
+                birthday: a.parents(".viewU").find(".VUBday").val(),
+                state: a.parents(".viewU").find(".VUState").val(),
+                CU: a.parents(".viewU").find(".VUCU").val(),
+                cls: a.parents(".viewU").find(".VUClass").val(),
+                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
+                mobile: a.parents(".viewU").find(".VUMobile").val(),
+                shopname: a.parents(".viewU").find(".VUShopName").val(),
+                web: a.parents(".viewU").find(".VUWeb").val(),
+                role: a.parents(".viewU").find(".VURole").val(),
+                wishlist: a.parents(".viewU").find(".VUWishlist").val()
+            }
+        });
+
+    }
+    return false;
+}
 function SetFileField(fileUrl) {
     $("input.imgthumb").val(fileUrl);
     $("img.imgthumbN").attr("src", fileUrl);
@@ -629,8 +660,15 @@ $(document).ready(function () {
         showdialog($(this).parents("td").find(".detailU").html(), 800, 480, "", true);
         return false;
     });
+    $(".shopS td .Uedit").click(function () {
+        $(this).parents("td").find(".viewU tfoot center button").text("SAVE");
+        $(this).parents("td").find(".shoprate select").val($(this).parents("td").find(".shoprate select").attr("ref"));
+        showdialog($(this).parents("td").find(".detailU").html(), 800, 180, "", true);
+        return false;
+    });
     $(".usereven td .Uview").click(function () {
         showdialog($(this).parents("td").find(".detailU").html(), 800, 480, "", true);
+
         $("#modal .viewU input,.viewU select").attr('disabled', 'disabled');
         return false;
     });
