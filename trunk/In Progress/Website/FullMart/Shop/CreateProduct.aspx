@@ -31,7 +31,7 @@
             <table class="UPtb b bgwt">
             <tr>
                 <td>
-                    Tiêu đề :
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("title") %> :
                 </td>
                 <td>
                     <%--<input type="text" id="tbtitle" />--%>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td>
-                    Category :
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("category") %> :
                 </td>
                 <td id="CatSubCat">
                     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td>
-                    State :
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("state") %> :
                 </td>
                 <td id="Td1"><asp:DropDownList ID="dlState" runat="server" DataSourceID="dsState" 
                         DataTextField="StateName" DataValueField="id">
@@ -74,8 +74,8 @@
             </tr>
             <tr>
                 <td>
-                    Hình sản phẩm :<br />
-                    <span class="note">size: 250x250px</span></button>
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("imagesproduct") %> :<br />
+                    <span class="note"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("size") %>: 250x250px</span></button>
                 </td>
                 <td>
                     <%--<asp:TextBox ID="imageProduct" Enabled="false" CssClass="imageProduct" runat="server"></asp:TextBox>--%>
@@ -94,7 +94,7 @@
             </tr>
             <tr>
                 <td>
-                    Giá :
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("price") %> :
                 </td>
                 <td>
                     <%--<input type="text" id="tbPrice" />--%>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TwoColumns.Master" AutoEventWireup="true" CodeBehind="listnew.aspx.cs" Inherits="FullMart.themes.script.listnew" %>
+<%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/Listnews.css" rel="stylesheet" type="text/css" />
 </asp:Content>
@@ -85,7 +86,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Right" runat="server">
     <ul class="listnew block">
-        <asp:Repeater ID="rpNewsList" runat="server" DataSourceID="dsNewsList">
+        <Custom:DataPagerRepeater ID="rpNewsList" runat="server" DataSourceID="dsNewsList">
             <ItemTemplate>
                 <li class="b bgwt">
             <div class="previewimage left">
@@ -103,14 +104,21 @@
             </div>
         </li>  
             </ItemTemplate>
-        </asp:Repeater>
+        </Custom:DataPagerRepeater>
         <asp:SqlDataSource ID="dsNewsList" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
             SelectCommandType="StoredProcedure" SelectCommand="GetAllNews1"></asp:SqlDataSource>
              
     </ul>
     <div class="Apages right">
-        <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-            ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                ref="0">All</a>
+        <asp:DataPager ID="DataPager1" runat="server" PageSize="4" PagedControlID="rpNewOrders">
+            <Fields>
+                <%--
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                <asp:NumericPagerField />
+                <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+            </Fields>
+        </asp:DataPager>
     </div>
 </asp:Content>

@@ -18,6 +18,9 @@ a{text-decoration:none;}
 .rate{display:block;clear:both;height:18px}
 .rate img{float:left;width:16px;height:16px;margin:0;padding:0}
 
+.flag{height:24px;width:24px; margin: 0px 5px; background:transparent no-repeat center center;}
+.en{background-image:url(/themes/images/en.png);margin-left: 10px;}
+.vi{background-image:url(/themes/images/vi.png)}
 /* border radius*/
 .btlr{-webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;border-top-left-radius: 5px;border-top-right-radius: 5px;}
 .bblr{-webkit-border-bottom-right-radius: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomright: 5px;-moz-border-radius-bottomleft: 5px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;}
@@ -254,11 +257,4 @@ a{text-decoration:none;}
 .vletter table tfoot button{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 .message{font-size:20px;font-weight:bold;color:#42AFFF}
 #message{background:black;text-align:center;padding:20px;position:fixed;bottom:0px;right:0px;color:White;font-size:20px;font-weight:bold;display:none}
-.loginform{width:1080px}
-.loginform > table{width:360px;}
-.loginform > table td{width:100px; background-color:transparent}
-.loginform > table td+td{width:250px; background-color:transparent}
-.loginform *{font-size:15px;line-height:20px}
-.loginform input[type=text],.loginform input[type=password]{width:95%;border:1px solid #42AFFF;background-color:#fff;float:right;line-height:27px;height:27px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
-.loginform input[type=submit]{display:block;margin:10px auto 20px;width:60px;height:31px;background:transparent url(../images/BGB.png) center top no-repeat;}
 .dlType{width:50px}

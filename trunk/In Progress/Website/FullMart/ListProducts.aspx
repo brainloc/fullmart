@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ThreeColumns.Master" AutoEventWireup="true"
     CodeBehind="ListProducts.aspx.cs" Inherits="FullMart.ListProducts" %>
-
+<%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
-            <span>Categories</span></div>
+            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories") %></span></div>
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
@@ -62,7 +62,7 @@
                 <LayoutTemplate>
                     <div id="AAQ" class="lb b">
                         <div class="title">
-                            <span>Answers & Questions</span></div>
+                            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("answerQuestion") %></span></div>
                         <div class="listitem">
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
@@ -90,15 +90,15 @@
         <div class="parea b">
             <div class="gcats btl">
                 <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">ALL
-                    product of: </span></a><a href="#subcat1" class="subcat"><span><asp:Label ID="txtCatName" runat="server"></asp:Label></span></a>><a
+                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("productof") %>: </span></a><a href="#subcat1" class="subcat"><span><asp:Label ID="txtCatName" runat="server"></asp:Label></span></a>><a
                         href="#subcat2" class="subcat"><span><asp:Label ID="txtSubcatName" runat="server"></asp:Label></span></a> </span>
             </div>
             <div class="listp">
                 <div class="content">
-                    <asp:Repeater ID="rpListProducts" runat="server">
+                    <Custom:DataPagerRepeater ID="rpListProducts" runat="server">
                         <ItemTemplate>
                             <div class="product">
-                                <a href='ViewProduct.aspx?ID=<%# Eval("ID") %>'>
+                                <a href='/ViewProduct.aspx?ID=<%# Eval("ID") %>'>
                                     <div class="content">
                                         <center>
                                             <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>'
@@ -117,15 +117,22 @@
                                 </a>
                             </div>
                         </ItemTemplate>
-                    </asp:Repeater>                    
+                    </Custom:DataPagerRepeater>                    
                     <div class="clear">
                     </div>
                 </div>
                 <div class="Apages right">
-                    <a href="#1" class="active" ref="1">1</a> <a href="#2" ref="2">2</a> <a href="#3"
-                        ref="3">3</a> <a href="#4" ref="4">4</a> <a href="#5" ref="5">5</a> <a href="#0"
-                            ref="0">...</a>
-                </div>
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12" PagedControlID="rpListProducts">
+                            <Fields>
+                                <%--
+                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                                <asp:NumericPagerField />
+                                <%--<asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" 
+                            ShowNextPageButton="False" ShowPreviousPageButton="False" />--%>
+                            </Fields>
+                        </asp:DataPager>
+                    </div>
                 <div class="clear">
                 </div>
             </div>
@@ -138,17 +145,16 @@
         SelectCommand="SELECT [Title], [ID], [ShortContent], [ImageThumb] FROM [News] ORDER BY [CreatedDate] DESC">
     </asp:SqlDataSource>
     <div id="hotnew" class="lb b">
-        <div class="title">
-            Hot News</div>
+        <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %></div>
         <div class="listitem">
          <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
         <AlternatingItemTemplate>
         <li><div class="item">
                         <div class="left">
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
+                            <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                 <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("ImageThumb") %>" /></a></div>
                         <p>
-                            <a href="viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
+                            <a href="/viewNews.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>"><%# Eval("Title") %></a> 
                             <span><%# correctshortCT(Eval("ShortContent"),200) %></span>
                         </p>
                     </div>
@@ -190,23 +196,7 @@
                 <a href="/listnew.aspx" ref="0">All</a>
             </div>
         </LayoutTemplate>
-        <SelectedItemTemplate>
-            <li style="">Title:
-                <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                <br />
-                ID:
-                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                <br />
-                ShortContent:
-                <asp:Label ID="ShortContentLabel" runat="server" 
-                    Text='<%# Eval("ShortContent") %>' />
-                <br />
-                ImageThumb:
-                <asp:Label ID="ImageThumbLabel" runat="server" 
-                    Text='<%# Eval("ImageThumb") %>' />
-                <br />
-            </li>
-        </SelectedItemTemplate>
+       
     </asp:ListView>
             <div class="clear">
             </div>
@@ -215,8 +205,7 @@
     <div class="ladv lb">
         <img src="/themes/images/rightadv.jpg" /></div>
     <div id="newadv" class="lb b">
-        <div class="title">
-            New ADV</div>
+        <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("newadv") %></div>
         <div class="advc">
             <div id="NAtab1" class="tabsi active">
                 <ul>

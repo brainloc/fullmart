@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using FullMart.Code.DAO;
+using System.Threading;
+using System.Globalization;
 
 namespace FullMart
 {
@@ -43,6 +45,23 @@ namespace FullMart
             DataTable newDetail = new DataTable();
             newDetail = NewManagerment.GetNewDetailByID(NewID);
             return newDetail;
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 

@@ -1,12 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ThreeColumns.Master" AutoEventWireup="true"
-    CodeBehind="Default.aspx.cs" Inherits="FullMart.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ThreeColumns.Master" AutoEventWireup="true" CodeBehind="ShopPage.aspx.cs" Inherits="FullMart.ShopPage" %>
+<%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="/themes/script/ShopPage.js" type="text/javascript"></script>
+    <link href="/themes/style/ShopPages.css" rel="stylesheet" type="text/css" />
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="Left" runat="server">
     <div id="listcats" class="lb btlr">
         <div class="title block btlr">
-            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories")%></span></div>
+            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories") %></span></div>
         <ul class="lplist">
             <asp:Repeater ID="rpCategories" runat="server" DataSourceID="dsCategories">
                 <ItemTemplate>
@@ -45,7 +46,7 @@
    
    <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
                 <EmptyDataTemplate>
-                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
+                    No data was returned.
                 </EmptyDataTemplate>
                <ItemTemplate>
                     <li>
@@ -64,7 +65,8 @@
 
                 <LayoutTemplate>
                     <div id="AAQ" class="lb b">
-                        <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("answerQuestion") %></div>
+                        <div class="title">
+                            <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("answerQuestion") %></span></div>
                         <div class="listitem">
                             <ul id="itemPlaceholderContainer" runat="server" style="">
                                 <li runat="server" id="itemPlaceholder" />
@@ -87,87 +89,133 @@
             <asp:SqlDataSource ID="dsAQ" runat="server"  ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"  SelectCommand="GetQAStatistic" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Center" runat="server">
-    <div id="cmslide" class="block">
-        <div id='mslider'>
-            <div class="item">
-                <img src="/themes/images/slide1.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide2.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide3.jpg" /></div>
-            <div class="item">
-                <img src="/themes/images/slide4.jpg" /></div>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div id="cmproduce" class="block">
-        <div class="parea b">
-            <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl">
-                    <asp:Label ID="txtTopProductPane" runat="server" Text="<%$ Resources:LocalizedText, txtTopProductPane %>"></asp:Label></span></a></span></div>
-            <div class="listp">
-                <div class="content">
-                    <asp:Repeater ID="rpTopSection" runat="server" DataSourceID="dsTopSection">
-                        <ItemTemplate>
-                            <div class="product">
-                                <a href='/ViewProduct.aspx?ID=<%# Eval("ID") %>'>
-                                    <div class="content">
-                                        <center>
-                                            <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>'
-                                                alt='<%# Eval("Title") %>' />
-                                        </center>
-                                    </div>
-                                    <div class="bottom">
-                                    </div>
-                                    <div class="nameproduct">
-                                        <%# Eval("Title") %><p>
-                                            <%# Eval("Price") %>
-                                            vnd</p>
-                                        <div class="salef">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <asp:SqlDataSource ID="dsTopSection" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>">
-                    </asp:SqlDataSource>
-                    <div class="clear">
+    <div class="clear block">
+        <asp:Repeater ID="rpShopInfor" DataSourceID="dsShopInfor" runat="server">
+            <ItemTemplate>
+                <div class="Shopdetail clear">
+                    <div class="summary-info">
+                        <div class="summary-info-box clear">
+                            <h3 class="name-shop">
+                                <a href="#" title="<%# Eval("ShopName") %>">
+                                    <%# Eval("ShopName")%></a>
+                            </h3>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>
+                                    </td>
+                                    <td>
+                                        <%=shopchecked %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createdDate") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("CreateDate")%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("Adress")%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
+                                    </td>
+                                    <td>
+                                        <%# Eval("Phone")%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="/themes/images/icon-chat.jpg" />Yahoo !ID :
+                                    </td>
+                                    <td>
+                                        <%# Eval("Chat")%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %>
+                                    </td>
+                                    <td>
+                                        <span class="rate">
+                                            <%# Eval("rate")%></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:SqlDataSource ID="dsShopInfor" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+            SelectCommand="GetShopInfor" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:QueryStringParameter DefaultValue="0" Name="ID" QueryStringField="Shop" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <div class="clear">
         </div>
+    </div><input id="UShopID" type="hidden" value="-1" runat="server" />
+     <div id="cmproduce" class="block">
         <div class="parea b">
+            
             <div class="gcats btl">
-                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("newestproducts") %></span></a></span></div>
+                <span class="gtitle btl"><a href="#maincat" class="maincat btl"><span class="btl"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("productsofshop") %></span></a></span></div>
             <div class="listp">
                 <div class="content">
-                    <asp:Repeater ID="rpNewSection" runat="server" DataSourceID="dsNewSection">
+                    <asp:ListView ID="ListProductShop" runat="server" DataKeyNames="ID" EnableModelValidation="True">
+                        <EmptyDataTemplate>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
+                        </EmptyDataTemplate>
                         <ItemTemplate>
-                            <div class="product">
-                                <a href='ViewProduct.aspx?ID=<%# Eval("ID") %>'>
-                                    <div class="content">
-                                        <center>
-                                            <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>'
-                                                alt='<%# Eval("Title") %>' />
-                                        </center>
-                                    </div>
-                                    <div class="bottom">
-                                    </div>
-                                    <div class="nameproduct">
-                                        <%# Eval("Title") %><p>
-                                            <%# Eval("Price") %>
-                                            vnd</p>
-                                        <div class="salef">
+                            <li style="">
+                                <div class="product">
+                                    <a href='/ViewProduct.aspx?ID=<%# Eval("ID") %>'>
+                                        <div class="content">
+                                            <center>
+                                                <img src='<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>'
+                                                    alt='<%# Eval("Title") %>' />
+                                            </center>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
+                                        <div class="bottom">
+                                        </div>
+                                        <div class="nameproduct">
+                                            <%# Eval("Title") %><p>
+                                                <%# Eval("Price") %>
+                                                vnd</p>
+                                            <div class="salef">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
                         </ItemTemplate>
-                    </asp:Repeater>
-                    <asp:SqlDataSource ID="dsNewSection" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>">
-                    </asp:SqlDataSource>
+                        <LayoutTemplate>
+                            <ul id="itemPlaceholderContainer" runat="server" class="clear">
+                                <li runat="server" id="itemPlaceholder" />
+                            </ul>
+                            <div class="clear">
+                            </div>
+                            <div class="Apages right">
+                                <asp:DataPager ID="DataPager1" runat="server" PageSize="20">
+                                    <Fields>
+                                        <asp:NumericPagerField />
+                                    </Fields>
+                                </asp:DataPager>
+                                <%--<a href="/QA.aspx" ref="0">All</a>--%>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </LayoutTemplate>
+                    </asp:ListView>
                     <div class="clear">
                     </div>
                 </div>
@@ -179,10 +227,10 @@
    
     <asp:SqlDataSource ID="dsListNew" runat="server" 
         ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" 
-        SelectCommand="SELECT [Title], [ID], [ShortContent], [ImageThumb] FROM [News] ORDER BY [CreatedDate] DESC">
+        SelectCommand="GetAllNews1" SelectCommandType="StoredProcedure">
     </asp:SqlDataSource>
     <div id="hotnew" class="lb b">
-        <div class="title" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %>"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %></div>
+        <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("hotnews") %></div>
         <div class="listitem">
          <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="dsListNew" EnableModelValidation="True">
         <EmptyDataTemplate>

@@ -13,7 +13,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                            Manage General 
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managepages") %>
                         </div>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                             Manage User
+                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageuser") %>
                         </div>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                            Manage Product 
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageproduct") %>
                         </div>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                             Manage A&Q
+                             <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageQA") %>
                         </div>
                     </a>
                 </div>
@@ -71,7 +71,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                            Manage News
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managenews") %>
                         </div>
                     </a>
                 </div>
@@ -85,7 +85,7 @@
                             </center>
                         </div>
                         <div class="nameproduct">
-                            Manage State
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("managestates") %>
                         </div>
                     </a>
                 </div>

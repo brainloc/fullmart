@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="accounttype" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
   <data name="addtocart" xml:space="preserve">
     <value>Add to Shopping Cart</value>
   </data>
@@ -132,6 +135,12 @@
   <data name="categories" xml:space="preserve">
     <value>Categories</value>
   </data>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="categorysname" xml:space="preserve">
+    <value>Category's Name</value>
+  </data>
   <data name="check" xml:space="preserve">
     <value>Check</value>
   </data>
@@ -144,23 +153,44 @@
   <data name="comment" xml:space="preserve">
     <value>Comment</value>
   </data>
+  <data name="confirmdelete" xml:space="preserve">
+    <value>Are you sure delete</value>
+  </data>
   <data name="confirmpassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
   <data name="createdDate" xml:space="preserve">
     <value>Created Date</value>
   </data>
+  <data name="createnewproduct" xml:space="preserve">
+    <value>Create New Product</value>
+  </data>
   <data name="entercaptcha" xml:space="preserve">
     <value>Enter Captcha Image content</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Content doesn't exits, Please contact with Administrator!</value>
+  </data>
   <data name="firstname" xml:space="preserve">
     <value>First Name</value>
+  </data>
+  <data name="found" xml:space="preserve">
+    <value>Found</value>
+  </data>
+  <data name="fullname" xml:space="preserve">
+    <value>Fullname</value>
   </data>
   <data name="hotnews" xml:space="preserve">
     <value>Hot News</value>
   </data>
   <data name="imageproduct" xml:space="preserve">
     <value>Image of Product</value>
+  </data>
+  <data name="imagesproduct" xml:space="preserve">
+    <value>Product's Images</value>
+  </data>
+  <data name="joindate" xml:space="preserve">
+    <value>Join Date</value>
   </data>
   <data name="lastname" xml:space="preserve">
     <value>Last Name</value>
@@ -171,11 +201,38 @@
   <data name="login" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="managecategories" xml:space="preserve">
+    <value>Manage Categories</value>
+  </data>
+  <data name="managenews" xml:space="preserve">
+    <value>Manage News</value>
+  </data>
+  <data name="managepages" xml:space="preserve">
+    <value>Manage Pages</value>
+  </data>
+  <data name="manageproduct" xml:space="preserve">
+    <value>Manage Product</value>
+  </data>
+  <data name="managestates" xml:space="preserve">
+    <value>Manage States</value>
+  </data>
+  <data name="manageusers" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="mangeQA" xml:space="preserve">
+    <value>Manage Answer &amp; Question</value>
+  </data>
+  <data name="moredetail" xml:space="preserve">
+    <value>More detail</value>
+  </data>
   <data name="newadv" xml:space="preserve">
     <value>New Adv</value>
   </data>
   <data name="newestproducts" xml:space="preserve">
     <value>Newest Products</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>News</value>
   </data>
   <data name="noproduct" xml:space="preserve">
     <value>No Product to Display !</value>
@@ -186,11 +243,20 @@
   <data name="option" xml:space="preserve">
     <value>Option</value>
   </data>
+  <data name="order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="ordernumber" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
   <data name="otherproductsamecat" xml:space="preserve">
     <value>Other Products in Category</value>
   </data>
   <data name="otherproductsameposter" xml:space="preserve">
     <value>Other Products of Poster</value>
+  </data>
+  <data name="outstanding" xml:space="preserve">
+    <value>OS</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>
@@ -201,11 +267,29 @@
   <data name="pleasepass" xml:space="preserve">
     <value>Please input your Password</value>
   </data>
+  <data name="pleaseselectcategory" xml:space="preserve">
+    <value>Please select category</value>
+  </data>
+  <data name="pleaseselectlocation" xml:space="preserve">
+    <value>Please select location</value>
+  </data>
   <data name="pleaseuser" xml:space="preserve">
     <value>Please input your Username</value>
   </data>
+  <data name="postdate" xml:space="preserve">
+    <value>Post Date</value>
+  </data>
+  <data name="poster" xml:space="preserve">
+    <value>Poster</value>
+  </data>
   <data name="postFirstProduct" xml:space="preserve">
     <value>Post your first Product</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="productid" xml:space="preserve">
+    <value>Product ID</value>
   </data>
   <data name="productinfo" xml:space="preserve">
     <value>Product Information</value>
@@ -231,8 +315,14 @@
   <data name="rememberme" xml:space="preserve">
     <value>Remember me</value>
   </data>
+  <data name="remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="send" xml:space="preserve">
     <value>SEND</value>
+  </data>
+  <data name="sender" xml:space="preserve">
+    <value>Sender</value>
   </data>
   <data name="shopchecked" xml:space="preserve">
     <value>Checked</value>
@@ -240,11 +330,32 @@
   <data name="shopname" xml:space="preserve">
     <value>Shop Name</value>
   </data>
+  <data name="shortmess" xml:space="preserve">
+    <value>Short Message</value>
+  </data>
+  <data name="size" xml:space="preserve">
+    <value>Size</value>
+  </data>
   <data name="status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="subcategory" xml:space="preserve">
+    <value>Subcategory</value>
+  </data>
+  <data name="subcategorysname" xml:space="preserve">
+    <value>Subcategory's Name</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
   <data name="title" xml:space="preserve">
     <value>Title</value>
+  </data>
+  <data name="titlenews" xml:space="preserve">
+    <value>Title News</value>
+  </data>
+  <data name="total" xml:space="preserve">
+    <value>Total</value>
   </data>
   <data name="txtTopProductPane" xml:space="preserve">
     <value>Top Of Product</value>
@@ -254,6 +365,15 @@
   </data>
   <data name="username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="verifiing" xml:space="preserve">
+    <value>Verifiing</value>
+  </data>
+  <data name="verify" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="viewadvertiser" xml:space="preserve">
+    <value>View Advertiser</value>
   </data>
   <data name="visitShop" xml:space="preserve">
     <value>Visit Shop </value>
@@ -275,5 +395,11 @@
   </data>
   <data name="zone" xml:space="preserve">
     <value>Zone</value>
+  </data>
+  <data name="forgotpassword" xml:space="preserve">
+    <value>Forgot your password ?</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Price</value>
   </data>
 </root>

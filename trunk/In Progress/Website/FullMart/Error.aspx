@@ -2,5 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
-Content doesn't exits, Please contact with Administrator!
+<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("error") %>
+
 </asp:Content>

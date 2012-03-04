@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using FullMart.Code.Business;
 using System.Data;
 using FullMart.Code.DAO;
+using System.Threading;
+using System.Globalization;
 
 namespace FullMart.Shop
 {
@@ -202,6 +204,23 @@ namespace FullMart.Shop
             {
                 dlSubCategories.Items.Clear();
             }
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
         }
     }
 }

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration\admin.aspx" />
+    <Content Include="Administration\ManageCategories.aspx" />
     <Content Include="Administration\ManageState.aspx" />
     <Content Include="Administration\ManageUser.aspx" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -876,8 +877,6 @@
     <Content Include="Administration\ManageGeneral.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News\ManageNews.aspx" />
-    <Content Include="ManagerNews.aspx" />
-    <Content Include="ManagerProduct.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
     <Content Include="media\adv\adv3.gif" />
@@ -932,6 +931,8 @@
     <Content Include="themes\images\bgwt2.png" />
     <Content Include="themes\images\btn_left.gif" />
     <Content Include="themes\images\btn_right.gif" />
+    <Content Include="themes\images\button_arrow_left.gif" />
+    <Content Include="themes\images\button_arrow_right.gif" />
     <Content Include="themes\images\buy.png" />
     <Content Include="themes\images\checkbox.gif" />
     <Content Include="themes\images\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
@@ -951,6 +952,8 @@
     <Content Include="themes\images\delete.png" />
     <Content Include="themes\images\desc.gif" />
     <Content Include="themes\images\email-Icon.png" />
+    <Content Include="themes\images\en.png" />
+    <Content Include="themes\images\errorl.png" />
     <Content Include="themes\images\favs.png" />
     <Content Include="themes\images\first.png" />
     <Content Include="themes\images\goc-phai.png" />
@@ -969,6 +972,8 @@
     <Content Include="themes\images\larrow.png" />
     <Content Include="themes\images\last.png" />
     <Content Include="themes\images\leftadv.jpg" />
+    <Content Include="themes\images\libt.png" />
+    <Content Include="themes\images\Login-Box.png" />
     <Content Include="themes\images\login.png" />
     <Content Include="themes\images\logo.png" />
     <Content Include="themes\images\logout.png" />
@@ -1063,6 +1068,7 @@
     <Content Include="themes\images\ui-icons_fcd113_256x240.png" />
     <Content Include="themes\images\upload.png" />
     <Content Include="themes\images\verybg.gif" />
+    <Content Include="themes\images\vi.png" />
     <Content Include="themes\images\wait.gif" />
     <Content Include="themes\images\Wiki1.png" />
     <Content Include="themes\images\Window.png" />
@@ -1102,6 +1108,7 @@
     <Content Include="themes\style\jqtransform.css" />
     <Content Include="themes\style\jquery-ui-1.8.16.custom.css" />
     <Content Include="themes\style\Listnews.css" />
+    <Content Include="themes\style\loginpage.css" />
     <Content Include="themes\style\main.css" />
     <Content Include="themes\style\memproduct.css" />
     <Content Include="themes\style\PIE.htc" />
@@ -1140,6 +1147,13 @@
     </Compile>
     <Compile Include="Administration\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ManageCategories.aspx.cs">
+      <DependentUpon>ManageCategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageCategories.aspx.designer.cs">
+      <DependentUpon>ManageCategories.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\ManageState.aspx.cs">
       <DependentUpon>ManageState.aspx</DependentUpon>
@@ -1257,20 +1271,6 @@
     </Compile>
     <Compile Include="News\ManageNews.aspx.designer.cs">
       <DependentUpon>ManageNews.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerNews.aspx.cs">
-      <DependentUpon>ManagerNews.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManagerNews.aspx.designer.cs">
-      <DependentUpon>ManagerNews.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerProduct.aspx.cs">
-      <DependentUpon>ManagerProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManagerProduct.aspx.designer.cs">
-      <DependentUpon>ManagerProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="News\CreateNews.aspx.cs">
       <DependentUpon>CreateNews.aspx</DependentUpon>
@@ -1513,7 +1513,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>24853</DevelopmentServerPort>
+          <DevelopmentServerPort>13263</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

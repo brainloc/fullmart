@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FullMart.Code.DAO;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Globalization;
 
 namespace FullMart
 {
@@ -110,16 +113,53 @@ namespace FullMart
 
         protected void btnPost_Click(object sender, EventArgs e)
         {
-            string content = txtPost.Text.Trim();
-            int posterID = Convert.ToInt32(Session["ID"]);
-            string type = string.Empty;
-            if (string.IsNullOrEmpty(content) == false)
+            if (!Page.User.Identity.IsAuthenticated)
             {
-                PostQuestion(posterID, content, type);
-                updatePostList.DataBind();
+                Response.Redirect("~/Login.aspx", true);
+            }
+            else
+            {
+                string content = txtPost.Text.Trim();
+                int posterID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0]["ID"].ToString());
+                string type = string.Empty;
+                if (string.IsNullOrEmpty(content) == false)
+                {
+                    PostQuestion(posterID, content, type);
+                    updatePostList.DataBind();
+                }
             }
         }
+        protected string correctshortCT(object content, int length)
+        {
+            if (content != DBNull.Value)
+            {
+                string tmp1 = content.ToString();
+                tmp1 = Regex.Replace(tmp1, @"<(.|\n)*?>", string.Empty);
+                if (tmp1.Length > length)
+                {
+                    return tmp1.Substring(0, length) + "...";
+                }
+                else { return tmp1; }
+            }
+            return content.ToString();
+        }
+        protected override void InitializeCulture()
+        {
+            string ui = "en";
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
+            string culture = ui == "en" ? "en-us" : ui + "-" + "VN";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            base.InitializeCulture();
+        }
 
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -127,13 +167,20 @@ namespace FullMart
         /// <param name="e"></param>
         protected void btnComment_Click(object sender, EventArgs e)
         {
-            string content = txtPost.Text.Trim();
-            int posterID = 1;
-            string type = "";
-            if (string.IsNullOrEmpty(content) == false)
+            if (!Page.User.Identity.IsAuthenticated)
             {
-                PostQuestion(posterID, content, type);
-                updatePostList.DataBind();
+                Response.Redirect("~/Login.aspx", true);
+            }
+            else
+            {
+                string content = txtPost.Text.Trim();
+                int posterID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0]["ID"].ToString());
+                string type = "";
+                if (string.IsNullOrEmpty(content) == false)
+                {
+                    PostQuestion(posterID, content, type);
+                    updatePostList.DataBind();
+                }
             }
         }
 
@@ -149,39 +196,45 @@ namespace FullMart
                 try
                 {
                     List<string> eventArgs = ParseEventArgs(Request.Params.Get("__EVENTARGUMENT"));
-
-                    if (eventArgs != null)
+                    if (!Page.User.Identity.IsAuthenticated)
                     {
-                        string command = eventArgs.First();
-
-                        switch (command)
+                        Response.Redirect("~/Login.aspx", true);
+                    }
+                    else
+                    {
+                        if (eventArgs != null)
                         {
-                            case "AddSubQA":
-                                {
-                                    int posterID = Convert.ToInt32(eventArgs.ElementAt(1));
-                                    int postID = Convert.ToInt32(eventArgs.ElementAt(2));
-                                    string comment = eventArgs.Last();
-                                    AddSubQA(posterID, postID, comment);                                    
-                                    break;
-                                }
-                            case "DeleteSubQA":
-                                {
-                                    int SubQAID = Convert.ToInt32(eventArgs.ElementAt(1));
-                                    DeleteSubQA(SubQAID);                                   
-                                    break; 
-                                }
-                            case "DeleteQA":
-                                {
-                                    int QAID = Convert.ToInt32(eventArgs.ElementAt(1));                                    
-                                    DeleteQA(QAID);
-                                    break; 
-                                }                                
+                            string command = eventArgs.First();
+
+                            switch (command)
+                            {
+                                case "AddSubQA":
+                                    {
+                                        int posterID = int.Parse(UserManagement.GetUserRole(Page.User.Identity.Name).Rows[0]["ID"].ToString());
+                                        int postID = Convert.ToInt32(eventArgs.ElementAt(2));
+                                        string comment = eventArgs.Last();
+                                        AddSubQA(posterID, postID, comment);
+                                        break;
+                                    }
+                                case "DeleteSubQA":
+                                    {
+                                        int SubQAID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                        DeleteSubQA(SubQAID);
+                                        break;
+                                    }
+                                case "DeleteQA":
+                                    {
+                                        int QAID = Convert.ToInt32(eventArgs.ElementAt(1));
+                                        DeleteQA(QAID);
+                                        break;
+                                    }
+                            }
+
+                            if (string.IsNullOrEmpty(command) == false)
+                            {
+                                updatePostList.DataBind();
+                            }
                         }
-
-                        if (string.IsNullOrEmpty(command) == false)
-                        {
-                            updatePostList.DataBind();                            
-                        }                        
                     }
                 }
                 catch (Exception ex)

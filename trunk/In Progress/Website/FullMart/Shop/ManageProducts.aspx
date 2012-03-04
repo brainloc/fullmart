@@ -9,100 +9,18 @@
     </div>
     <div id="tabsP">
         <ul>
-            <li><a href="#tabs1P-1"><span>Create New Product</span></a></li>
-            <li><a href="#tabs1P-2"><span>Manage Categories</span></a></li>
-            <li><a href="#tabs1P-3"><span>Manage Product</span></a></li>
+            <li><a href="#tabs1P-1"><span>
+                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %></span></a></li>
+            <li><a href="#tabs1P-3"><span>
+                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("manageproduct") %></span></a></li>
         </ul>
-        <div id="tabs1P-1">
-            <a href="CreateProduct.aspx">
+         <div id="tabs1P-1">
+             <a href="CreateProduct.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %>">
                 <img src="/themes/images/upload.png" /></a></div>
-        <div id="tabs1P-2">
-            <p class="atitle">
-                Manager Categories</p>
-            <span style="color: Red; padding: 10px; font-size: 15px">Press 'tab' when change Order
-                number to check.<br />
-                Press 'Enter' when change Category's Name, Order to Update. </span>
-            <div class="block clear">
-                <table class="tbcates left" cellpadding="0" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <td>
-                                Categories Name
-                            </td>
-                            <td>
-                                Order
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                    </thead>
-                    <asp:Repeater ID="rpListCategories" DataSourceID="dsCategories" runat="server">
-                        <ItemTemplate>
-                            <tr ref='<%# Eval("ID") %>'>
-                                <td>
-                                    <input ref="<%# Eval("ID") %>" value='<%# Eval("Name") %>' />
-                                    <%--<asp:TextBox ID="ABC" Text='<%# Eval("Name") %>'  runat="server" OnTextChanged="ABC"></asp:TextBox>--%>
-                                </td>
-                                <td>
-                                    <input ref="<%# Eval("ID") %>" value='<%# Eval("Order") %>' />
-                                    <%-- <asp:TextBox ID='ABD' Text='<%# Eval("Order") %>' runat="server"></asp:TextBox>--%>
-                                </td>
-                                <td>
-                                    <img class="catDel" ref="<%# Eval("ID") %>" src="/themes/images/delete.png" /><img
-                                        ref="<%# Eval("ID") %>" class="bindSubCate" src="/themes/images/Arrow_Right.png" />
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <tfoot>
-                        <tr class="insertCates">
-                            <td>
-                                <asp:TextBox ID="txtInsert" CssClass="insertNameCates" ToolTip="Press 'Enter' to insert"
-                                    Text="Press 'Enter' to insert" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtInsertOrder" Enabled="false" CssClass="insertOrderCates" ToolTip="..."
-                                    Text="..." runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <table class="tbsubcates right" cellpadding="0" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <td>
-                                SubCategories Name
-                            </td>
-                            <td>
-                                Order
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                        <tr class="insertCates">
-                            <td>
-                                <asp:TextBox ID="TextBox1" CssClass="insertNameCates" ToolTip="Press 'Enter' to insert"
-                                    Text="Press 'Enter' to insert" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox2" CssClass="insertOrderCates" ToolTip="..." Text="..." runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
         <asp:UpdatePanel ID="updateSelectProducts" runat="server">
             <ContentTemplate>
                 <div id="tabs1P-3">
-                    <p class="atitle">
-                        Manager Product</p>
+                    <a href="CreateProduct.aspx" title="<%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createnewproduct") %>">
                     <div class="insstate">
                         <asp:TextBox ID="txtsearchPID" CssClass="aip" title="Search by Product ID" Text="Search by Product ID"
                             runat="server"></asp:TextBox>
@@ -143,33 +61,33 @@
                                         <%--<asp:HyperLink ID="lnkSortByProductName" runat="server"></asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortByPostdate" runat="server" Text="Post date" CommandName="CreatedDate"
+                                        <asp:Button ID="btnSortByPostdate" runat="server" Text="<%$ Resources:LocalizedText, postdate %>" CommandName="CreatedDate"
                                             OnClick="SetSortExpression" />
                                         <%--<asp:HyperLink ID="lnkSortByPostdate" runat="server">Post date</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortByPoster" runat="server" Text="Poster" CommandName="email"
+                                        <asp:Button ID="btnSortByPoster" runat="server" Text="<%$ Resources:LocalizedText, poster %>" CommandName="email"
                                             OnClick="SetSortExpression" />
                                         <%--<asp:HyperLink ID="lnkSortByPoster" runat="server">Poster</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortByPrice" runat="server" Text="Price(vnd)" CommandName="Price"
+                                        <asp:Button ID="btnSortByPrice" runat="server" Text="<%$ Resources:LocalizedText, price %>" CommandName="Price"
                                             OnClick="SetSortExpression" />
                                         <%--<asp:HyperLink ID="lnkSortByPrice" runat="server">Price(vnd)</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortBySubCat" runat="server" Text="Sub Category" CommandName="Name"
+                                        <asp:Button ID="btnSortBySubCat" runat="server" Text="<%$ Resources:LocalizedText, subcategory %>" CommandName="Name"
                                             OnClick="SetSortExpression" />
                                         <%--<asp:HyperLink ID="lnkSortBySubCat" runat="server">Sub Category</asp:HyperLink>--%>
                                     </th>
                                     <th>
-                                        <asp:Button ID="btnSortByOS" runat="server" Text="OS" CommandName="Outstanding" OnClick="SetSortExpression" />
+                                        <asp:Button ID="btnSortByOS" runat="server" Text="<%$ Resources:LocalizedText, outstanding %>" CommandName="Outstanding" OnClick="SetSortExpression" />
                                         <%--<asp:HyperLink ID="lnkSortByOS" runat="server">OS</asp:HyperLink>--%>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <Custom:DataPagerRepeater ID="rpManagingProductList" runat="server" DataSourceID="odsManagingProductList">
+                                <Custom:DataPagerRepeater ID="rpManagingProductList" runat="server" DataSourceID="dsManagingProductList">
                                     <ItemTemplate>
                                         <tr>
                                             <td>
@@ -224,18 +142,6 @@
                                             Name="SortBy" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-                                <%--<asp:ObjectDataSource ID="odsManagingProductList" runat="server" OnSelecting="odsManagingProductList_Selecting"
-                                    SelectCommandType="StoredProcedure" SelectCommand="GetManagingProductList">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="txtsearchPID" ConvertEmptyStringToNull="true" Name="ProductID" />
-                                        <asp:ControlParameter ControlID="txtSProduct" ConvertEmptyStringToNull="true" Name="Email" />
-                                        <asp:ControlParameter ControlID="dlCategories" ConvertEmptyStringToNull="true" Name="CatID" />
-                                        <asp:ControlParameter ControlID="dlSubCategories" ConvertEmptyStringToNull="true"
-                                            Name="SubcatID" />
-                                        <asp:ControlParameter ControlID="txtSortExpression" ConvertEmptyStringToNull="true"
-                                            Name="SortBy" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>--%>
                             </tbody>
                         </table>
                         <%--<div class="Apages right">
@@ -267,7 +173,7 @@
     <div id="cfdeletep">
         <p>
             <center>
-                Do you want to delete : <span></span>?</center>
+                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("confirmdelete") %> : <span></span>?</center>
         </p>
         <input type="hidden" />
         <center>
