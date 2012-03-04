@@ -254,35 +254,7 @@ $(document).ready(function () {
             $(des).slideDown("normal", function () { $(des).addClass("active"); });
         });
         return false;
-    });
-
-    $("div#viewnote").delegate("li.orderItem", "click", function () {
-        var orderItemID = $(this).attr("id");
-        if (!orderItemID == false) {
-            $("#waitloader").show();
-            $.ajax({
-                url: "/Code/Business/AjaxUltilities.ashx?",
-                async: false,
-                type: "POST",
-                dataType: "script",
-                data: {
-                    orderInfoID: orderItemID,
-                    action: "loadOrderInfo"
-                }
-            });
-            $(".vlistletter").hide();
-            $(".vletter").show();
-            $(this).find(".noread").removeClass("noread");
-            return false;            
-        }
-        else {
-            $('#VUEmail').val("");
-            $('#Text1').val("");
-            $('#VUCU').val("");
-            $('#VUClass').val("");
-            $('#VUWishlist').val("");
-        }
-    });
+    });    
 
     $(".vletter").delegate("table tfoot button", "click", function () {
         $(".vlistletter").slideDown("normal", function () {

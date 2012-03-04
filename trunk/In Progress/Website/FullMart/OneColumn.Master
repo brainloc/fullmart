@@ -32,17 +32,40 @@
     <script src="/themes/script/jquery.calculation.min.js" type="text/javascript"></script>
     <script src="/themes/script/dropbox.js" type="text/javascript"></script>
     <link href="/ckeditor/general.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () { 
+            $("div#viewnote").delegate("li.orderItem", "click", function () {
+                var orderItemID = $(this).attr("id");
+                if (!orderItemID == false) {
+                    $("#waitloader").show();
+                    $.ajax({
+                        url: "/Code/Business/AjaxUltilities.ashx?",
+                        async: false,
+                        type: "POST",
+                        dataType: "script",
+                        data: {
+                            currentUserID: <%= Session["ID"] %>,
+                            orderInfoID: orderItemID,
+                            action: "loadOrderInfo"
+                        }
+                    });
+                    $(".vlistletter").hide();
+                    $(".vletter").show();
+                    $(this).find(".noread").removeClass("noread");
+                    return false;            
+                }
+                else {
+                    $('#VUEmail').val("");
+                    $('#Text1').val("");
+                    $('#VUCU').val("");
+                    $('#VUClass').val("");
+                    $('#VUWishlist').val("");
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script language="javascript" type="text/javascript">
-// <![CDATA[
-
-        function sbsearch_onclick() {
-
-        }
-
-// ]]>
-    </script>
 </head>
 <body>
     <form id="body" runat="server">
