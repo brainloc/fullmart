@@ -10,79 +10,178 @@
 namespace FullMart {
     
     
-    public partial class list_by_subcate_search {
+    public partial class ManageProducts {
         
         /// <summary>
-        /// rpCategories control.
+        /// updateSelectProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCategories;
+        protected global::System.Web.UI.UpdatePanel updateSelectProducts;
         
         /// <summary>
-        /// dsCategories control.
+        /// txtsearchPID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
+        protected global::System.Web.UI.WebControls.TextBox txtsearchPID;
         
         /// <summary>
-        /// ListAQ control.
+        /// txtusrole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListAQ;
+        protected global::System.Web.UI.WebControls.TextBox txtusrole;
         
         /// <summary>
-        /// dsAQ control.
+        /// txtusID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsAQ;
+        protected global::System.Web.UI.WebControls.TextBox txtusID;
         
         /// <summary>
-        /// txtCatName control.
+        /// txtSProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtCatName;
+        protected global::System.Web.UI.WebControls.TextBox txtSProduct;
         
         /// <summary>
-        /// txtKey control.
+        /// updateCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtKey;
+        protected global::System.Web.UI.UpdatePanel updateCategory;
         
         /// <summary>
-        /// txtNumRearch control.
+        /// dlCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtNumRearch;
+        protected global::System.Web.UI.WebControls.DropDownList dlCategories;
         
         /// <summary>
-        /// rpListProducts control.
+        /// dlSubCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DataPagerRepeater.DataPagerRepeater rpListProducts;
+        protected global::System.Web.UI.WebControls.DropDownList dlSubCategories;
+        
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
+        /// btnSortByID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByID;
+        
+        /// <summary>
+        /// btnSortByProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByProductName;
+        
+        /// <summary>
+        /// btnSortByPostdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByPostdate;
+        
+        /// <summary>
+        /// btnSortByPoster control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByPoster;
+        
+        /// <summary>
+        /// btnSortByPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByPrice;
+        
+        /// <summary>
+        /// btnSortBySubCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortBySubCat;
+        
+        /// <summary>
+        /// btnSortByOS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSortByOS;
+        
+        /// <summary>
+        /// rpManagingProductList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DataPagerRepeater.DataPagerRepeater rpManagingProductList;
+        
+        /// <summary>
+        /// txtSortExpression control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtSortExpression;
+        
+        /// <summary>
+        /// dsManagingProductList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsManagingProductList;
         
         /// <summary>
         /// DataPager1 control.
@@ -94,75 +193,12 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.DataPager DataPager1;
         
         /// <summary>
-        /// dsListNew control.
+        /// dsCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsListNew;
-        
-        /// <summary>
-        /// ListView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
-        
-        /// <summary>
-        /// rpadvSell control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpadvSell;
-        
-        /// <summary>
-        /// rpBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpBuy;
-        
-        /// <summary>
-        /// rpShare control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpShare;
-        
-        /// <summary>
-        /// dsADVSell control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsADVSell;
-        
-        /// <summary>
-        /// dsADVBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsADVBuy;
-        
-        /// <summary>
-        /// dsADVShare control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsADVShare;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsCategories;
     }
 }

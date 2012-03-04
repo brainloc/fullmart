@@ -21,6 +21,12 @@ namespace FullMart
                 ffooter.Text = OptionManagement.GetFooter("VI");
                 if (Page.User.Identity.IsAuthenticated)
                 {
+                    if (Session["ID"] == null)
+                    {
+                        DataTable us = UserManagement.GetUserRole(Page.User.Identity.Name);
+                        Session["ID"] = us.Rows[0]["ID"].ToString();
+                        Session["roleID"] = Convert.ToInt32(us.Rows[0]["roleID"]);
+                    }
                     loginPanel.Visible = false;
                     txtLoginName.Text = Page.User.Identity.Name;
                     if (Roles.IsUserInRole("1"))
@@ -36,7 +42,6 @@ namespace FullMart
                     pnloged.Visible = false;
                 }
             }
-            ffooter.Text = OptionManagement.GetFooter("VI");
         }
 
         protected void loginPanel_Authenticate(object sender, AuthenticateEventArgs e)
@@ -52,10 +57,15 @@ namespace FullMart
             DataTable us = UserManagement.Login(password, username);
             if (us != null && us.Rows.Count > 0)
             {
+                if (bool.Parse(us.Rows[0]["isActive"].ToString()) || bool.Parse(us.Rows[0]["isBanned"].ToString()))
+                {
+                    Response.Redirect("~/Denied.aspx", false);
+                }
                 Session["ID"] = us.Rows[0]["ID"].ToString();
                 Session["roleID"] = Convert.ToInt32(us.Rows[0]["roleID"]);
                 return true;
             }
+            Response.Redirect("~/login.aspx", true);
             return false;
         }
 

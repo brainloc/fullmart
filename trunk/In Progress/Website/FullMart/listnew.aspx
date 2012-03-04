@@ -39,7 +39,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="/themes/images/leftadv.jpg" /></div>
+        <!--<img src="/themes/images/leftadv.jpg" />--></div>
     <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
         <EmptyDataTemplate>
             No data was returned.

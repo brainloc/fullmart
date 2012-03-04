@@ -876,6 +876,7 @@
     <Content Include="list_by_subcate_search.aspx" />
     <Content Include="Administration\ManageGeneral.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ManageProducts.aspx" />
     <Content Include="News\ManageNews.aspx" />
     <Content Include="media\adv\adv1.jpg" />
     <Content Include="media\adv\adv2.jpg" />
@@ -1076,6 +1077,7 @@
     <Content Include="themes\script\admin.js" />
     <Content Include="themes\script\cloud-zoom.1.0.2.min.js" />
     <Content Include="themes\script\dropbox.js" />
+    <Content Include="themes\script\genoption.js" />
     <Content Include="themes\script\jquery-1.4.1.min.js" />
     <Content Include="themes\script\jquery-1.7.js" />
     <Content Include="themes\script\jquery-1.7.min.js" />
@@ -1264,6 +1266,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProducts.aspx.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageProducts.aspx.designer.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="News\ManageNews.aspx.cs">
       <DependentUpon>ManageNews.aspx</DependentUpon>

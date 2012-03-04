@@ -39,14 +39,17 @@ function mashmoney(data) {
 }
 function search() {
     var key = $("#search").val();
+    var catID="";
     var url1 = window.location.origin;
-    if ($("#slcats dt a span").text() != "Please select the category") {
-        var catID = $("#slcats dt a span").attr('id');
-        url1 = url1 + "/list_by_subcate_search.aspx?cat=" + id + "&title=" + key;
+    if ($("#slcats dt a span").attr("id") != "") {
+        catID = $("#slcats dt a span").attr('id');
+        if (catID != null && catID != "") {
+            url1 = url1 + "/list_by_subcate_search.aspx?cat=" + catID + "&title=" + key;
+        }
     } else {
         url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
     }
-    $(location).attr('href', url1);
+    window.location = url1;
 }
 function focusout(element, content) {
     $(element).focus(function () {
@@ -124,6 +127,7 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    focusoutc(".searchme");
     $(".rate").each(function () {
         var nr = $(this).text();
         var nums = "";

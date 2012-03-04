@@ -133,8 +133,7 @@
                                 </div>
                                 <div class="left">
                                     <a href="Register.aspx" title="Register">
-                                        <div id="treg">
-                                            Register</div>
+                                        <div id="treg"></div>
                                     </a>
                                 </div>
                             </LayoutTemplate>
@@ -170,8 +169,9 @@
                 <div id="topsearch" class="block">
                     <div class="left">
                         <dl id="slcity" class="dropdown bgwt b">
-                            <dt><a href="#" class="b"><span>
-                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("pleaseselectlocation") %></span></a><div
+                            <dt><a href="#" class="b">
+                                <asp:Label ID="lbLocation" runat="server" Text="<%$ Resources:LocalizedText, pleaseselectlocation %>"></asp:Label>
+                                </a><div
                                     class="nr">
                                 </div>
                             </dt>
@@ -210,10 +210,10 @@
                     <div class="left tops bgwt b">
                         <div class=" left">
                             <div title="Search">
-                                <input id="search" name="search" type="text" value="Search me" /></div>
+                                <input id="search" name="search" type="text" title="Search me" class="searchme" value="Search me" /></div>
                         </div>
                         <div class="left">
-                            <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
+                            <input id="sbsearch" type="submit" value="" onclick="search()"/></div>
                     </div>
                     <div class="sys left">
                         <a href="/ShopC.aspx" title="SignUp your Store">

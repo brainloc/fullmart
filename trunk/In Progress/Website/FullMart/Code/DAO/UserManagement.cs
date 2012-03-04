@@ -433,6 +433,32 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static bool banUnban(int ID,bool status)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("BanUnBanUS", connection);
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@status", status));
+                command.CommandType = CommandType.StoredProcedure;
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
         public static DataTable GetUserRole(string email)
         {
             using (SqlConnection connection = GetConnection())

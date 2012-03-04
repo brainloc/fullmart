@@ -9,7 +9,7 @@ using FullMart.Code.DAO;
 using System.Threading;
 using System.Globalization;
 
-namespace FullMart.Shop
+namespace FullMart
 {
     public partial class ManageProducts : System.Web.UI.Page
     {
@@ -17,12 +17,13 @@ namespace FullMart.Shop
         {
             if (this.Page.IsPostBack == false)
             {
-                if (Page.User.Identity.IsAuthenticated) {
-                    DataTable us =UserManagement.GetUserRole(Page.User.Identity.Name);
+                if (Page.User.Identity.IsAuthenticated)
+                {
+                    DataTable us = UserManagement.GetUserRole(Page.User.Identity.Name);
                     txtusrole.Text = us.Rows[0]["roleID"].ToString();
                     txtusID.Text = us.Rows[0]["ID"].ToString();
                 }
-                
+
                 BindCategories();
             }
             Page.MaintainScrollPositionOnPostBack = true;
@@ -96,9 +97,9 @@ namespace FullMart.Shop
         }
 
         protected void updateSubCat_Load(object sender, EventArgs e)
-        {   
+        {
             string selectedIDArgs = Request.Params.Get("__EVENTARGUMENT");
-            List<string> eventArgs = selectedIDArgs.Split('$').ToList();            
+            List<string> eventArgs = selectedIDArgs.Split('$').ToList();
             string commandName = eventArgs.ElementAt(0);
             int categoryType = eventArgs.Count; //2: Category; 3: Subcategory
 
@@ -118,11 +119,11 @@ namespace FullMart.Shop
                         {
                             int selectedID = Convert.ToInt32(eventArgs.Last());
                             if (categoryType == 2)
-                            {                                
+                            {
                                 BindingUltilities.DisableCategoryItem(selectedID);
                             }
-                            else if(categoryType==3)
-                            {                                
+                            else if (categoryType == 3)
+                            {
                                 BindingUltilities.DisableSubCategoryItem(selectedID);
                             }
                             break;
@@ -134,7 +135,7 @@ namespace FullMart.Shop
                                 string catName = eventArgs.Last();
                                 BindingUltilities.AddCategory(catName, 99);
                             }
-                            else if(categoryType==3)
+                            else if (categoryType == 3)
                             {
                                 int catID = Convert.ToInt32(eventArgs.ElementAt(1));
                                 string subcatName = eventArgs.Last();
@@ -146,7 +147,7 @@ namespace FullMart.Shop
                         {
                             break;
                         }
-                }                    
+                }
             }
             else
             {
@@ -154,12 +155,14 @@ namespace FullMart.Shop
                 DataTable dsSubcats = BindingUltilities.GetSubCategories(-9999);
                 //rpSubCategories.DataSource = dsSubcats;
                 //rpSubCategories.DataBind();
-            }   
+            }
         }
 
-        protected string convertos(object os) {
+        protected string convertos(object os)
+        {
             bool a = bool.Parse(os.ToString());
-            if (a) {
+            if (a)
+            {
                 return "checked=\"checked\"";
             }
             return "";

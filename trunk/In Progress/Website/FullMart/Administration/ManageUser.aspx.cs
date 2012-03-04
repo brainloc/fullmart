@@ -41,7 +41,24 @@ namespace FullMart.Administration
                 rpSearchUserList.DataBind();
             }
         }
-
+        protected string convertos(object os)
+        {
+            bool a = bool.Parse(os.ToString());
+            if (a)
+            {
+                return "Banned";
+            }
+            return "Active";
+        }
+        protected string convertban(object os)
+        {
+            bool a = bool.Parse(os.ToString());
+            if (a)
+            {
+                return "checked=\"checked\"";
+            }
+            return "";
+        }
         protected override void InitializeCulture()
         {
             string ui = "en";

@@ -219,7 +219,7 @@
   <data name="manageusers" xml:space="preserve">
     <value>Manage Users</value>
   </data>
-  <data name="mangeQA" xml:space="preserve">
+  <data name="manageQA" xml:space="preserve">
     <value>Manage Answer &amp; Question</value>
   </data>
   <data name="moredetail" xml:space="preserve">
@@ -401,5 +401,14 @@
   </data>
   <data name="price" xml:space="preserve">
     <value>Price</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="numberNewestProducts" xml:space="preserve">
+    <value>Number of Newest Product on Homepage</value>
+  </data>
+  <data name="numberTopProducts" xml:space="preserve">
+    <value>Number of Top Product on Homepage</value>
   </data>
 </root>

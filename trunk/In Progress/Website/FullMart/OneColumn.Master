@@ -20,6 +20,8 @@
     <!--[if lt IE 8]>
         <link href="/themes/style/fixie7.css" rel="stylesheet" type="text/css" />
     <![EndIf]-->
+    <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
+    <link href="/themes/style/admin.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="/ckeditor/general.js"></script>
     <script src="/ckfinder/ckfinder.js" type="text/javascript"></script>
@@ -213,8 +215,7 @@
                     </div>
                     <div class="left tops bgwt b">
                         <div class=" left">
-                            <div title="Search">
-                                <input id="search" name="search" type="text" value="Search me" /></div>
+                            <div title="Search"><input id="search" runat="server" name="search" type="text" title="Search me" class="searchme" value="Search me" /></div>
                         </div>
                         <div class="left">
                             <input id="sbsearch" type="submit" value="" onclick="search()" /></div>
@@ -229,7 +230,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
         <div class="block clear">
         </div>
         <div id="mcontent" class="block">

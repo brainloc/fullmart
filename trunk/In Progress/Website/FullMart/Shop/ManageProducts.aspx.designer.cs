@@ -31,6 +31,24 @@ namespace FullMart.Shop {
         protected global::System.Web.UI.WebControls.TextBox txtsearchPID;
         
         /// <summary>
+        /// txtusrole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtusrole;
+        
+        /// <summary>
+        /// txtusID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtusID;
+        
+        /// <summary>
         /// txtSProduct control.
         /// </summary>
         /// <remarks>

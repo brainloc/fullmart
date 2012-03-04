@@ -9,6 +9,7 @@ using System.Data;
 using FullMart.Code.DAO;
 using System.Threading;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace FullMart
 {
@@ -20,22 +21,24 @@ namespace FullMart
             {
                 string catID = Request.QueryString["cat"];
                 string searchKey = Request.QueryString["title"];
-
+                string subcatID = Request.QueryString["subcat"];
                 DataTable products = new DataTable();
-
-                if (String.IsNullOrEmpty(catID) == false && string.IsNullOrEmpty(searchKey))
-                {
+                
+                if (String.IsNullOrEmpty(catID) == false && string.IsNullOrEmpty(searchKey)==false)
+                {   txtKey.Text = searchKey;
                     products = SearchAllProductsOfCategory(Convert.ToInt32(catID), searchKey);
-                    string catName = products.Rows.Count > 0 ? products.Rows[0]["CatName"].ToString() : string.Empty;
-                    txtCatName.Text = catName;
-                    txtKey.Text = searchKey;
+                    if (products != null && products.Rows.Count > 0)
+                    {
+                        string catName = products.Rows[0]["CatName"].ToString();
+                        txtCatName.Text = catName;
+                    }
                 }
                 else
                 {
                     if (String.IsNullOrEmpty(catID) == false)
                     {
-                        products = GetAllProductsInSubCategory(Convert.ToInt32(catID));
-                        if (products.Rows.Count > 0)
+                        products = GetAllProductsOfCategory(Convert.ToInt32(catID));
+                        if ( products!=null && products.Rows.Count > 0)
                         {
                             string catName = products.Rows[0]["CatName"].ToString();
                             txtCatName.Text = catName;
@@ -43,8 +46,21 @@ namespace FullMart
                         }
                     }
                     else {
-                        products = SearchAllProductsByKey(searchKey);
-                        txtKey.Text = searchKey;
+                        if (String.IsNullOrEmpty(subcatID)==false) {
+
+                            products = GetAllProductsInSubCategory(Convert.ToInt32(subcatID));
+                            if (products != null && products.Rows.Count > 0)
+                            {
+                                string catName = products.Rows[0]["CatName"].ToString();
+                                txtCatName.Text = catName;
+                                txtKey.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            products = SearchAllProductsByKey(searchKey);
+                            txtKey.Text = searchKey;
+                        }
                     }
                 }
 
@@ -84,6 +100,21 @@ namespace FullMart
             products = ProductManagement.GetAllProductsInSubCat(SubcatID);
             return products;
         }
+        protected string correctshortCT(object content, int length)
+        {
+            if (content != DBNull.Value)
+            {
+                string tmp1 = content.ToString();
+                tmp1 = Regex.Replace(tmp1, @"<(.|\n)*?>", string.Empty);
+                if (tmp1.Length > length)
+                {
+                    return tmp1.Substring(0, length) + "...";
+                }
+                else { return tmp1; }
+            }
+            return content.ToString();
+        }
+
         protected override void InitializeCulture()
         {
             string ui = "en";

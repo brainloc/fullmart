@@ -40,7 +40,7 @@
         </ul>
     </div>
     <div class="ladv lb">
-        <img src="/themes/images/leftadv.jpg" /></div>
+        <!--<img src="/themes/images/leftadv.jpg" />--></div>
      <asp:ListView ID="ListAQ" runat="server" DataKeyNames="ID" DataSourceID="dsAQ" EnableModelValidation="True">
                 <EmptyDataTemplate>
                     <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("noproduct") %>
@@ -201,7 +201,7 @@
                         </LayoutTemplate>
                     </asp:ListView>
                     <asp:SqlDataSource ID="dsBuy" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                        SelectCommand="SELECT Product.ID, Product.Price, Product.Thumbnail, Product.Title, Product.type, Product.CreatedDate FROM Product INNER JOIN [User] ON Product.PosterID = [User].ID WHERE (Product.type = 2) AND ([User].roleID = 3) ORDER BY Product.CreatedDate DESC">
+                        SelectCommand="SELECT Product.ID, Product.Price, Product.Thumbnail, Product.Title, Product.type, Product.CreatedDate FROM Product WHERE (Product.type = 2) ORDER BY Product.CreatedDate DESC">
                     </asp:SqlDataSource>
                     <div class="clear">
                     </div>
@@ -262,7 +262,7 @@
                         </LayoutTemplate>
                     </asp:ListView>
                     <asp:SqlDataSource ID="dsShare" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-                        SelectCommand="SELECT Product.ID, Product.Price, Product.Thumbnail, Product.Title, Product.type, Product.CreatedDate FROM Product INNER JOIN [User] ON Product.PosterID = [User].ID WHERE (Product.type = 3) AND ([User].roleID = 3) ORDER BY Product.CreatedDate DESC">
+                        SelectCommand="SELECT Product.ID, Product.Price, Product.Thumbnail, Product.Title, Product.type, Product.CreatedDate FROM Product WHERE (Product.type = 3) ORDER BY Product.CreatedDate DESC">
                     </asp:SqlDataSource>
                     <div class="clear">
                     </div>
