@@ -905,6 +905,7 @@
     <Content Include="QA.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShopC.aspx" />
+    <Content Include="ShopPage.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\Aarrow.png" />
@@ -1323,6 +1324,13 @@
     </Compile>
     <Compile Include="ShopC.aspx.designer.cs">
       <DependentUpon>ShopC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopPage.aspx.cs">
+      <DependentUpon>ShopPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopPage.aspx.designer.cs">
+      <DependentUpon>ShopPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>

@@ -411,4 +411,7 @@
   <data name="numberTopProducts" xml:space="preserve">
     <value>Số lượng sản phẩm nổi bật hiện trên trang chủ</value>
   </data>
+  <data name="shopowner" xml:space="preserve">
+    <value>Chủ Shop</value>
+  </data>
 </root>

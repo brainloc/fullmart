@@ -411,4 +411,7 @@
   <data name="numberTopProducts" xml:space="preserve">
     <value>Number of Top Product on Homepage</value>
   </data>
+  <data name="shopowner" xml:space="preserve">
+    <value>Shop Owner</value>
+  </data>
 </root>

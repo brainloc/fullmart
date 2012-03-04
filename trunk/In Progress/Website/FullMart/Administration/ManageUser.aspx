@@ -212,9 +212,10 @@
         </asp:Panel>
         <ul>
             <li><a href="#Usert">User</a></li>
-            <li><a href="#Shopt">Shop</a></li>
+            <li><a href="#Shopt">Shop User</a></li>
             <li><a href="#Adminitratort">Adminitrator</a></li>
             <li><a href="#Banned">Banned</a></li>
+            <li><a href="#ShopS">Shop</a></li>
         </ul>
         <div id="Usert" class="usereven">            
             <table id="Table1" class="tablesorter lUser">
@@ -910,6 +911,133 @@
                         </ItemTemplate>
                     </asp:Repeater>
                     <asp:SqlDataSource ID="dsbanned" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetAllUserByBanned">
+                    </asp:SqlDataSource>
+                </tbody>
+            </table>
+        </div>
+   <div id="ShopS" class="">
+            <table id="Table4" class="shopS tablesorter lUser">
+               <thead>
+                    <tr>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %>
+                        </th>
+                        <th>
+                           <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
+                        </th>
+                        <th>
+                            YahooID
+                        </th>
+                        
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>
+                        </th>
+                        <th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createdDate") %>
+                        </th><th>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopowner") %>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="rpShopS" runat="server" DataSourceID="dsShopS">
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <%# Eval("ShopName")%>
+                                </td>
+                                <td>
+                                    <%# Eval("Adress")%>
+                                </td>
+                                <td>
+                                    <%# Eval("Phone")%>
+                                </td>
+                                <td>
+                                    <%# Eval("Chat")%>
+                                </td>
+                                <td><span class="rate">
+                                    <%# Eval("rate")%></span>
+                                </td>
+                                <td>
+                                    <%# convertshop(Eval("isActive"), Eval("isChecked"))%>
+                                </td>
+                                <td>
+                                    <%# Eval("CreateDate")%>
+                                </td>
+                                <td><%#Eval("ShopOwner")%></td>
+                               
+                                <td style=" width: 100px;">
+                                                                       
+                                    <div class="cmdUser">
+                                        <a href="/ShopPage.aspx?Shop=<%# Eval("ID")%>" target="_blank">
+                                                        <button class="Uview left">
+                                                        </button>
+                                                    </a>
+                                        <button class="Uedit left">
+                                        </button>
+                                        <button class="Udelete left">
+                                        </button>
+                                        <div class="clear">
+                                        </div>
+                                    </div>
+                                     <div class="detailU"><div class="viewU">
+                                        <span id="tUser" ref="<%# Eval("ID")%>" class="tUser"><%# Eval("ShopName")%></span>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
+                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("ShopName")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %>: </span>
+                                                        <input class="VUPass" value="<%# Eval("Adress")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>:</span><input class="VUFName" value="<%# Eval("Phone")%>" type="text" />
+                                                    </td>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %></span> <select class="shoprate" ref="<%# Eval("rate")%>"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>: </span>
+                                                        <input class="VUBday" <%# convertban(Eval("isChecked"))%>" type="checkbox" /><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("closed")%>
+                                                    </td>
+                                                    <td>
+                                                        <span> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createdDate") %>: </span>
+                                                        <input class="VUState" disabled="disabled" value="<%# Eval("CreateDate")%>" type="text" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <center>
+                                                                <button onclick="btshop($(this));">
+                                                                    CLOSE</button></center>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div></div>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SqlDataSource ID="dsShopS" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetAllShop">
                     </asp:SqlDataSource>
                 </tbody>
             </table>

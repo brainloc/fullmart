@@ -59,6 +59,25 @@ namespace FullMart.Administration
             }
             return "";
         }
+        protected string convertshop(object active, object ck)
+        {
+            if (bool.Parse(active.ToString()))
+            {
+                if (bool.Parse(ck.ToString()))
+                {
+                    return FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopchecked");
+                }
+                else
+                {
+                    return FullMart.Code.DAO.BindingUltilities.GetResourceValue("checking");
+                }
+            }
+            else
+            {
+                return FullMart.Code.DAO.BindingUltilities.GetResourceValue("closed"); ;
+            }
+            return string.Empty;
+        }
         protected override void InitializeCulture()
         {
             string ui = "en";
