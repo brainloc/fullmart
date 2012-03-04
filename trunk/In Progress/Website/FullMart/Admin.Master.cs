@@ -129,6 +129,17 @@ namespace FullMart
             }
             lblUnreadMailCount.Text = unreadMailCount.ToString();
             updateUnreadMailCount.Update();
-        } 
+        }
+
+        protected void updateListLetter_Load(object sender, EventArgs e)
+        {
+            string eventArgs = Request.Params.Get("__EVENTARGUMENT");
+            if (string.IsNullOrEmpty(eventArgs) == false)
+            {
+                string orderInfoID = eventArgs.Substring(eventArgs.LastIndexOf('#') + 1);
+                ProductManagement.RemoveOrderMailInfo(Convert.ToInt32(orderInfoID));
+                updateListLetter.DataBind();
+            }
+        }
     }
 }

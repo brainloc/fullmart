@@ -538,5 +538,26 @@ namespace FullMart.Code.DAO
                 }
             }
         }
+
+        public static void RemoveOrderMailInfo(int bookingID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("RemoveOrderMailInfo", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ID", bookingID));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

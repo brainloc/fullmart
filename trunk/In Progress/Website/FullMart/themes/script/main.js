@@ -154,6 +154,7 @@ $(document).ready(function () {
         $(".ndialog").fadeOut();
         $("#waitloader").hide();
     });
+       
     //    $("#unote").click(function () {
     //        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
     //        $(".delms").click(function () {
@@ -161,7 +162,8 @@ $(document).ready(function () {
     //            return false;
     //        });
     //        return false;
-    //    });    
+    //    }); 
+
     $("#sbsearch").click(function () {
         search();
         return false;
