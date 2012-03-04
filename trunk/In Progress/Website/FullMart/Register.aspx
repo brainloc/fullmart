@@ -205,7 +205,7 @@
     </asp:Panel>
     <asp:Panel ID="pnSuccess" runat="server">
         <div style="text-align:center;font-size:20px; width:1000px;" class="center block bgwt">
-            Register Successful!
+            <asp:Label ID="txtActionInform" runat="server" Text="Register Successful!"></asp:Label>
         </div>
     </asp:Panel>
     <div class="block clear">

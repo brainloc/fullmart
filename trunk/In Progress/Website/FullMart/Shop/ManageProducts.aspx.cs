@@ -158,10 +158,13 @@ namespace FullMart.Shop
             return "";
         }
 
-        protected void dsManagingProductList_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-            dsManagingProductList.SelectParameters["SortBy"].DefaultValue = "Price";
-        }
+        //protected void dsManagingProductList_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        //{
+        //    string a = "a";
+        //    string b = a;
+        //    e.Command.Parameters["@SortBy"].Value = txtSortExpression.Text.Trim();
+        //    e.Command.Parameters[
+        //}
 
         /* Viewstate values for sorting and paging */
 
@@ -220,8 +223,13 @@ namespace FullMart.Shop
             if (clickedOne != null)
             {
                 txtSortExpression.Text = clickedOne.CommandName;
-                //dsManagingProductList.Select(null);
+                //dsManagingProductList.DataBind();
             }
+        }
+
+        protected void odsManagingProductList_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+            e.InputParameters["SortBy"] = "ID";
         }
     }
 }
