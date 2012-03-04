@@ -12,6 +12,7 @@ using System.Web.Security;
 using System.Text;
 using System.Threading;
 using System.Globalization;
+using System.Data.Common;
 
 namespace FullMart
 {
@@ -72,7 +73,7 @@ namespace FullMart
         {
             if (e.CommandName == "Remove")
             {
-                ProductManagement.RemovePurchaseBooking(Convert.ToInt32(e.CommandArgument));                
+                ProductManagement.RemovePurchaseBooking(Convert.ToInt32(e.CommandArgument));
                 updateCart.DataBind();
             }
         }
@@ -92,7 +93,7 @@ namespace FullMart
             updateListLetter.DataBind();
             updateCart.DataBind();
         }
-       
+
         protected void LangEN_Click(object sender, EventArgs e)
         {
             if (Request.Cookies["lang"] == null)
@@ -126,5 +127,23 @@ namespace FullMart
             }
             Response.Redirect(Request.Url.AbsoluteUri);
         }
+
+        protected void dsCart_Selected(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            lblUnsubmittedPurchaseCount.Text = e.AffectedRows.ToString();
+            updateUnsubmittedPurchaseCount.Update();
+
+            DataView viewMail = (DataView)dsNewOrders.Select(DataSourceSelectArguments.Empty);
+            int unreadMailCount = 0;
+            foreach (DataRow r in viewMail.Table.Rows)
+            {
+                if (Convert.ToBoolean(r.ItemArray[7]) == false)
+                {
+                    unreadMailCount++;
+                }
+            }
+            lblUnreadMailCount.Text = unreadMailCount.ToString();
+            updateUnreadMailCount.Update();
+        } 
     }
 }

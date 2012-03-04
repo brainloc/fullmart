@@ -480,5 +480,30 @@ namespace FullMart.Code.DAO
         public static string GetResourceValue(string key) {
             return Resources.LocalizedText.ResourceManager.GetString(key);
         }
+
+        public static int GetUnreadMailCount(int userID)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("GetUnreadMailCount", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@UserID", userID));
+                SqlParameter count = new SqlParameter("@UnreadMail", DbType.Int32);
+                count.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(count);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int unreadMail = Convert.ToInt32(command.Parameters["@UnreadMail"].Value.ToString());
+                    return unreadMail;
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }
