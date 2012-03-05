@@ -14,12 +14,12 @@
                 fname: a.parents(".viewU").find(".VUFName").val(),
                 lname: a.parents(".viewU").find(".VULName").val(),
                 birthday: a.parents(".viewU").find(".VUBday").val(),
-                state: a.parents(".viewU").find(".VUState").val(),
-                CU: a.parents(".viewU").find(".VUCU").val(),
+                state: a.parents(".viewU").find(".VUState").val(), /*location*/
+                CU: a.parents(".viewU").find(".VUCU").val(), /*university*/
                 cls: a.parents(".viewU").find(".VUClass").val(),
                 yahoo: a.parents(".viewU").find(".VUYahoo").val(),
                 mobile: a.parents(".viewU").find(".VUMobile").val(),
-                shopname: a.parents(".viewU").find(".VUShopName").val(),
+                /*shopname: a.parents(".viewU").find(".VUShopName").val(),*/
                 web: a.parents(".viewU").find(".VUWeb").val(),
                 role: a.parents(".viewU").find(".VURole").val(),
                 wishlist: a.parents(".viewU").find(".VUWishlist").val()

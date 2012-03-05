@@ -328,13 +328,14 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string shopname,string web,string wishlist)
+        public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string web,string wishlist)
         {
             using (SqlConnection connection = GetConnection())
             {
                 SqlCommand command = new SqlCommand("UpdateUser", connection);
                 command.CommandType = CommandType.StoredProcedure;
-
+                
+                command.Parameters.Add(new SqlParameter("@username", username));
                 command.Parameters.Add(new SqlParameter("@fname", Fname));
                 command.Parameters.Add(new SqlParameter("@lname", Lname));
                 command.Parameters.Add(new SqlParameter("@email", email));
@@ -347,7 +348,6 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@mobile", mobile));
                 command.Parameters.Add(new SqlParameter("@yahoo", yahoo));
                 command.Parameters.Add(new SqlParameter("@web", web));
-                command.Parameters.Add(new SqlParameter("@Shopname", shopname));
                 command.Parameters.Add(new SqlParameter("@Wishlist", wishlist));
                 SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
                 isUpdated.Direction = ParameterDirection.ReturnValue;
@@ -362,10 +362,10 @@ namespace FullMart.Code.DAO
                     {
                         Roles.RemoveUserFromRole(username, "1");
                         Roles.RemoveUserFromRole(username, "2");
-                        Roles.RemoveUserFromRole(email, "1");
-                        Roles.RemoveUserFromRole(email, "2");
-                        Roles.RemoveUserFromRole(username, "3");
-                        Roles.RemoveUserFromRole(email, "3");
+                        //Roles.RemoveUserFromRole(email, "1");
+                        //Roles.RemoveUserFromRole(email, "2");
+                        //Roles.RemoveUserFromRole(username, "3");
+                        //Roles.RemoveUserFromRole(email, "3");
                         Roles.AddUserToRole(username, roleID.ToString());
                         Roles.AddUserToRole(email, roleID.ToString());
                         return true;
@@ -548,6 +548,88 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@yahoo", us.yahoo));
                 command.Parameters.Add(new SqlParameter("@web", us.website));
                 command.Parameters.Add(new SqlParameter("@wishlist", us.wishtlist));
+
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserUpdated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserUpdated == 1;
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    return false;
+                }
+            }
+        }
+
+        public static bool ChangeUserRole(string username, int newRole)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("ChangeUserRole", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@username", username));
+                command.Parameters.Add(new SqlParameter("@newRole", newRole));
+
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserUpdated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserUpdated == 1;
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    return false;
+                }
+            }
+        }
+
+        public static bool DisableShop(string username)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("DisableShop", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@username", username));
+
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserUpdated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserUpdated == 1;
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    return false;
+                }
+            }
+        }
+
+        public static bool CreateNewOrActivateShop(string username)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("CreateNewOrActivateShop", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@username", username));
 
                 SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
                 isUpdated.Direction = ParameterDirection.ReturnValue;

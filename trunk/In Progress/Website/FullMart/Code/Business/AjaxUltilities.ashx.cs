@@ -90,20 +90,21 @@ namespace FullMart.Code.Business
                         var cls = context.Request.Form["cls"] != null ? context.Request.Form["cls"].Trim().Replace("'", "''") : string.Empty;
                         var yahoo = context.Request.Form["yahoo"] != null ? context.Request.Form["yahoo"].Trim().Replace("'", "''") : string.Empty;
                         var mobile = context.Request.Form["mobile"] != null ? context.Request.Form["mobile"].Trim().Replace("'", "''") : string.Empty;
-                        var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;
+                        /*var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;*/
                         var web = context.Request.Form["web"] != null ? context.Request.Form["web"].Trim().Replace("'", "''") : string.Empty;
                         var role = context.Request.Form["role"] != null ? context.Request.Form["role"].Trim().Replace("'", "''") : string.Empty;
                         var wishlist = context.Request.Form["wishlist"] != null ? context.Request.Form["wishlist"].Trim().Replace("'", "''") : string.Empty;
                         role = role.ToLower();
-                        if (!string.IsNullOrEmpty(pass)){
-                            pass=FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "SHA1");
+                        if (!string.IsNullOrEmpty(pass))
+                        {
+                            pass = FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "SHA1");
                         }
                         switch (role)
                         {
                             case "adminitrator": { irole = 1; break; }
                             case "shop": { irole = 2; break; }
                         }
-                        if (UserManagement.UpdateUserinfor(username, fname, lname, email, pass, bday, state, CU, cls, irole, yahoo, mobile, shopname, web, wishlist))
+                        if (UserManagement.UpdateUserinfor(username, fname, lname, email, pass, bday, state, CU, cls, irole, yahoo, mobile, web, wishlist))
                         {
                             context.Response.Write("$('.simplemodal-data').html('Users Information Update Successfully !');resizeDA(250, 30);");
                         }
