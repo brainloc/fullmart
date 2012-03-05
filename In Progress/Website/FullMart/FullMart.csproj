@@ -908,6 +908,7 @@
     <Content Include="ShopPage.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
+    <Content Include="themes\images\404-copy.png" />
     <Content Include="themes\images\Aarrow.png" />
     <Content Include="themes\images\Arrow_Right.png" />
     <Content Include="themes\images\asc.gif" />
@@ -975,6 +976,7 @@
     <Content Include="themes\images\last.png" />
     <Content Include="themes\images\leftadv.jpg" />
     <Content Include="themes\images\libt.png" />
+    <Content Include="themes\images\line.png" />
     <Content Include="themes\images\Login-Box.png" />
     <Content Include="themes\images\login.png" />
     <Content Include="themes\images\logo.png" />
@@ -1530,7 +1532,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13263</DevelopmentServerPort>
+          <DevelopmentServerPort>15009</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

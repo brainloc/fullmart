@@ -7,6 +7,7 @@
 }
 body {background:#c0deed url(../images/topbg.jpg) repeat-x fixed top center}
 a{text-decoration:none;}
+
 .center{margin:0px auto}
 .block{display:block;}
 .left{float:left}
@@ -261,3 +262,4 @@ a{text-decoration:none;}
 #message{background:black;text-align:center;padding:20px;position:fixed;bottom:0px;right:0px;color:White;font-size:20px;font-weight:bold;display:none}
 .dlType{width:50px}
 #ucart strong div,#unote strong div{display: inline-block;}
+.lgpn a[id$='hlAdmin']{color: #FFE422;padding: 0px 10px;font-size: 18px;}

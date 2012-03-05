@@ -59,6 +59,15 @@ namespace FullMart.Administration
             }
             return "";
         }
+        protected string convertban1(object os)
+        {
+            bool a = bool.Parse(os.ToString());
+            if (!a)
+            {
+                return "checked=\"checked\"";
+            }
+            return "";
+        }
         protected string convertshop(object active, object ck)
         {
             if (bool.Parse(active.ToString()))
