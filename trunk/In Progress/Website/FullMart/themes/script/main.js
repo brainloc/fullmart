@@ -41,13 +41,13 @@ function search() {
     var key = $("#search").val();
     var catID="";
     var url1 = window.location.origin;
-    if ($("#slcats dt a span").attr("id") != "") {
+    if (!$("#slcats dt a span").attr("id")) {
+        url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
+    } else {
         catID = $("#slcats dt a span").attr('id');
         if (catID != null && catID != "") {
             url1 = url1 + "/list_by_subcate_search.aspx?cat=" + catID + "&title=" + key;
         }
-    } else {
-        url1 = url1 + "/list_by_subcate_search.aspx?title=" + key;
     }
     window.location = url1;
 }
@@ -127,6 +127,17 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    $("#sbsearch").click(function () {
+        search();
+        return false;
+    });
+    $("#search").keypress(function (data) {
+        var charCode = (data.which) ? data.which : data.keyCode
+        if (charCode == 13) {
+            search();
+            return false;
+        }
+    });
     focusoutc(".searchme");
     $(".rate").each(function () {
         var nr = $(this).text();
@@ -154,7 +165,7 @@ $(document).ready(function () {
         $(".ndialog").fadeOut();
         $("#waitloader").hide();
     });
-       
+
     //    $("#unote").click(function () {
     //        showdialog($("#viewnote").html(), 800, 423, "#viewnote", true);
     //        $(".delms").click(function () {
@@ -164,10 +175,7 @@ $(document).ready(function () {
     //        return false;
     //    }); 
 
-    $("#sbsearch").click(function () {
-        search();
-        return false;
-    });
+
     focusout("#search", "Search me");
     $("div.nameproduct").each(function () {
         var str1 = $.trim($(this).text());
@@ -260,7 +268,7 @@ $(document).ready(function () {
             $(des).slideDown("normal", function () { $(des).addClass("active"); });
         });
         return false;
-    });    
+    });
 
     $(".vletter").delegate("table tfoot button", "click", function () {
         $(".vlistletter").slideDown("normal", function () {
@@ -274,7 +282,7 @@ $(document).ready(function () {
         $(".vletter").hide();
         return false;
     });
-    
+
     $(".SetEngByDefault").click(function () {
         setCookie("lang", "en", 1);
     });
@@ -283,16 +291,16 @@ $(document).ready(function () {
         setCookie("lang", "vi", 1);
     });
 
-//    $("#unote strong").text($(".noread").length);
-//    $("#unote strong").text($(".noread").length);
-//    $("#ucart strong").text($(".fcart table tbody tr").length);
-//    $(".fcart").delegate("input[type=submit]", "click", function () {
-//        $("#ucart strong").text($(".fcart table tbody tr").length);
-//    });
-//    $("#fcart").delegate("button", "click", function () {
-//        $("#ucart strong").text($(".fcart table tbody tr").length);
-//    });
-//    $(".getCart").delegate("button", "click", function () {
-//        setInterval($("#ucart strong").text($(".fcart table tbody tr").length),1000);
-//    });    
+    //    $("#unote strong").text($(".noread").length);
+    //    $("#unote strong").text($(".noread").length);
+    //    $("#ucart strong").text($(".fcart table tbody tr").length);
+    //    $(".fcart").delegate("input[type=submit]", "click", function () {
+    //        $("#ucart strong").text($(".fcart table tbody tr").length);
+    //    });
+    //    $("#fcart").delegate("button", "click", function () {
+    //        $("#ucart strong").text($(".fcart table tbody tr").length);
+    //    });
+    //    $(".getCart").delegate("button", "click", function () {
+    //        setInterval($("#ucart strong").text($(".fcart table tbody tr").length),1000);
+    //    });    
 });

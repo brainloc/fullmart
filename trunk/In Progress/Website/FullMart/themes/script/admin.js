@@ -19,7 +19,7 @@
                 cls: a.parents(".viewU").find(".VUClass").val(),
                 yahoo: a.parents(".viewU").find(".VUYahoo").val(),
                 mobile: a.parents(".viewU").find(".VUMobile").val(),
-                /*shopname: a.parents(".viewU").find(".VUShopName").val(),*/
+                shopname: a.parents(".viewU").find(".VUShopName").attr("ref"),
                 web: a.parents(".viewU").find(".VUWeb").val(),
                 role: a.parents(".viewU").find(".VURole").val(),
                 wishlist: a.parents(".viewU").find(".VUWishlist").val()
@@ -38,22 +38,15 @@ function btshop(a) {
             type: "POST",
             dataType: "script",
             data: {
-                action: "EditUser",
-                username: $.trim(a.parents(".viewU").find(".tUser").text()),
-                email: a.parents(".viewU").find(".VUEmail").val(),
-                pass: a.parents(".viewU").find(".VUPass").val(),
-                fname: a.parents(".viewU").find(".VUFName").val(),
-                lname: a.parents(".viewU").find(".VULName").val(),
-                birthday: a.parents(".viewU").find(".VUBday").val(),
-                state: a.parents(".viewU").find(".VUState").val(),
-                CU: a.parents(".viewU").find(".VUCU").val(),
-                cls: a.parents(".viewU").find(".VUClass").val(),
-                yahoo: a.parents(".viewU").find(".VUYahoo").val(),
-                mobile: a.parents(".viewU").find(".VUMobile").val(),
-                shopname: a.parents(".viewU").find(".VUShopName").val(),
-                web: a.parents(".viewU").find(".VUWeb").val(),
-                role: a.parents(".viewU").find(".VURole").val(),
-                wishlist: a.parents(".viewU").find(".VUWishlist").val()
+                action: "EditShop",
+                ID: $.trim(a.parents(".viewU").find(".tshop").attr("ref")),
+                shopname: a.parents(".viewU").find(".VUShop").val(),
+                address: a.parents(".viewU").find(".VUAddress").val(),
+                phone: a.parents(".viewU").find(".VUphone").val(),
+                chat: a.parents(".viewU").find(".VUchat").val(),
+                rate: a.parents(".viewU").find(".VUrate").val(),
+                status: a.parents(".viewU").find(".VUBday").is(':checked'),
+                active: a.parents(".viewU").find(".VUActive").is(':checked')
             }
         });
 
@@ -662,8 +655,7 @@ $(document).ready(function () {
     });
     $(".shopS td .Uedit").click(function () {
         $(this).parents("td").find(".viewU tfoot center button").text("SAVE");
-        $(this).parents("td").find(".shoprate select").val($(this).parents("td").find(".shoprate select").attr("ref"));
-        showdialog($(this).parents("td").find(".detailU").html(), 800, 180, "", true);
+        showdialog($(this).parents("td").find(".detailU").html(), 800, 222, "", true);
         return false;
     });
     $(".usereven td .Uview").click(function () {

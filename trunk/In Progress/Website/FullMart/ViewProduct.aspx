@@ -2,6 +2,7 @@
     CodeBehind="ViewProduct.aspx.cs" Inherits="FullMart.ViewProduct" %>
     <%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <link href="themes/style/QAA.css" rel="stylesheet" type="text/css" />
     <link href="/themes/style/viewproduct.css" rel="stylesheet" type="text/css" />
     <script src="/themes/script/viewProduct.js" type="text/javascript"></script>
@@ -684,7 +685,7 @@
     <div class="ladv lb">
         <img src="/themes/images/rightadv.jpg" /></div>
 
-     <div id="newadv" class="lb b">
+<div id="newadv" class="lb b">
         <div class="title"><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("newadv") %></div>
         <div class="advc">
             <div id="NAtab1" class="tabsi active">
@@ -695,7 +696,7 @@
                             <div class="item">
                                 <div class="left">
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>" /></a></div>
                                 <p>
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                         <%# Eval("Title") %></a> <span>
@@ -739,7 +740,7 @@
                             <div class="item">
                                 <div class="left">
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>"  /></a></div>
                                 <p>
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                         <%# Eval("Title") %></a> <span>

@@ -328,7 +328,7 @@ namespace FullMart.Code.DAO
                 }
             }
         }
-        public static bool UpdateUserinfor(string username,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string web,string wishlist)
+        public static bool UpdateUserinfor(string username,int shopID,string Fname, string Lname, string email, string password, DateTime birthday, string state, string CU, string Class, int roleID,string yahoo,string mobile,string web,string wishlist)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -343,6 +343,7 @@ namespace FullMart.Code.DAO
                 command.Parameters.Add(new SqlParameter("@bday", birthday));
                 command.Parameters.Add(new SqlParameter("@state", state));
                 command.Parameters.Add(new SqlParameter("@CU", CU));
+                command.Parameters.Add(new SqlParameter("@ShopName", shopID));
                 command.Parameters.Add(new SqlParameter("@class", Class));
                 command.Parameters.Add(new SqlParameter("@roleID", roleID));
                 command.Parameters.Add(new SqlParameter("@mobile", mobile));
@@ -360,14 +361,16 @@ namespace FullMart.Code.DAO
                     int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
                     if (isUserCreated == 1)
                     {
-                        Roles.RemoveUserFromRole(username, "1");
-                        Roles.RemoveUserFromRole(username, "2");
-                        //Roles.RemoveUserFromRole(email, "1");
-                        //Roles.RemoveUserFromRole(email, "2");
-                        //Roles.RemoveUserFromRole(username, "3");
-                        //Roles.RemoveUserFromRole(email, "3");
+                        if (Roles.IsUserInRole(username, "1"))
+                        {
+                            Roles.RemoveUserFromRole(username, "1");
+                        }
+                        if (Roles.IsUserInRole(username, "2"))
+                        {
+                            Roles.RemoveUserFromRole(username, "2");
+                        }
+
                         Roles.AddUserToRole(username, roleID.ToString());
-                        Roles.AddUserToRole(email, roleID.ToString());
                         return true;
                     }
                     return false;
@@ -379,6 +382,37 @@ namespace FullMart.Code.DAO
             }
         }
 
+        public static bool UpdateShopinfor(int ID,string shopname, string address, string phone, string rate, bool status,bool active,string chat)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("UpdateShopInfo", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@shopname", shopname));
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                command.Parameters.Add(new SqlParameter("@Address", address));
+                command.Parameters.Add(new SqlParameter("@Chat", chat));
+                command.Parameters.Add(new SqlParameter("@Phone", phone));
+                command.Parameters.Add(new SqlParameter("@rate", rate));
+                command.Parameters.Add(new SqlParameter("@isChecked", status));
+                command.Parameters.Add(new SqlParameter("@isActive", active));
+                SqlParameter isUpdated = new SqlParameter("@isUpdated", DbType.Int32);
+                isUpdated.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(isUpdated);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int isUserCreated = Convert.ToInt32(command.Parameters["@isUpdated"].Value.ToString());
+                    return isUserCreated == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        
         public static bool UpdateShopbyUser(string shopname, string userName, string Adress, string Phone, string Yahoo)
         {
             using (SqlConnection connection = GetConnection())

@@ -241,7 +241,7 @@
                             <div class="item">
                                 <div class="left">
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>" /></a></div>
                                 <p>
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                         <%# Eval("Title") %></a> <span>
@@ -285,7 +285,7 @@
                             <div class="item">
                                 <div class="left">
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
-                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# Eval("Thumbnail") %>" /></a></div>
+                                        <img class="thumb" alt="<%# Eval("Title") %>" src="<%# ConfigurationSettings.AppSettings["ImagesPath"] %><%# Eval("Thumbnail") %>"  /></a></div>
                                 <p>
                                     <a href="/ViewProduct.aspx?ID=<%# Eval("ID") %>" title="<%# Eval("Title") %>">
                                         <%# Eval("Title") %></a> <span>

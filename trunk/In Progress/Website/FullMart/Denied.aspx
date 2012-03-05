@@ -6,10 +6,10 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="background-color:BLACK;overflow:hidden">
     <form id="form1" runat="server">
-    <div>
-    
+    <div style="width:1000px;height:500px;background:black url(/themes/images/line.png) no-repeat center bottom;text-align:center;position:fixed;>
+        <img src="/themes/images/404-copy.png" />
     </div>
     </form>
 </body>

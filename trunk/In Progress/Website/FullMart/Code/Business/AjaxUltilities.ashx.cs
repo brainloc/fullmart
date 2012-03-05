@@ -90,11 +90,15 @@ namespace FullMart.Code.Business
                         var cls = context.Request.Form["cls"] != null ? context.Request.Form["cls"].Trim().Replace("'", "''") : string.Empty;
                         var yahoo = context.Request.Form["yahoo"] != null ? context.Request.Form["yahoo"].Trim().Replace("'", "''") : string.Empty;
                         var mobile = context.Request.Form["mobile"] != null ? context.Request.Form["mobile"].Trim().Replace("'", "''") : string.Empty;
-                        /*var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;*/
+                        var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;
                         var web = context.Request.Form["web"] != null ? context.Request.Form["web"].Trim().Replace("'", "''") : string.Empty;
                         var role = context.Request.Form["role"] != null ? context.Request.Form["role"].Trim().Replace("'", "''") : string.Empty;
                         var wishlist = context.Request.Form["wishlist"] != null ? context.Request.Form["wishlist"].Trim().Replace("'", "''") : string.Empty;
                         role = role.ToLower();
+                        int shopID = -1;
+                        if(!string.IsNullOrEmpty(shopname)){
+                            shopID = int.Parse(shopname);
+                        }
                         if (!string.IsNullOrEmpty(pass))
                         {
                             pass = FormsAuthentication.HashPasswordForStoringInConfigFile(pass, "SHA1");
@@ -104,7 +108,7 @@ namespace FullMart.Code.Business
                             case "adminitrator": { irole = 1; break; }
                             case "shop": { irole = 2; break; }
                         }
-                        if (UserManagement.UpdateUserinfor(username, fname, lname, email, pass, bday, state, CU, cls, irole, yahoo, mobile, web, wishlist))
+                        if (UserManagement.UpdateUserinfor(username,shopID, fname, lname, email, pass, bday, state, CU, cls, irole, yahoo, mobile, web, wishlist))
                         {
                             context.Response.Write("$('.simplemodal-data').html('Users Information Update Successfully !');resizeDA(250, 30);");
                         }
@@ -114,6 +118,23 @@ namespace FullMart.Code.Business
                         }
                         break;
                     }
+                case "EditShop": {
+                    context.Response.ContentType = "application/html";
+                    var ID = context.Request.Form["ID"] != null ? context.Request.Form["ID"].Trim().Replace("'", "''") : string.Empty;
+                    var shopname = context.Request.Form["shopname"] != null ? context.Request.Form["shopname"].Trim().Replace("'", "''") : string.Empty;
+                    var chat = context.Request.Form["chat"] != null ? context.Request.Form["chat"].Trim().Replace("'", "''") : string.Empty;
+                    var address = context.Request.Form["address"] != null ? context.Request.Form["address"].Trim().Replace("'", "''") : string.Empty;
+                    var phone = context.Request.Form["phone"] != null ? context.Request.Form["phone"].Trim().Replace("'", "''") : string.Empty;
+                    var rate = context.Request.Form["rate"] != null ? context.Request.Form["rate"].Trim().Replace("'", "''") : string.Empty;
+                    var status = context.Request.Form["status"] != null ? context.Request.Form["status"].Trim().Replace("'", "''") : string.Empty;
+                    var active = context.Request.Form["active"] != null ? context.Request.Form["active"].Trim().Replace("'", "''") : string.Empty;
+                    if (UserManagement.UpdateShopinfor(int.Parse(ID), shopname, address, phone, rate, bool.Parse(status), bool.Parse(active),chat))
+                    {
+                        context.Response.Write("$('#message').text('Update Successfully!');$('#message').fadeIn().delay(1000).fadeOut();");
+                    }
+                    else { context.Response.Write("$('#message').text('Update Unsuccessfully!');$('#message').fadeIn().delay(1000).fadeOut();"); }
+                    break;
+                }
                 case "delUser":
                     {
                         context.Response.ContentType = "application/html";

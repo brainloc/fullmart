@@ -68,6 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     <asp:Repeater ID="rpSearchUserList" runat="server">
                         <ItemTemplate>
                             <tr>
@@ -516,7 +517,7 @@
                                                     </td>
                                                     <td>
                                                         <span>Shop Name: </span>
-                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                        <input class="VUShopName" ref="<%# Eval("ShopID")%>" value="<%# Eval("shopname")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -688,7 +689,7 @@
                                                     </td>
                                                     <td>
                                                         <span>Shop Name: </span>
-                                                        <input class="VUShopName" value="<%# Eval("shopname")%>" type="text" />
+                                                        <input class="VUShopName" ref="<%# Eval("ShopID")%>" value="<%# Eval("shopname")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -738,6 +739,7 @@
                 </tbody>
             </table>
         </div>
+
         <div id="Banned" class="usereven">
             <table id="banned" class="usereven tablesorter lUser">
                <thead>
@@ -988,31 +990,36 @@
                                         </div>
                                     </div>
                                      <div class="detailU"><div class="viewU">
-                                        <span id="tUser" ref="<%# Eval("ID")%>" class="tUser"><%# Eval("ShopName")%></span>
+                                        <span id="tshop" ref="<%# Eval("ID")%>" class="tshop"><%# Eval("ShopName")%></span>
                                         <table>
                                             <tbody>
                                                 <tr>
                                                     <td>
                                                         <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("shopname") %>: </span>
-                                                        <input disabled="disabled" class="VUEmail" value="<%# Eval("ShopName")%>" type="text" />
+                                                        <input class="VUShop" value="<%# Eval("ShopName")%>" type="text" />
+
                                                     </td>
                                                     <td>
-                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %>: </span>
-                                                        <input class="VUPass" value="<%# Eval("Adress")%>" type="text" />
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("closed")%>: <input class="VUActive" <%# convertban(Eval("isActive"))%>" type="checkbox" /></span>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td><span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("address") %> :</span><input class="VUAddress" value="<%# Eval("Adress")%>" type="text" /></td>
+                                                    <td><span>Yahoo :</span><input class="VUAddress" value="<%# Eval("Chat")%>" type="text" /></td>
+                                                </tr>
+                                                <tr>
                                                     <td>
-                                                        <span> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>:</span><input class="VUFName" value="<%# Eval("Phone")%>" type="text" />
+                                                        <span> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>:</span><input class="VUChat" value="<%# Eval("Phone")%>" type="text" />
                                                     </td>
                                                     <td>
-                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %></span> <select class="shoprate" ref="<%# Eval("rate")%>"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                                                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("rate") %><input class="VUrate" value="<%# Eval("rate")%>" type="text" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("status") %>: </span>
-                                                        <input class="VUBday" <%# convertban(Eval("isChecked"))%>" type="checkbox" /><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("closed")%>
+                                                        <input class="VUBday" <%# convertban(Eval("isChecked"))%>" type="checkbox" />
                                                     </td>
                                                     <td>
                                                         <span> <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("createdDate") %>: </span>
