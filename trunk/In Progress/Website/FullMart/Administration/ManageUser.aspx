@@ -218,6 +218,7 @@
             <li><a href="#Banned">Banned</a></li>
             <li><a href="#ShopS">Shop</a></li>
         </ul>
+
         <div id="Usert" class="usereven">            
             <table id="Table1" class="tablesorter lUser">
                <thead>
@@ -1045,6 +1046,9 @@
                         </ItemTemplate>
                     </asp:Repeater>
                     <asp:SqlDataSource ID="dsShopS" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>" SelectCommandType="StoredProcedure" SelectCommand="GetAllShop">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="0" Name="top" Type="Int32" />
+                        </SelectParameters>
                     </asp:SqlDataSource>
                 </tbody>
             </table>

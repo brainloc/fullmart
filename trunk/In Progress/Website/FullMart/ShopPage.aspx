@@ -91,7 +91,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Center" runat="server">
     <div class="clear block">
-        <asp:Repeater ID="rpShopInfor" DataSourceID="dsShopInfor" runat="server">
+        <asp:Repeater ID="rpShopInfor" runat="server">
             <ItemTemplate>
                 <div class="Shopdetail clear">
                     <div class="summary-info">
@@ -155,13 +155,7 @@
                     </div>
                 </div>
             </ItemTemplate>
-        </asp:Repeater>
-        <asp:SqlDataSource ID="dsShopInfor" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
-            SelectCommand="GetShopInfor" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="0" Name="ID" QueryStringField="Shop" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+            </asp:Repeater>
         <div class="clear">
         </div>
     </div><input id="UShopID" type="hidden" value="-1" runat="server" />

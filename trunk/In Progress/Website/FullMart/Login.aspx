@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/loginpage.css" rel="stylesheet" type="text/css" />
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="formPanel" runat="server">
     <div class="center b loginform">
         <div class="lgform">

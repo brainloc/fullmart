@@ -14,7 +14,7 @@
         $("#waitloader").hide();
     });
     $(".listimg img").each(function () {
-        if ($(this).attr("src") == "") {
+        if ($(this).attr("src") == "" || !$(".Shopdetail").text()) {
             $(this).remove();
         }
     });

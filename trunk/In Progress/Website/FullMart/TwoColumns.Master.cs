@@ -53,7 +53,7 @@ namespace FullMart
                         {
                             if (Roles.IsUserInRole("3"))
                             {
-                                hlAdmin.NavigateUrl = "/CreateProduct.aspx";
+                                hlAdmin.NavigateUrl = "/ManageProducts.aspx";
                                 hlAdmin.Text = "User"; hlAdmin.Visible = true;
                                 updateCart.Visible = true;
                                 updateUnreadMailCount.Visible = false;

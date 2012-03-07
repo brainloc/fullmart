@@ -20,6 +20,7 @@ namespace FullMart
         {
             if (!IsPostBack) {
                 string ID = Request.QueryString["Shop"];
+                string u = Request.QueryString["u"];
                 if (!string.IsNullOrEmpty(ID))
                 {
                     DataTable us=UserManagement.GetUShopByShopID(int.Parse(ID));
@@ -28,12 +29,54 @@ namespace FullMart
                         dslistProduct=UserManagement.GetAllProductsByPoster(int.Parse(us.Rows[0]["ID"].ToString()));
                         ListProductShop.DataSource = dslistProduct;
                         ListProductShop.DataBind();
+                        DataTable shopinfor = UserManagement.GetShopInfor(int.Parse(ID));
+                        if (shopinfor != null && shopinfor.Rows.Count > 0)
+                        {
+                            rpShopInfor.DataSource = shopinfor;
+                            rpShopInfor.DataBind();
+                        }
+                        else {
+                            Response.Redirect("~/ShopC.aspx", false);
+                        }
                     }else{
                         Response.Redirect("~/Error.aspx", false);
                     }
                 }
                 else {
-                    Response.Redirect("~/Error.aspx", false);
+                    if (!string.IsNullOrEmpty(u)) {
+                        DataTable us = UserManagement.GetUserInforbyID(int.Parse(u));
+                        if (us != null && us.Rows.Count > 0)
+                        {
+                            if (us.Rows[0]["ShopID"].ToString() != "-1")
+                            {
+                                DataTable dslistProduct = new DataTable();
+                                dslistProduct = UserManagement.GetAllProductsByPoster(int.Parse(us.Rows[0]["ID"].ToString()));
+                                ListProductShop.DataSource = dslistProduct;
+                                ListProductShop.DataBind();
+                                DataTable shopinfor = UserManagement.GetShopInfor(int.Parse(ID));
+                                if (shopinfor != null && shopinfor.Rows.Count > 0)
+                                {
+                                    rpShopInfor.DataSource = shopinfor;
+                                    rpShopInfor.DataBind();
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/ShopC.aspx", false);
+                                }
+                            }
+                            else {
+                                Response.Redirect("~/ShopC.aspx", false);
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect("~/Error.aspx", false);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("~/ShopC.aspx", false);
+                    }
                 }
             }
         }

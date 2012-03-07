@@ -932,6 +932,7 @@
     <Content Include="themes\images\bgwt.png" />
     <Content Include="themes\images\bgwt1.png" />
     <Content Include="themes\images\bgwt2.png" />
+    <Content Include="themes\images\bl.gif" />
     <Content Include="themes\images\btn_left.gif" />
     <Content Include="themes\images\btn_right.gif" />
     <Content Include="themes\images\button_arrow_left.gif" />
@@ -960,6 +961,7 @@
     <Content Include="themes\images\favs.png" />
     <Content Include="themes\images\first.png" />
     <Content Include="themes\images\goc-phai.png" />
+    <Content Include="themes\images\home.png" />
     <Content Include="themes\images\hotnews.png" />
     <Content Include="themes\images\ico.png" />
     <Content Include="themes\images\icon-chat.jpg" />

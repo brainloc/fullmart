@@ -76,6 +76,7 @@
     <div id="main" class="center">
         <div id="header" class="block">
             <div id="topbar" class="bblr block">
+
                 <div class="tbl">
                 </div>
                 <div class="tbr">
@@ -148,6 +149,19 @@
                         </asp:Login>
                         <!-- End Login -->
                     </div>
+                    <div id="google_translate_element" class="right">
+                    </div>
+                    <script>
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({
+                                pageLanguage: 'en',
+                                multilanguagePage: true,
+                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                            }, 'google_translate_element');
+                        }
+                    </script>
+                    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <!-- Begin User Account -->
                 </div>
             </div>
             <div id="banner" class="clear">

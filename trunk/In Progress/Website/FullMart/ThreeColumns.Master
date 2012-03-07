@@ -5,7 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
+
+    <title>Fullmarts.co.uk</title>
     <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
     <link rel="stylesheet" type="text/css" href="/themes/style/dialog.css" />
     <link href="/themes/style/home.css" rel="stylesheet" type="text/css" />
@@ -84,9 +85,113 @@
                         <asp:Button ID="LangEN" runat="server" ToolTip="English" class="flag en SetEngByDefault"
                             Text="" OnClick="LangEN_Click" />
                         <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi SetViByDefault"
-                            OnClick="LangVI_Click" /></div>
+                            OnClick="LangVI_Click" />
+                            <a href="/Default.aspx" title="Home"><img style="margin-bottom: -8px;" src="/themes/images/home.png" /></a>
+                    </div>
+                    <div class="left menutop">
+                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories")%></span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="dsCategories">
+                                    <ItemTemplate>
+                                        <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'><%# Eval("Name") %></a>
+                                            <div class="lsubtop bblr">
+                                                <ul>
+                                                    <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
+                                                    <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
+                                                        <ItemTemplate>
+                                                            <li><a href='/ListProducts.aspx?subcat=<%# Eval("ID") %>'>
+                                                                <%# Eval("Name") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <asp:SqlDataSource ID="dsSubCategories" runat="server" ConnectionString="<%$ ConnectionStrings:FullMartConnectionString %>"
+                                                        SelectCommand="SELECT [ID],[Name] FROM [dbo].[SubCategory] WHERE [CategoryID] = @CategoryID">
+                                                        <SelectParameters>
+                                                            <asp:ControlParameter ControlID="lblCategoryID" Name="CategoryID" Type="Int32" />
+                                                        </SelectParameters>
+                                                    </asp:SqlDataSource>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("stores")%></span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li><a href="/ShopC.aspx">
+                                    <img src="/themes/images/plus.png" alt="Plus" /><span>Creat Merchant Store</span></a></li>
+                                <li><a href="/ShopPage.aspx?u=<%= Session["ID"] %>">Your Store</a></li>
+                                <li><a href="/QA.aspx">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("classified")%></span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li>Hotline: <span>1900 8198</span></li>
+                                <li>Support Online: <span><a href="ymsgr:sendIM?support">
+                                    <img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("swap")%></span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li><a href="#howtosell">How to Sell</a></li>
+                                <li><a href="#howtobuy">How to Buy</a></li>
+                                <li><a href="/QA.aspx">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span>Support</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li>Hotline: <span>1900 8198</span></li>
+                                <li>Support Online: <span><a href="ymsgr:sendIM?support">
+                                    <img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span>How To Use</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li><a href="#howtosell">How to Sell</a></li>
+                                <li><a href="#howtobuy">How to Buy</a></li>
+                                <li><a href="/QA.aspx">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span>Support</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li>Hotline: <span>1900 8198</span></li>
+                                <li>Support Online: <span><a href="ymsgr:sendIM?support">
+                                    <img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left menutop">
+                        <span>How To Use</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li><a href="#howtosell">How to Sell</a></li>
+                                <li><a href="#howtobuy">How to Buy</a></li>
+                                <li><a href="/QA.aspx">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                     <div class="right">
-                        <!-- Begin User Account -->
+                        
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
                             <asp:HyperLink ID="hlAdmin" Visible="true" runat="server"></asp:HyperLink>
                             <a href='Register.aspx?Action=Edit' title="User's Account control">
@@ -148,7 +253,38 @@
                             </LayoutTemplate>
                         </asp:Login>
                         <!-- End Login -->
+                        
                     </div>
+                <div id="google_translate_element" class="right">
+                        </div>
+                        <script>
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en',
+                                    multilanguagePage: true,
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <!-- Begin User Account -->
+                        <div id="topbar-support" class="right menutop"><span>Support</span>
+                            <div class="submenutop bblr">
+                                <ul>
+                                    <li>Hotline: <span>1900 8198</span></li>
+                                    <li>Support Online: <span><a href="ymsgr:sendIM?support"><img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="topbar-howtouse" class="right menutop"><span>How To Use</span>
+                            <div class="submenutop bblr">
+                                <ul>
+                                    <li><a href="#howtosell">How to Sell</a></li>
+                                    <li><a href="#howtobuy">How to Buy</a></li>
+                                    <li><a href="/QA.aspx">FAQs</a></li>
+                               </ul>
+                            </div>
+                        </div>
                 </div>
             </div>
             <div id="banner" class="clear">

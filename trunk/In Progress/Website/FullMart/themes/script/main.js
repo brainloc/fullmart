@@ -127,9 +127,23 @@ $(document).ready(function () {
             window.location("https://www.google.com/chrome?hl=en");
         }
     }
+    $("#topbar").delegate(".goog-te-gadget-simple", "hover", function () {
+        $(".skiptranslate iframe").slideDown();
+    });
     $("#sbsearch").click(function () {
         search();
         return false;
+    });
+    $(".menutop span").mouseenter(function () {
+        $(this).parent().find(".submenutop").attr("style", "");
+        $(this).parent().find(".submenutop").stop().slideDown();
+        $(this).parent().find(".submenutop").stop().fadeIn();
+    });
+    $(".menutop span").click(function () {
+        $(this).parent().find(".submenutop").stop().show();
+    });
+    $(".menutop").mouseleave(function () {
+        $(this).find(".submenutop").slideUp("fast");
     });
     $("#search").keypress(function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
