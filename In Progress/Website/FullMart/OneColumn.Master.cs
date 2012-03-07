@@ -157,7 +157,7 @@ namespace FullMart
         protected void updateListLetter_Load(object sender, EventArgs e)
         {
             string eventArgs = Request.Params.Get("__EVENTARGUMENT");
-            if (string.IsNullOrEmpty(eventArgs) == false)
+            if (string.IsNullOrEmpty(eventArgs) == false && eventArgs.Contains("DelMail#"))
             {
                 string orderInfoID = eventArgs.Substring(eventArgs.LastIndexOf('#') + 1);
                 ProductManagement.RemoveOrderMailInfo(Convert.ToInt32(orderInfoID));
