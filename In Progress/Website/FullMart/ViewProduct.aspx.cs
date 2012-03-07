@@ -338,14 +338,15 @@ namespace FullMart
         private void AddPurchaseBooking(int productID, int amount, int buyerID, string moreDetail, string recipientName, string recipientPhone, string recipientAddress, string recipientEmail)
         {
             ProductManagement.AddPurchaseBooking(productID, amount, buyerID, moreDetail, recipientName, recipientPhone, recipientAddress, recipientEmail);
-        }
+        }        
+
         protected override void InitializeCulture()
         {
             string ui = "en";
-            //if (Request.Cookies["lang"] != null)
-            //{
-            //    ui = Request.Cookies["lang"].Value;
-            //}
+            if (Request.Cookies["lang"] != null)
+            {
+                ui = Request.Cookies["lang"].Value;
+            }
             string culture = ui == "en" ? "en-us" : "vi-VN";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ui);
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
