@@ -15,7 +15,7 @@
                             <span class="block title btlr">
                                 <%# Eval("Name") %></span>
                             <ul>
-                                                            <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
+                             <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                 <asp:Repeater ID="rpSubCategories" runat="server" DataSourceID="dsSubCategories">
                                     <ItemTemplate>
                                         <li><a href='/ListProducts.aspx?subcat=<%# Eval("ID") %>'>
@@ -101,9 +101,9 @@
                 <asp:Parameter DefaultValue="Slider" Name="Option" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <div class="clear">
+        
+    </div><div class="clear">
         </div>
-    </div>
     </div>
     <div id="cmproduce" class="block">
         <div class="parea b">

@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classified.
+        /// </summary>
+        internal static string classified {
+            get {
+                return ResourceManager.GetString("classified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Đóng cửa.
         /// </summary>
         internal static string closed {
@@ -781,6 +790,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cửa hàng.
+        /// </summary>
+        internal static string stores {
+            get {
+                return ResourceManager.GetString("stores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Danh mục con.
         /// </summary>
         internal static string subcategory {
@@ -795,6 +813,15 @@ namespace Resources {
         internal static string subcategorysname {
             get {
                 return ResourceManager.GetString("subcategorysname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swap.
+        /// </summary>
+        internal static string swap {
+            get {
+                return ResourceManager.GetString("swap", resourceCulture);
             }
         }
         

@@ -414,4 +414,13 @@
   <data name="shopowner" xml:space="preserve">
     <value>Shop Owner</value>
   </data>
+  <data name="stores" xml:space="preserve">
+    <value>Stores</value>
+  </data>
+  <data name="classified" xml:space="preserve">
+    <value>Classified</value>
+  </data>
+  <data name="swap" xml:space="preserve">
+    <value>Swap</value>
+  </data>
 </root>
