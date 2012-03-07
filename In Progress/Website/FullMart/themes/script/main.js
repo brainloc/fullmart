@@ -134,17 +134,16 @@ $(document).ready(function () {
         search();
         return false;
     });
-    $(".menutop span").mouseenter(function () {
-        $(this).parent().find(".submenutop").attr("style", "");
-        $(this).parent().find(".submenutop").stop().slideDown();
-        $(this).parent().find(".submenutop").stop().fadeIn();
-    });
-    $(".menutop span").click(function () {
-        $(this).parent().find(".submenutop").stop().show();
-    });
-    $(".menutop").mouseleave(function () {
-        $(this).find(".submenutop").slideUp("fast");
-    });
+//    $(".menutop span").mouseenter(function () {
+//        $(this).parent().find(".submenutop").attr("style", "");
+//        $(this).parent().find(".submenutop").stop().slideDown();
+//    });
+//    $(".menutop span").click(function () {
+//        $(this).parent().find(".submenutop").stop().show();
+//    });
+//    $(".menutop").mouseleave(function () {
+//        $(this).find(".submenutop").slideUp("fast");
+//    });
     $("#search").keypress(function (data) {
         var charCode = (data.which) ? data.which : data.keyCode
         if (charCode == 13) {

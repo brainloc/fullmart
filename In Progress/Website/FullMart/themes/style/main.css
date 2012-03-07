@@ -109,6 +109,7 @@ a{text-decoration:none;}
 .menutop:hover{background:#fff;border-left: 2px solid #00A5D9;}
 .submenutop{display:none;background: white;position: absolute;padding: 0px;margin: 0px -7px;border: 2px solid #00A5D9;border-top: none;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;border-top-right-radius: 5px;}
 /*.menutop:hover .submenutop{display:block;}*/
+.menutop:hover .submenutop{display:block;}
 .submenutop ul{list-style:none;}
 .submenutop ul li{display:block;clear:right;min-width:180px;padding: 3px 10px;background:transparent url(/themes/images/bl.gif) center bottom no-repeat}
 .submenutop ul li > span{float:right}
