@@ -906,6 +906,7 @@
     <Content Include="Register.aspx" />
     <Content Include="ShopC.aspx" />
     <Content Include="ShopPage.aspx" />
+    <Content Include="ShopRegister.aspx" />
     <Content Include="Shop\CreateProduct.aspx" />
     <Content Include="Shop\ManageProducts.aspx" />
     <Content Include="themes\images\404-copy.png" />
@@ -1335,6 +1336,13 @@
     </Compile>
     <Compile Include="ShopPage.aspx.designer.cs">
       <DependentUpon>ShopPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopRegister.aspx.cs">
+      <DependentUpon>ShopRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopRegister.aspx.designer.cs">
+      <DependentUpon>ShopRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>

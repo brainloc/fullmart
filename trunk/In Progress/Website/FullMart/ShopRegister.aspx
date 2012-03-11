@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OneColumn.Master" AutoEventWireup="true"
-    CodeBehind="Register.aspx.cs" Inherits="FullMart.Register" %>
+    CodeBehind="ShopRegister.aspx.cs" Inherits="FullMart.ShopRegister" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/themes/style/register.css" rel="stylesheet" type="text/css" />
@@ -54,6 +54,26 @@
                         </tr>
                         <tr>
                             <td>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %><span style="color: red">*</span>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtFname" CssClass="validate[required]" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtFname"
+                                    ErrorMessage="This field request"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %><span style="color: red">*</span>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtLname" CssClass="validate[required]" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtLname"
+                                    ErrorMessage="This field request"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 Email<span style="color: red">*</span>
                             </td>
                             <td>
@@ -91,24 +111,14 @@
                         </tr>
                         <tr>
                             <td>
-                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("firstname") %><span style="color: red">*</span>
+                                Website
                             </td>
                             <td>
-                                <asp:TextBox ID="txtFname" CssClass="validate[required]" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtFname"
-                                    ErrorMessage="This field request"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtWebsite" Text="" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input correct format website"
+                                    ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" ControlToValidate="txtWebsite"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("lastname") %><span style="color: red">*</span>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtLname" CssClass="validate[required]" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtLname"
-                                    ErrorMessage="This field request"></asp:RequiredFieldValidator>
-                            </td>
-                        </tr>                        
                         <tr>
                             <td>
                                 <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourlocation") %>
@@ -122,7 +132,15 @@
                                     SelectCommand="GetStates" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                             </td>
                         </tr>
-                        <asp:Panel ID="panelExtraInfo" runat="server" Visible="false">
+                        <tr>
+                                <td>
+                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtmobile" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        <asp:Panel ID="panelExtraInfo" runat="server" Visible="false">                            
                             <tr>
                                 <td>
                                     <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("yourbirthday") %><span style="color: red">*</span>
@@ -152,24 +170,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtyahoo" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("phone") %>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtmobile" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Website
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtWebsite" Text="" runat="server"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input correct format website"
-                                        ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" ControlToValidate="txtWebsite"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>

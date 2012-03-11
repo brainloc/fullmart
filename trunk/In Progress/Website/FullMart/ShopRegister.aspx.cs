@@ -13,7 +13,7 @@ using System.Data;
 
 namespace FullMart
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class ShopRegister : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +33,6 @@ namespace FullMart
                         try
                         {
                             panelExtraInfo.Visible = true;
-
                             int userID = Convert.ToInt32(Session["ID"]);
 
                             DataTable userInfo = UserManagement.GetUserInforbyID(userID);
@@ -63,20 +62,20 @@ namespace FullMart
         {
             User us = new User();
             
+            us.website = txtWebsite.Text.Trim();
             us.username = txtUserName.Text.Trim();            
             us.state = drlState.Text.Trim();
             us.rID = 3;
-            us.pass = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPass.Text, "SHA1");            
+            us.pass = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPass.Text, "SHA1");
+            us.mobile = txtmobile.Text.Trim();
             us.lname = txtLname.Text.Trim();
             us.fname = txtFname.Text.Trim();
             us.email = txtmail.Text.Trim();            
 
             if (cmdCreateUSer.Text == "Save")
             {
-                us.mobile = txtmobile.Text.Trim();
                 us.yahoo = txtyahoo.Text.Trim();
                 us.wishtlist = txtWishlist.Text.Trim();
-                us.website = txtWebsite.Text.Trim();
                 us.CU = txtUC.Text.Trim();
                 us.cls = txtClass.Text.Trim();
                 try
@@ -94,7 +93,7 @@ namespace FullMart
                     pnReg.Visible = false;
                     pnTC.Visible = false;
                     txtActionInform.Text = "Edit successful!";
-                    pnSuccess.Visible = true;                    
+                    pnSuccess.Visible = true;
                 }
                 else
                 {
