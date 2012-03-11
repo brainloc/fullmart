@@ -10,7 +10,7 @@
 namespace FullMart {
     
     
-    public partial class Register {
+    public partial class ShopRegister {
         
         /// <summary>
         /// pnTC control.
@@ -65,6 +65,42 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// txtFname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFname;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
+        /// txtLname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLname;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// txtmail control.
@@ -130,40 +166,22 @@ namespace FullMart {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
-        /// txtFname control.
+        /// txtWebsite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFname;
+        protected global::System.Web.UI.WebControls.TextBox txtWebsite;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
-        /// <summary>
-        /// txtLname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLname;
-        
-        /// <summary>
-        /// RequiredFieldValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// drlState control.
@@ -182,6 +200,15 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsState;
+        
+        /// <summary>
+        /// txtmobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtmobile;
         
         /// <summary>
         /// panelExtraInfo control.
@@ -227,33 +254,6 @@ namespace FullMart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtyahoo;
-        
-        /// <summary>
-        /// txtmobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmobile;
-        
-        /// <summary>
-        /// txtWebsite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWebsite;
-        
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// txtWishlist control.

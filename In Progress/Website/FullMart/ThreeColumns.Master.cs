@@ -19,7 +19,7 @@ namespace FullMart
     public partial class ThreeColumns : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {            
             if (!IsPostBack)
             {
                 ffooter.Text = OptionManagement.GetFooter("VI");

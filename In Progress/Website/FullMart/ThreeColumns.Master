@@ -1,11 +1,10 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ThreeColumns.master.cs"
-    Inherits="FullMart.ThreeColumns"%>
+    Inherits="FullMart.ThreeColumns" %>
 
 <%@ Register Assembly="DataPagerRepeater" Namespace="DataPagerRepeater" TagPrefix="Custom" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-
     <title>Fullmarts.co.uk</title>
     <link rel="stylesheet" type="text/css" href="/themes/style/main.css" />
     <link rel="stylesheet" type="text/css" href="/themes/style/dialog.css" />
@@ -86,15 +85,18 @@
                             Text="" OnClick="LangEN_Click" />
                         <asp:Button ID="LangVI" runat="server" Text="" ToolTip="Vietnamese" class="flag vi SetViByDefault"
                             OnClick="LangVI_Click" />
-                            <a href="/Default.aspx" title="Home"><img style="margin-bottom: -8px;" src="/themes/images/home.png" /></a>
+                        <a href="/Default.aspx" title="Home">
+                            <img style="margin-bottom: -8px;" src="/themes/images/home.png" /></a>
                     </div>
                     <div class="left menutop">
-                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories")%></span>
+                        <span>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("categories")%></span>
                         <div class="submenutop bblr">
                             <ul>
                                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="dsCategories">
                                     <ItemTemplate>
-                                        <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'><%# Eval("Name") %></a>
+                                        <li><a class="ap" href='/ListProducts.aspx?cat=<%# Eval("ID") %>'>
+                                            <%# Eval("Name") %></a>
                                             <div class="lsubtop bblr">
                                                 <ul>
                                                     <asp:Label ID="lblCategoryID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
@@ -119,7 +121,8 @@
                         </div>
                     </div>
                     <div class="left menutop">
-                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("stores")%></span>
+                        <span>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("stores")%></span>
                         <div class="submenutop bblr">
                             <ul>
                                 <li><a href="/ShopC.aspx">
@@ -130,7 +133,8 @@
                         </div>
                     </div>
                     <div class="left menutop">
-                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("classified")%></span>
+                        <span>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("classified")%></span>
                         <div class="submenutop bblr">
                             <ul>
                                 <li>Hotline: <span>1900 8198</span></li>
@@ -140,7 +144,8 @@
                         </div>
                     </div>
                     <div class="left menutop">
-                        <span><%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("swap")%></span>
+                        <span>
+                            <%=FullMart.Code.DAO.BindingUltilities.GetResourceValue("swap")%></span>
                         <div class="submenutop bblr">
                             <ul>
                                 <li><a href="#howtosell">How to Sell</a></li>
@@ -189,12 +194,17 @@
                             </ul>
                         </div>
                     </div>
-                    
                     <div class="right">
-                        
                         <asp:Panel CssClass="left lgpn" ID="pnloged" runat="server">
                             <asp:HyperLink ID="hlAdmin" Visible="true" runat="server"></asp:HyperLink>
-                            <a href='Register.aspx?Action=Edit' title="User's Account control">
+                            <% if (Page.User.IsInRole("1") || Page.User.IsInRole("2"))
+                               {%>
+                               <a href="ShopRegister.aspx?Action=Edit" title="User's Account control">
+                            <%}
+                               else if (Page.User.IsInRole("3"))
+                               {%>
+                               <a href="Register.aspx?Action=Edit" title="User's Account control">
+                            <%}%>                            
                                 <div class="uus" class="left">
                                     <asp:Label ID="txtLoginName" runat="server" Text=""></asp:Label>
                                 </div>
@@ -253,38 +263,40 @@
                             </LayoutTemplate>
                         </asp:Login>
                         <!-- End Login -->
-                        
                     </div>
-                <div id="google_translate_element" class="right">
+                    <div id="google_translate_element" class="right">
+                    </div>
+                    <script>
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({
+                                pageLanguage: 'en',
+                                multilanguagePage: true,
+                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                            }, 'google_translate_element');
+                        }
+                    </script>
+                    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <!-- Begin User Account -->
+                    <div id="topbar-support" class="right menutop">
+                        <span>Support</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li>Hotline: <span>1900 8198</span></li>
+                                <li>Support Online: <span><a href="ymsgr:sendIM?support">
+                                    <img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
+                            </ul>
                         </div>
-                        <script>
-                            function googleTranslateElementInit() {
-                                new google.translate.TranslateElement({
-                                    pageLanguage: 'en',
-                                    multilanguagePage: true,
-                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                                }, 'google_translate_element');
-                            }
-                        </script>
-                        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                        <!-- Begin User Account -->
-                        <div id="topbar-support" class="right menutop"><span>Support</span>
-                            <div class="submenutop bblr">
-                                <ul>
-                                    <li>Hotline: <span>1900 8198</span></li>
-                                    <li>Support Online: <span><a href="ymsgr:sendIM?support"><img src="/themes/images/icon-chat.jpg" alt="Support Online" /></a></span></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div id="topbar-howtouse" class="right menutop">
+                        <span>How To Use</span>
+                        <div class="submenutop bblr">
+                            <ul>
+                                <li><a href="#howtosell">How to Sell</a></li>
+                                <li><a href="#howtobuy">How to Buy</a></li>
+                                <li><a href="/QA.aspx">FAQs</a></li>
+                            </ul>
                         </div>
-                        <div id="topbar-howtouse" class="right menutop"><span>How To Use</span>
-                            <div class="submenutop bblr">
-                                <ul>
-                                    <li><a href="#howtosell">How to Sell</a></li>
-                                    <li><a href="#howtobuy">How to Buy</a></li>
-                                    <li><a href="/QA.aspx">FAQs</a></li>
-                               </ul>
-                            </div>
-                        </div>
+                    </div>
                 </div>
             </div>
             <div id="banner" class="clear">
@@ -415,8 +427,7 @@
     </div>
     <div id="viewnote" class="btlr viewnote ndialog">
         <a class="modalclose" title="Close"></a>
-        <asp:UpdatePanel Visible="false" ID="updateListLetter" runat="server" 
-            onload="updateListLetter_Load">
+        <asp:UpdatePanel Visible="false" ID="updateListLetter" runat="server" OnLoad="updateListLetter_Load">
             <ContentTemplate>
                 <div class="vlistletter">
                     <p class="hnote btlr">
@@ -448,7 +459,7 @@
                                 <ItemTemplate>
                                     <li id='<%# Eval("ID") %>' class="orderItem">
                                         <asp:ImageButton CssClass="delmail" ImageUrl="/themes/images/delete.png" ID="delmail"
-                                            runat="server"/>                                       
+                                            runat="server" />
                                         <div <%# Convert.ToBoolean(Eval("isRead"))? "":"class='noread'" %>="">
                                             <p class="ntitle">
                                                 <a href='#<%# Eval("ID") %>' title="new order for your product">new order for your product</a><span
